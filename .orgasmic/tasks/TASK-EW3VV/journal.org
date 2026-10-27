@@ -111,3 +111,19 @@ Manager answer (mirror): two more origins found outside FILES (inference-router.
 :END:
 
 Re-scope inputs to carry (from the brief author): classify each site (SDK diagnostic copy = part 2, vs catalogue/class value feeding the model = part 3) before counting files; any inference-router.ts edit needs the responder identity and trace-callback receiver controls named; a proposed split goes by lane family (e.g. 2a existing FILES + push-handler, 2b router + tool-classes), one choke point and matrix each; label each matrix row 'reproduced on both engines' vs 'source reading only'. A split is a shape change and goes to the owner.
+
+* tx-20261027-theaspirationalagent-300773c3-279c-48c8-87d7-bb2228ff1f27 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-300773c3-279c-48c8-87d7-bb2228ff1f27
+:TIME:    [2026-10-27 Tue 21:31:59]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a1eda436-d118-4581-9303-25fb0d3e9b5b
+:END:
+
+Split inputs (brief author, agreed by manager), pending the owner's answer on the 4-part split: per-part legacy omitted/false/null controls for the files each part touches, repeated end-to-end in the last part; one primitive, and before the framework/helper part state how each site obtains the strict configuration registry (optional parameter, absent for non-strict); any global site without per-server configuration is flagged as a decision; dial part requires the structured upgrade status on both engines (no message parsing), connection-failed when absent, Bun request abort() not destroy(); leak tests red-then-green; per-part file lists and line estimates replace the single 8-file/600-line ceiling, stop-and-ask outside them; each brief opens with: no strict-mode guarantee or rollout claim until the last part passes review.
