@@ -1,0 +1,17 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-T2F13
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-T2F13 WO-1a part 1: strict fail-closed WebSocket credential dial (non-strict path identical to base)
+:PROPERTIES:
+:UID: f55651df-7742-5cae-a354-f7211a41ccdc
+:ID: TASK-T2F13
+:PARENT: TASK-V1DZF
+:PRIORITY: P1
+:END:
+
+** Description
+WO-1a part 1 (of 4): strict, fail-closed WebSocket credential dial for MCPL servers. Fresh start from base 4976c67d5c7916a15046c627b68913994c33b3cb; the rejected TASK-V1DZF branch is not merged. Full brief in the dispatch (18468 bytes, sha256 33894533808879ae0ceade1d8788f2b003541f38b64edeeb27ef2dbe367f18ab). This ledger is public.
+** Acceptance Criteria
+- [ ] acceptance A-E of the brief (diff scope; per-sink and behavioural base-vs-final identity of the non-strict path on Bun 1.4.3 and Node 22.23.3; existing suite; per-test baseline)
+- [ ] not full-R7 certification and not rollout permission
