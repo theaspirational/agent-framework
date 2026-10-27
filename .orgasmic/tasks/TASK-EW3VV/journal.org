@@ -257,3 +257,20 @@ Follow-up to my answer on ask-79ee3ca9 (please quote back in one sentence before
 
 Mirror of manager answer to ask-6f9101fafd1b436eb2bccdf18e27352e:
 Manager answer: neither. Keep the 300-line ceiling and do NOT add structural template provenance at the 28 callers. Instead, for these two sinks only: redact the fully assembled failures.log record text and ops webhook message text at the sink boundary (one place each), via the single choke point, before any log formatter escaping. Fixed constants that are SEPARATE fields (reason codes, event types, field names, alert kind/severity) stay structural and are never passed through redaction. The residual edge case, a strict credential (>=32 chars) that is byte-equal to, or contained in, a fixed template fragment inside the assembled text, is accepted as documented over-redaction (the template text is redacted too; this can only happen with a credential equal to public source text). Document it in the README list and the report as a known limit, and add one test showing it. This narrows R3's 'template provenance' requirement for the two sinks only; it is a manager scope call to keep the piece narrow per the owner's direction. All callers then route through the two sink boundaries, so list the 28 caller sites as an inventory (G), labelled exercised or source-reading-only; no per-caller edits. Lifecycle hooks and union as already agreed. Continue: dial/minimum commits, then the choke point and the two sink boundaries. Quote back in one sentence what this changes before continuing.
+
+* tx-20261027-theaspirationalagent-cfe9dc7d-8d7a-45f2-90a6-2b570fc086bb comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-cfe9dc7d-8d7a-45f2-90a6-2b570fc086bb
+:TIME:    [2026-10-27 Tue 23:43:45]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: b8f09474-f05c-4da1-9a6d-8240a11d356b
+:END:
+
+Mirror of manager follow-up (sink-boundary redaction conditions):
+Additions to my answer on ask-6f9101fa (quote back in one sentence): (1) In the report, do NOT claim R3 template provenance is met; write 'assembled-text redaction at the sink boundary, by manager decision', and keep the over-redaction test. (2) Prove 'one place each': the inventory must show no writer of failures.log and no builder/sender of the ops webhook body bypasses the boundary (second writer, direct fetch, alternate hard-down path). Add one test per distinct writer path (not per caller); label the 28 callers driven-by-test or source-only. (3) Redact before escaping/serialising; Errors and detail objects are still projected to detached plain data first, with no getters/toString/toJSON/valueOf on untrusted objects (R3's other clauses stand). (4) With no strict configuration anywhere, the boundary returns its input unchanged and byte-identical (early no-op); R5b mixed-set test still applies.
