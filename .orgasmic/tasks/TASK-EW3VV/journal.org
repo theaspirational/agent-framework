@@ -223,3 +223,20 @@ Owner decision (TG 959, button wo1a:mixed:union): with any strict configuration 
 
 Mirror of manager answer to ask-79ee3ca9 (run-01M5ZV61MEYAMQEGWE3N8CTWYV):
 Manager answer: YES, with these conditions. (1) Same three production files only (protocol-family.ts, transport.ts, framework.ts) and the ~300 net-line ceiling; anything beyond either is stop-and-ask. (2) Lifecycle hooks are strict-only: they act only on configurations whose credentialRequired is true; registration/removal/stop/close behaviour, object identity and event order for non-strict configurations stay byte-identical to the original base (B/C, R5). A configuration that is removed, closed or stopped leaves the union; a re-added same object starts with an empty accepted set (no carry-over), and say so in the README. (3) Alert callers: change only the callers your Step 0 proves feed failures.log or the ops webhook; pass the fixed template as a code-owned field and only the variable received text through the choke point. The webhook body and failures.log bytes for non-strict-only sets stay identical to base; list every changed caller with file:line and its start-commit route. (4) No change to console, trace, health, marker, notices or listings, even where a caller you touch also writes them. Before continuing, quote back in one sentence what this answer changes.
+
+* tx-20261027-theaspirationalagent-c4a07814-9286-4f7e-ab5d-5da8d820c5fa comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-c4a07814-9286-4f7e-ab5d-5da8d820c5fa
+:TIME:    [2026-10-27 Tue 23:34:58]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: effbdb98-fdc3-4621-a012-1ec109ca9630
+:END:
+
+Mirror of manager follow-up to the lifecycle/template expansion (run-01M5ZV61MEYAMQEGWE3N8CTWYV):
+Follow-up to my answer on ask-79ee3ca9 (please quote back in one sentence before continuing): (a) 'Lifetime' precisely: a configuration's credentials leave the union only when the configuration is removed from the framework, or closed/stopped with no reconnect pending. A temporary disconnect plus automatic reconnect of the same configuration keeps them. State which lifecycle events you hooked; add tests: reconnect keeps credentials, removal drops them, same object re-added starts empty (then a new dial re-registers). (b) The allowance is the same three files only: if a needed close/remove hook sits in server-connection.ts or any other file, that is stop-and-ask, not covered. (c) Template separation must not change order, spacing or escaping: for non-strict-only sets the final webhook body and failures.log bytes stay identical to base; B/C compare those bytes including the hard-down path. (d) In the report, list these hooks and changed callers as a named expansion with file:line.

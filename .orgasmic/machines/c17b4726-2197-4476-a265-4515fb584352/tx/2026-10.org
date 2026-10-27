@@ -3124,3 +3124,20 @@
 :ASK_ID:       ask-79ee3ca995644dccbd9b0d2ea2158325
 :EVENT_ID:     8e5ce87d-b48f-4f91-a448-8e0d52945d2b
 :END:
+
+* TX 2026-10-27 Tue 23:34:58 run.message TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-a5d04cfe-5de0-4f07-9081-09bc93a337ce
+:TIME:         [2026-10-27 Tue 23:34:58]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Follow-up to my answer on ask-79ee3ca9 (please quote back in one sentence before continuing): (a) 'Lifetime' precisely: a configuration's credentials leave the union only when the configuration is removed from the framework, or closed/stopped with no reconnect pending. A temporary disconnect plus automatic reconnect of the same configuration keeps them. State which lifecycle events you hooked; add tests: reconnect keeps credentials, removal drops them, same object re-added starts empty (then a new dial re-registers). (b) The allowance is the same three files only: if a needed close/remove hook sits in server-connection.ts or any other file, that is stop-and-ask, not covered. (c) Template separation must not change order, spacing or escaping: for non-strict-only sets the final webhook body and failures.log bytes stay identical to base; B/C compare those bytes including the hard-down path. (d) In the report, list these hooks and changed callers as a named expansion with file:line.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:MESSAGE_ID:   msg-972856e138274942a261d260dea1582e
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     fdb8a04a-3977-425e-86d1-3e622765edb4
+:END:
