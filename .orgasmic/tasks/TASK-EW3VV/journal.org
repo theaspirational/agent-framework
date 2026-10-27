@@ -95,3 +95,19 @@ Conditions on the push-handler.ts FILES expansion (for the review brief and the 
 :END:
 
 Manager answer (mirror): two more origins found outside FILES (inference-router.ts ~275 with mcpl:inference_fail trace; tool-classes.ts ~128 tools/list _meta class). No further files granted now. Worker completes the full Step-0 leak matrix on the start commit with no production changes, labels part-3 items, then finalizes BLOCKED-FOR-SCOPE with the full file/site list, net line estimate and a proposed split. The push-handler.ts grant stands but is not to be used yet. Re-scope happens once on the whole picture.
+
+* tx-20261027-theaspirationalagent-2cfd0700-0466-4add-9a16-0a68d276bac0 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-2cfd0700-0466-4add-9a16-0a68d276bac0
+:TIME:    [2026-10-27 Tue 21:12:52]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: bebc4377-9891-4b91-bd78-f32a1249dfa9
+:END:
+
+Re-scope inputs to carry (from the brief author): classify each site (SDK diagnostic copy = part 2, vs catalogue/class value feeding the model = part 3) before counting files; any inference-router.ts edit needs the responder identity and trace-callback receiver controls named; a proposed split goes by lane family (e.g. 2a existing FILES + push-handler, 2b router + tool-classes), one choke point and matrix each; label each matrix row 'reproduced on both engines' vs 'source reading only'. A split is a shape change and goes to the owner.
