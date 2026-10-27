@@ -328,10 +328,13 @@ one is used; without it, it is refused rather than silently ignoring one.
 Set `credentialRequired: true` with `tokenTransport: 'header'` and a
 host-attached `accessProvider` to require an authenticated WebSocket dial.
 Only literal `true` enables this policy; `false`, `null` and omission preserve
-legacy behavior, and other values are configuration problems. No static
+legacy behavior, and other values are configuration problems and are also
+refused at dial entry, before the provider or any I/O. No static
 `token` is allowed, including an empty string, and the URL must carry neither
 userinfo nor a `token` query parameter. `ws://` is allowed only on loopback;
 use `wss://` elsewhere. HTTP, stdio and modern servers reject the flag.
+An explicit `protocol: 'legacy'` (or `'modern'`) is also refused on a strict
+WebSocket server: `protocol` is stdio-only; a network URL selects its family.
 
 The provider runs on every dial, including reconnect, so reconnect picks up a
 rotated credential. A throwing, absent or empty provider stops the strict dial

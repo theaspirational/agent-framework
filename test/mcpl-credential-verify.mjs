@@ -45,7 +45,7 @@ for (const engine of ['node', 'bun']) {
     return results;
   }
   const baseline = outcomes('baseline'), changed = outcomes('final');
-  assert.equal(baseline.size, 74); assert.equal(changed.size, baseline.size);
+  assert.equal(baseline.size, 86); assert.equal(changed.size, baseline.size);
   for (const [name, pass] of baseline) {
     assert.equal(changed.get(name), true, `${engine} final ${name}`);
     const control = name.startsWith('control:');

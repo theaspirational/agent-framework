@@ -7,7 +7,7 @@ import { randomBytes } from 'node:crypto';
 import { once } from 'node:events';
 import { WebSocketServer } from 'ws';
 import type { AddressInfo } from 'node:net';
-import { WebSocketTransport } from '../src/mcpl/transport.js';
+import { openTransport, WebSocketTransport } from '../src/mcpl/transport.js';
 import { serverConfigProblems } from '../src/mcpl/protocol-family.js';
 import { McplServerConnection } from '../src/mcpl/server-connection.js';
 import type { McplServerConfig } from '../src/mcpl/types.js';
@@ -251,4 +251,62 @@ test('new: strict non-loopback hostname refuses before provider or DNS/connect',
   let called = false;
   await rejected(config('ws://never-resolve.invalid/mcpl', { accessProvider: async () => { called = true; return canary(); } }), 'credential-unusable');
   assert.equal(called, false);
+});
+
+
+for (const [route, open] of [['openTransport', openTransport], ['WebSocketTransport.open', WebSocketTransport.open]] as const) {
+  for (const flag of ['true', 1, {}]) test(`new: ${route} rejects mistyped flag ${JSON.stringify(flag)} before provider or upgrade`, async () => {
+    const s = await mock(); let calls = 0;
+    try {
+      const c = config(s.url, { credentialRequired: flag, accessProvider: async () => { calls++; return canary(); } });
+      let error: unknown;
+      try { const t = await open(c as McplServerConfig); await t.close(); } catch (e) { error = e; }
+      assert.equal(calls, 0); assert.equal(s.requests.length, 0);
+      assert.ok(error instanceof Error);
+      assert.equal(error.message, 'MCPL server "strict-server": credential-unusable');
+      assert.equal('cause' in error, false);
+    } finally { await s.close(); }
+  });
+}
+
+for (const protocol of ['legacy', 'modern'] as const) test(`new: strict direct dial refuses explicit protocol ${protocol} before provider or upgrade`, async () => {
+  const s = await mock(); let calls = 0;
+  try {
+    await rejected(config(s.url, { protocol, accessProvider: async () => { calls++; return canary(); } }), 'credential-unusable');
+    assert.equal(calls, 0); assert.equal(s.requests.length, 0);
+  } finally { await s.close(); }
+});
+
+test('control: shared WebSocket admission refuses explicit legacy and modern protocol selectors', () => {
+  for (const protocol of ['legacy', 'modern'] as const) {
+    assert.ok(serverConfigProblems(config('ws://127.0.0.1/mcpl', { protocol }) as McplServerConfig).length > 0);
+  }
+});
+
+for (const [label, fields] of [
+  ['ambiguous command and URL', { command: process.execPath }],
+  ['stdio transport without command', { transport: 'stdio' }],
+] as const) test(`new: strict direct admission captures ${label}`, async () => {
+  const s = await mock(); let calls = 0;
+  try {
+    // Direct WebSocket entry is intentional: openTransport's own binding
+    // check must not mask a missing command/transport in the strict snapshot.
+    await rejected(config(s.url, { ...fields, accessProvider: async () => { calls++; return canary(); } }), 'credential-unusable');
+    assert.equal(calls, 0); assert.equal(s.requests.length, 0);
+  } finally { await s.close(); }
+});
+
+test('new: reconnect refuses a newly mistyped flag before another provider call or upgrade', async () => {
+  const s = await mock(); let calls = 0; let failed = false; let conn: McplServerConnection | undefined;
+  const c = config(s.url, { credentialRequired: undefined, reconnect: true, reconnectIntervalMs: 40,
+    accessProvider: async () => { calls++; return canary(); } });
+  try {
+    conn = await McplServerConnection.connect(c as McplServerConfig, { version: '0.4', pushEvents: true, featureSets: true });
+    conn.ready(); conn.on('reconnect-failed', () => { failed = true; });
+    Object.assign(c, { credentialRequired: 'true' });
+    for (const ws of s.wss.clients) ws.terminate();
+    const deadline = Date.now() + 7000;
+    while (!failed && s.requests.length < 2 && Date.now() < deadline) await sleep(20);
+    assert.equal(failed, true); assert.equal(calls, 1); assert.equal(s.requests.length, 1);
+  } finally { await conn?.close(); await s.close(); }
 });

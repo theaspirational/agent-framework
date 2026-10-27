@@ -597,7 +597,11 @@ export class WebSocketTransport extends McplTransport {
    * at the open timeout.
    */
   static async open(config: McplServerConfig, signal?: AbortSignal): Promise<WebSocketTransport> {
-    if (config.credentialRequired === true) return WebSocketTransport.openStrict(config, signal);
+    const credentialRequired: unknown = config.credentialRequired;
+    if (credentialRequired !== undefined && credentialRequired !== null && typeof credentialRequired !== 'boolean') {
+      throw new Error(`MCPL server "${config.id}": credential-unusable`);
+    }
+    if (credentialRequired === true) return WebSocketTransport.openStrict(config, signal);
     // Resolve the per-dial credential first: the provider runs on every
     // connect AND reconnect, so rotation happens at the transport layer and
     // nothing above it ever holds a credential.
@@ -940,6 +944,10 @@ export function assertServerConfigBooleans(config: McplServerConfig): void {
  * performed the MCPL handshake.
  */
 export async function openTransport(config: McplServerConfig, signal?: AbortSignal): Promise<McplTransport> {
+  const credentialRequired: unknown = config.credentialRequired;
+  if (credentialRequired !== undefined && credentialRequired !== null && typeof credentialRequired !== 'boolean') {
+    throw new Error(`MCPL server "${config.id}": credential-unusable`);
+  }
   const binding = resolveServerBinding(config);
   if (binding.family !== 'legacy') {
     throw new Error(`MCP server "${config.id}" is configured for modern MCP; the legacy transports can't open it`);
