@@ -159,3 +159,19 @@ Owner decision: scope narrowed. This task now covers only: five fixed codes (401
 :END:
 
 PR description rule from the owner: do not name orgasmic or any of our products, hosts or agents; describe the problem in general terms (an MCPL server that requires a per-client token; a query-string token stopgap; tokens leaking into URLs and proxy logs; header auth already upstream; fail-open fallback).
+
+* tx-20261027-theaspirationalagent-098f198a-6457-4196-bd60-77700c6053c9 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-098f198a-6457-4196-bd60-77700c6053c9
+:TIME:    [2026-10-27 Tue 23:25:08]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 2fa96347-a78b-4aec-9224-74a068e1104c
+:END:
+
+Owner decision (TG 959, button wo1a:mixed:union): with any strict configuration present, failures.log records and the ops webhook body of ANY server's failure (strict or not) are redacted against the union of all strict configurations' accepted credentials. Limited to those two sinks. Identity with the original base is guaranteed only when there are no strict configurations; a mixed-set test (one strict, one non-strict server) must show exactly this difference and nothing else. Retention is per configuration lifetime, not process lifetime.
