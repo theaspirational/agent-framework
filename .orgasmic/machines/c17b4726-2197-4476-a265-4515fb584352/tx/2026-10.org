@@ -3092,3 +3092,35 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     4ad272a7-fa28-4a80-9a54-a663e2418749
 :END:
+
+
+* TX 2026-10-27 Tue 23:34:19 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-537af9a0-141b-433c-8bce-eac3c72b739f
+:TIME:         [2026-10-27 Tue 23:34:19]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Step 0 on the unchanged start is complete for the narrow sinks: both engines reproduce leaks in failures.log and webhook through failed model turns and notifyOpsAlert for long random, 32-digit and punctuation credentials in raw/percent/form/JSON/slash-JSON/unicode/header forms, including the first token after 17 additional dials (102 positive leak observations per engine). StatusCode and Bun abort() versus Node destroy() are independently reproduced. Source reading identifies a scope conflict: framework.mcplServerConfigs retains configurations after connection.close()/framework.stop(), and a removed configuration can be re-added as the same object; selecting current map values only at the two sink sites cannot end/reset accepted-token retention at those lifecycle boundaries. Also fixed webhook templates are already concatenated with received text before opsAlert (e.g. hard-down at framework.ts:26963); redacting the whole message would redact a legal >=32-character credential equal to that fixed template, violating R3. May the framework-only scope expand to strict-only registration/removal/stop/close-lifecycle hooks plus the proved alert callers needed to pass fixed templates separately from variable text, still within the same three production files and 300-net-line ceiling? No production edits made.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-79ee3ca995644dccbd9b0d2ea2158325
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     4112cfe1-13ba-4f6f-9f2a-5f058de729cf
+:END:
+
+* TX 2026-10-27 Tue 23:34:36 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-c7f6d75f-f9c7-4432-a313-1738e3397e47
+:TIME:         [2026-10-27 Tue 23:34:36]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager answer: YES, with these conditions. (1) Same three production files only (protocol-family.ts, transport.ts, framework.ts) and the ~300 net-line ceiling; anything beyond either is stop-and-ask. (2) Lifecycle hooks are strict-only: they act only on configurations whose credentialRequired is true; registration/removal/stop/close behaviour, object identity and event order for non-strict configurations stay byte-identical to the original base (B/C, R5). A configuration that is removed, closed or stopped leaves the union; a re-added same object starts with an empty accepted set (no carry-over), and say so in the README. (3) Alert callers: change only the callers your Step 0 proves feed failures.log or the ops webhook; pass the fixed template as a code-owned field and only the variable received text through the choke point. The webhook body and failures.log bytes for non-strict-only sets stay identical to base; list every changed caller with file:line and its start-commit route. (4) No change to console, trace, health, marker, notices or listings, even where a caller you touch also writes them. Before continuing, quote back in one sentence what this answer changes.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-79ee3ca995644dccbd9b0d2ea2158325
+:EVENT_ID:     8e5ce87d-b48f-4f91-a448-8e0d52945d2b
+:END:

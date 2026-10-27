@@ -206,3 +206,20 @@ Owner decision (TG 959, button wo1a:mixed:union): with any strict configuration 
 :TO_STATE: in_progress
 :EVENT_ID: 416035da-9c65-49ca-8281-e65e1d0c84b9
 :END:
+
+* tx-20261027-theaspirationalagent-88fd451f-c218-41e9-9c54-d08c7abc1ae1 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-88fd451f-c218-41e9-9c54-d08c7abc1ae1
+:TIME:    [2026-10-27 Tue 23:34:37]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 6fae53d3-d3e4-4c71-9fb4-785193276fa6
+:END:
+
+Mirror of manager answer to ask-79ee3ca9 (run-01M5ZV61MEYAMQEGWE3N8CTWYV):
+Manager answer: YES, with these conditions. (1) Same three production files only (protocol-family.ts, transport.ts, framework.ts) and the ~300 net-line ceiling; anything beyond either is stop-and-ask. (2) Lifecycle hooks are strict-only: they act only on configurations whose credentialRequired is true; registration/removal/stop/close behaviour, object identity and event order for non-strict configurations stay byte-identical to the original base (B/C, R5). A configuration that is removed, closed or stopped leaves the union; a re-added same object starts with an empty accepted set (no carry-over), and say so in the README. (3) Alert callers: change only the callers your Step 0 proves feed failures.log or the ops webhook; pass the fixed template as a code-owned field and only the variable received text through the choke point. The webhook body and failures.log bytes for non-strict-only sets stay identical to base; list every changed caller with file:line and its start-commit route. (4) No change to console, trace, health, marker, notices or listings, even where a caller you touch also writes them. Before continuing, quote back in one sentence what this answer changes.
