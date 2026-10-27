@@ -1,0 +1,13 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-VZ0CD
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-VZ0CD Design: generic per-connection admission interface (design only)
+:PROPERTIES:
+:UID: abea0016-4155-5162-aa92-4ec22cb33de6
+:ID: TASK-VZ0CD
+:PRIORITY: P1
+:END:
+
+** Description
+Design-only task. Full brief = dispatch brief (sha256 8b6c45ae702b7e59018984657b82934238655bc5f83d662399d065dcd16679a0). Base: upstream commit 4976c67d5c7916a15046c627b68913994c33b3cb. Deliverable: one design comment on this task. This ledger is PUBLIC.
