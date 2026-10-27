@@ -47,3 +47,19 @@
 :END:
 
 Manager supplied the private reference material by run message at dispatch time (round-4 re-review sha256 dba2e625..., brief review 7db6ffbc..., closure check d63430a1..., rejected-attempt probes at 340231e3, part-1 verify review). Paths are not recorded here. Delivery to be confirmed by the worker's quote-back.
+
+* tx-20261027-theaspirationalagent-f478491f-41fe-4d63-97ee-52ce83a99b73 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-f478491f-41fe-4d63-97ee-52ce83a99b73
+:TIME:    [2026-10-27 Tue 21:10:37]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: c84e435c-0cb2-4e57-a1f6-a57a92253e78
+:END:
+
+Manager answer (mirror): FILES expanded by exactly src/mcpl/push-handler.ts for the proved strict console/trace publication sites; strict-only; via the R4 choke point; params/event/global console untouched; R8 data unchanged; legacy byte-identical in B/C; report as manager-granted expansion. Further files: ask again.
