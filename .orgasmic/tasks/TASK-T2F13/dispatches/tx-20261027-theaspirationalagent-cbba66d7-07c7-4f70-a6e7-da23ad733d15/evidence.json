@@ -1,0 +1,25 @@
+{
+  "event_count": 232,
+  "tool_call_count": 10,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-T2F13-implementer-20261027T084349-run-01M5Y8FBSAM67PMSPD0MNVW4HW.jsonl",
+    "size_bytes": 268128
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T07-55-40-01a17c5b-99a5-7623-962e-0eaf7119ef95.jsonl",
+    "session_id": "01a17c5b-99a5-7623-962e-0eaf7119ef95",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "This fix round asks me to reject mistyped flags at dial entry, pin explicit legacy-protocol behavior, and add admission tests that exercise command and transport capture. I’ll keep the existing legacy path unchanged and rerun the focused tests and comparisons on both engines.\n\nThe six mistyped-flag cases and reconnect regression failed on the prior implementation, then passed after the guard change. The new admission tests also caught each capture mutation independently: omitting `command` or `transport` from the snapshot made its corresponding test fail.\n\nExplicit `protocol: 'legacy'` remains refused on a strict WebSocket server, consistent with the existing stdio-only meaning of `protocol`. That behavior is now documented and tested.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
