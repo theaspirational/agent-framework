@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-J83BA
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-V1DZF
+:PROPERTIES:
+:UID: 06aa36c1-e747-5b04-b0a7-41bf9fba8ea6
+:ID: CONV-J83BA
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-v1dzf
+:RUNS:  run-01M5XJNGPWYYYH8D0HKTGCA7VK
+:CREATED_AT: 2026-10-27T02:22:42Z
+:END:
