@@ -655,3 +655,20 @@
 :DELIVERY:     queued
 :EVENT_ID:     b36ca99f-9e71-4b52-b2e4-3d0c5529afdc
 :END:
+
+* TX 2026-10-27 Tue 02:40:55 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-a0a4d1fc-815c-4d80-a1f9-d3c3353245b6
+:TIME:         [2026-10-27 Tue 02:40:55]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Second manager addendum (reviewer input; acknowledge by content): include MODEL-FACING tool definitions/catalogue, toolset listings and tool notices in the sink inventory. Masking a listing while a credential-bearing routable name still enters the model's tool metadata does not close the exposure. For a credential-bearing identifier in strict mode, prefer WITHHOLDING/REFUSING that tool entry with a fixed diagnostic (no credential text) over inventing a differently-callable masked name; keep real routing identities internal. Clearly separate SDK-controlled surfaces from unmodified tool-result payloads in docs: no blanket malicious-server exfiltration guarantee.
+:RUN_ID:       run-01M5XK3XDQG861J31R4VFWZ1MJ
+:MESSAGE_ID:   msg-370f30d126e8427b82c0c1a0a2758675
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     8600aeea-189b-47a2-b121-d984539e0d28
+:END:
