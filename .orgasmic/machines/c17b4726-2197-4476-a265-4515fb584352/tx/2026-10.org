@@ -2264,3 +2264,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     e8cd8ed8-f6f9-44d6-ba8f-9b5f064e9347
 :END:
+
+
+* TX 2026-10-27 Tue 08:26:14 run.message TASK-T2F13
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-b9a334a9-1bcc-4397-a0b9-cb1892a4fb9c
+:TIME:         [2026-10-27 Tue 08:26:14]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-T2F13
+:REASON:       Manager additions (acknowledge each by content): (1) Classify the npm update-notifier request by actual scheme (https vs http, from the acquisition logs) and phase (acquisition vs test execution) and which gates it could affect; the original evidence stays as is - judge validity, not retroactive clearance. (2) For R8 snapshot fields whose tests pass on the base (credentialRequired, token, accessProvider, command, transport, protocol): do a mutation check per field - remove that field's capture and show a test fails; any surviving mutant means that field's snapshot claim is unproven. (3) Say whether DNS failure / connection refused / TLS failure / timeout / server refusal are all mapped to credential-unusable and whether that mislabels non-credential failures (report only; a fifth code is an owner question). (4) Note the limits: engine-unsupported tests simulate versions; isolation is an LD_PRELOAD loopback guard, not a namespace. (5) Provenance: private prior commits arrived only at finalize (QY3F8), so 'no reuse' was incidental - record it.
+:RUN_ID:       run-01M5Y7C0HR7N4QE4Z0Y76GDG9G
+:MESSAGE_ID:   msg-5299d9a4d20f42bf8d2415e3dbf6408e
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     1cb158fa-83ff-450a-9706-32394c210e30
+:END:
