@@ -1,0 +1,25 @@
+{
+  "event_count": 243,
+  "tool_call_count": 22,
+  "unparsed_events": 0,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V1DZF-reviewer-20261027T022243-run-01M5XJNGPWYYYH8D0HKTGCA7VK.jsonl",
+    "size_bytes": 387695
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T02-22-44-01a17b2a-c9f6-7640-a0c7-dbee0c7456b6.jsonl",
+    "session_id": "01a17b2a-c9f6-7640-a0c7-dbee0c7456b6",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll review the strict dial path, validation and redaction behavior, then check the retained gate logs and run targeted security probes. I’ll leave the worktree unchanged.The retained gates support the reported pass counts. A targeted probe found an R7 gap on both engines: when a strict-authenticated server echoes its credential in a tool name, the credential reaches `listMcplServers()` and a `process:received` trace. The current redaction test uses an empty tool list, so it misses this path.The manager asked for explicit answers on engine pinning, redaction retention and growth, non-boolean `\"true\"`, and provider checks across connect, restart, and admin/overlay paths. I’ll add those to the report before finalizing."
+    }
+  ],
+  "narrative_truncated": false
+}
