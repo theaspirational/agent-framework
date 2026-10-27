@@ -1,0 +1,25 @@
+{
+  "event_count": 491,
+  "tool_call_count": 47,
+  "unparsed_events": 1,
+  "bounded_events": 11,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V1DZF-implementer-20261027T020717-run-01M5XHS7W65ZK96NX3SZ5TPNXJ.jsonl",
+    "size_bytes": 729699
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T02-07-17-01a17b1c-a6ab-7260-ab3a-7212679a98c3.jsonl",
+    "session_id": "01a17b1c-a6ab-7260-ab3a-7212679a98c3",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The starting commit, Bun version/digest, and Node version match the brief; npm is 10.9.9. I’ll read the project constraints, then acquire dependencies with isolated configuration. Baseline and subsequent checks will run on that same installed tree without external traffic.The unmodified baseline passed: 7,814 tests passed, 45 skipped, no failures; build and typecheck also passed.\n\nBoth runtime-resolved WebSocket clients rejected the loopback redirect without contacting the target. Node uses the installed `ws` client; Bun 1.4.3 resolves `ws` to its built-in adapter. I’ll explicitly disable redirects for Node and guard strict mode to the verified engine versions, rejecting unverified engines before dialing.The focused suite now passes all 38 tests on both Node and Bun. On the base, 24 fail for the new behavior and 14 pass as controls. Coverage includes provider refusals before upgrade, reconnect rotation, redirects, framework admission, abort behavior, and secret redaction—including short credentials and values older than sixteen rotations. I’m committing the focused changes locally, then running the final full gates at that commit.Final gates passed at `f4e38ced`: build and typecheck are green; the full suite reports 7,852 passed, 45 skipped, and zero failures. The focused suite also passes all 38 tests on both engines. The worktree is clean and the preserved lockfile bytes are unchanged. I’m submitting the report and stopping; nothing was pushed."
+    }
+  ],
+  "narrative_truncated": false
+}
