@@ -1,0 +1,25 @@
+{
+  "event_count": 325,
+  "tool_call_count": 33,
+  "unparsed_events": 0,
+  "bounded_events": 6,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-T2F13-reviewer-20261027T085144-run-01M5Y8XTPJ0N6V8PNAH6KMGFZY.jsonl",
+    "size_bytes": 614066
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T08-51-44-01a17c8e-f03a-7f81-9ba8-675821106dd4.jsonl",
+    "session_id": "01a17c8e-f03a-7f81-9ba8-675821106dd4",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll inspect the admission changes, run independent route and legacy-identity probes on both engines, and check capture sensitivity without changing the worktree.The route probes pass on Node and Bun: all five mistyped values were refused without provider calls, spawn attempts, TCP connections, or upgrades. Both new admission tests also detect removal of their respective captures. The legacy comparisons are still finishing.The manager requested three additions: explain the presentation-hash change between rounds, verify that refusing explicit `protocol: 'legacy'` matches the base network contract, and note that post-open socket errors also map to `credential-unusable`. I’ll check those before finalizing."
+    }
+  ],
+  "narrative_truncated": false
+}
