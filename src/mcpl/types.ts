@@ -314,6 +314,19 @@ export interface McplServerConfig {
   tokenTransport?: 'query' | 'header';
 
   /**
+   * Opt-in fail-closed WebSocket dial. Only literal true enables it; false,
+   * null and omission keep legacy behavior. Requires tokenTransport 'header',
+   * no static token (even empty), no url token/userinfo, and a host-attached
+   * accessProvider on every dial, including reconnect. A failing, empty or
+   * header-unusable provider result stops the dial without fallback. Cleartext
+   * ws:// is loopback-only. Verified only on Bun 1.4.3 and Node 22.23.3 with
+   * npm ws; every other engine/version is refused before calling the provider.
+   * HTTP, stdio and modern servers reject true. This is a fail-closed dial,
+   * not the full diagnostic no-leak guarantee; existing redaction is unchanged.
+   */
+  credentialRequired?: boolean;
+
+  /**
    * Lazily resolves the connection credential at EVERY dial — first connect
    * and each background reconnect — overriding `token` when it returns a
    * value (null/throw falls back to `token`). Host-attached plumbing, never

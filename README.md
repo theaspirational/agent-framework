@@ -323,6 +323,42 @@ configuration chooses the family, and nothing is probed:
 A configuration with both `command` and `url` needs `transport` to say which
 one is used; without it, it is refused rather than silently ignoring one.
 
+### Strict WebSocket credentials (`credentialRequired`)
+
+Set `credentialRequired: true` with `tokenTransport: 'header'` and a
+host-attached `accessProvider` to require an authenticated WebSocket dial.
+Only literal `true` enables this policy; `false`, `null` and omission preserve
+legacy behavior, and other values are configuration problems. No static
+`token` is allowed, including an empty string, and the URL must carry neither
+userinfo nor a `token` query parameter. `ws://` is allowed only on loopback;
+use `wss://` elsewhere. HTTP, stdio and modern servers reject the flag.
+
+The provider runs on every dial, including reconnect, so reconnect picks up a
+rotated credential. A throwing, absent or empty provider stops the strict dial
+instead of falling back to a static token or dialing without authentication.
+A result must be a string that the existing header policy carries unchanged:
+printable ASCII with no leading or trailing space. Inputs are captured and
+validated before awaiting the provider; policy or endpoint mutations meanwhile
+do not affect that dial. Errors created by this path carry only server id and
+one fixed reason: `provider-threw`, `provider-empty`, `credential-unusable` or
+`engine-unsupported` (connection failure, timeout and abandonment use
+`credential-unusable`).
+
+Strict redirect behavior is verified **only on Bun 1.4.3 and Node 22.23.3 with
+the npm `ws` client**: redirects fail the dial rather than forwarding the
+Authorization header to another origin. Node explicitly sets
+`followRedirects: false`. Every other engine or version is unsupported and
+refused before the provider runs or any I/O. These deliberate pins are not a
+rollout authorization.
+
+Strict mode in this release is a fail-closed dial only; the full R7 diagnostic no-leak guarantees are not yet provided.
+
+The base's existing redaction and `noteDialSent` bookkeeping apply unchanged.
+This part adds no diagnostic filtering or catalogue admission policy; arbitrary
+provider/server text and other diagnostic carriers do not acquire a full
+no-leak guarantee. Diagnostic projection/publication, catalogue admission and
+rotation invalidation, and the drift guard remain separate work.
+
 A WebSocket server's credential, its `token` or what its `accessProvider`
 returns for a dial, goes as a `token` query parameter by default
 (`tokenTransport: 'query'`). With `tokenTransport: 'header'` it goes as an

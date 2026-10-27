@@ -25,7 +25,7 @@ import { StringDecoder } from 'node:string_decoder';
 import WebSocket from 'ws';
 
 import type { McplServerConfig } from './types.js';
-import { WITHHELD_TEXT, describeCredentialError, headerCarries, maskedError, noteDialSent, redactServerText, redactUrl, resolveServerBinding, serverTextRedactor, tokenTransportProblem, urlAsDialed, type Redaction } from './protocol-family.js';
+import { WITHHELD_TEXT, credentialRequiredProblems, describeCredentialError, headerCarries, maskedError, noteDialSent, redactServerText, redactUrl, resolveServerBinding, serverTextRedactor, tokenTransportProblem, urlAsDialed, type Redaction } from './protocol-family.js';
 import { assertBooleanSetting } from '../config-checks.js';
 import { logDetail } from './log-value.js';
 
@@ -597,6 +597,7 @@ export class WebSocketTransport extends McplTransport {
    * at the open timeout.
    */
   static async open(config: McplServerConfig, signal?: AbortSignal): Promise<WebSocketTransport> {
+    if (config.credentialRequired === true) return WebSocketTransport.openStrict(config, signal);
     // Resolve the per-dial credential first: the provider runs on every
     // connect AND reconnect, so rotation happens at the transport layer and
     // nothing above it ever holds a credential.
@@ -691,6 +692,85 @@ export class WebSocketTransport extends McplTransport {
       ws.once('error', (err: Error) => {
         abandon(new Error(`MCPL server "${config.id}" WebSocket connect failed: ${clientErrorText(err, config, url)} (${redacted})`));
       });
+    });
+  }
+
+  /** Separate opt-in path: the legacy dial above keeps its objects, reads,
+   * receivers and error behavior. Capture policy before calling host code;
+   * only noteDialSent uses the original config after awaiting (as a WeakMap
+   * key, without reading it). No provider result is stored on either config. */
+  private static async openStrict(config: McplServerConfig, signal?: AbortSignal): Promise<WebSocketTransport> {
+    const captured: McplServerConfig = {
+      id: config.id, url: config.url, tokenTransport: config.tokenTransport,
+      credentialRequired: true, token: config.token, accessProvider: config.accessProvider,
+      command: config.command, transport: config.transport, protocol: config.protocol,
+    };
+    const id = captured.id;
+    const fail = (reason: 'provider-threw' | 'provider-empty' | 'credential-unusable' | 'engine-unsupported') =>
+      new Error(`MCPL server "${id}": ${reason}`);
+    // Bun substitutes its own ws implementation. Node must use npm ws.
+    // Redirect safety is deliberately certified for these exact versions only.
+    const bun = (process.versions as Record<string, string | undefined>).bun;
+    if (bun !== undefined ? bun !== '1.4.3' : process.release.name !== 'node' || process.versions.node !== '22.23.3') {
+      throw fail('engine-unsupported');
+    }
+    if (credentialRequiredProblems(captured).length) throw fail('credential-unusable');
+    const provider = captured.accessProvider;
+    if (typeof provider !== 'function') throw fail('provider-empty');
+    const followRedirects = false;
+    let url: string;
+    try { url = buildWebSocketUrl(captured, null); }
+    catch { throw fail('credential-unusable'); }
+    if (signal?.aborted) throw fail('credential-unusable');
+    let token: unknown;
+    try {
+      // Preserve the provider's receiver, without re-reading any config input.
+      const provided = Promise.resolve(provider.call(config));
+      provided.catch(() => { /* ignored after abandonment */ });
+      token = signal ? await raceAbort(provided, signal) : await provided;
+    } catch {
+      if (signal?.aborted) throw fail('credential-unusable');
+      throw fail('provider-threw');
+    }
+    if (signal?.aborted) throw fail('credential-unusable');
+    if (token === null || token === undefined || token === '') throw fail('provider-empty');
+    if (typeof token !== 'string' || !headerCarries(token)) throw fail('credential-unusable');
+    noteDialSent(config, { url, token: token ?? undefined });
+    let ws: WebSocket;
+    try {
+      ws = new WebSocket(url, { headers: { Authorization: `Bearer ${token}` }, followRedirects });
+    } catch { throw fail('credential-unusable'); }
+    const swallowLateErrors = () => { /* settled; retry loop owns recovery */ };
+    return new Promise<WebSocketTransport>((resolve, reject) => {
+      let settled = false;
+      const abandon = (): void => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        signal?.removeEventListener('abort', onAbort);
+        ws.removeAllListeners();
+        ws.on('error', swallowLateErrors);
+        try { ws.terminate(); } catch { /* already gone */ }
+        reject(fail('credential-unusable'));
+      };
+      const timer = setTimeout(abandon, WS_OPEN_TIMEOUT_MS);
+      const onAbort = (): void => abandon();
+      if (signal?.aborted) onAbort();
+      else signal?.addEventListener('abort', onAbort, { once: true });
+      ws.once('open', () => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        signal?.removeEventListener('abort', onAbort);
+        ws.removeAllListeners('error');
+        const transport = new WebSocketTransport(ws, captured, url);
+        // Strict transport-created errors carry only id and a fixed code;
+        // don't project a native error or its cause into them.
+        ws.removeAllListeners('error');
+        ws.on('error', () => transport.reportError(fail('credential-unusable')));
+        resolve(transport);
+      });
+      ws.once('error', abandon);
     });
   }
 
@@ -826,7 +906,7 @@ type BooleanSetting = {
 /** What `true` does for each boolean setting, as its refusal says it. A
  *  boolean setting added to McplServerConfig doesn't compile until it has
  *  an entry here, so the check below covers it too. */
-const SERVER_CONFIG_BOOLEANS: Record<BooleanSetting, string> = {
+const SERVER_CONFIG_BOOLEANS: Record<Exclude<BooleanSetting, 'credentialRequired'>, string> = {
   inheritEnv: 'true passes the server the host\'s whole environment, and false or leaving it out passes only the allowlisted and LC_* host variables',
   reconnect: 'true retries in the background when the server can\'t be reached or its connection drops, and false or leaving it out doesn\'t',
   allowHostCommands: 'true lets the server run the host\'s admin commands, such as undo, hide, unstick and quiesce, and false or leaving it out refuses them',
