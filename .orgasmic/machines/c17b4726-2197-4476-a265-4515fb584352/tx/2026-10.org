@@ -1704,3 +1704,20 @@
 :DELIVERY:     queued
 :EVENT_ID:     46147b75-9d5d-4d55-8216-518a66b711af
 :END:
+
+* TX 2026-10-27 Tue 07:20:52 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-5daf43d8-0a58-40ff-97c7-1ef366ba7e51
+:TIME:         [2026-10-27 Tue 07:20:52]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Manager input (acknowledge by content; independent read-only audit, source-derived, NOT executed - verify, do not adopt blindly): at 340231e3 (F1) src/framework.ts:5948-5952,29190-29197 + protocol-family.ts:398-413: pushEvent filters {content,metadata} with a key-redacting walker then spreads over the original event - a credential equal to a field name ('metadata'/'content') yields a 'redacted' key and the ORIGINAL metadata survives in the queued event (tool-diff notice at framework.ts:30469-30475 delegates here). (F2) every public external-message is treated as an SDK notice (framework.ts:5945-5952; events.ts:67-81): raw external application input is rewritten in strict mode (e.g. credential '6' turns 'page 6' into 'page redacted'), contradicting the README exclusion. (F3) inference-router.ts:221-223,247-249,349-365: unconditional {...original, respondError} wrapper drops prototype/non-enumerable respond/sendChunk and rebinds this, even with flag unset (base 4976c67d:inference-router.ts:215-244 called the original). (F4) allowlist witness loop (test/mcpl-diagnostic-allowlist-boundaries.test.ts:60-98) injects values at the named boundary without exercising originating sites; sample errors: hook-orchestrator.ts:52 withTimeout rejection swallowed at :214-217; tool-signature.ts:239 / toolsets-module.ts:257 caught at framework.ts:22555-22557 diagnosticErrorValue not mcplToolDiagnostic. Probe F1-F3 on both engines (stub membrane for F3).
+:RUN_ID:       run-01M5Y2F8RP7CZ0E2G5RQ3HWV89
+:MESSAGE_ID:   msg-624da6cb4a5146c4a008ee5bf7b3c06a
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     c27d325f-cfc4-44de-a7e6-ddcef718cf90
+:END:
