@@ -1975,3 +1975,34 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     21d2b2b0-9614-45ed-aeff-d397dfa2caf5
 :END:
+
+* TX 2026-10-27 Tue 08:03:26 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-7ce0b412-5d17-4dd1-86e6-273067023ced
+:TIME:         [2026-10-27 Tue 08:03:26]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  21d2b2b0-9614-45ed-aeff-d397dfa2caf5
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     eb197f61-dca8-47cc-8f9f-dcd4fab69d7f
+:END:
+
+* TX 2026-10-27 Tue 08:03:26 run.answered TASK-T2F13
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-eec9817f-302c-4b49-8921-f1a4a9871b4d
+:TIME:         [2026-10-27 Tue 08:03:26]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-T2F13
+:REASON:       Yes. For C(2) compare byte-for-byte the request line/target and EVERY header except Sec-WebSocket-Key (names, values, order and count, credential-bearing headers included), plus any frames sent before the first server response; normalise only the Sec-WebSocket-Key value, and assert separately that it is a valid fresh 16-byte base64 key and the ONLY remaining difference. Do not replace or wrap the production WebSocket client. Record the normalisation explicitly in the report. Quote this first line back.
+:RUN_ID:       run-01M5Y5Q4AZY1EJHWRTPE2XHKC1
+:ASK_ID:       ask-cbacff19e48c416d9550b4bba606cd36
+:MESSAGE_ID:   msg-3d2d8cf121914879967fcb24df8b37d6
+:DELIVERY:     queued
+:EVENT_ID:     ef51724a-cca6-4a3a-b4b1-0c879b1a18e2
+:END:
