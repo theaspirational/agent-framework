@@ -2984,3 +2984,24 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     5c281f0d-cbf2-4c06-ac1a-d1b14bb8c957
 :END:
+
+
+* TX 2026-10-27 Tue 23:29:55 manager.dispatch_aborted TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-dac061c3-ec6c-4915-8131-fbf27fcbb9d2
+:TIME:         [2026-10-27 Tue 23:29:55]
+:TYPE:         manager.dispatch_aborted
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       BLOCKED-FOR-SCOPE as directed; no commits. Owner narrowed scope (wo1a:narrow, wo1a:mixed:union); superseded by P2-narrow v1.1 brief.
+:CLOSED_TX:    tx-20261027-theaspirationalagent-a4c1d204-52cf-45c4-b5ea-1684e6d264bd
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-ew3vv
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-EW3VV/dispatches/tx-20261027-theaspirationalagent-a4c1d204-52cf-45c4-b5ea-1684e6d264bd/report.md
+:LIFECYCLE_FROM: in_progress
+:LIFECYCLE_TO: todo
+:EVENT_ID:     cbc0cc73-d603-42e9-9fa5-65ba4d6e345a
+:RELEASES_CLAIM_RUN: run-01M5ZK0996SG2YDV94P5H5SSTT
+:END:

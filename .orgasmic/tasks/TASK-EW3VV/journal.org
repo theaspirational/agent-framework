@@ -175,3 +175,18 @@ PR description rule from the owner: do not name orgasmic or any of our products,
 :END:
 
 Owner decision (TG 959, button wo1a:mixed:union): with any strict configuration present, failures.log records and the ops webhook body of ANY server's failure (strict or not) are redacted against the union of all strict configurations' accepted credentials. Limited to those two sinks. Identity with the original base is guaranteed only when there are no strict configurations; a mixed-set test (one strict, one non-strict server) must show exactly this difference and nothing else. Retention is per configuration lifetime, not process lifetime.
+
+* tx-20261027-theaspirationalagent-83fd0645-8be1-4e06-8bd3-a835eb90cccf task.edited
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-83fd0645-8be1-4e06-8bd3-a835eb90cccf
+:TIME:    [2026-10-27 Tue 23:29:56]
+:TYPE:    task.edited
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/tasks/TASK-EW3VV/node.org
+:REASON: edited task node TASK-EW3VV
+:NODE_ID: TASK-EW3VV
+:EVENT_ID: a8060a7a-e358-4b32-a605-9fea7487c051
+:END:
