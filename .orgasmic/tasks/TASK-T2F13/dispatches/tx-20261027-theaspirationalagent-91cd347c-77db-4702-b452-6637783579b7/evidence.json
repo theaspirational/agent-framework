@@ -1,0 +1,25 @@
+{
+  "event_count": 818,
+  "tool_call_count": 61,
+  "unparsed_events": 0,
+  "bounded_events": 15,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-T2F13-implementer-20261027T075539-run-01M5Y5Q4AZY1EJHWRTPE2XHKC1.jsonl",
+    "size_bytes": 1122322
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T07-55-40-01a17c5b-99a5-7623-962e-0eaf7119ef95.jsonl",
+    "session_id": "01a17c5b-99a5-7623-962e-0eaf7119ef95",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Preflight matches the required base, Bun version and digest, and Node version. npm is 10.9.9. I’ll acquire dependencies with isolated npm configuration, then establish the unchanged-base results. This part is fail-closed dial work only—not full R7 certification or rollout permission.\n\nThe unchanged base passes build, typecheck, and the full suite: 7,814 passed, 45 skipped, no failures. The dependency lock has been preserved outside the repository.\n\nThe first 53 focused tests give matching baselines on both engines: 13 pass and 40 fail. The passing cases will be recorded as controls; the failures establish the strict-mode behavior to add.\n\nThe implementation and focused tests are committed locally. Strict-mode tests pass on both engines, including all five redirects and the pending-provider mutation cases. All eight non-strict output sinks also match the base byte-for-byte on each engine.\n\nOne acceptance question is pending with the manager: full WebSocket handshakes contain fresh random keys. The wire probes preserve those keys and show that every other byte matches. I’m now running the final gates at the committed tree.\n\nThe final full suite has passed with the 74 added tests and no regressions. I also found an acquisition deviation: npm’s update notifier fetched public metadata for `npm`, beyond the declared dependencies. No credentials or private sources were used. I’ve reported this to the manager; I won’t reinstall or treat the deviation as cleared.\n\nThe manager approved excluding only `Sec-WebSocket-Key` from C(2), with separate freshness/validity checks and comparison of any pre-response frames. I’ll add those assertions and record the normalization explicitly.\n\nThe acquisition direction was: “Retain the current evidence; do not restart.” I’ll retain the deviation in the report and disable update notifications for any further npm command. The supplied earlier commits will remain unused.\n\nManager direction for C(2): “Yes. For C(2) compare byte-for-byte the request line/target and EVERY header except Sec-WebSocket-Key (names, values, order and count, credential-bearing headers included), plus any frames sent before the first server response; normalise only the Sec-WebSocket-Key value, and assert separately that it is a valid fresh 16-byte base64 key and the ONLY remaining difference.”\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
