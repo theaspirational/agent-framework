@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-T2F13
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-T2F13 WO-1a part 1: strict fail-closed WebSocket credential dial (non-strict path identical to base)
+* DONE TASK-T2F13 WO-1a part 1: strict fail-closed WebSocket credential dial (non-strict path identical to base)
 :PROPERTIES:
 :UID: f55651df-7742-5cae-a354-f7211a41ccdc
 :ID: TASK-T2F13
