@@ -1755,3 +1755,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     ad9960d2-1663-4744-8c5c-4ed5e8209d9e
 :END:
+
+* TX 2026-10-27 Tue 07:22:04 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-ffbcbf37-f6b4-4895-afda-c2384230c421
+:TIME:         [2026-10-27 Tue 07:22:04]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Manager addendum to F3 (acknowledge by content): run class/prototype-method, non-enumerable-method, receiver-state (this) and streaming responder controls in DEFAULT mode (flag unset) on both engines, with a stub membrane; and check whether any other optional/identity-by-default formatter or wrapper in the round-4 diff copies or wraps caller objects in a way that changes behaviour with the flag unset. Report F1-F4 as confirmed/refuted by your own probes.
+:RUN_ID:       run-01M5Y2F8RP7CZ0E2G5RQ3HWV89
+:MESSAGE_ID:   msg-19e3d22a91ec413d82456b63ac35ee1d
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     e0876b7c-151d-47b2-8bd6-b5c1580eef32
+:END:
