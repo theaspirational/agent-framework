@@ -1,0 +1,25 @@
+{
+  "event_count": 326,
+  "tool_call_count": 35,
+  "unparsed_events": 1,
+  "bounded_events": 11,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V1DZF-reviewer-20261027T042125-run-01M5XSEW65ASPZ070YR6TFF7VS.jsonl",
+    "size_bytes": 607985
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T04-21-26-01a17b97-76c0-75d1-9e40-b9ffe2dc6c44.jsonl",
+    "session_id": "01a17b97-76c0-75d1-9e40-b9ffe2dc6c44",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’m checking the final diff and prior probes, then I’ll test the remaining scalar redaction paths on both supported engines. I’ll leave the worktree unchanged and put the report and probe evidence in the run’s evidence directory.The original numeric RPC-code and JSON-punctuation probes now pass on both engines. I found a missed transition path, though: a numeric close code sent before `initialize` completes reaches the caller’s error unredacted. I also reproduced leaks when scalar server data is wrapped in native diagnostic objects; I’m checking those boundaries before finalizing."
+    }
+  ],
+  "narrative_truncated": false
+}
