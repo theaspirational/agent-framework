@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-8W11P
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-VZ0CD
+:PROPERTIES:
+:UID: 14bf5d1e-bc97-57bd-af33-8cdc23862d5f
+:ID: CONV-8W11P
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-vz0cd
+:RUNS:  run-01M5XHT716TC8W2ZNQQ4PACWJ7
+:CREATED_AT: 2026-10-27T02:07:48Z
+:END:

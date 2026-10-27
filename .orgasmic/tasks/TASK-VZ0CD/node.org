@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-VZ0CD
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-VZ0CD Design: generic per-connection admission interface (design only)
+* IN_REVIEW TASK-VZ0CD Design: generic per-connection admission interface (design only)
 :PROPERTIES:
 :UID: abea0016-4155-5162-aa92-4ec22cb33de6
 :ID: TASK-VZ0CD
