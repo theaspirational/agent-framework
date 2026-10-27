@@ -2876,3 +2876,19 @@
 :ASK_ID:       ask-613fc3e48e204d30b51470563d0ead52
 :EVENT_ID:     a1864c23-e72e-4085-9bdb-74a224e11c8c
 :END:
+
+* TX 2026-10-27 Tue 21:10:04 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-f6ae450e-54e0-47c7-afab-5117ec212911
+:TIME:         [2026-10-27 Tue 21:10:04]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       The unmodified start commit leaks accepted >=32-character credentials from real authenticated push/event requests at src/mcpl/push-handler.ts:174 console.error, reproduced on Node and Bun with random and 32-digit tokens (baseline-scope-node/bun gates; scope-node/bun.json). This direct publication precedes framework filtering; logValue has no configuration context, and altering application params/global console would violate R8/R10. May FILES be expanded to permit a strict-only diagnostic formatter at the proved push-handler publication sites, or should I stop and finalize blocked? No production changes made.
+:RUN_ID:       run-01M5ZK0996SG2YDV94P5H5SSTT
+:ASK_ID:       ask-f7389eba89b549b3b2270630f4775439
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     dcd8dd8f-7f8e-47af-9bcf-6a0d10036b23
+:END:
