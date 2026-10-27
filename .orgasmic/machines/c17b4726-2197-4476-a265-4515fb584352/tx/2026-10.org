@@ -1025,3 +1025,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     ef4ba030-5d7f-4300-b3c3-7f69099c560f
 :END:
+
+
+* TX 2026-10-27 Tue 03:44:37 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-a97b9452-1512-4051-8472-e054e7609721
+:TIME:         [2026-10-27 Tue 03:44:37]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Manager addendum (acknowledge by content): treat the HIGH as a CLASS. Inventory every non-string value server-supplied data can carry into SDK-owned output (numeric codes, ids, numeric-looking values, booleans, bigint, numbers used as object keys, array indices rendered in paths) for each SDK sink (console, traces, failures.log, webhook body, listings, notices, catalogues, returned host errors), and test redaction per sink on both engines rather than patching log-value.ts alone. For the MEDIUM, state precisely what the admission check matches against (per-field keys and scalar values, not the serialized whole) and include a test with a JSON-punctuation token against a benign server.
+:RUN_ID:       run-01M5XQABAWESJNH878FWZNSW1C
+:MESSAGE_ID:   msg-94809d4ba2474561901b51b286fc6185
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     3e1cf852-4094-44c0-ada1-0bb7fcbbaef0
+:END:
