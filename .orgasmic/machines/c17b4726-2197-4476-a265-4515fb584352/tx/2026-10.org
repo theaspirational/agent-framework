@@ -3141,3 +3141,34 @@
 :DELIVERY:     queued
 :EVENT_ID:     fdb8a04a-3977-425e-86d1-3e622765edb4
 :END:
+
+* TX 2026-10-27 Tue 23:42:54 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-246fadd8-083b-4780-b90b-a48ea6a0890c
+:TIME:         [2026-10-27 Tue 23:42:54]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       The newly authorized structural-template work exposes the stop-and-ask ceiling: framework.ts has 28 opsAlert/logFailure call sites (including host-global provider-wait, recovery/deferred writes, awareness maintenance, startup/reconnect alerts), not just hard-down and the public notifyOpsAlert route reproduced in Step 0. Their code-owned template fragments are concatenated before the shared sink; the 32-character floor permits credentials equal to those fragments, so a generic whole-message filter would violate R3. A safe implementation now estimates 320-380 net production lines: dial/minimum 20-30; one descriptor-safe Error/plain-data/encoding primitive and separate strict retention 100-120; configuration lifecycle hooks and union 40-50; detached two-sink assembly 60-70; structural template provenance at the other callers 100-110. Those other caller routes remain source-reading-only/UNEXERCISED, and your grant permits changes only at Step-0-proved callers. Shall I stop after the independent dial/minimum commits and finalize blocked with the exact caller inventory and matrix, or do you authorize the higher ceiling and an additional evidence-first pass for the remaining caller families? No redaction/lifecycle production edits made; only the independent strict dial mapping is currently edited.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-6f9101fafd1b436eb2bccdf18e27352e
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     d487f187-0f01-4a0d-b24c-621bf95c289c
+:END:
+
+* TX 2026-10-27 Tue 23:43:21 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-a67f7e88-845a-4cf4-8195-627d3dbaa4b3
+:TIME:         [2026-10-27 Tue 23:43:21]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager answer: neither. Keep the 300-line ceiling and do NOT add structural template provenance at the 28 callers. Instead, for these two sinks only: redact the fully assembled failures.log record text and ops webhook message text at the sink boundary (one place each), via the single choke point, before any log formatter escaping. Fixed constants that are SEPARATE fields (reason codes, event types, field names, alert kind/severity) stay structural and are never passed through redaction. The residual edge case, a strict credential (>=32 chars) that is byte-equal to, or contained in, a fixed template fragment inside the assembled text, is accepted as documented over-redaction (the template text is redacted too; this can only happen with a credential equal to public source text). Document it in the README list and the report as a known limit, and add one test showing it. This narrows R3's 'template provenance' requirement for the two sinks only; it is a manager scope call to keep the piece narrow per the owner's direction. All callers then route through the two sink boundaries, so list the 28 caller sites as an inventory (G), labelled exercised or source-reading-only; no per-caller edits. Lifecycle hooks and union as already agreed. Continue: dial/minimum commits, then the choke point and the two sink boundaries. Quote back in one sentence what this changes before continuing.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-6f9101fafd1b436eb2bccdf18e27352e
+:EVENT_ID:     a9f46b83-4bbb-4a85-83bd-c937977b2b83
+:END:

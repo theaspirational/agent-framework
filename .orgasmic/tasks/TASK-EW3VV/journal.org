@@ -240,3 +240,20 @@ Manager answer: YES, with these conditions. (1) Same three production files only
 
 Mirror of manager follow-up to the lifecycle/template expansion (run-01M5ZV61MEYAMQEGWE3N8CTWYV):
 Follow-up to my answer on ask-79ee3ca9 (please quote back in one sentence before continuing): (a) 'Lifetime' precisely: a configuration's credentials leave the union only when the configuration is removed from the framework, or closed/stopped with no reconnect pending. A temporary disconnect plus automatic reconnect of the same configuration keeps them. State which lifecycle events you hooked; add tests: reconnect keeps credentials, removal drops them, same object re-added starts empty (then a new dial re-registers). (b) The allowance is the same three files only: if a needed close/remove hook sits in server-connection.ts or any other file, that is stop-and-ask, not covered. (c) Template separation must not change order, spacing or escaping: for non-strict-only sets the final webhook body and failures.log bytes stay identical to base; B/C compare those bytes including the hard-down path. (d) In the report, list these hooks and changed callers as a named expansion with file:line.
+
+* tx-20261027-theaspirationalagent-10bfec6f-edb6-47b5-9242-a25e38e02c2f comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-10bfec6f-edb6-47b5-9242-a25e38e02c2f
+:TIME:    [2026-10-27 Tue 23:43:21]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 8e73c159-316f-4888-9eac-9e00f5204a56
+:END:
+
+Mirror of manager answer to ask-6f9101fafd1b436eb2bccdf18e27352e:
+Manager answer: neither. Keep the 300-line ceiling and do NOT add structural template provenance at the 28 callers. Instead, for these two sinks only: redact the fully assembled failures.log record text and ops webhook message text at the sink boundary (one place each), via the single choke point, before any log formatter escaping. Fixed constants that are SEPARATE fields (reason codes, event types, field names, alert kind/severity) stay structural and are never passed through redaction. The residual edge case, a strict credential (>=32 chars) that is byte-equal to, or contained in, a fixed template fragment inside the assembled text, is accepted as documented over-redaction (the template text is redacted too; this can only happen with a credential equal to public source text). Document it in the README list and the report as a known limit, and add one test showing it. This narrows R3's 'template provenance' requirement for the two sinks only; it is a manager scope call to keep the piece narrow per the owner's direction. All callers then route through the two sink boundaries, so list the 28 caller sites as an inventory (G), labelled exercised or source-reading-only; no per-caller edits. Lifecycle hooks and union as already agreed. Continue: dial/minimum commits, then the choke point and the two sink boundaries. Quote back in one sentence what this changes before continuing.
