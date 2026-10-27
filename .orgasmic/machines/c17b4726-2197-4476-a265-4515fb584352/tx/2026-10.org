@@ -2907,3 +2907,34 @@
 :ASK_ID:       ask-f7389eba89b549b3b2270630f4775439
 :EVENT_ID:     e87ac104-bc7d-4aeb-b82f-bdff0d6a9510
 :END:
+
+* TX 2026-10-27 Tue 21:12:17 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-37554d89-bcd9-4f84-9cef-48e4093d5521
+:TIME:         [2026-10-27 Tue 21:12:17]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Two more real-wire diagnostic origins outside FILES now reproduce on both engines with accepted long random and 32-digit credentials: inference-router.ts:275 logs a granted credential-named feature set when routing has no model (also leaks mcpl:inference_fail trace); tool-classes.ts:128 logs a credential in tools/list _meta['mcpl/class'] while callable name remains safe. Gates baseline-inference-scope-{node,bun} and baseline-classes-scope-{node,bun}, JSON artifacts named accordingly. Partial matrix: push/event -> console leak; inference/request -> console+trace leaks; tools/list class -> console leak. Other observed traces/listings clean only for these fixtures; errors/failures/webhooks not exercised. Together with push-handler, expected scope is up to 9 production source files plus README, exceeding the brief's 8-file stop threshold; full lane matrix is not yet complete and no production files changed. Do you authorize these two additional files and the higher file ceiling for proved strict-only diagnostic sites, or require a blocked report/re-scope now?
+:RUN_ID:       run-01M5ZK0996SG2YDV94P5H5SSTT
+:ASK_ID:       ask-55f619d701974ae2b043fc5f36e3cae4
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     fe87de0c-1d16-469b-814f-b7248da2d178
+:END:
+
+* TX 2026-10-27 Tue 21:12:31 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-56a3c774-d674-4b64-b34f-f2ddc15df564
+:TIME:         [2026-10-27 Tue 21:12:31]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager decision: not yet. Per the brief ("stop and explain with your matrix before continuing"), do this instead: complete Step 0 in full on the start commit, with NO production changes. That means the whole leak matrix (every lane x every sink, both engines, accepted long random and all-digit credentials), including errors, failures.log, the ops webhook and any lane not yet exercised, each labelled leaks / does not leak / unexercised, with the originating site, file:line and baseline gate per cell. Also label which leaks are part-3 catalogue admission (for example whether the tools/list _meta class line touches catalogue data, or only the SDK's own console copy). Then finalize as BLOCKED-FOR-SCOPE with: the complete matrix; the exact list of production files and sites a fix would touch, with an estimated net line count; for each file outside FILES, why the site is an SDK diagnostic copy and not application data; and a proposed split if it exceeds 8 files or 600 lines. The push-handler.ts grant stands but do not edit it yet. We will re-scope once on the whole picture rather than file by file. Include the sha256 values of the reference material you read.
+:RUN_ID:       run-01M5ZK0996SG2YDV94P5H5SSTT
+:ASK_ID:       ask-55f619d701974ae2b043fc5f36e3cae4
+:EVENT_ID:     c6a10e52-44c8-4a53-8b7c-7ea4541d01e9
+:END:

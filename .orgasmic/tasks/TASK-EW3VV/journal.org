@@ -79,3 +79,19 @@ Manager answer (mirror): FILES expanded by exactly src/mcpl/push-handler.ts for 
 :END:
 
 Conditions on the push-handler.ts FILES expansion (for the review brief and the gate): (1) R8: only the SDK's own console/log copy is redacted; push/event content and metadata delivered to the agent stay byte-identical; review tests both with an accepted >=32-char credential. (2) Report names it as a manager-granted expansion (file, line, why); FILES + exactly push-handler.ts; the 600-line/8-file ask threshold unchanged. (3) Legacy B/C byte-identity covers that console line (flag unset/false). (4) The leak exists on unmodified part 1: note it in the report; part 1 is not re-opened. (5) R7: redaction happens before the console write. Brief v4 stays the immutable input.
+
+* tx-20261027-theaspirationalagent-c339d3b3-979c-4519-961a-857080ebd53b comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-c339d3b3-979c-4519-961a-857080ebd53b
+:TIME:    [2026-10-27 Tue 21:12:32]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 2644cd16-b7be-4573-b87f-f759d00b4ae8
+:END:
+
+Manager answer (mirror): two more origins found outside FILES (inference-router.ts ~275 with mcpl:inference_fail trace; tool-classes.ts ~128 tools/list _meta class). No further files granted now. Worker completes the full Step-0 leak matrix on the start commit with no production changes, labels part-3 items, then finalizes BLOCKED-FOR-SCOPE with the full file/site list, net line estimate and a proposed split. The push-handler.ts grant stands but is not to be used yet. Re-scope happens once on the whole picture.
