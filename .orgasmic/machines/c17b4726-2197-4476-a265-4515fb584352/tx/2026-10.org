@@ -2618,3 +2618,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     63bde630-854f-40fd-903a-a5960325a897
 :END:
+
+
+* TX 2026-10-27 Tue 08:53:28 run.message TASK-T2F13
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-3b949eb1-78be-4e50-a879-e314dd4ddf5a
+:TIME:         [2026-10-27 Tue 08:53:28]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-T2F13
+:REASON:       Manager additions (acknowledge each by content): (a) the implementer's 'presentation' sink hash changed between round 1 (2b4d7357...) and round 2 (ba49af08...) although base==final within each round and the scenario script is not in the round diff: diff the two raw JSON receipts and state exactly what moved (path, counter, generated name, ordering). (b) Confirm against types.ts and protocol-family.ts that the protocol selector is stdio-only and the URL decides the network family, i.e. that refusing explicit protocol:'legacy' on a strict ws server is consistent with the base contract, not a narrowing of legacy behaviour. (c) Report (do not decide) that socket errors AFTER a successful open are also mapped to credential-unusable, alongside DNS/refused/TLS/HTTP-refusal/timeout.
+:RUN_ID:       run-01M5Y8XTPJ0N6V8PNAH6KMGFZY
+:MESSAGE_ID:   msg-7d8f1421eb644296bb5b26d02ede0f19
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     a6d862a4-6d3f-4a87-8747-84f0eb2d0d18
+:END:
