@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-V1DZF
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-V1DZF Strict fail-closed credential provider for MCPL WebSocket servers (opt-in)
+* IN_PROGRESS TASK-V1DZF Strict fail-closed credential provider for MCPL WebSocket servers (opt-in)
 :PROPERTIES:
 :UID: c9421c1e-ba41-5208-86f2-9e57d228a7b4
 :ID: TASK-V1DZF
