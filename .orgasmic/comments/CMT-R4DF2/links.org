@@ -1,0 +1,13 @@
+#+title: Node links
+* Link
+:PROPERTIES:
+:SCHEMA: 2
+:ID: a13fc8924e4ad444961008b1dcbeb05aa9beae2587f9b7df4fbedd7a66c97a4b
+:SOURCE: CMT-R4DF2
+:TARGET: orgasmic://bb991fb7-263f-4fe5-badb-be0e6283a6ee/abea0016-4155-5162-aa92-4ec22cb33de6
+:KIND: RELATES_TO
+:REVISION: 1
+:DELETED: false
+:ACTOR: orgasmic
+:UPDATED_AT: 2026-10-27T02:06:23.309082367+00:00
+:END:

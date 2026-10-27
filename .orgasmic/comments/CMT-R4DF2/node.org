@@ -1,0 +1,276 @@
+#+title: orgasmic Comment CMT-R4DF2
+#+orgasmic_version: 2
+
+#+todo: OPEN | RESOLVED CONSUMED
+
+* OPEN sha256 234c1be4d1915ca9a68b43b5ca3f90c48a596893590293515d05…
+:PROPERTIES:
+:UID: e9681335-a926-5a1d-8872-3b8247f71178
+:ID: CMT-R4DF2
+:TARGET: orgasmic://bb991fb7-263f-4fe5-badb-be0e6283a6ee/abea0016-4155-5162-aa92-4ec22cb33de6
+:AUTHOR: orgasmic
+:RELAY: admin
+:CREATED_AT: 2026-10-27T02:06:23Z
+:END:
+#+begin_example
+sha256 234c1be4d1915ca9a68b43b5ca3f90c48a596893590293515d05c616b7219095
+===== BEGIN =====
+## 1. Summary and recommended interface (Q1, Q3)
+
+[src] Investigation base: `git rev-parse HEAD` returned `4976c67d5c7916a15046c627b68913994c33b3cb`. All source citations below refer exclusively to that pinned commit (0.27.0), not a newer main. This is a source-bounded design investigation, not a runtime proof. No source changes or tests were made.
+
+[prop] Add a distinct, asynchronous, host-owned admission hook. Require it only on explicitly configured connections, and bind each installed hook to `(connectionId, connection-instance token, transportEpoch)`. Decide separately for each inbound channel message, push event, or inference request. A refusal ends processing before application admission effects. Do not repurpose either existing callback. The strict opt-in path must also interpose before transport holding and push read-tap effects; merely inserting a callback in the registry is insufficient.
+
+[prop] Suggested TypeScript-style API; names here are local API names, not wire fields or stamp spellings. `DeepReadonly` and the opaque branded types are illustrative:
+
+```ts
+type AdmissionLane = 'channels/incoming' | 'push/event' | 'inference/request';
+type ConnectionKey = Readonly<{
+  connectionId: string;
+  instance: ConnectionInstanceToken; // framework-issued, unique per object lifetime
+  transportEpoch: number;
+}>;
+type RefusalCode =
+  | 'admission_denied' | 'admission_threw' | 'admission_timeout'
+  | 'admission_invalid' | 'admission_missing' | 'admission_stale'
+  | 'admission_not_ready' | 'admission_unsupported'
+  | 'admission_mode_ungranted';
+
+type AdmissionVerdict =
+  | Readonly<{ store: false; mayWake: false; reason: RefusalCode }>
+  | Readonly<{
+      store: true;
+      mayWake: boolean;
+      replyIntent?: HostReplyIntent; // opaque; validated by the host
+      stamp?: HostNormalizedStamp;  // a value, NOT a metadata patch
+    }>;
+
+type LaneItem = {
+  'channels/incoming': ChannelIncomingMessage;
+  'push/event': PushEventParams;
+  'inference/request': McplInferenceRequestParams;
+};
+type AdmissionInput = {
+  [L in AdmissionLane]: Readonly<{
+    connection: ConnectionKey;
+    lane: L;
+    item: DeepReadonly<LaneItem[L]>; // detached, untrusted, pre-stamp input
+    signal: AbortSignal;
+  }>
+}[AdmissionLane];
+type AdmitInbound =
+  (input: AdmissionInput) => AdmissionVerdict | Promise<AdmissionVerdict>;
+
+type BoundAdmission = Readonly<{
+  connection: ConnectionKey;
+  admit: AdmitInbound;
+}>;
+type InboundAdmissionConfig = Readonly<{
+  timeoutMs: number; // required, finite positive bounded integer
+  bind: (key: ConnectionKey) => BoundAdmission | undefined;
+  isReplyIntent: (value: unknown) => value is HostReplyIntent;
+  isNormalizedStamp: (value: unknown) => value is HostNormalizedStamp;
+  initializeAttestation?: Readonly<{
+    read: (initializeResult: DeepReadonly<unknown>) => unknown | undefined;
+    matches: (attestation: DeepReadonly<unknown>) => boolean;
+  }>;
+}>;
+// Public configuration addition:
+// McplServerConfig.inboundAdmission?: InboundAdmissionConfig
+// Internal adapters receive the required bit AND original ConnectionKey,
+// not just a possibly-undefined callback looked up by channel id.
+```
+
+[prop] Field contract:
+
+- `store:false` is refusal, not a successful discard: return the fixed reason, ignore all optional admission outputs, and do not call existing gates, acceptance observers, coalescers, processing modules, queues, inference, typing or status senders. `store:false, mayWake:true` is malformed, not a way to wake without storage.
+- `store:true` permits the lane's existing admitted handling; it does not force a row to exist, bypass content checks, bypass deduplication, or make later processing infallible. For inference/request, which is not a context-ingest operation, it means permission to handle that request, not an instruction to persist its prompt. There is no new persistence behavior on that lane.
+- `mayWake` is an additional ceiling. For ingest lanes, effective wake permission is `existingPermission && verdict.mayWake`. A false ceiling must survive queueing, coalescing, routing, tune-out/auxiliary processing and every subsequent scheduling decision; no downstream component may promote it. Skip wake-policy callbacks when the ceiling is already false. A true ceiling never raises a grant, overrides a false existing gate, or guarantees inference. On inference/request a false ceiling refuses the request with `admission_denied`, since silently completing an inference request without inference is not supported.
+- `reason` is a closed enum, with no free-text detail. Accept branches must not carry it; refusal branches must carry it. Failures of the mechanism use the appropriate framework-selected enum value, never exception text or sender content. Results correlate using the existing message identifier, not copied content.
+- `replyIntent` is a host-validated opaque capability/value. Call the configured host validator within the same bounded preflight; only literal true passes. Carry a successful slot unchanged in a private admitted envelope to host extension points. Do not decode, resolve, publish, schedule, acknowledge intent completion, put it in peer responses, or infer any reply destination from it. Its presence creates no permission to send. Its persistence is not promised.
+- `stamp` is separately host-validated normalized data, carried only from the successful verdict in the private envelope. It is not a general metadata mutation facility. Do not expose either stamp or intent to peers or content-bearing diagnostics. Attach the normalized stamp only after final preflight success as described in section 6. Missing optional outputs are ordinary absence, not a fallback to sender claims.
+
+[prop] Validate the complete verdict at runtime: exact booleans, valid discriminated branch, enum membership, no inconsistent/unknown fields, and host validation of optional opaque values. Use data-only snapshots; reject accessor-bearing or otherwise non-data host returns rather than executing getters. Protect validation exceptions and the whole awaited preflight with the same deadline. `undefined`, null, thenable rejection, invalid intent/stamp and unknown reasons are `admission_invalid` or `admission_threw` as appropriate, never acceptance.
+
+[prop] Configuration ownership: use `McplServerConfig.inboundAdmission`, exposed through existing `FrameworkConfig.mcplServers`, rather than a global callback selected with `find`. `ChannelRegistryOptions` receives an internal connection-aware preflight adapter; the push handler and inference router receive corresponding adapters. The connection-level required/deny state is installed before reading traffic, not inferred from whether the adapter happens to exist. An unconfigured connection retains the old path even when another connection is configured.
+
+[prop] Bind after successful initialize/optional attestation and before opening data admission. The synchronous host factory must explicitly return the exact issued key and a hook for that incarnation; a prior key is invalid. Do not copy an old closure as an automatic fallback. Reconnect invokes the factory again for a fresh key, so a host can deliberately reauthorize it, but the previous binding never survives by inheritance. Replacement objects get distinct instance tokens even if their ids and numeric epochs coincide. Registration by another connection of the same channel id conveys no admission binding.
+
+[prop] A configured entry whose transport is absent has no usable binding and cannot admit anything. Initial bind failure/missing hook fails that configured connect closed; any inbound item reaching an incomplete configured adapter is refused `admission_missing`. Runtime disconnect retains the requirement, invalidates the binding and aborts pending preflights. Replacement/reconnect must re-attest when required and rebind before use. Removing a required hook must not silently remove the requirement. An explicitly removed connection cannot admit; changing a connection from required to unconfigured is an explicit host configuration/lifecycle change, not an automatic error fallback.
+
+## 2. Verified facts at the pin
+
+| Claim | Exact pinned location | Tag |
+|---|---|---|
+| Public config contains MCPL server configurations; each server config has an id and an existing wake filter. | `src/types/framework.ts:234-235`; `src/mcpl/types.ts:227-229,455-467` | [src] |
+| Transport epoch already exists and increments while the effective grant is cleared. | `src/mcpl/server-connection.ts:452-454,526-548` | [src] |
+| Grant checks occur in emit when a plane is ready; a not-ready plane instead holds events. Required capabilities differ for all three lanes. | `src/mcpl/server-connection.ts:978-1013,1037-1039,1129-1135` | [src] |
+| Transport lines and request responders are epoch-bound, but old world events can be kept for another epoch's grant. | `src/mcpl/server-connection.ts:2374-2391,2500-2539,529-548` | [src] |
+| Live framework handlers pass connection.id; stopped-host checks precede the downstream handlers. | `src/framework.ts:29573-29595,29621-29653,29740-29748` | [src] |
+| Channel identity checks and actual `(serverId, channelId)` registration precede semantic processing. There is no additional feature-set check in this incoming loop. | `src/mcpl/channel-registry.ts:1799-1865` | [src] |
+| Coalesced content validation, tag expansion, conversion and empty-content refusal precede markAccepted. | `src/mcpl/channel-registry.ts:1865-1900` | [src] |
+| markAccepted can retarget the default reply locus and confirm channel-open state; ordinary messages call it before the wake filter. | `src/mcpl/channel-registry.ts:1910-1960` | [src] |
+| Wake filtering precedes event construction; coalescing follows it, and ordinary acceptInbound follows markAccepted and filtering. | `src/mcpl/channel-registry.ts:1958-2006,2038-2047` | [src] |
+| acceptInbound is an existing synchronous source-envelope observer, wired to note acceptance; it is not a verdict. | `src/mcpl/channel-registry.ts:944-951`; `src/framework.ts:27127-27133` | [src] |
+| The existing trigger filter is selected from the first configured callback, otherwise EventGate, then passed to both ingest handlers. | `src/framework.ts:27083-27095,27140` | [src] |
+| A push read tap runs before grant/plane admission; its host handler can record seen ids, apply hints, schedule recovery and arrange a notice. | `src/mcpl/server-connection.ts:2435-2439`; `src/mcpl/toolset-host.ts:182-218` | [src] |
+| Push framework wiring may record a toolset notice even when its push is refused. | `src/framework.ts:29583-29617` | [src] |
+| Push validates the feature set, converts content, then mutates dedup state, consults its wake filter, calls coalescing/acceptance and queues. | `src/mcpl/push-handler.ts:159-183,205-243,263-296` | [src] |
+| Feature-set validation itself reads declarations/enabled state or throws. | `src/mcpl/feature-set-manager.ts:300-325` | [src] |
+| Inference/request checks the feature set and hook loop, resolves a model, records start and calls membrane completion/streaming. | `src/mcpl/inference-router.ts:220-239,247-305,322-327` | [src] |
+| initialize sends host capabilities, checks the returned protocol version, extracts capabilities, then sends initialized. | `src/mcpl/server-connection.ts:1293-1302,1369-1395,1440-1463` | [src] |
+| Initial reconnect support specially rethrows protocol-version errors; reconnect repeats the handshake and treats protocol-version failure as permanent. | `src/mcpl/server-connection.ts:1488-1515,2054-2077` | [src] |
+| Metadata host-key stripping is shallow and logs first drops; tags is not stripped. Top-level tags overwrite nested metadata.tags only when present. | `src/framework.ts:382-385,13517-13530,13586-13599` | [src] |
+| Ordinary channel storage writes host provenance after sender metadata; pushes similarly strip origin and write their own provenance. | `src/framework.ts:13600-13618,15286-15323` | [src] |
+| Downstream channel routing can store and queue inference; push processing can lazily register a routing channel. | `src/framework.ts:13822-13847,15276-15283` | [src] |
+
+## 3. Ordering and option comparison (Q2)
+
+[prop] For configured connections, retain protocol parsing, transport identity checks and existing authorization as prerequisites. They grant no additional authority to the hook. The hard guarantee is no message-caused framework admission effects before a successful verdict. Temporary immutable input, its bounded watchdog, and a refusal response are control bookkeeping, not stored context or admitted work. No content-bearing audit row, wake, typing, status or admission notice is permitted on hook refusal. Connection-close lifecycle effects occur independently; refusal cannot undo those or previously admitted sibling effects.
+
+[prop] Strict ingress guard, before the existing push tap at `server-connection.ts:2439` and before any call that can hold the item at `:1039`:
+
+```text
+parse and identify originating instance + epoch
+  -> configured? no: exact existing dispatch path
+  -> yes: existing positive-grant authorization (read-only check)
+  -> require current instance/epoch, live transport and ready admission planes
+       not ready: refuse; do not put raw traffic into held-event queues
+  -> route with original immutable connection key; suppress early push tap
+  -> lane authorization / pure validation
+  -> per-item host preflight (or unsupported-lane refusal)
+  -> runtime verdict validation + revalidate epoch, grant, readiness and lane authority
+  -> successful admission continuation; no await between final check and its first effect
+```
+
+[prop] Early traffic on a required connection is refused rather than staged before a verdict. This is an explicit opt-in difference, needed for the literal no-pre-verdict-queue guarantee; it is not a change to unconfigured staged startup. A peer must send after readiness or retry refused traffic. Do not report these items as accepted. Original epoch must be captured at line receipt for requests AND notifications, not reconstructed from `connection.transportEpoch` at callback entry. Configured traffic must not enter the old world-event replay path across epochs (`:529-548`, `:2529-2539`). Old-origin traffic is stale, not authorized by the replacement's grant. A pending-verdict envelope is not an admitted processing queue entry.
+
+[prop] channels/incoming insertion point: retain the identity checks at `channel-registry.ts:1799-1818` and actual registration authorization at `:1834-1861`; then preflight immediately after that successful branch, before `:1863`. This is before mutation of `message.tags` at `:1896`, conversion, markAccepted, shouldTriggerInference, acceptInbound and both ordinary and coalesced delivery. Supply an immutable snapshot of the raw lane item rather than constructing a stamped queued event early. Existing content validation/conversion can still reject after the host allows; allowing is not an acceptance receipt. Recheck the exact channel-entry identity after the await: removed/replaced/retargeted authorization is stale and must be reevaluated on a fresh delivery, not applied to a captured old entry.
+
+[prop] Successful ordinary continuation: existing content checks -> markAccepted -> existing wake policy (only if allowed to wake) -> build event with private wake ceiling/opaque outputs -> existing source-envelope callback -> queue -> per-message result. Successful coalesced continuation: content checks -> capped wake policy -> coalescer -> existing accepted-first-view markAccepted semantics. A refused coalesced item never enters the coalescer, so it cannot replace, withdraw, render, store receipts or acknowledge unfinished work.
+
+[prop] push/event placement: suppress its early read tap for required connections; keep the existing pushEvents grant check first. Before `framework.ts:29586`, perform the pure feature-set validation currently inside `push-handler.ts:167`, then preflight before any toolset notice, dedup, wake filter, coalescer, source-envelope observer or processing queue. Validation may be factored/reused internally but must not invoke acceptance callbacks. Keep the stopped-host guard. Recheck the feature-set/grant after the await before continuing.
+
+[prop] In this design, pushes carrying `hints` are unsupported on a required connection: reject `admission_unsupported` after authorization and before tapping, recovery scheduling or notices. Hint-free pushes need no hint tap. This avoids inventing deferred/reordered hint semantics in this task. Merely moving preflight into PushHandler is NOT sufficient, since both the connection tap and outer framework notices precede it. If hints support is later required, it needs an explicit compatible ordering design; no allow verdict overrides this unsupported combination.
+
+[prop] inference/request placement: retain the existing inferenceRequest grant, render-loop refusal (`framework.ts:29630-29637`), stopped-host check (`:29639-29645`), pure feature-set validation and hook-loop refusal (`inference-router.ts:220-239`). Invoke preflight after those guards, before model-policy resolution (`:255`), refusal-cache mutation (`:273-274`), start/failure traces and membrane work. Treat the whole request and its messages array as one lane item, not independent authorizations for individual prompt entries. Recheck loop, authority and connection state after awaiting. `mayWake:false` refuses without resolving a model or producing chunks.
+
+| Option | Assessment | Tag |
+|---|---|---|
+| New pre-effect hook plus strict ingress guard | Recommended. Can refuse before markAccepted and preserve existing post-acceptance observers. Requires the explicit configured-only handling of transport holds and push taps above. | [prop] |
+| Extend acceptInbound in place | Too late: ordinary markAccepted already ran at `channel-registry.ts:1956`; wake filtering ran at `:1960-1980`; coalesced traffic does not take this call. Moving/changing it would break its existing source-observation contract and still miss outer push effects. | [src] |
+| Reuse shouldTriggerInference in place | Only returns a wake boolean; markAccepted already ran on ordinary channel traffic, push dedup already ran, and inference/request has no such gate. It cannot express no-store refusal, connection epoch, async timeout, stamp or opaque intent. | [src] |
+
+## 4. Failure modes and batching (Q4)
+
+[prop] Every refusal below has the same admission-effect invariant: no context row, default/open/retarget change, queue entry, coalescing mutation, acceptance observer, module dispatch, wake, typing, status, or toolset notice caused by that item. Respond with fixed codes only; never serialize exception messages, verdict objects, metadata or peer text. This invariant concerns framework admission effects, not host callback effects or unrelated concurrent work.
+
+| Condition | Required outcome | Tag |
+|---|---|---|
+| Valid refusal | channels/incoming item result `{messageId, accepted:false, reason:'admission_denied'}` or another enum refusal; continue siblings. | [prop] |
+| Hook throws/rejects, including a host validator | `admission_threw`; discard outputs; continue siblings. | [prop] |
+| Hook exceeds configured deadline | Abort signal; `admission_timeout`; ignore late resolve/reject permanently; continue siblings. Deadline includes all awaited verdict work. | [prop] |
+| Malformed verdict/optional output | `admission_invalid`; do not coerce values or accept a partial verdict. | [prop] |
+| Required hook absent, wrong-key binding or binding removed | `admission_missing` (or `admission_stale` for an obsolete installed key); never fall through to unconfigured handling. | [prop] |
+| Closed/replaced connection, changed epoch, revoked grant, changed channel-entry authority or host stop during await | Abort/discard pending verdict; refuse stale/not-ready as applicable. Do not automatically retry under a new identity. | [prop] |
+| Unsupported lane/combination or requested selected mode not granted | `admission_unsupported` / `admission_mode_ungranted`, before all effects; never erase selection and process normally. | [prop] |
+| Peer disconnects before it can receive refusal | Record the local per-item refusal result, attempt only the original epoch-bound responder if usable; no delivery to the replacement. Wire receipt cannot be guaranteed on a dead transport. | [prop] |
+
+[prop] channels/incoming remains itemwise and ordered. Allocate one result per visited item, correlated by its existing messageId; invalid identities follow the existing identity refusal. A denial, throw, malformed verdict or timeout neither authorizes siblings nor aborts the batch. Sequential evaluation bounds a bad item by one deadline; it can delay later siblings until that deadline but cannot indefinitely block them. Never memoize a successful verdict by channel id, stamp, intent or sibling result. Each fresh delivery/retry requires fresh admission; durable idempotency is not introduced here.
+
+[src] The pinned coalesced path has a separate request-level exception: an already-admitted occurrence whose acknowledgement fails can stop later processing and return a request error (`channel-registry.ts:2014-2027`). That is not a preflight refusal.
+
+[prop] Preserve that downstream exception; do not relabel already-admitted work as refused or claim rollback of earlier siblings. If the connection boundary changes during the batch, refuse all not-yet-admitted original-epoch siblings; already-admitted siblings retain their actual outcome. Lifecycle invalidation is not an atomic batch transaction.
+
+[prop] After a valid verdict, revalidation and the first admission effect share a synchronous boundary. Subsequent awaits must carry the immutable original key and the wake ceiling and respect existing lifecycle checks; the preflight contract does not promise rollback of effects committed before a later disconnect. Callback promises resolving after cancellation are drained/ignored and cannot run a continuation that admits the item.
+
+## 5. Initialize attestation (Q5)
+
+[prop] `initializeAttestation` is optional host configuration on the selected connection, not a peer opt-in. For that configuration, extract the agreed attestation from the initialize RESULT using `read`; absence (undefined), extraction failure, malformed value, timeout or `matches(...) !== true` fails connect closed. Both functions receive detached readonly data, have bounded execution, and may not mutate framework state. Do not treat a capability advertisement, tags, a connection id, or a previous epoch's proof as equivalent evidence.
+
+[prop] Placement: after the initialize error/protocol-version rejection at `server-connection.ts:1354-1385` succeeds, but before resolving capabilities at `:1391`, before `notifications/initialized` at `:1441`, before returning a usable connection and before binding/opening admission. The host and peer must already agree where the attestation is carried in the initialize exchange. The framework imposes no universal attestation wire key here and never searches arbitrary metadata for it.
+
+[prop] Introduce a typed terminal attestation-connect failure with a fixed message/code such as `initialize_attestation_refused`. It quotes no peer value, expected secret, exception, serialized result, stderr tail or diagnostic attachment from the peer. Preserve its classification through handshake-cleanup wrappers. Reuse the transport-close/reap cleanup path (`:1464-1473`); a failed cleanup still owns the resource and must not start another launch beside it.
+
+[prop] Protocol refusal remains first and retains its existing separate error semantics; attestation success never excuses a protocol mismatch. On a configured attestation mismatch/absence, `connectWithReconnect` must throw rather than return the disconnected retry stub at `:1511`; treat attestation refusal as terminal alongside protocol refusal at `:1502`. Reconnect reruns initialize and attestation (`:2056`), clears any old binding, and treats attestation refusal as permanent in the `:2072-2077` path. No usable connection, default degraded mode or data-plane opening results. A later explicit host reconnect/configuration correction can try again. Ordinary transport outage retry remains a separate lifecycle policy; it never permits traffic without fresh attestation and binding.
+
+[open] Attestation format, cryptographic verification/freshness, peer identity binding and any host offer/challenge belong to the agreed host/peer contract. Equality of a self-asserted token alone is not cryptographic peer authentication. This design does not verify an external peer implementation or prescribe a new protocol extension encoding. Only the configured expectation's local fail-closed placement is recommended here.
+
+## 6. Metadata and normalized stamps (Q6)
+
+[src] At this pin, HOST_METADATA_KEYS strips `system`, `kind`, `draftOwner`, `draftIds`, `tuneOut`, `coalescingSubject`, `firstView`, `deferredWriteId`, `external`, `openaiResponsesItems`, the imported STORED_INJECTION_KEY, and `primaryIfUnread` (`framework.ts:382-385,357`; the imported key is `contextInjection` at `src/stored-injections.ts:35`). `withoutHostKeys` is a shallow copy/delete with first-drop logging (`framework.ts:13517-13530`), not a recursive sanitization or a trust attestation.
+
+[src] `tags` is not stripped. For channels, sender `metadata.tags` survives the initial spread when top-level event.tags is absent; top-level tags replace it only when supplied (`framework.ts:13586-13599`). Push origin has the analogous conditional spread (`:15286-15296`). Existing provenance is overwritten later with the host's source envelope (`:13600-13618`, `:15306-15323`); an untrusted metadata key is not proof of admission.
+
+[prop] Give the hook the untrusted event snapshot BEFORE ANY admission stamp, source-envelope acceptance observation, normalized host tags or acceptedAt field is written. Top-level protocol tags and nested metadata.tags/origin.tags are separate untrusted inputs. A normalized/pure view may be provided in a later adapter, but it must not label sender tags as trusted or call the logging `withoutHostKeys` helper before the verdict just to obtain that view.
+
+[prop] Never extract a trusted admission stamp or reply intent from raw metadata, including nested tags. Preserve raw inputs as evidence for host policy, not as authority. The host may normalize them and return an explicit validated stamp/intent in its verdict; the trust comes from that return channel and current connection binding, not from identical bytes appearing in sender metadata.
+
+[prop] After verdict validation and final connection revalidation, put the normalized stamp in a framework-private admitted envelope. At eventual storage, remove any sender value at the future reserved host-only stamp location, spread sanitized sender metadata first, then assign the envelope's stamp last. Extend host-key reservation at that location for configured handling; do not spread arbitrary stamp properties into metadata. Carry the private envelope through ordinary and coalesced paths so it cannot be replaced by a raw queued metadata field. A refusal attaches nothing. No stamp is manufactured on the unconfigured legacy path.
+
+[open] The stamp's wire/storage spelling and schema are deliberately not chosen. Reservation/collision rules must be settled before an implementation exposing it. Do not globally delete or reinterpret nested tags as a shortcut; that would change the no-hook path and decide delivery-mode encoding implicitly.
+
+## 7. Lane matrix (Q7)
+
+| Lane | Proposed coverage on a required connection | Refusal / unsupported handling | Tag |
+|---|---|---|---|
+| channels/incoming, ordinary and coalesced | One preflight per message, after registration authorization, before semantic/effectful work. `store:true` permits existing admission; mayWake caps every wake. | Fixed reason in that message's result, siblings continue. No coalescing call on refusal. | [prop] |
+| push/event, hint-free, ordinary and coalesced | One preflight per push after grant + enabled feature validation, before dedup/outer notices/handler effects. Preserve the original connection identity even for notifications. | Request returns `{accepted:false, reason:<fixed code>}` for admission refusal; notification has no wire receipt and is locally refused without application status. Existing authorization error forms remain distinct. | [prop] |
+| push/event carrying hints | Not supported under strict required admission in this design, because the pinned read tap acts before the verdict. | Reject before the tap, hint dedup/recovery or notices. No stripping hints and normal delivery; no callback can override this. | [prop] |
+| inference/request | One preflight for the request after authorization/loop guards. `store:true, mayWake:true` permits existing router behavior, not context storage. | JSON-RPC refusal via `respondError(-32600, fixedRefusalCode)` with no content-bearing data; false mayWake, unsupported delivery mode or any failure starts no inference and sends no chunks/status. | [prop] |
+| Any lane without required protocol capability / declared enabled feature where applicable | Existing authorization stays first; the hook cannot grant it. | Existing authorization refusal, not a host verdict that authorizes the request. | [prop] |
+| Any recognized selected delivery mode not implemented or not granted on that lane | No new selected mode is implemented by this design. Future lane adapters must expose recognized selection to an early support/grant check. | Reject before all effects; never remove the selector and fall back to ordinary handling. Inference/request cannot honor context-only ingestion. | [prop] |
+
+[open] Detection/encoding/negotiation of a future selected mode is not decided. Until an agreed selector exists, arbitrary unknown legacy metadata is not assumed to be such a request. Any future selector adapter must reject recognized unsupported/ungranted selections before mutation and must not advertise support it cannot honor. This design does not claim it can detect an unspecified wire encoding.
+
+## 8. Extension points, not decisions (Q8)
+
+- [prop] Generic context-only mode: an early lane support/authorization adapter would feed a future normalized internal delivery plan after admission but before markAccepted and all other effects. This is a separate policy from mayWake:false: suppressing inference alone does not currently suppress markAccepted/default changes. No context-only effect bundle or wire encoding is defined here.
+- [open] Legacy host-verdict translation: a host adapter can later translate its legacy verdict into that normalized plan before preflight success. Which legacy values mean context-only, and how they combine with store/wake/reply intent, remain undecided. No special legacy vocabulary enters the framework in this task.
+- [prop] Thread-aware replies: the opaque intent slot can reach a later host destination resolver. That resolver would plug in before publish dispatch; it must not reinterpret sender metadata as authority.
+- [open] Thread destination representation/transport on publish, explicit-send policy and all outbound policy remain undecided. Existing threadId carriage is not a proposal for new transport behavior.
+- [prop] Durable admitted-work recovery: a later extension could place a durable admission/intent boundary after successful preflight and before acceptance acknowledgement, then reconcile admitted-but-unfinished work on startup. The connection key and opaque intent can be inputs to that future boundary without being its storage design.
+- [open] Durable store, ownership, transaction/acknowledgement ordering, crash idempotency, retention and replay authorization are not chosen. This proposal alone does not make an opaque intent durable or guarantee completion across restart. No new recovery implementation is authorized here.
+
+## 9. Compatibility argument and later test outline (Q9)
+
+[prop] Compatibility construction: branch on the explicit required configuration before introducing async preflight, changes to tap/hold behavior, metadata reservation or new failures. When absent, call precisely the existing path; do not emulate it through a default allow verdict. Do not add a Promise yield, stamp, wake-ceiling rewrite, extra gate call or new callback on that branch. Per-connection selection must not replace the pin's existing global trigger-filter behavior on any unconfigured connection.
+
+[src] Source-bounded traces for that branch:
+
+- channels/incoming: connection dispatch/grant/holding stays at `server-connection.ts:978-1039,2490-2497`; stopped-host handling and connection.id forwarding stay at `framework.ts:29740-29748`; registry identity/registration/content checks remain `channel-registry.ts:1799-1900`; ordinary markAccepted remains `:1910-1956`, followed by wake filter `:1958-1980`, event construction `:1983-1997`, source callback/queue/results `:2038-2057`. Coalesced behavior remains `:1999-2035`, including its downstream acknowledgement-failure exception. Metadata/tags/source processing remains `framework.ts:13586-13618`.
+- push/event: its existing pre-grant tap remains `server-connection.ts:2435-2439`; existing grant/holding remains `:978-1039`; outer stopped-host/toolset-notice logic remains `framework.ts:29573-29617`; feature checks, conversion/dedup, wake callback, coalescing or source callback, queue and response remain `push-handler.ts:159-296`. Downstream lazy channel registration and metadata remain `framework.ts:15276-15323`. This explicitly preserves existing hint effects even for a subsequently refused unconfigured push.
+- inference/request: existing inferenceRequest capability admission remains `server-connection.ts:1129-1135,1003-1013`; render/stopped-host/router forwarding remains `framework.ts:29621-29653`; feature/loop checks, routing and inference/response remain `inference-router.ts:220-363`. No new context storage is inserted.
+- handshake/reconnect without an expectation or required admission: initialize/protocol/capability/initialized ordering remains `server-connection.ts:1293-1463`; the retry-stub behavior remains `:1488-1515`; reconnect grant reset/reopening and old world-event retention remain `:2054-2120,529-548`.
+
+[prop] This is an argument from the cited pinned source about how an implementation should preserve framework admission effects and ordering, not a proof of runtime equivalence. It does not promise that arbitrary host code has no external effects. Callbacks must be bounded, operate only on detached immutable arguments, avoid framework mutation/reentrancy, and use fixed-code failures. Do not pass a registry, framework instance, mutable responder, store or queue to the hook. The host remains responsible for closure-captured capabilities, network/database/logging effects, secret handling, resource use and cancellation cooperation. A JavaScript timer cannot preempt a synchronous infinite loop; a Promise timeout cannot undo an external write. Such callbacks require host isolation/supervision if stronger containment is needed.
+
+[prop] Later implementation tests (proposed names; not run in this design task):
+
+1. `no_hook_all_lanes_pinned_order`: compare ordered spies/results/state snapshots for ordinary/coalesced channels and pushes, hints, inference completion/refusal/streaming, stopped host, paused startup and reconnect; prove no extra callback, async boundary, stamp or gate and unchanged nested-tags behavior.
+2. `admission_before_every_channel_effect`: refusal/throw/timeout/malformed/missing-hook matrix, ordinary and coalesced; assert no default/thread/open changes, no row/fork, observer, queue, gate, module, coalescer receipt/render, inference, typing or status.
+3. `batch_isolation_and_deadline`: allow/refuse/throw/timeout/allow siblings; item-correlated results, ordered bounded progress and no inherited authorization; cover existing admitted-acknowledgement-failure request exception separately.
+4. `wake_ceiling_never_promotes`: cross product of existing gate true/false and verdict true/false; test downstream routing, auxiliary/tune-out processing, coalesced corrections and queued delivery. False never schedules inference; true never overrides a veto. Verify false ceiling skips wake-policy callbacks.
+5. `binding_is_instance_and_epoch_scoped`: identical channel ids on two connections, identical numeric epochs on replacements, reconnect with/without fresh binder, missing binding and disconnection; no old-hook/stamp/intent inheritance.
+6. `awaited_verdict_invalidated`: close, reconnect, replace entry, revoke grant, remove hook or stop during await; late success/rejection cannot admit, retarget or answer on replacement transport; original-epoch siblings are refused.
+7. `required_ingress_never_holds_or_replays`: required traffic before readiness is refused without buffer admission; late old-world traffic never enters new-epoch admission; unconfigured holding/replay stays unchanged.
+8. `push_preflight_precedes_dedup_and_notice`: denied hint-free event does not burn eventId or record notices; successful retry is possible. Hint-bearing required push is refused before read tap, seen-id updates, recovery, notice or queue. Authorization remains first.
+9. `inference_admission_before_routing`: denial/false mayWake/timeout/missing binding and unsupported selected modes never resolve a model, mutate refusal cache, emit inference-start, call membrane, stream or send status; authorized allow retains existing model/loop/feature refusals.
+10. `attestation_initialize_and_reconnect`: matching/absent/malformed/mismatch/throw/timeout; verify before initialized/usable connection, terminal initial and reconnect failure, cleanup ownership and fixed content-free errors; protocol mismatch wins and no-expectation behavior is unchanged.
+11. `untrusted_metadata_cannot_stamp`: forge every host key, raw/nested tags, future reserved stamp and intent; hook sees pre-stamp raw claims; only validated host outputs survive as trusted outputs. Test no top-level tags, empty top-level tags, ordinary/coalesced paths and immutable input/return validation.
+12. `unsupported_selection_never_falls_back`: once a selector adapter is specified, every supported/unsupported/ungranted lane combination; selector is never stripped into normal handling. Keep this test pending that separate wire decision, not guessed now.
+13. `production_transport_admission_probe`: later integration probe over actual supported transports with real registry/push/router wiring, not direct handler calls; observe refusal results plus stores, default/open state, queues, toolset effects and outgoing typing/status/chunks across a reconnect race. Include no-hook controls.
+
+## 10. Open questions and risks
+
+[open] Independent review and design-owner approval are required before implementation; neither is claimed here. No implementation task or source modification is supplied.
+
+[open] The strict configured ingress policy intentionally refuses pre-ready traffic and hint-bearing pushes and prevents old-epoch replay. These are necessary explicit limitations of this recommendation, not properties already offered by the pin. Hosts/peers that rely on staged delivery, watermark-based forwarding or hinted pushes need owner review before opting in. Supporting those combinations without weakening the guarantee needs another explicit design, not a silent fallback or broader refactor.
+
+[open] Callback timeout values/maximum pending count, overload refusal and connection-level fairness need operational sizing before implementation. Each item has a finite deadline, but a large batch can still delay siblings by multiple deadlines. Bounded in-flight resource bookkeeping must never become an unbounded admitted-work queue.
+
+[open] This investigation verified the cited legacy MCPL paths only. It did not verify a modern transport implementation, every module/auxiliary scheduling path, an actual host callback, a peer's attestation implementation, runtime timing or restart behavior. A future implementation must either cover each additional ingress/dispatch path with the same ceiling and preflight contract or reject required admission on it before connect; unsupported must never mean unguarded. The test outline is not a receipt that these invariants already hold.
+
+[open] Remaining non-goals are unchanged: new delivery-mode wire encoding, legacy translation, durable intent/recovery ownership, publish thread transport, explicit-send policy and connector-specific behavior. This document makes no decisions about them. Stamp naming/schema and an agreed attestation protocol also remain unresolved; raw metadata is never a substitute for resolving those contracts.
+===== END =====
+#+end_example
