@@ -127,3 +127,35 @@ Re-scope inputs to carry (from the brief author): classify each site (SDK diagno
 :END:
 
 Split inputs (brief author, agreed by manager), pending the owner's answer on the 4-part split: per-part legacy omitted/false/null controls for the files each part touches, repeated end-to-end in the last part; one primitive, and before the framework/helper part state how each site obtains the strict configuration registry (optional parameter, absent for non-strict); any global site without per-server configuration is flagged as a decision; dial part requires the structured upgrade status on both engines (no message parsing), connection-failed when absent, Bun request abort() not destroy(); leak tests red-then-green; per-part file lists and line estimates replace the single 8-file/600-line ceiling, stop-and-ask outside them; each brief opens with: no strict-mode guarantee or rollout claim until the last part passes review.
+
+* tx-20261027-theaspirationalagent-6c945fd2-b4ef-466d-af96-9bdd76ab85e8 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-6c945fd2-b4ef-466d-af96-9bdd76ab85e8
+:TIME:    [2026-10-27 Tue 22:38:26]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 7a5cebd3-741f-4671-bd61-395d5548766d
+:END:
+
+Owner decision: scope narrowed. This task now covers only: five fixed codes (401/403 credential-unusable, all else connection-failed, abort documented as cancelled), 32-character strict minimum, structured upgrade status on both engines, strict redaction only in the ops webhook and failures.log, plus documentation of the known local console/trace limit. Other diagnostic redaction, catalogue admission and drift guard are parked. The PR description explains the history and the original need (token out of the URL; fail-closed instead of static-token fallback). A new brief will follow; push/PR need the owner's go.
+
+* tx-20261027-theaspirationalagent-a7cd8b64-78ff-4203-8746-c833363fba29 comment
+:PROPERTIES:
+:TX_ID:   tx-20261027-theaspirationalagent-a7cd8b64-78ff-4203-8746-c833363fba29
+:TIME:    [2026-10-27 Tue 22:38:38]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 183bec09-0d86-4292-930e-db149d7bf79a
+:END:
+
+PR description rule from the owner: do not name orgasmic or any of our products, hosts or agents; describe the problem in general terms (an MCPL server that requires a per-client token; a query-string token stopgap; tokens leaking into URLs and proxy logs; header auth already upstream; fail-open fallback).
