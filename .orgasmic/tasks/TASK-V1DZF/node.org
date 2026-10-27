@@ -1,0 +1,13 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-V1DZF
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-V1DZF Strict fail-closed credential provider for MCPL WebSocket servers (opt-in)
+:PROPERTIES:
+:UID: c9421c1e-ba41-5208-86f2-9e57d228a7b4
+:ID: TASK-V1DZF
+:PRIORITY: P1
+:END:
+
+** Description
+Implementation on a local branch. Full brief = dispatch brief (sha256 59e9946ac1c64b8280afaa08c0e6227f85c90d4a9a190513bcdab0ae5a354290). Base: upstream commit 4976c67d5c7916a15046c627b68913994c33b3cb. This ledger is PUBLIC. No push.
