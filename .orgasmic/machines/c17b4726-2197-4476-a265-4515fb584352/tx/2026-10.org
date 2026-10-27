@@ -2022,3 +2022,19 @@
 :PREVIOUS_TIER: risky
 :EVENT_ID:     0f8f0993-fe5a-4700-87d1-d1acfb6fdf2b
 :END:
+
+* TX 2026-10-27 Tue 08:15:02 run.asked TASK-T2F13
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-8bc1829c-4d38-4b53-9cef-cb2191bad941
+:TIME:         [2026-10-27 Tue 08:15:02]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-T2F13
+:REASON:       Acquisition audit found npm 10.9.9 automatically requested public npm package metadata for its update notifier (GET https://registry.npmjs.org/npm), beyond the declared dependency resolution. No credentials/private/non-registry sources were used and nothing was reinstalled. This is a deviation from the declared-dependencies-only boundary. Should the current evidence be rejected and the task restarted with --no-update-notifier, or may the current same-tree evidence be retained with this deviation explicitly recorded?
+:RUN_ID:       run-01M5Y5Q4AZY1EJHWRTPE2XHKC1
+:ASK_ID:       ask-a19854cfb5d64d9c93c67ff9c814b5a9
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     6ae3caa4-d7b5-41e2-808b-020f2e525eb3
+:END:
