@@ -1,0 +1,25 @@
+{
+  "event_count": 982,
+  "tool_call_count": 110,
+  "unparsed_events": 0,
+  "bounded_events": 14,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-V1DZF-implementer-20261027T023034-run-01M5XK3XDQG861J31R4VFWZ1MJ.jsonl",
+    "size_bytes": 1519435
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/27/rollout-2026-10-27T02-07-17-01a17b1c-a6ab-7260-ab3a-7212679a98c3.jsonl",
+    "session_id": "01a17b1c-a6ab-7260-ab3a-7212679a98c3",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "“Fix round for TASK-V1DZF.” You’ve asked me to fix strict credential leaks in metadata displays and notices, snapshot dial settings before awaiting the provider, add production-path tests on both engines, and clarify the engine-pin and retention costs in README.The review probes reproduce both issues on Node and Bun. I’ll redact copies at the listing, notice-queue, and trace boundaries, leaving routable tool identifiers unchanged. For strict dials, I’ll capture and validate the endpoint and header policy before calling the provider, while keeping credential redaction tied to the original configuration.The fixes and new tests pass on both engines. The tests verify that current and rotated credentials are absent from listings, queued notices, traces, and metadata diagnostics, while the original tool names still route successfully. They also confirm that provider-wait mutations cannot change the validated endpoint or header policy. I’ve committed the metadata fix, dial snapshot, and documentation separately and am running the final full gates on that clean commit.The full suite found three regressions: a WebSocket diagnostic lost its server ID when an existing test constructed the transport directly, and two partial-framework tests lack an iterable config map. I’m correcting those compatibility cases, then rerunning the affected tests and the full gates.Final gates passed at `1da0c9ff`: the full suite reports 7,855 passed, 45 skipped, and zero failures. Build, typecheck, both-engine focused tests, and the 125-test compatibility gate are green. The worktree is clean; no reinstall or push occurred. I’m submitting the fix report and stopping.The addenda require a full sink inventory, including model-facing catalogues and toolsets; withholding credential-bearing tool entries rather than exposing their routable names through masked displays; explicit documentation of display versus callable names; and tests that mutate every captured dial setting during the provider wait. I’ll add that coverage, separate SDK-controlled metadata from unchanged tool-result payloads, and update the report.I confirmed the additional gap: display masking alone left credential-bearing entries in model tool definitions and dynamic toolset catalogues. Strict mode now withholds those entries with a fixed `metadata-credential` diagnostic before catalogue admission, while leaving benign tool names unchanged. The expanded tests cover model-facing definitions, toolset listings and persisted notices, console/file/trace/webhook serialization, and the boundary where application payloads remain unmodified.The expanded final gates are green at `fb4c3329`: 7,860 passed, 45 skipped, zero failures. All 46 focused tests pass on both Node and Bun. The report includes both manager addenda, the sink inventory and exclusions, withholding and placeholder semantics, and the dial-mutation matrix. No reinstall or push occurred; I’m submitting the final report."
+    }
+  ],
+  "narrative_truncated": false
+}
