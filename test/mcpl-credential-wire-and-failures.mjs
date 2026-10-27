@@ -4,16 +4,36 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import { once } from 'node:events';
 import { writeFileSync } from 'node:fs';
-import { WebSocketServer } from 'ws';
+import net from 'node:net';
+import { createHash } from 'node:crypto';
 import { WebSocketTransport } from '../src/mcpl/transport.ts';
 const output = process.env.T2F13_ARTIFACT; assert.ok(output);
 const raw = []; const normalized = []; const logs = []; const failures = {};
 const originalError = console.error;
 console.error = (...args) => logs.push(args.map(String).join(' '));
-const wss = new WebSocketServer({ host: '127.0.0.1', port: 0 });
-const requestList = [];
-wss.on('connection', (_ws, req) => requestList.push(req));
-await once(wss, 'listening');
+const requestList = []; const wireSockets = new Set();
+// Raw server: retain actual incoming bytes, including all header whitespace,
+// order and casing; delay the FIRST response to observe any premature frames.
+const wss = net.createServer(socket => {
+  wireSockets.add(socket); socket.on('close', () => wireSockets.delete(socket));
+  let incoming = Buffer.alloc(0), responding = false, scheduled = false;
+  socket.on('data', chunk => {
+    if (responding) { socket.end(Buffer.from([0x88, 0x00])); return; }
+    incoming = Buffer.concat([incoming, chunk]);
+    const end = incoming.indexOf('\r\n\r\n');
+    if (end < 0 || scheduled) return;
+    scheduled = true;
+    setTimeout(() => {
+      const bytes = incoming.subarray(0, end + 4).toString('latin1');
+      requestList.push({ bytes, preResponse: incoming.subarray(end + 4).toString('hex') });
+      const key = bytes.match(/^Sec-WebSocket-Key: ([^\r]+)\r$/im)[1];
+      const accept = createHash('sha1').update(key + '258EAFA5-E914-47DA-95CA-C5AB0DC85B11').digest('base64');
+      responding = true;
+      socket.write(`HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: ${accept}\r\n\r\n`);
+    }, 20);
+  });
+});
+wss.listen(0, '127.0.0.1'); await once(wss, 'listening');
 const server = http.createServer(); const held = new Set();
 server.on('upgrade', (req, socket) => {
   held.add(socket); socket.on('close', () => held.delete(socket));
@@ -47,12 +67,12 @@ try {
       } };
     const t = await WebSocketTransport.open(c); await t.close();
     const request = requestList.at(-1);
-    const bytes = fixedPorts(`${request.method} ${request.url} HTTP/${request.httpVersion}\r\n` +
-      Array.from({ length: request.rawHeaders.length / 2 }, (_, i) => `${request.rawHeaders[2*i]}: ${request.rawHeaders[2*i+1]}\r\n`).join('') + '\r\n');
-    raw.push({ mode, result, bytes });
-    // Keep the random key verbatim in raw. The manager decides whether its
-    // explicit exclusion is sufficient for C(2); no production client is replaced.
-    normalized.push({ mode, result, bytes: bytes.replace(/^(Sec-WebSocket-Key: )[^\r]+/im, '$1<RANDOM-HANDSHAKE-KEY>') });
+    const bytes = fixedPorts(request.bytes);
+    assert.equal(request.preResponse, '', 'no frames before the first server response');
+    raw.push({ mode, result, bytes, preResponse: request.preResponse });
+    // Manager-approved C(2) exception: normalize ONLY this random value.
+    // Retain it verbatim in raw; no production client is replaced or wrapped.
+    normalized.push({ mode, result, preResponse: request.preResponse, bytes: bytes.replace(/^(Sec-WebSocket-Key: )[^\r]+/im, '$1<RANDOM-HANDSHAKE-KEY>') });
   }
   const base = { id: 'legacy', url: `ws://127.0.0.1:${server.address().port}/mcpl` };
   await fails('refused', base);
@@ -74,7 +94,7 @@ try {
 } finally {
   console.error = originalError;
   for (const socket of held) socket.destroy();
-  for (const ws of wss.clients) ws.terminate();
+  for (const socket of wireSockets) socket.destroy();
   await new Promise(r => server.close(r)); await new Promise(r => wss.close(r));
 }
 console.log('legacy wire and failure receipts captured');

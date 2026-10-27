@@ -24,12 +24,18 @@ for (const engine of ['node', 'bun']) {
     behaviorHashes[engine][part] = [sha(JSON.stringify(before[part])), sha(JSON.stringify(after[part]))];
   }
   assert.equal(before.raw.length, 8); assert.equal(after.raw.length, 8);
+  const fresh = new Set();
   for (let i = 0; i < before.raw.length; i++) {
     const a = before.raw[i].bytes, b = after.raw[i].bytes;
     const key = /^Sec-WebSocket-Key: ([^\r]+)\r$/im;
-    assert.equal(Buffer.from(a.match(key)[1], 'base64').length, 16);
-    assert.equal(Buffer.from(b.match(key)[1], 'base64').length, 16);
-    assert.equal(a.replace(key, ''), b.replace(key, ''), 'only random handshake key may differ');
+    for (const bytes of [a, b]) {
+      const value = bytes.match(key)[1], decoded = Buffer.from(value, 'base64');
+      assert.equal(decoded.length, 16); assert.equal(decoded.toString('base64'), value);
+      assert.ok(!fresh.has(value), 'fresh random handshake key on every dial'); fresh.add(value);
+    }
+    assert.equal(before.raw[i].preResponse, ''); assert.equal(after.raw[i].preResponse, '');
+    const onlyValue = /^(Sec-WebSocket-Key: )[^\r]+/im;
+    assert.equal(a.replace(onlyValue, '$1<RANDOM-HANDSHAKE-KEY>'), b.replace(onlyValue, '$1<RANDOM-HANDSHAKE-KEY>'), 'only random handshake key VALUE may differ');
   }
   function outcomes(phase) {
     const text = readFileSync(join(dir, `${phase}-credentials-${engine}-wrapper.log`), 'utf8');
