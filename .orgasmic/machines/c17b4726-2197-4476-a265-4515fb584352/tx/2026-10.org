@@ -850,3 +850,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     95840f56-d2b8-4a07-b409-b432789517f3
 :END:
+
+
+* TX 2026-10-27 Tue 03:31:39 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-d9444568-6c97-44ad-82f9-2388bc821f0d
+:TIME:         [2026-10-27 Tue 03:31:39]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Manager follow-up (lead questions; acknowledge by content): (1) Is non-strict (flag unset) behaviour proven byte-for-byte unchanged PER SHARED SINK (traces, console, failures.log, webhook serialization, tool catalogue, notices), or only via unset controls 39/42? Probe each shared sink with flag unset against base behaviour. (2) With no minimum strict credential length, can a short credential make a server unusable or hide ordinary tool names (over-withholding)? Quantify, classify, and recommend whether a minimum length is needed (owner decision). (3) When a tool is withheld: does the diagnostic reach the operator beyond traces (listings, failures.log, error to host), and does the tool return after a rotation that makes it safe (re-list on reconnect)?
+:RUN_ID:       run-01M5XPJ3KRCG9X4V9ZA3W2XGR9
+:MESSAGE_ID:   msg-92c41d7b8cec4c4190c210f5a877a861
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     4f429139-c230-4a83-8f93-dfd8cb4d27d5
+:END:
