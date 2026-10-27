@@ -638,3 +638,20 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     ab47fe9c-7394-4aad-aef2-2278965cca88
 :END:
+
+* TX 2026-10-27 Tue 02:31:28 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-71303b4a-1277-44f2-83f6-cfc91fadff18
+:TIME:         [2026-10-27 Tue 02:31:28]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Manager addendum to this fix round (acknowledge by content in your report): (1) Treat the HIGH as a SINK INVENTORY: list every SDK-owned display/diagnostic sink that can carry server-supplied names or metadata (listMcplServers toolClasses, the new-tools notice, process:received and every other trace/log/listing/notice), state which you covered and which you deliberately left (with reason), and add a production-path probe per covered sink on both engines. (2) Since routable names are not rewritten, state exactly what a masked display name means for the model/operator and how the difference from the callable name is signalled. (3) Snapshot EVERYTHING the dial uses before awaiting the provider (token transport, url, credentialRequired flag, provider reference, headers policy) and add a test that mutates each during the await.
+:RUN_ID:       run-01M5XK3XDQG861J31R4VFWZ1MJ
+:MESSAGE_ID:   msg-b2fd1659ec1f4c7baf16dc91ce7062d5
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     b36ca99f-9e71-4b52-b2e4-3d0c5529afdc
+:END:
