@@ -1345,3 +1345,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     1e8f67c3-7f09-4dde-84d9-babc6f18e28c
 :END:
+
+
+* TX 2026-10-27 Tue 04:33:12 run.message TASK-V1DZF
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-51d5dce3-10b1-4d46-9426-959b46eb2ad5
+:TIME:         [2026-10-27 Tue 04:33:12]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-V1DZF
+:REASON:       Manager addendum (acknowledge by content): add a MECHANICAL closure test. It enumerates (by source scan of the strict-reachable files in src/mcpl and the MCPL paths of src/framework.ts) every `new Error(`/`new <X>Error(`/`throw`/`console.*`/trace-or-event-emit/notifyOps/failures-log write site, and fails if a site is neither routed through the strict choke point nor listed in a reviewed allowlist file with a one-line reason. Commit the allowlist. 'Class closed' then means: no unlisted site. Report the allowlist entries and their reasons.
+:RUN_ID:       run-01M5XT37CK8M493G9ADZPXMNTM
+:MESSAGE_ID:   msg-640e9c2da9b24d6690aac67e4b077fd5
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     b18bdefa-3c53-4684-9533-8bee7894a44e
+:END:
