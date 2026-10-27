@@ -2636,3 +2636,20 @@
 :DELIVERY:     queued
 :EVENT_ID:     a6d862a4-6d3f-4a87-8747-84f0eb2d0d18
 :END:
+
+* TX 2026-10-27 Tue 08:58:32 run.message TASK-T2F13
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-771c0682-b483-45ca-a6fa-7a2ec859aef0
+:TIME:         [2026-10-27 Tue 08:58:32]
+:TYPE:         run.message
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-T2F13
+:REASON:       handed to the worker by its finalize
+:RUN_ID:       run-01M5Y8XTPJ0N6V8PNAH6KMGFZY
+:MESSAGE_ID:   msg-7d8f1421eb644296bb5b26d02ede0f19
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     674630be-6dd6-47c8-92d5-05c9d7f10396
+:END:
