@@ -1959,3 +1959,19 @@
 :TRIGGERS:     priority, blast_radius
 :EVENT_ID:     503c875f-3ccf-45d5-a2f9-58627df4fc29
 :END:
+
+* TX 2026-10-27 Tue 08:03:09 run.asked TASK-T2F13
+:PROPERTIES:
+:TX_ID:        tx-20261027-theaspirationalagent-fd9a48e0-4e09-4f94-8d55-3265941acf45
+:TIME:         [2026-10-27 Tue 08:03:09]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-T2F13
+:REASON:       Acceptance C(2) requests byte-identical WebSocket requests. Both native Bun and npm ws generate a fresh Sec-WebSocket-Key per handshake; Bun does not expose a deterministic RNG for it. May C(2) compare the raw request target and all credential-bearing headers byte-for-byte, while separately asserting the random Sec-WebSocket-Key is the only remaining wire difference (rather than replacing/wrapping the production WebSocket client)?
+:RUN_ID:       run-01M5Y5Q4AZY1EJHWRTPE2XHKC1
+:ASK_ID:       ask-cbacff19e48c416d9550b4bba606cd36
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     21d2b2b0-9614-45ed-aeff-d397dfa2caf5
+:END:
