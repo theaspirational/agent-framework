@@ -1,0 +1,20 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-EW3VV
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-EW3VV WO-1a part 2: five codes, 32-char floor, strict diagnostic redaction
+:PROPERTIES:
+:UID: bf6770e5-40a3-5b52-8042-580f188952ee
+:ID: TASK-EW3VV
+:PRIORITY: P1
+:END:
+
+** Description
+WO-1a part 2 of the strict MCPL WebSocket credential rebuild: five fixed error codes (adds connection-failed), a 32-character minimum credential length in strict mode, and redaction of the SDK's own diagnostics for strict configurations. Starts from part 1 (commit 112bc593464315a9531b6af6d00d9d2368985daa, branch wo1a-part1-strict-dial). Parent plan and owner decisions are tracked privately.
+The full worker brief is the dispatch brief (v4, 33,828 bytes, sha256 baa5ab4abfb666f3e65d29bc9529b17ec8b6553d2aebcaf2479225c0663c7ee9).
+
+** Constraints
+Local branch only; no push, PR, tag, version bump or publish. Parts 3 and 4 are out of scope. Synthetic data and loopback only.
+
+** Acceptance
+Per the brief (acceptance A-G), then an independent review; push only on the owner's separate approval.
