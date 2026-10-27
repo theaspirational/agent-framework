@@ -34,7 +34,7 @@ for (const engine of ['node', 'bun']) {
   function outcomes(phase) {
     const text = readFileSync(join(dir, `${phase}-credentials-${engine}-wrapper.log`), 'utf8');
     const results = new Map();
-    const regex = engine === 'node' ? /^(not )?ok \d+ - (.*)$/gm : /^\((pass|fail)\) (.*?) \[[^\]]+\]$/gm;
+    const regex = engine === 'node' ? /^(not )?ok \d+ - (.*)$/gm : /^\((pass|fail)\) (.*?)(?: \[[^\]\n]+\])?$/gm;
     for (const match of text.matchAll(regex)) results.set(match[2], engine === 'node' ? !match[1] : match[1] === 'pass');
     return results;
   }
