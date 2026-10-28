@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-0JD5W
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-5GAY8
+:PROPERTIES:
+:UID: b580a268-64be-5e18-be38-cee5117f1643
+:ID: CONV-0JD5W
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-5gay8
+:RUNS:  run-01M60QQ26XEZZDF98HMWEX5VNV
+:CREATED_AT: 2026-10-28T07:48:39Z
+:END:
