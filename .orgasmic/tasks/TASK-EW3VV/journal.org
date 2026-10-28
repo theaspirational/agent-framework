@@ -392,3 +392,20 @@ Additions to fix round 2 (acknowledge in one sentence before continuing): (1) Fi
 
 Mirror of manager answer to ask-646397cb93104ff0bbc70f769d72dc2f:
 Manager answer: (a) YES to detached/withheld exports for accessor/custom-hook diagnostic objects (toJSON, toString, getters) in strict-active sets, including mixed: only failures.log and the ops webhook may differ, and only for such objects; ordinary data, trace bytes and every other sink stay as base; document it and test it explicitly, not normalized away. (b) NO to suppressing the throw. In a strict-active set: build the projection first; run legacy preparation as before; if it succeeds, proceed exactly as now (same order); if it throws, write the two exports from the projection and then rethrow the ORIGINAL exception unchanged (same object), so the only difference is that the two sinks are written. Never-strict sets: original throw and formatting, unchanged. Tests: top-level details accessor and Error message accessor in strict-active and in never-strict sets, asserting both the sink writes and the identical propagated exception. Quote back in one sentence; also acknowledge my earlier queued message on this run.
+
+* tx-20261028-theaspirationalagent-741c20fc-7a2f-47e0-adc9-0fff0411d5c3 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-741c20fc-7a2f-47e0-adc9-0fff0411d5c3
+:TIME:    [2026-10-28 Wed 01:29:00]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 01ccb4f3-3601-4639-b3a3-2f91d567480a
+:END:
+
+Mirror of clarification to ask-646397cb:
+Clarifications to my answer on ask-646397cb (acknowledge in one sentence): the hook/accessor withholding is a SECOND named intentional difference in the two sinks (besides union redaction). (1) Use a fixed code-owned withheld marker, never text derived from the object. (2) State it in README: in strict-active sets, objects with accessors or serialization hooks appear as a fixed withheld marker in failures.log and the ops webhook. (3) The mixed-set comparison allows it as a named second exception; test it on a NON-strict server's failure in a mixed set (toJSON object, getter object), plus the no-strict control showing base bytes and the same rethrown exception. (4) Plain data, native Errors and plain nested objects stay exactly as in the previous round; if you find plain objects also need withholding, ask once.
