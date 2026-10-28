@@ -1,0 +1,13 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-5GAY8
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-5GAY8 Rebase strict credential mode onto upstream main e85c57db (0.28.0) for the upstream PR
+:PROPERTIES:
+:UID: cb7ffe18-8315-5b89-8399-93961b7ddfbd
+:ID: TASK-5GAY8
+:PRIORITY: P1
+:END:
+
+** Description
+Rebase the approved strict-credential-mode branch (tree of e95400714223477305624645dbf6f846e9f0918e, published as ece328ffcbc83a99f4a9a22940e3a40b953ded50) onto upstream main e85c57db9aacba43a7b55e8e18bba607fa0228e6, resolve the src/framework.ts conflict, re-gate, re-review. Owner rule: upstream PRs are always rebased onto the latest main first. THIS LEDGER IS PUBLIC.
