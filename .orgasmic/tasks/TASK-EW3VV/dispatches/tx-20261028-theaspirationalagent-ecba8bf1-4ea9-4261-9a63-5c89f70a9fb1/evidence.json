@@ -1,0 +1,25 @@
+{
+  "event_count": 327,
+  "tool_call_count": 20,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-EW3VV-reviewer-20261028T021350-run-01M604J0B2C4YNQBJQHQVCBT7V.jsonl",
+    "size_bytes": 482229
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T02-13-51-01a18049-040f-7c31-8aa4-0bed104d9f1c.jsonl",
+    "session_id": "01a18049-040f-7c31-8aa4-0bed104d9f1c",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll inspect the final diff and lifecycle/sink paths, read the supplied gate logs, and independently rerun the GC and accessor probes on Node and Bun 1.4.3. I’ll leave the branch unchanged and keep the public report free of private paths.\nThe current probes pass on both runtimes: eight failed/replaced configurations retain only the one current map entry, matching base, and strict registries disappear immediately after each failed initial connection. Accessor comparisons also preserve legacy hook counts, trace output, and exception behavior while writing the authorized projected exports in strict-active sets.\n\nThe supplied receipts cover build, typecheck, the full Node suite, focused suites, and the comparison harness. I’m reusing those as instructed by the execution context; the targeted review probes are fresh runs.\nReview complete: approve for the narrowed scope, with no findings. Both previous MEDIUMs are fixed, and the targeted probes pass on Node and Bun 1.4.3. The report distinguishes fresh runs from reused gate receipts and records the remaining coverage limits. The worktree is unchanged.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
