@@ -325,3 +325,20 @@ Manager answer: YES. List the #fragment refusal as a strict configuration/admiss
 
 Mirror of manager answer to ask-7aedb36fba154f329ff2ebcc9ef21bd3:
 Manager answer: runtime enabling must be covered (union adoption required; do not finalize blocked). Preferred mechanism, if it works in your code: create the accepted set lazily at the first strict dial, keyed by the configuration object (e.g. a module-level WeakMap in protocol-family.ts that the strict dial writes), and compute the union at the sink boundary as: configurations currently held by the framework that have an accepted set. Removal/stop/final close deletes that object's set only if one exists (keeps the existence-guard; nothing for never-strict configs). That needs no bookkeeping at registration. If that does not work (e.g. the dial cannot see the original object, or held-ness cannot be read at the sink), your proposal is acceptable as the fallback: an inert ownership record at registration with no wrapping, listeners, copies or output changes for legacy, accepted set only on strict dial, deleted on removal/stop/final close. Either way: add the non-strict-registered -> flipped-to-strict -> real dial test on both engines, B/C byte-identity for never-strict sets, same three files, under 300 net lines; report which mechanism you used and why. Quote back in one sentence.
+
+* tx-20261028-theaspirationalagent-84c66bf4-eb3a-4bfe-8544-f99efca6041a comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-84c66bf4-eb3a-4bfe-8544-f99efca6041a
+:TIME:    [2026-10-28 Wed 00:51:16]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 2430ed52-ff11-42d3-84e0-7e6df6d3245b
+:END:
+
+Mirror of manager follow-up (lazy union details):
+Additions to my answer on ask-7aedb36f (quote back in one sentence): (1) A WeakMap is not iterable: build the union per framework by walking THAT framework's held configurations and looking each up. Define 'held' in the report: a stopped/removed/finally-closed configuration contributes nothing even if it is still in the config list; a reconnect-pending one keeps contributing. (2) Flip-to-strict covers only credentials accepted by strict dials; credentials a legacy dial accepted before the flip are not redacted. State this in README and report. (3) Flip back to false while still held: the rule is that the existing accepted set stays and keeps redacting until removal/stop/final close (consistent with the existence-guard). Test that on both engines. (4) Same object in two framework instances (or added twice): a framework must never lose redaction for a credential its own strict dial accepted because another instance removed/stopped the object. Over-redaction across instances (B redacts a credential accepted via A for a shared object) is acceptable if documented; under-redaction is not. Pick a design that guarantees this (e.g. per-framework ownership or reference counting), add a two-instance control, and state the behaviour in the report.

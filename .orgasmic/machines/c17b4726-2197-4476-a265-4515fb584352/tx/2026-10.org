@@ -3284,3 +3284,20 @@
 :ASK_ID:       ask-7aedb36fba154f329ff2ebcc9ef21bd3
 :EVENT_ID:     d6d7419d-da66-4885-87e6-6d8bad80def3
 :END:
+
+* TX 2026-10-28 Wed 00:51:15 run.message TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-caeabe07-8ad2-4272-a73b-f4410709ac6f
+:TIME:         [2026-10-28 Wed 00:51:15]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Additions to my answer on ask-7aedb36f (quote back in one sentence): (1) A WeakMap is not iterable: build the union per framework by walking THAT framework's held configurations and looking each up. Define 'held' in the report: a stopped/removed/finally-closed configuration contributes nothing even if it is still in the config list; a reconnect-pending one keeps contributing. (2) Flip-to-strict covers only credentials accepted by strict dials; credentials a legacy dial accepted before the flip are not redacted. State this in README and report. (3) Flip back to false while still held: the rule is that the existing accepted set stays and keeps redacting until removal/stop/final close (consistent with the existence-guard). Test that on both engines. (4) Same object in two framework instances (or added twice): a framework must never lose redaction for a credential its own strict dial accepted because another instance removed/stopped the object. Over-redaction across instances (B redacts a credential accepted via A for a shared object) is acceptable if documented; under-redaction is not. Pick a design that guarantees this (e.g. per-framework ownership or reference counting), add a two-instance control, and state the behaviour in the report.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:MESSAGE_ID:   msg-3f0e9895e4e7467698283375672d5ca2
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     657cb2d5-a1ef-4d44-8add-6ef9b7d4a303
+:END:
