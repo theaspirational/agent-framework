@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-50T72
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-50T72 Strict credential mode: fix round for upstream review and CI (engine feature check, teardown order, boolean check, test packaging)
+* IN_PROGRESS TASK-50T72 Strict credential mode: fix round for upstream review and CI (engine feature check, teardown order, boolean check, test packaging)
 :PROPERTIES:
 :UID: f1a537be-b873-5270-8425-a3acf2ca0b65
 :ID: TASK-50T72
