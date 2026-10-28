@@ -3491,3 +3491,20 @@
 :DELIVERY:     queued
 :EVENT_ID:     98f0cdd7-7ed7-41f8-b988-ebfedae678a2
 :END:
+
+* TX 2026-10-28 Wed 01:21:42 run.message TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-231c63eb-e56d-4181-a419-3173c960f0e9
+:TIME:         [2026-10-28 Wed 01:21:42]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       One more item, small (acknowledge in one sentence): the PR description draft for this change is at /srv/review-drop/WO-1a-P2narrow-pr-draft-v1.md (sha256 41c1a6878addbee7ff7945110b990652bde22884789dce52ec79e22f1ede1fa1; it is outside the repo, do not copy it into the ledger); its factual sentences about the fail-closed dial (refuses static token, query token, wrong mode, protocol selector, cleartext ws:// to non-loopback, HTTP/stdio/modern servers; engine-unsupported off the pinned runtimes; provider-empty/provider-threw/credential-unusable on provider failures with no connection) must match the code at d2b5fbf0. In your review, list any sentence in that description that the code contradicts.
+:RUN_ID:       run-01M601EGX0YQPH6VJ53F2V0HXZ
+:MESSAGE_ID:   msg-8459b6d7b4d04fd3b2e12369d703e597
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     06e47d50-29ff-4951-84f7-435dfcff688e
+:END:
