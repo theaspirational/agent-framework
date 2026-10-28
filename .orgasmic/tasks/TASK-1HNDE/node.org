@@ -1,0 +1,15 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-1HNDE
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-1HNDE Design: strict mode on upstream's single credential redaction mechanism (read-only)
+:PROPERTIES:
+:UID: f594d132-68b2-506a-aa6f-5583ee3c5245
+:ID: TASK-1HNDE
+:PRIORITY: P1
+:END:
+
+** Description
+Read-only design. The upstream automated review of PR 870 (head 0fdee5bc) noted that strict mode adds a second redaction registry beside the existing per-server credential filter. Evaluate replacing it with the existing mechanism. No code changes.
+** Acceptance
+- Design report per the dispatch brief; nothing committed.
