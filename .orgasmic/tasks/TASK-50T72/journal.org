@@ -1,0 +1,17 @@
+#+title: orgasmic journal TASK-50T72
+#+orgasmic_version: 2
+
+* tx-20261028-theaspirationalagent-d96c553f-5c9d-4f2a-a553-10b100b85a83 task.created
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-d96c553f-5c9d-4f2a-a553-10b100b85a83
+:TIME:    [2026-10-28 Wed 08:41:43]
+:TYPE:    task.created
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-50T72
+:TARGET: .orgasmic/tasks/TASK-50T72/node.org
+:REASON: created task TASK-50T72
+:EVENT_ID: e9ba0250-92fd-42bc-a68d-743cdf991978
+:REQUEST_REPLAY_V1: {"request_id":"tarn-af-pr870-fix-task/tx","mutation":{"operation":"task.created","project_id":"theaspirational.agent-framework","payload_sha256":"a591c2a9442eda7c5dad3e4d51213e3e502919377c412c07cada50046a526bde"},"mutation_id":"TASK-50T72","written_paths":[{"project":"theaspirational.agent-framework","relative":".orgasmic/tasks/TASK-50T72/node.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/tasks/TASK-50T72/journal.org"}]}
+:END:

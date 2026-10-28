@@ -1,0 +1,13 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-50T72
+#+orgasmic_version: 2
+
+* BACKLOG TASK-50T72 Strict credential mode: fix round for upstream review and CI (engine feature check, teardown order, boolean check, test packaging)
+:PROPERTIES:
+:UID: f1a537be-b873-5270-8425-a3acf2ca0b65
+:ID: TASK-50T72
+:PRIORITY: P1
+:END:
+
+** Description
+Upstream PR (draft) for strict credential mode failed CI on every Node leg and received an automated review with 1 HIGH, 3 MEDIUM, 10 LOW. One fix round on top of cb57dfa611bb02232a55f07020966d141df1bcf2. Owner decision: replace the exact engine pin with a feature check; document where the deep comparison was done.
