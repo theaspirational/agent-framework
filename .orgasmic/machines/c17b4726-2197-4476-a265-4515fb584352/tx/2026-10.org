@@ -3473,3 +3473,21 @@
 :EFFORT_OVERRIDE: medium
 :EVENT_ID:     48199c01-02f9-4262-9b2e-dbccbe66edcc
 :END:
+
+
+* TX 2026-10-28 Wed 01:20:18 run.message TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-eb786505-ddde-4f14-8cf6-30337cb6052d
+:TIME:         [2026-10-28 Wed 01:20:18]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Additional focus from the brief author (please acknowledge in one sentence): (a) verify the inert ownership records add nothing observable for never-strict configurations at framework.ts:6438, 4745, 29028, 29987 (no listener, output or order change) and that stop cannot throw or alter shutdown for legacy servers; (b) read exactly what the 'one intentional late-error swallow' in transport.ts teardown swallows and on which path - acceptable only if it cannot hide a settlement or leak a handle; (c) review commit d2b5fbf0's production hunks separately (it carries compatibility fixes, not docs only).
+:RUN_ID:       run-01M601EGX0YQPH6VJ53F2V0HXZ
+:MESSAGE_ID:   msg-c8af11bf42274aac974d9ab633a055a5
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     98f0cdd7-7ed7-41f8-b988-ebfedae678a2
+:END:
