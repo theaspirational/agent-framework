@@ -3269,3 +3269,18 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     b4eac202-0d19-47ff-8cb7-e9e4096c249b
 :END:
+
+* TX 2026-10-28 Wed 00:50:32 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-6f74fbf5-341a-4c99-b884-6337f768b8db
+:TIME:         [2026-10-28 Wed 00:50:32]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager answer: runtime enabling must be covered (union adoption required; do not finalize blocked). Preferred mechanism, if it works in your code: create the accepted set lazily at the first strict dial, keyed by the configuration object (e.g. a module-level WeakMap in protocol-family.ts that the strict dial writes), and compute the union at the sink boundary as: configurations currently held by the framework that have an accepted set. Removal/stop/final close deletes that object's set only if one exists (keeps the existence-guard; nothing for never-strict configs). That needs no bookkeeping at registration. If that does not work (e.g. the dial cannot see the original object, or held-ness cannot be read at the sink), your proposal is acceptable as the fallback: an inert ownership record at registration with no wrapping, listeners, copies or output changes for legacy, accepted set only on strict dial, deleted on removal/stop/final close. Either way: add the non-strict-registered -> flipped-to-strict -> real dial test on both engines, B/C byte-identity for never-strict sets, same three files, under 300 net lines; report which mechanism you used and why. Quote back in one sentence.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-7aedb36fba154f329ff2ebcc9ef21bd3
+:EVENT_ID:     d6d7419d-da66-4885-87e6-6d8bad80def3
+:END:

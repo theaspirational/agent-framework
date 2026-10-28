@@ -308,3 +308,20 @@ Manager answer: YES. Guard cleanup by the existence of this framework's strict l
 
 Mirror of manager answer to ask-6c46abf0217d4b67af596374fcf9f4b5:
 Manager answer: YES. List the #fragment refusal as a strict configuration/admission refusal (credential-unusable, part-1 classification unchanged, zero upgrades on both engines), as an extra row not in the brief's table; do not count it as exercising the constructor-throw row, which stays covered only by the labelled dependency-fault injection. No code change.
+
+* tx-20261028-theaspirationalagent-66117dc1-e670-4b2d-a8eb-036c62229676 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-66117dc1-e670-4b2d-a8eb-036c62229676
+:TIME:    [2026-10-28 Wed 00:50:32]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 16383ad9-ae7c-4c53-93bf-d04f15bfa7dd
+:END:
+
+Mirror of manager answer to ask-7aedb36fba154f329ff2ebcc9ef21bd3:
+Manager answer: runtime enabling must be covered (union adoption required; do not finalize blocked). Preferred mechanism, if it works in your code: create the accepted set lazily at the first strict dial, keyed by the configuration object (e.g. a module-level WeakMap in protocol-family.ts that the strict dial writes), and compute the union at the sink boundary as: configurations currently held by the framework that have an accepted set. Removal/stop/final close deletes that object's set only if one exists (keeps the existence-guard; nothing for never-strict configs). That needs no bookkeeping at registration. If that does not work (e.g. the dial cannot see the original object, or held-ness cannot be read at the sink), your proposal is acceptable as the fallback: an inert ownership record at registration with no wrapping, listeners, copies or output changes for legacy, accepted set only on strict dial, deleted on removal/stop/final close. Either way: add the non-strict-registered -> flipped-to-strict -> real dial test on both engines, B/C byte-identity for never-strict sets, same three files, under 300 net lines; report which mechanism you used and why. Quote back in one sentence.
