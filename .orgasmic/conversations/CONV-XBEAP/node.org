@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-XBEAP
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-50T72
+:PROPERTIES:
+:UID: 6a812fb8-5791-5029-b646-661d7e81d494
+:ID: CONV-XBEAP
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-50t72
+:RUNS:  run-01M60WVTNY8ABVG8NMBA6BB2E2
+:CREATED_AT: 2026-10-28T09:18:38Z
+:END:
