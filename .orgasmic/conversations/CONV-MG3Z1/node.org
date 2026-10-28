@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-MG3Z1
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-EW3VV
+:PROPERTIES:
+:UID: d0e9b8b0-be62-5bbb-922d-f82b27bcf411
+:ID: CONV-MG3Z1
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-ew3vv
+:RUNS:  run-01M601EGX0YQPH6VJ53F2V0HXZ
+:CREATED_AT: 2026-10-28T01:19:31Z
+:END:

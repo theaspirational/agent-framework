@@ -342,3 +342,19 @@ Manager answer: runtime enabling must be covered (union adoption required; do no
 
 Mirror of manager follow-up (lazy union details):
 Additions to my answer on ask-7aedb36f (quote back in one sentence): (1) A WeakMap is not iterable: build the union per framework by walking THAT framework's held configurations and looking each up. Define 'held' in the report: a stopped/removed/finally-closed configuration contributes nothing even if it is still in the config list; a reconnect-pending one keeps contributing. (2) Flip-to-strict covers only credentials accepted by strict dials; credentials a legacy dial accepted before the flip are not redacted. State this in README and report. (3) Flip back to false while still held: the rule is that the existing accepted set stays and keeps redacting until removal/stop/final close (consistent with the existence-guard). Test that on both engines. (4) Same object in two framework instances (or added twice): a framework must never lose redaction for a credential its own strict dial accepted because another instance removed/stopped the object. Over-redaction across instances (B redacts a credential accepted via A for a shared object) is acceptable if documented; under-redaction is not. Pick a design that guarantees this (e.g. per-framework ownership or reference counting), add a two-instance control, and state the behaviour in the report.
+
+* tx-20261028-theaspirationalagent-b8a47012-ea10-4a24-8e81-367457da2dc8 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-b8a47012-ea10-4a24-8e81-367457da2dc8
+:TIME:    [2026-10-28 Wed 01:19:30]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:TARGET: .orgasmic/tasks/TASK-EW3VV/node.org
+:REASON: transition TASK-EW3VV to in_review
+:FROM_STATE: in_progress
+:TO_STATE: in_review
+:EVENT_ID: c626c163-ddf2-4e9f-92c7-5d0d81ba89f9
+:END:
