@@ -3253,3 +3253,19 @@
 :DELIVERY:     queued
 :EVENT_ID:     2a90a5c8-7df7-4a2c-bd90-3f7677c24347
 :END:
+
+* TX 2026-10-28 Wed 00:50:16 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-b038f86e-6322-43fb-ac9a-093bfa021316
+:TIME:         [2026-10-28 Wed 00:50:16]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       A final real-route probe found a lifetime gap: register a configuration as non-strict, mutate its original object to credentialRequired=true, then perform a real strict dial on that same object. Both engines accept the credential but neither exporting sink sees it, because the framework never created an owner registry; the dial has only its standalone registry. All static/mixed/removal scenarios remain green. Does runtime enabling require union adoption here? I propose allowing lifecycle bookkeeping at registration for all held configs (an inert ownership record, no wrapping/listeners/output changes for legacy), creating an accepted set only upon a strict dial, and deleting the ownership record on removal/stop/final close. This stays in the same three files and below 300 net lines, but relaxes the prior explicit no-work-for-never-strict lifecycle guard. Alternatively I will finalize blocked rather than claim the any-strict-config union contract. Which scope should I follow?
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-7aedb36fba154f329ff2ebcc9ef21bd3
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     b4eac202-0d19-47ff-8cb7-e9e4096c249b
+:END:
