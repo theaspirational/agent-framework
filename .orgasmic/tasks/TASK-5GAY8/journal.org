@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 24a97a1a-5ce5-4094-b958-7848d28f1cbd
 :END:
+
+* tx-20261028-theaspirationalagent-4a1b1dfa-96ef-4192-b0b7-e199bf2706b9 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-4a1b1dfa-96ef-4192-b0b7-e199bf2706b9
+:TIME:    [2026-10-28 Wed 07:16:54]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-5GAY8
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 24581ea3-d818-42e1-ba4c-d7d2efe0e899
+:END:
+
+Mirror: Owner decision, overrides the brief's author line (acknowledge in one sentence): every commit's author AND committer must be "Vasyl Dovhanchyn <48733736+theaspirational@users.noreply.github.com>" (GIT_AUTHOR_NAME/EMAIL and GIT_COMMITTER_NAME/EMAIL). If you already committed with the old identity, rewrite them (tree must stay identical) before finalize.
