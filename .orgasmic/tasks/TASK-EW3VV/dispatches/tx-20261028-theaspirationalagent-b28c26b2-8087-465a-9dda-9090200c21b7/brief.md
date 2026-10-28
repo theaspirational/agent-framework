@@ -1,0 +1,26 @@
+# Implement fix round — Dispatch Brief
+```brief
+Fix round 2 for TASK-EW3VV (P2-narrow). Same brief v1.1, same manager decisions, same three production files and ~300 net-line ceiling (stop and ask beyond). The independent review REJECTED d2b5fbf0 with two MEDIUM findings; fix exactly these, nothing else:
+
+MEDIUM 1 (src/framework.ts:6438-6439, protocol-family.ts:286,295, framework.ts:4745): registering a new configuration object under an existing id (e.g. after a failed initial connect) overwrites the config map without ending the displaced object's lifetime; stop iterates only current map values, so displaced ownership records and accepted sets survive stop. Reviewer probe: 8 connectMcplServer calls, same id, different objects, loopback 401, then stop + GC: candidate retains 8/8 objects, original base 1/8; same with credentialRequired:false (never-strict regression). Fix direction: retire the displaced object's lifetime before overwriting an id; unwind non-reconnecting failed-initial-connect lifetimes; make stop clear every ownership entry belonging to this framework, not only those discoverable through the public config map. Preserve reconnect retention and independent-owner retention. Add failed-handshake/replacement/stop GC controls for strict AND never-strict objects (original-base comparison: retained count must match base for never-strict). Consider whether ownership bookkeeping for never-strict configurations can be avoided entirely (e.g. framework-owned set of owned objects created only on first strict dial); either way never-strict retention must equal base.
+
+MEDIUM 2 (src/framework.ts:26656,26665-26671; failureDescription 2481; boundFailureFields 2578): the strict exporting copy is built after legacy preparation that coerces/serializes untrusted data; a throwing top-level details accessor in notifyOpsAlert propagates before either sink is written. Fix direction: derive the strict exporting projection from raw own-property descriptors before legacy preparation; isolate legacy preparation so its failure cannot suppress the detached strict exports. Never-strict behaviour and ordinary trace bytes stay unchanged (including that legacy may still throw as before when no strict configuration exists - state the behaviour you chose for mixed sets and test it). Test throwing top-level details accessors, Error message accessors, and nested toJSON/toString, not only a getter behind toJSON.
+
+The reviewer's probe scripts are in the reviewer's evidence (reviewer-gc.mjs, reviewer-gc-legacy.mjs, reviewer-probe.mjs, reviewer-accessors.mjs); turn them into committed tests (red on d2b5fbf0, green after). Rerun: build, typecheck, Node suite, the five strict test files on Node and Bun, the original-base comparison harness and identity controls, the 288-cell matrix on both engines; report all. Also: the README/PR text says retention ends on removal/final close/stop - make that true. One focused commit per finding. Report as before; do not push.
+```
+
+## Round context
+Resume round contract: 2. Continues dispatch tx-20261027-theaspirationalagent-322b42c1-aea6-428e-bca9-daa3b296e724, run run-01M5ZV61MEYAMQEGWE3N8CTWYV, in your own native session and the same worktree.
+Changed this round: the brief above narrows the assignment; use this run's evidence directory and report, not the earlier round's destination.
+Original instructions are history, not missing context. Original scope, security and read-only-ledger boundaries still apply, narrowed by this brief. Do not replay startup reads unless changed facts or this brief require them. Do not merge or close the dispatch.
+
+## Evidence and verification
+Earlier reads/code/reports remain context, not new proof. Identify valid inherited evidence and its unchanged inputs/scope in this round's report. No earlier gate pass is implied by resuming. Verify findings against current source. Run assigned checks and scoped probes through `orgasmic dispatch gate <name> -- <cmd> [args...]`; missing receipts do not assign a full suite. Keep builds outside evidence.
+
+## Completion for this round
+Report Changed, Verification Gates (commands/results/logs and inherited evidence), Unmet Criteria, and Residual Risk in `$ORGASMIC_EVIDENCE_DIR/report.md`. If unset, substitute a scratch path outside the worktree below.
+For done, satisfy the narrowed brief and make a local commit in this worktree; stage explicit paths and do not bypass hooks. Then run:
+`orgasmic dispatch finalize --status done --summary-file "$ORGASMIC_EVIDENCE_DIR/report.md"`
+If blocked, report the exact unmet criteria and run:
+`orgasmic dispatch finalize --status blocked --reason "<why>" --summary-file "$ORGASMIC_EVIDENCE_DIR/report.md"`
+Blocking decision: `orgasmic dispatch ask "<question>"`; keep it alive for the stdout answer. A timeout is not permission. With `--no-wait`, answers/messages arrive at turn boundaries, not between tool calls. If finalize refuses for pending messages, handle their full text and retry. Successful finalize is terminal; no work follows it. Never disclose credentials or the run token.
