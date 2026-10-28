@@ -409,3 +409,19 @@ Manager answer: (a) YES to detached/withheld exports for accessor/custom-hook di
 
 Mirror of clarification to ask-646397cb:
 Clarifications to my answer on ask-646397cb (acknowledge in one sentence): the hook/accessor withholding is a SECOND named intentional difference in the two sinks (besides union redaction). (1) Use a fixed code-owned withheld marker, never text derived from the object. (2) State it in README: in strict-active sets, objects with accessors or serialization hooks appear as a fixed withheld marker in failures.log and the ops webhook. (3) The mixed-set comparison allows it as a named second exception; test it on a NON-strict server's failure in a mixed set (toJSON object, getter object), plus the no-strict control showing base bytes and the same rethrown exception. (4) Plain data, native Errors and plain nested objects stay exactly as in the previous round; if you find plain objects also need withholding, ask once.
+
+* tx-20261028-theaspirationalagent-5fa7feac-34d6-4da7-9291-5e71d0c70da7 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-5fa7feac-34d6-4da7-9291-5e71d0c70da7
+:TIME:    [2026-10-28 Wed 07:10:54]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 11897388-0be2-4045-8a3e-006e001ad0a2
+:END:
+
+Owner go (fork + neutral author). Approved tree e95400714223477305624645dbf6f846e9f0918e republished with neutral authorship as fork branch strict-credential-mode = ece328ffcbc83a99f4a9a22940e3a40b953ded50 (tree identical). No upstream PR yet: waiting for the owner to name the target repository.
