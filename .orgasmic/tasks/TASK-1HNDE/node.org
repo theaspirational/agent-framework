@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-1HNDE
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-1HNDE Design: strict mode on upstream's single credential redaction mechanism (read-only)
+* IN_REVIEW TASK-1HNDE Design: strict mode on upstream's single credential redaction mechanism (read-only)
 :PROPERTIES:
 :UID: f594d132-68b2-506a-aa6f-5583ee3c5245
 :ID: TASK-1HNDE
