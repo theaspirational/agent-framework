@@ -1,0 +1,25 @@
+{
+  "event_count": 280,
+  "tool_call_count": 22,
+  "unparsed_events": 0,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-50T72-implementer-20261028T092236-run-01M60X331MPNJ13H8GNP6M5832.jsonl",
+    "size_bytes": 383127
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T08-42-15-01a181ac-9981-7760-9ee0-fd6124e53abe.jsonl",
+    "session_id": "01a181ac-9981-7760-9ee0-fd6124e53abe",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll reproduce the in-flight handshake leak, then audit every lifetime-retirement and config-removal path for shutdown races. I’ll leave the reviewed engine, validation, packaging and cache changes untouched.The regression reproduces on `b4089505`: all four shutdown cases leak to both sinks; the outside-shutdown failure control passes.\n\nThe fix now defers retirement while shutdown is active and keeps a snapshot of the configs the sinks consult. That also protects an admitted disconnect that removes a config during shutdown, without changing public-map removal semantics. The scoped tests are green. Production growth is +12 net lines, all in `src/framework.ts`.The in-flight handshake regression now passes, including rejected shutdown and concurrent removal. Both required Node full suites passed with 8,885 passing tests, 63 skips, and no failures each. I’m completing the audit report and finalizing the local commit; nothing will be pushed."
+    }
+  ],
+  "narrative_truncated": false
+}
