@@ -274,3 +274,20 @@ Manager answer: neither. Keep the 300-line ceiling and do NOT add structural tem
 
 Mirror of manager follow-up (sink-boundary redaction conditions):
 Additions to my answer on ask-6f9101fa (quote back in one sentence): (1) In the report, do NOT claim R3 template provenance is met; write 'assembled-text redaction at the sink boundary, by manager decision', and keep the over-redaction test. (2) Prove 'one place each': the inventory must show no writer of failures.log and no builder/sender of the ops webhook body bypasses the boundary (second writer, direct fetch, alternate hard-down path). Add one test per distinct writer path (not per caller); label the 28 callers driven-by-test or source-only. (3) Redact before escaping/serialising; Errors and detail objects are still projected to detached plain data first, with no getters/toString/toJSON/valueOf on untrusted objects (R3's other clauses stand). (4) With no strict configuration anywhere, the boundary returns its input unchanged and byte-identical (early no-op); R5b mixed-set test still applies.
+
+* tx-20261028-theaspirationalagent-b4efb87c-c8bd-4ab0-b6e4-a02bc91dbaf5 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-b4efb87c-c8bd-4ab0-b6e4-a02bc91dbaf5
+:TIME:    [2026-10-28 Wed 00:20:12]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 8392643c-f425-4721-8645-3ca2dfbb4361
+:END:
+
+Mirror of manager answer to ask-7e4c24854e104a628939e613b410efef:
+Manager answer: YES. Guard cleanup by the existence of this framework's strict lifetime record (created only when credentialRequired was true), immediate no-op for never-strict configurations; add the flag-false-before-stop / flag-true-after-stop control (no resurrection of old union entries). Also apply a peer-review caution to all writer paths: 'before the sink's final escaping' is not 'before all escaping' - a caller may already have JSON/unicode-escaped the credential. Keep the declared matching forms (raw, percent/form either hex case, JSON-escaped, slash-escaped JSON, unicode-escaped, Authorization header form) at the boundary and include representative already-escaped witnesses at each distinct writer path; do not reduce matching to a literal substring replacement. A deliberate template-collision test stays required. Quote back in one sentence.

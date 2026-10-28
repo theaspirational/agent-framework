@@ -3189,3 +3189,34 @@
 :DELIVERY:     queued
 :EVENT_ID:     249c85f0-2811-4f2e-978a-2b42aa995ee3
 :END:
+
+* TX 2026-10-28 Wed 00:20:04 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-009d8cf2-363c-4406-ab71-53b778a20e19
+:TIME:         [2026-10-28 Wed 00:20:04]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       One lifecycle edge needs a precise interpretation of your strict-only hook condition. If an operator changes credentialRequired from true to false before stop/removal, checking only the current flag skips disposal of that configuration’s previously created strict registry. Re-enabling the flag on the still-held object after stop could then resurrect old union entries. May cleanup instead be guarded by the existence of this framework’s strict lifetime record (created only when credentialRequired was true), with an immediate no-op for every never-strict configuration? This changes no non-strict registration, event order, caller object or output; it only disposes previously strict private state. The same three files and under-300-line ceiling remain satisfied. I will add a flag-false-before-stop / flag-true-after-stop lifetime control.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-7e4c24854e104a628939e613b410efef
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     50916b4e-2ba0-4be3-8e54-29b3ad42e375
+:END:
+
+* TX 2026-10-28 Wed 00:20:12 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-ab706b36-7ddf-4ad0-bec0-5d24f6e4b7fb
+:TIME:         [2026-10-28 Wed 00:20:12]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager answer: YES. Guard cleanup by the existence of this framework's strict lifetime record (created only when credentialRequired was true), immediate no-op for never-strict configurations; add the flag-false-before-stop / flag-true-after-stop control (no resurrection of old union entries). Also apply a peer-review caution to all writer paths: 'before the sink's final escaping' is not 'before all escaping' - a caller may already have JSON/unicode-escaped the credential. Keep the declared matching forms (raw, percent/form either hex case, JSON-escaped, slash-escaped JSON, unicode-escaped, Authorization header form) at the boundary and include representative already-escaped witnesses at each distinct writer path; do not reduce matching to a literal substring replacement. A deliberate template-collision test stays required. Quote back in one sentence.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-7e4c24854e104a628939e613b410efef
+:EVENT_ID:     2d9b1b0f-a9f1-4094-a626-fbb265dc19df
+:END:
