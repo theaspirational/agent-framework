@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-EW3VV
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-EW3VV WO-1a P2-narrow: five error codes, 32-character minimum, strict redaction of ops webhook and failures.log (union across strict configs)
+* IN_PROGRESS TASK-EW3VV WO-1a P2-narrow: five error codes, 32-character minimum, strict redaction of ops webhook and failures.log (union across strict configs)
 :PROPERTIES:
 :UID: bf6770e5-40a3-5b52-8042-580f188952ee
 :ID: TASK-EW3VV
