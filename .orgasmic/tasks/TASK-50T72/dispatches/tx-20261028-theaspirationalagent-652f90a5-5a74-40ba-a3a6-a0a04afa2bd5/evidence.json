@@ -1,0 +1,20 @@
+{
+  "event_count": 52,
+  "tool_call_count": 12,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-50T72-reviewer-20261028T094216-run-01M60Y73ANN1HANJ9BXF9FGSW1.jsonl",
+    "size_bytes": 200945
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T09-42-16-01a181e3-8fcf-7c40-a16a-88b131b34e85.jsonl",
+    "session_id": "01a181e3-8fcf-7c40-a16a-88b131b34e85",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
