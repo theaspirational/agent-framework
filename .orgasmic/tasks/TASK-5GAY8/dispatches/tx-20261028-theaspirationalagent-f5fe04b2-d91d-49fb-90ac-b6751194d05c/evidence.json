@@ -1,0 +1,25 @@
+{
+  "event_count": 269,
+  "tool_call_count": 22,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-5GAY8-reviewer-20261028T074839-run-01M60QQ26XEZZDF98HMWEX5VNV.jsonl",
+    "size_bytes": 426140
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T07-48-40-01a1817b-8c5d-7c53-811b-2181a65eaa61.jsonl",
+    "session_id": "01a1817b-8c5d-7c53-811b-2181a65eaa61",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll review the rebase delta and upstream interactions, then run scoped probes. The execution context says to reuse recorded gates rather than rerun them, so I’ll note that limit explicitly. I’ll leave the tree unchanged; the owner’s author/committer rule is acknowledged, and I’ll make no commits.The deltas match the approved patch apart from the upstream `opsWebhookText` substitution, three baseline-reference updates, and the release fragment. A fresh closed-tab lifetime probe passed on Node and Bun.\n\nThe whole-file Bun test ran three times on base and three on head. The TAB case passed in all six runs. Each run had the same unrelated stdio spawn-message assertion failure at `test/mcp-recorded-text.test.ts:823`."
+    }
+  ],
+  "narrative_truncated": false
+}
