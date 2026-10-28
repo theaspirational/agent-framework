@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-5GAY8
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-5GAY8 Rebase strict credential mode onto upstream main e85c57db (0.28.0) for the upstream PR
+* IN_REVIEW TASK-5GAY8 Rebase strict credential mode onto upstream main e85c57db (0.28.0) for the upstream PR
 :PROPERTIES:
 :UID: cb7ffe18-8315-5b89-8399-93961b7ddfbd
 :ID: TASK-5GAY8
