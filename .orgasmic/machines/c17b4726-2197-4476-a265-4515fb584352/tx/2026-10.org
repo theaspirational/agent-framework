@@ -3706,3 +3706,20 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     ab350600-e8ec-4b91-aa8a-0e1d9f90b484
 :END:
+
+* TX 2026-10-28 Wed 01:26:33 run.message TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-23d77ec3-f079-4854-9779-c3e8ef4f3d06
+:TIME:         [2026-10-28 Wed 01:26:33]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Additions to fix round 2 (acknowledge in one sentence before continuing): (1) Finding 1 acceptance on BOTH engines: run the GC probe under Bun 1.4.3 too (Bun's forced GC), or label that cell UNEXERCISED. Required: never-strict retention equals base; strict failed-then-replaced objects not retained after stop; the old accepted set is gone right after replacement, not only after stop; reconnect and independent-owner controls stay green. (2) Finding 2 exception policy: build the strict projection from raw descriptors first, write the two sink copies from it, then let the original exception propagate exactly as base does (do not swallow it). A no-strict control shows the throw is unchanged. If a throwing accessor's value is withheld in the projection, record it as withheld. Test the top-level details accessor and an Error message accessor. If you think a different policy is required, ask once. (3) Never-strict objects get no per-object bookkeeping holding a strong reference; state in the report exactly what the framework holds per configuration.
+:RUN_ID:       run-01M601T34GQQZK4MN33AR9KKCE
+:MESSAGE_ID:   msg-3f802d064ed648b9967b9f7c631adb5d
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     973cb46d-a9cf-4006-b6ac-af6344fd9164
+:END:

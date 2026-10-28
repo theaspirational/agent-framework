@@ -358,3 +358,20 @@ Additions to my answer on ask-7aedb36f (quote back in one sentence): (1) A WeakM
 :TO_STATE: in_review
 :EVENT_ID: c626c163-ddf2-4e9f-92c7-5d0d81ba89f9
 :END:
+
+* tx-20261028-theaspirationalagent-3207983b-dee0-4f28-93aa-d475b8aa2bf8 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-3207983b-dee0-4f28-93aa-d475b8aa2bf8
+:TIME:    [2026-10-28 Wed 01:26:34]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: f41ec8a1-57d8-4fb2-83c1-6e8a29b723b6
+:END:
+
+Mirror of fix round 2 brief additions:
+Additions to fix round 2 (acknowledge in one sentence before continuing): (1) Finding 1 acceptance on BOTH engines: run the GC probe under Bun 1.4.3 too (Bun's forced GC), or label that cell UNEXERCISED. Required: never-strict retention equals base; strict failed-then-replaced objects not retained after stop; the old accepted set is gone right after replacement, not only after stop; reconnect and independent-owner controls stay green. (2) Finding 2 exception policy: build the strict projection from raw descriptors first, write the two sink copies from it, then let the original exception propagate exactly as base does (do not swallow it). A no-strict control shows the throw is unchanged. If a throwing accessor's value is withheld in the projection, record it as withheld. Test the top-level details accessor and an Error message accessor. If you think a different policy is required, ask once. (3) Never-strict objects get no per-object bookkeeping holding a strong reference; state in the report exactly what the framework holds per configuration.
