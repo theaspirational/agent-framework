@@ -3220,3 +3220,36 @@
 :ASK_ID:       ask-7e4c24854e104a628939e613b410efef
 :EVENT_ID:     2d9b1b0f-a9f1-4094-a626-fbb265dc19df
 :END:
+
+* TX 2026-10-28 Wed 00:24:41 run.asked TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-f3c46064-b278-4f1b-ad8e-e75c71872176
+:TIME:         [2026-10-28 Wed 00:24:41]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Additional case-table observation, with no requested code change: a direct strict URL containing #fragment is refused before any upgrade as credential-unusable on both pinned engines (the local constructor-probe.mjs recorded zero upgrades). This is URL/admission refusal, not a demonstrated client-constructor throw; the latter is covered separately by labelled dependency-fault injection. I have kept part 1’s fragment classification unchanged. May I list this extra case under strict configuration refusal in the report, rather than implying it exercised the constructor row?
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-6c46abf0217d4b67af596374fcf9f4b5
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     84a916bf-9a5a-42e5-90b1-e5fa79d0c8f8
+:END:
+
+* TX 2026-10-28 Wed 00:24:47 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-a3364f2e-ece5-49e5-8ac7-ae28862ea7a8
+:TIME:         [2026-10-28 Wed 00:24:47]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager answer: YES. List the #fragment refusal as a strict configuration/admission refusal (credential-unusable, part-1 classification unchanged, zero upgrades on both engines), as an extra row not in the brief's table; do not count it as exercising the constructor-throw row, which stays covered only by the labelled dependency-fault injection. No code change.
+:RUN_ID:       run-01M5ZV61MEYAMQEGWE3N8CTWYV
+:ASK_ID:       ask-6c46abf0217d4b67af596374fcf9f4b5
+:MESSAGE_ID:   msg-fbd46fa55edf4b5694c01e0e146bc6aa
+:DELIVERY:     queued
+:EVENT_ID:     2a90a5c8-7df7-4a2c-bd90-3f7677c24347
+:END:

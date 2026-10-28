@@ -291,3 +291,20 @@ Additions to my answer on ask-6f9101fa (quote back in one sentence): (1) In the 
 
 Mirror of manager answer to ask-7e4c24854e104a628939e613b410efef:
 Manager answer: YES. Guard cleanup by the existence of this framework's strict lifetime record (created only when credentialRequired was true), immediate no-op for never-strict configurations; add the flag-false-before-stop / flag-true-after-stop control (no resurrection of old union entries). Also apply a peer-review caution to all writer paths: 'before the sink's final escaping' is not 'before all escaping' - a caller may already have JSON/unicode-escaped the credential. Keep the declared matching forms (raw, percent/form either hex case, JSON-escaped, slash-escaped JSON, unicode-escaped, Authorization header form) at the boundary and include representative already-escaped witnesses at each distinct writer path; do not reduce matching to a literal substring replacement. A deliberate template-collision test stays required. Quote back in one sentence.
+
+* tx-20261028-theaspirationalagent-c0e61882-fe48-4be4-81bf-dee8bd7fdec2 comment
+:PROPERTIES:
+:TX_ID:   tx-20261028-theaspirationalagent-c0e61882-fe48-4be4-81bf-dee8bd7fdec2
+:TIME:    [2026-10-28 Wed 00:24:47]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-EW3VV
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 1fc581cf-30a1-444b-aa4d-682dd6b2136d
+:END:
+
+Mirror of manager answer to ask-6c46abf0217d4b67af596374fcf9f4b5:
+Manager answer: YES. List the #fragment refusal as a strict configuration/admission refusal (credential-unusable, part-1 classification unchanged, zero upgrades on both engines), as an extra row not in the brief's table; do not count it as exercising the constructor-throw row, which stays covered only by the labelled dependency-fault injection. No code change.
