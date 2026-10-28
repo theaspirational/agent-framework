@@ -3739,3 +3739,18 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     331d3dce-13a8-4983-b6c4-003c01dc530f
 :END:
+
+* TX 2026-10-28 Wed 01:28:28 run.answered TASK-EW3VV
+:PROPERTIES:
+:TX_ID:        tx-20261028-theaspirationalagent-98385d7a-5180-4a1d-aba6-ee49491af184
+:TIME:         [2026-10-28 Wed 01:28:28]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-EW3VV
+:REASON:       Manager answer: (a) YES to detached/withheld exports for accessor/custom-hook diagnostic objects (toJSON, toString, getters) in strict-active sets, including mixed: only failures.log and the ops webhook may differ, and only for such objects; ordinary data, trace bytes and every other sink stay as base; document it and test it explicitly, not normalized away. (b) NO to suppressing the throw. In a strict-active set: build the projection first; run legacy preparation as before; if it succeeds, proceed exactly as now (same order); if it throws, write the two exports from the projection and then rethrow the ORIGINAL exception unchanged (same object), so the only difference is that the two sinks are written. Never-strict sets: original throw and formatting, unchanged. Tests: top-level details accessor and Error message accessor in strict-active and in never-strict sets, asserting both the sink writes and the identical propagated exception. Quote back in one sentence; also acknowledge my earlier queued message on this run.
+:RUN_ID:       run-01M601T34GQQZK4MN33AR9KKCE
+:ASK_ID:       ask-646397cb93104ff0bbc70f769d72dc2f
+:EVENT_ID:     ab11d0be-76b5-4ed0-b1e9-440417e5ba40
+:END:
