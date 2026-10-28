@@ -1,0 +1,25 @@
+{
+  "event_count": 684,
+  "tool_call_count": 66,
+  "unparsed_events": 1,
+  "bounded_events": 10,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-50T72-implementer-20261028T084214-run-01M60TS5H3887GENF409WAYPXZ.jsonl",
+    "size_bytes": 967202
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/28/rollout-2026-10-28T08-42-15-01a181ac-9981-7760-9ee0-fd6124e53abe.jsonl",
+    "session_id": "01a181ac-9981-7760-9ee0-fd6124e53abe",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll inspect the lifecycle and test paths first, then preserve the comparison harness outside the branch. I’ll check runtime availability before editing and record the requested regressions and final gates separately.The shutdown regression reproduces on the starting production code: both success- and failure-path tests expose the credential in `failures.log`. The final-close/reopen test passes already and confirms framework-owned retention, so I won’t add an unnecessary reopen fix.\n\nThe official Node and Bun downloads passed checksum verification. I’m now moving the child scenarios into the suite’s compiled-layout fixture path and removing their runtime TypeScript and overlay dependencies.The final-candidate comparison passes on Node 22.23.3 and Bun 1.4.3, including omitted, false and null flags. The harness and receipts are preserved outside the repository.\n\nBoth shutdown paths now redact both sinks, and the lifetime test confirms that a final close retires history and reopening starts a fresh framework-owned lifetime. I’ll remove the evidence-only files, make the local commit, then run fresh gates on that commit.Both Bun strict-test gates and the local CI checks passed. The concurrent Node suites hit a verification setup problem: an existing test deletes a fixed directory under `dist`, so engines running in the same layout can interfere with one another.\n\nI’ll stop those runs, preserve their logs, and retry the matrix in separate per-engine copies of the same committed code and dependencies.The isolated full suites passed on all four Node engines: 22.12.0, 24.22.1, 22.23.3 and latest 26.12.1, with no failures. Both Bun strict suites also passed, with one explicit malformed-frame skip each.\n\nThe unmodified-base suites are still running for comparison. The working tree is clean; the local commit’s production delta is +21 lines within the permitted files.All requested local gates are complete. Candidate and unmodified-base full suites have zero failures on every tested Node engine; skip counts match. The report records the shutdown red→green evidence, the already-correct reopen behavior, the preserved comparison harness, and the verification limits.\n\nI’m finalizing the dispatch as done. Nothing was pushed."
+    }
+  ],
+  "narrative_truncated": false
+}
