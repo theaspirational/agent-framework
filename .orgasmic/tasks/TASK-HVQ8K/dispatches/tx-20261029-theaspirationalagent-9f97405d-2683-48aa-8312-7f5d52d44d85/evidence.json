@@ -1,0 +1,25 @@
+{
+  "event_count": 462,
+  "tool_call_count": 36,
+  "unparsed_events": 0,
+  "bounded_events": 8,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-implementer-20261029T180722-run-01M64DGNQTRCJJ7B205PNGV6EY.jsonl",
+    "size_bytes": 553200
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T12-58-58-01a187be-009c-7d60-a203-865688097f58.jsonl",
+    "session_id": "01a187be-009c-7d60-a203-865688097f58",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The rebase has one textual conflict: both strict credential dialing and inbound admission add configuration checks. I’ve kept both.\n\nThe inference auto-merge also needs integration work: upstream moved processing into a private method, leaving the admission argument out of scope. I’ll fix that wiring, then add red-before transport tests for stop/close during pending admission before implementing cancellation.The new tests reproduced both integration bugs: stop returned an admission refusal instead of the stopped-request error, and transport closure still caused a router answer attempt. A separate router-stop test also showed that the admission slot stayed occupied until teardown or timeout.\n\nThe fix cancels pending admission with the request and releases its slot. All 12 interaction cases now pass, as do upstream’s inference-abort tests. The six-commit shape is preserved, the connector inventory is unchanged, and final dual-version gates are running.Node 22.23.3 passed all final gates, including the full suite with zero failures. Node 22.12.0 is now running its focused tests after passing typecheck and build. The report and updated PR draft are prepared; completion is waiting on the remaining checks.All requested gates passed on both Node versions: each full suite had 9,500 passed, 63 skipped, and zero failures. The 161 focused tests and 276 targeted upstream tests also passed on each version.\n\nThe clean six-commit series ends at `453484be`. The report includes conflict resolutions, red-before evidence, receipts, and the updated PR draft."
+    }
+  ],
+  "narrative_truncated": false
+}
