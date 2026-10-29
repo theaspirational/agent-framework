@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-0REM7
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-0NN56
+:PROPERTIES:
+:UID: 86530b04-451e-5105-a1ca-5c3c8a5f35bd
+:ID: CONV-0REM7
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-0nn56
+:RUNS:  run-01M63DNN8DN2ZHJFQNR35DM3BA
+:CREATED_AT: 2026-10-29T08:50:51Z
+:END:
