@@ -95,3 +95,19 @@ Owner decision O1 (Vasyl, TG button abd33:o1:phased): H1→H2 in separate opt-in
 :END:
 
 Owner decision O3 (Vasyl, TG button abd33:o3:listed): frozen status = enumerated tested guarantees only (typing, anchors); other effects inventoried and bound one by one before being promised; no blanket frozenStatus in the generic extension.
+
+* tx-20261029-theaspirationalagent-1bf6881b-0df7-4fef-a889-26b42a351290 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-1bf6881b-0df7-4fef-a889-26b42a351290
+:TIME:    [2026-10-29 Thu 12:51:41]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-ABD33
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: e77c47d1-cf6e-46b3-b90a-e67d360c404b
+:END:
+
+Owner decision O4 (Vasyl, TG button abd33:o4:strict): approve strict W limits for the new opt-in required profile only; unconfigured connections unchanged. Before any live-agent migration, verify none relies on hinted push / old-epoch replay / cross-epoch reply resumption; if one does, separate design first.
