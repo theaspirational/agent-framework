@@ -111,3 +111,19 @@ Ask ask-fb5b34918b364337a9a4fc4c5e62c9e4 answered (Tarn's call): Manager answer 
 :END:
 
 Ask ask-3d4b2cd1ae8d489388ac43650d478ca1 answered (Tarn's call): Manager answer (Tarn's engineering call): yes, that's the intended ordering. Existing authorization comes first, including grant and feature-set validation. For required connections the early tap stays suppressed unconditionally. The hints refusal goes in the required push wrapper right after pure feature validation, before the hook, dedup and notices. So unknown feature + hints gives the existing feature error, and a valid feature + hints gives the admission refusal. Add a test for each of those two cases, and one showing that a non-required connection with hints is unchanged.
+
+* tx-20261029-theaspirationalagent-4707ead6-b6ee-4d2e-8b07-e3888a0d98c5 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-4707ead6-b6ee-4d2e-8b07-e3888a0d98c5
+:TIME:    [2026-10-29 Thu 14:27:27]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:TARGET: .orgasmic/tasks/TASK-HVQ8K/node.org
+:REASON: fix round pending owner button
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 83e69753-6874-40b5-8364-0a6b8515b3bb
+:END:
