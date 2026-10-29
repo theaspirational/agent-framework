@@ -7452,3 +7452,20 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     5b0f4c79-652b-4647-bb75-a4d65b05f83d
 :END:
+
+* TX 2026-10-29 Thu 13:32:10 run.answered TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-d59ccbfe-7133-4581-8fc5-75d1c59aeefb
+:TIME:         [2026-10-29 Thu 13:32:10]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Manager answer (Tarn's engineering call): yes, that's the intended ordering. Existing authorization comes first, including grant and feature-set validation. For required connections the early tap stays suppressed unconditionally. The hints refusal goes in the required push wrapper right after pure feature validation, before the hook, dedup and notices. So unknown feature + hints gives the existing feature error, and a valid feature + hints gives the admission refusal. Add a test for each of those two cases, and one showing that a non-required connection with hints is unchanged.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-3d4b2cd1ae8d489388ac43650d478ca1
+:MESSAGE_ID:   msg-848744e3b52148b19e43b69bb00dd4d7
+:DELIVERY:     delivered
+:EVENT_ID:     2f957331-95f5-4b9f-8e52-c370c6e3fe25
+:END:

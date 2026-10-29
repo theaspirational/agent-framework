@@ -95,3 +95,19 @@ Ask ask-8c10d500780c4ffea98ec5d4ba32ed73 answered (Tarn's call): Manager answer 
 :END:
 
 Ask ask-fb5b34918b364337a9a4fc4c5e62c9e4 answered (Tarn's call): Manager answer (Tarn's engineering call): that's sufficient for A. Rely on the MCPL decoder and grant implementation already inside upstream framework 4a45766f019fa11c8699645bd6806ebf3e13e5d1 (its vendored or dependency mcpl-core version, which you record in the report from package-lock/package.json). Add no wire vocabulary. In the report and the PR-facing text, state that slice A doesn't depend on any SPEC change and that the full MCPL pin is deferred to slice E. No external MCPL repo read is required.
+
+* tx-20261029-theaspirationalagent-9582a0f6-f8cf-404e-a155-dc4747ba39a1 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-9582a0f6-f8cf-404e-a155-dc4747ba39a1
+:TIME:    [2026-10-29 Thu 13:32:10]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 2aa1436d-a63e-40de-9674-902efe7e9b7b
+:END:
+
+Ask ask-3d4b2cd1ae8d489388ac43650d478ca1 answered (Tarn's call): Manager answer (Tarn's engineering call): yes, that's the intended ordering. Existing authorization comes first, including grant and feature-set validation. For required connections the early tap stays suppressed unconditionally. The hints refusal goes in the required push wrapper right after pure feature validation, before the hook, dedup and notices. So unknown feature + hints gives the existing feature error, and a valid feature + hints gives the admission refusal. Add a test for each of those two cases, and one showing that a non-required connection with hints is unchanged.
