@@ -6962,3 +6962,52 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     c3a653d3-fb30-4b92-a2cf-b0ed2dbd41f1
 :END:
+
+
+* TX 2026-10-29 Thu 12:59:59 run.answered TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-f93cdf95-3d2e-4fc6-8b42-d4aff56f1057
+:TIME:         [2026-10-29 Thu 12:59:59]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Manager answer (Tarn's engineering call, not an owner decision; record it as such): yes, with these exact choices. timeoutMs is a required integer in 1..60000 on the required-admission config (validated at config load; invalid config refuses to start the connection, it does not default). At most 64 pending preflights per connection, counting attestation/validation; the 65th is refused immediately with admission_denied (no queueing, no wait). Budgets are independent per connection; items of one channel batch are admitted sequentially in batch order, each with its own timeout. Make 60000 and 64 named constants, document them as initial bounds open to maintainer review, and test: timeout -> nothing admitted; overload refusal; one connection's saturation does not affect another; batch order preserved.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-3bd8edd0f3424c14ad472650212097ad
+:EVENT_ID:     aedea61d-0d19-4ab2-b2a9-4d697c01b6c1
+:END:
+
+* TX 2026-10-29 Thu 12:59:59 run.asked TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-c08c613a-31e5-42c1-9d9a-1e793de91543
+:TIME:         [2026-10-29 Thu 12:59:59]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Slice A excludes stamps (D), but W keeps stamp/isNormalizedStamp in the verdict API and requires attaching a stamp at storage (§6), while explicitly leaving its schema/reserved key unresolved. Should A retain and validate stamp only in a private, non-persisted envelope (no metadata reservation/storage), with D owning all storage effects, or should A reject/omit the stamp slot until D? I will not invent a storage key.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-20b642cb3a344b99a9b7dcca478fecc8
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     4034df0c-748b-4875-afa7-05068707a846
+:END:
+
+* TX 2026-10-29 Thu 13:00:10 run.answered TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-e7ed690e-84b5-45b9-a9b7-af36aa767623
+:TIME:         [2026-10-29 Thu 13:00:10]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Manager answer (Tarn's engineering call, not an owner decision): omit the stamp slot in slice A. The A verdict type has no stamp member and no isNormalizedStamp; a hook verdict that carries a stamp (or any unknown member) is an invalid shape and admits nothing, so nothing is silently dropped. Do not reserve metadata keys or touch storage. Slice D adds the stamp as an additive optional member together with its schema and storage. Document this in the PR-facing docs as 'stamp support arrives with context-only delivery' and note the deviation from W §6 in your report.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-20b642cb3a344b99a9b7dcca478fecc8
+:MESSAGE_ID:   msg-c2bd8e60e5054bb2ba65376257ef556a
+:DELIVERY:     delivered
+:EVENT_ID:     5e806628-03f4-4298-9132-767012fa3d75
+:END:

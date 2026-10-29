@@ -31,3 +31,35 @@
 :TO_STATE: in_progress
 :EVENT_ID: 83d0cff3-f06b-467a-9c41-5820e4315b35
 :END:
+
+* tx-20261029-theaspirationalagent-7cd540ae-e26b-42a5-85ab-8f7a58ada9c3 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-7cd540ae-e26b-42a5-85ab-8f7a58ada9c3
+:TIME:    [2026-10-29 Thu 13:00:00]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a2b1a992-3ecf-45c5-83b7-cc34faf64116
+:END:
+
+Ask ask-3bd8edd0 answered (Tarn's call, not owner): Manager answer (Tarn's engineering call, not an owner decision; record it as such): yes, with these exact choices. timeoutMs is a required integer in 1..60000 on the required-admission config (validated at config load; invalid config refuses to start the connection, it does not default). At most 64 pending preflights per connection, counting attestation/validation; the 65th is refused immediately with admission_denied (no queueing, no wait). Budgets are independent per connection; items of one channel batch are admitted sequentially in batch order, each with its own timeout. Make 60000 and 64 named constants, document them as initial bounds open to maintainer review, and test: timeout -> nothing admitted; overload refusal; one connection's saturation does not affect another; batch order preserved.
+
+* tx-20261029-theaspirationalagent-06f8d475-813c-41b2-96e2-2b2eb3157883 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-06f8d475-813c-41b2-96e2-2b2eb3157883
+:TIME:    [2026-10-29 Thu 13:00:10]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 6a5e01dd-6fbe-4cf5-be1e-f66f7de9356e
+:END:
+
+Ask ask-20b642cb3a344b99a9b7dcca478fecc8 answered (Tarn's call, not owner): Manager answer (Tarn's engineering call, not an owner decision): omit the stamp slot in slice A. The A verdict type has no stamp member and no isNormalizedStamp; a hook verdict that carries a stamp (or any unknown member) is an invalid shape and admits nothing, so nothing is silently dropped. Do not reserve metadata keys or touch storage. Slice D adds the stamp as an additive optional member together with its schema and storage. Document this in the PR-facing docs as 'stamp support arrives with context-only delivery' and note the deviation from W §6 in your report.
