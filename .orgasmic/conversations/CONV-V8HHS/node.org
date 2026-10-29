@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-V8HHS
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-HVQ8K
+:PROPERTIES:
+:UID: 09cba809-14b2-550d-8acc-d3ae7847c576
+:ID: CONV-V8HHS
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-hvq8k
+:RUNS:  run-01M63ZE2AK4TF5RWMB727P6T3K
+:CREATED_AT: 2026-10-29T14:01:16Z
+:END:
