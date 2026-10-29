@@ -1,0 +1,25 @@
+{
+  "event_count": 427,
+  "tool_call_count": 33,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-WW6CM-implementer-20261029T125936-run-01M63VX4YVY0N2ACGMABSXJ91J.jsonl",
+    "size_bytes": 582750
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T12-59-37-01a187be-975c-7eb1-81b1-e1a95ec9257d.jsonl",
+    "session_id": "01a187be-975c-7eb1-81b1-e1a95ec9257d",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll start from the specified upstream commit, add failing dial tests, then bring over only the strict-dial behavior. I’ll leave the logging sinks unchanged and run the requested engine gates before finalizing locally.The red-before run is recorded: 44 failures and 7 passes against upstream. The manager confirmed that strict configuration refusals should map to `connection-failed`, with descriptive errors retained at configuration validation. I’m now applying the dial-only implementation.The dial-only change is committed locally as `5266eb52`. The strict tests pass, including short credentials, reconnect refusal, redirects, status classification, and a 50 ms open-timeout test. The full Node 22.23.3 suite is running; I’ll follow with Node 22.12.0 and the Bun strict subset.Node 22.23.3 passed the full suite: **9,261 passed, 0 failed, 63 skipped**. Bun 1.4.3 passed the strict subset: **107 passed, 0 failed, 1 skipped**. Node 22.12.0 typecheck and build passed; its full suite is now running.Both full Node suites passed with identical totals: **9,261 passed, 0 failed, 63 skipped** each. The working tree is clean. I’m writing the final report with gate logs, the code mapping, diff statistics, and a user-facing PR draft, then finalizing locally."
+    }
+  ],
+  "narrative_truncated": false
+}
