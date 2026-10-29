@@ -111,3 +111,19 @@ Owner decision O3 (Vasyl, TG button abd33:o3:listed): frozen status = enumerated
 :END:
 
 Owner decision O4 (Vasyl, TG button abd33:o4:strict): approve strict W limits for the new opt-in required profile only; unconfigured connections unchanged. Before any live-agent migration, verify none relies on hinted push / old-epoch replay / cross-epoch reply resumption; if one does, separate design first.
+
+* tx-20261029-theaspirationalagent-5fbf0ecf-36a1-4a62-b6b5-a21fa2cd7a2d comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-5fbf0ecf-36a1-4a62-b6b5-a21fa2cd7a2d
+:TIME:    [2026-10-29 Thu 12:53:26]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-ABD33
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: f1a22cdc-8c8d-4eda-9832-f7c3557a735d
+:END:
+
+Owner decision O5 (Vasyl, TG button abd33:o5:keep): no new automatic bounce recovery or simultaneous-start contract; keep existing logical-turn behaviour; add a focused owner/silent-resume regression test. All four owner questions (O1, O3, O4, O5) are now answered as recommended.
