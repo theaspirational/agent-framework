@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-ABD33
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-ABD33 DESIGN: generic connector-agnostic recipient routing to replace the Slack-specific layer (WO-5b)
+* DONE TASK-ABD33 DESIGN: generic connector-agnostic recipient routing to replace the Slack-specific layer (WO-5b)
 :PROPERTIES:
 :UID: 417352c1-3557-577a-95b7-2b03370a5532
 :ID: TASK-ABD33
@@ -21,3 +21,5 @@ Inputs: /srv/review-drop/TASK-VZ0CD-CMT-R4DF2.md, /srv/review-drop/TAB7M-spec-dr
 - Slices with sizes; what goes upstream (anima-research/agent-framework, mcpl SPEC) and what stays on the fork; the migration for Slack (and later Telegram) connectors.
 - Owner questions labelled with recommendations; maintainer questions separate.
 - No code. Local design doc only.
+** Evidence
+- design published to fork main; implementation in TASK-HVQ8K
