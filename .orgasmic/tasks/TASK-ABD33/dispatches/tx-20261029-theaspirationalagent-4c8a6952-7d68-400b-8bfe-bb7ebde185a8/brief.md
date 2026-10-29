@@ -1,0 +1,12 @@
+Your worktree is this work chain's shared tree, checked out detached at b9e770a1e2f45a9ef2e717ced3715e58e9ba2bfd — the commit you review. Leave it exactly as you found it: no commits, no edits, no new files (ignored build output is fine). The next round of the chain runs here, and the daemon records anything you leave behind when your dispatch is closed.
+
+Reviewed implementer evidence ($ORGASMIC_REVIEWED_EVIDENCE_DIR): /home/orgasmic/.orgasmic/runs/run-01M63PH8ZF75G215JE6T06WDTC/evidence
+
+Review of TASK-ABD33 design doc (design only, no code): docs/design/GENERIC-RECIPIENT-ROUTING.md at b9e770a1e2f45a9ef2e717ced3715e58e9ba2bfd (copy /srv/review-drop/GENERIC-RECIPIENT-ROUTING-r1.md; worker report /srv/review-drop/TASK-ABD33-REPORT.md). Read the task body and all inputs it lists.
+Owner goal: routing generic in the runtime; the framework knows no connector. Check: (1) every guarantee of the Slack layer (R 36a91942 vs U 4a45766f) is correctly classified keep/drop/question, none silently lost; (2) the connector/host/framework split really removes connector names and id grammars from framework paths, and the proposed replyRouting extension is minimal and fails closed; (3) consistency with WO-5a (CMT-R4DF2) and TAB7M v0.5, and whether stated conflicts are real; (4) citations spot-checked for accuracy (sample at least 20 file:line refs against the pinned shas); (5) slices are implementable and sized honestly, upstream/fork split sensible, migration safe; (6) owner questions are real owner decisions with sound recommendations, not things the design should just decide. Verdict approve/reject; HIGH/MEDIUM/LOW with doc line refs.
+
+## Gates already passed at this commit
+
+orgasmic recorded these gate runs in the implementer's worktree, each on a clean tree it left clean, at b9e770a1e2f45a9ef2e717ced3715e58e9ba2bfd — the commit your worktree is cut at — or at an ancestor of it whose gate inputs are identical to this commit's: the two trees differ only in paths this project marks as not gate inputs. Read the log instead of running the gate again. Run scoped probes and required gates that lack a reusable receipt. The manager names required gates; project policy also applies. Missing receipts do not assign a full suite.
+
+- `design-source-audit` — exit 0 — `python3 /home/orgasmic/.orgasmic/runs/run-01M63PH8ZF75G215JE6T06WDTC/evidence/audit-design.py` (cwd `.`) — at `b9e770a1e2f45a9ef2e717ced3715e58e9ba2bfd` — log `/home/orgasmic/.orgasmic/runs/run-01M63PH8ZF75G215JE6T06WDTC/evidence/gate-design-source-audit-01M63QE4GS6BYVT6NH0K7QQGZR.log`
