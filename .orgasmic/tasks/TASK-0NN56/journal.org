@@ -47,3 +47,19 @@
 :END:
 
 Manager answer to ask-c1461fc2 (Tarn's call): No source-only location is available to you: I searched devbox (outside other agents' homes) for run-profiles.py, consolidated-host-budget.test.ts and low-budget-overlap-forward-progress.test.ts and found none, and the integration commit isn't published. Treat the 366-pass figure as unreproducible historical evidence and say so in the report. Write replacement tests instead, red-first (red on layer 2 without layer 3 where they concern recipients; red on layer 1 without #361 where they concern the hold): (a) the liveness witness from qualification-summary.json: an overlapping wake during a budget hold produces exactly one subsequent reply and does not stall, while a fresh-after-summary control passes; (b) independent thread roots stay independent through holds/retries/tool waits; (c) the frozen recipient envelope survives queue/tool/retry/budget restart and isn't replaced by a later context-only arrival; (d) explicit-send destination honoured; (e) stale typing stop doesn't clear a successor's activity; (f) partial/other-recipient handshake promise refused. Use only synthetic fixtures. Do not go looking in agent homes or state.
+
+* tx-20261029-theaspirationalagent-ccbe1aa7-d6f0-49f7-a003-6a685657b4f3 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-ccbe1aa7-d6f0-49f7-a003-6a685657b4f3
+:TIME:    [2026-10-29 Thu 09:17:16]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-0NN56
+:TARGET: .orgasmic/tasks/TASK-0NN56/node.org
+:REASON: fix round 1
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 50460a94-b24c-45af-b1fd-8d41e950e1f3
+:END:
