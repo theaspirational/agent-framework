@@ -159,3 +159,35 @@ hvq8k:fix:all (TG 1253/1257): fix round 1 dispatched, run-01M642DGGHHPVM127DKKJ9
 :TO_STATE: in_progress
 :EVENT_ID: 787c74ee-7a5f-4a61-9eb2-9aec12585f6f
 :END:
+
+* tx-20261029-theaspirationalagent-7c0b274f-e2e9-40e7-b2e6-e23bbb2301ab task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-7c0b274f-e2e9-40e7-b2e6-e23bbb2301ab
+:TIME:    [2026-10-29 Thu 15:59:56]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:TARGET: .orgasmic/tasks/TASK-HVQ8K/node.org
+:REASON: polish round (hvq8k:polish)
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: 2fdebf9c-b075-4f36-a2e8-3656eaf4a5a9
+:END:
+
+* tx-20261029-theaspirationalagent-8a0cbb90-933f-4118-9162-171203991967 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-8a0cbb90-933f-4118-9162-171203991967
+:TIME:    [2026-10-29 Thu 16:00:04]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 0328e90d-f348-4348-b620-ca27f11ddc35
+:END:
+
+hvq8k:polish (TG 1269): polish round run-01M6467C786S6YQ7R0P0WQRZQH. Scope: result-borne hints suppressed on required connections plus a test; connector-literal check as a committed test; imports below docblocks. No re-review; manager gates. Earlier: closed the stray recovery dispatch run-01M644MF1V78E2MED3V42SKJ7X as aborted.
