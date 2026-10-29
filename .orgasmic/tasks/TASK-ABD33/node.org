@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-ABD33
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-ABD33 DESIGN: generic connector-agnostic recipient routing to replace the Slack-specific layer (WO-5b)
+* IN_REVIEW TASK-ABD33 DESIGN: generic connector-agnostic recipient routing to replace the Slack-specific layer (WO-5b)
 :PROPERTIES:
 :UID: 417352c1-3557-577a-95b7-2b03370a5532
 :ID: TASK-ABD33

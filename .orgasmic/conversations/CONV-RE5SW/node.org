@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-RE5SW
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-ABD33
+:PROPERTIES:
+:UID: 29caccf2-9532-5ef2-9c27-c07b3d1494e7
+:ID: CONV-RE5SW
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-abd33
+:RUNS:  run-01M63QG2CDCFBQQ4TDC67SYTQJ
+:CREATED_AT: 2026-10-29T11:42:33Z
+:END:
