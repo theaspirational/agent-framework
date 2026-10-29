@@ -5139,3 +5139,20 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     48ea12a9-f9f2-4cc6-9525-089fe3951c10
 :END:
+
+
+* TX 2026-10-29 Thu 07:26:56 run.asked TASK-0NN56
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-1612fbd5-6ac9-43e6-974b-1bfef17ffd26
+:TIME:         [2026-10-29 Thu 07:26:56]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-0NN56
+:REASON:       The supplied profile records 366 framework qualification passes but no suite manifest; the frozen runtime lacks qualification/run-profiles.py, qualification/consolidated-host-budget.test.ts and test/low-budget-overlap-forward-progress.test.ts, and the named unpublished integration commit is absent from both local repositories. Is there a source-only location for those qualification files (no agent state/history), or should this be reported as unreproducible historical evidence with new replacement tests?
+:RUN_ID:       run-01M63783T63Z42QNG09P652MBB
+:ASK_ID:       ask-c1461fc2eb994297bbfa16e4d29b37b7
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     430b3592-a322-4da0-a031-286be89c3230
+:END:
