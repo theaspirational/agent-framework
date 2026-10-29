@@ -7075,3 +7075,123 @@
 :DELIVERY:     delivered
 :EVENT_ID:     17c36c4c-864d-48e1-8e66-5f2c8f9bd532
 :END:
+
+* TX 2026-10-29 Thu 13:01:41 run.message TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-fc082c18-20a0-4e11-b187-061177fc405c
+:TIME:         [2026-10-29 Thu 13:01:41]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       This repeats my answer to ask-78870de2 (and ask-3bd8edd0) in case the blocking reply didn't reach you. The limits are approved as you proposed: timeoutMs is a required integer in 1..60000, validated at config load. At most 64 pending preflights per connection; overload is refused immediately with admission_denied. Budgets are independent per connection, and the items of a channel batch run one after another, each with its own timeout. Use named constants and document them as initial bounds. This is Tarn's engineering call, not an owner decision. Stamp: omit the slot in slice A, as answered in ask-20b642cb.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:MESSAGE_ID:   msg-de875e91a55543d78d9748c3db6f9075
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     a6d1e5f3-662e-49f0-a413-6f1c00bd8699
+:END:
+
+* TX 2026-10-29 Thu 13:01:52 run.asked TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-f2bee599-70db-45b8-9530-1d47df3a5f6a
+:TIME:         [2026-10-29 Thu 13:01:52]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Upstream U already contains framework runtime connector policy in src/framework.ts:19260-19268: derivePushEventChannel tests origin.source === 'discord' and constructs discord:<guild>:<channel>. The literal 'No connector names, id formats or platform regexes anywhere in framework code' conflicts with O4's byte-for-byte unchanged unconfigured path: removing this existing fallback changes unconfigured push routing, while leaving it fails the literal acceptance/AST check. May slice A leave pre-existing connector policy untouched and require only newly added admission code to be connector-agnostic, deferring removal to a separate compatibility decision, or which requirement takes precedence?
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-8c10d500780c4ffea98ec5d4ba32ed73
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     c1c7f37e-2662-4a6a-a410-c479d669b8af
+:END:
+
+* TX 2026-10-29 Thu 13:02:04 run.answered TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-420e0552-1e43-4bde-9a9c-86573734539f
+:TIME:         [2026-10-29 Thu 13:02:04]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Manager answer (Tarn's engineering call, not an owner decision): unchanged behaviour for unconfigured connections takes precedence. Leave pre-existing upstream connector policy (derivePushEventChannel's discord branch and anything like it) untouched in slice A. The connector-agnostic requirement applies to code this slice adds or changes, and the architecture/AST check should scope to the new admission modules and touched functions. List every pre-existing connector-specific site you find in the report, as a follow-up for a separate compatibility decision.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-8c10d500780c4ffea98ec5d4ba32ed73
+:EVENT_ID:     8cdfd099-37b7-49f4-9e7b-205067abc1ec
+:END:
+
+* TX 2026-10-29 Thu 13:02:09 manager.dispatch_started TASK-ABD33
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-1dfff76f-9c34-422b-8a86-cc7e71d84cbd
+:TIME:         [2026-10-29 Thu 13:02:09]
+:TYPE:         manager.dispatch_started
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-ABD33
+:TARGET:       .orgasmic/tmp/sessions/dispatch-TASK-ABD33-implementer-20261029T130209-run-01M63W1TPCVRY1F5BK89W7MQKX.jsonl
+:REASON:
+:KIND:         implementer
+:HARNESS:      codex
+:PROTOCOL:     app-server
+:TRANSPORT:    spawn
+:BRIDGE:       none
+:MULTIPLEXER:  none
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-abd33
+:BRANCH:       task-abd33-impl
+:BRIEF_PATH:   .orgasmic/tmp/dispatch/TASK-ABD33-implementer/TASK-ABD33-implementer-db1be42bd0b2403fbdde57363256452a-brief.md
+:LAST_PATH:    .orgasmic/tmp/dispatch/TASK-ABD33-implementer/TASK-ABD33-implementer-db1be42bd0b2403fbdde57363256452a-last.txt
+:STDOUT_PATH:  .orgasmic/tmp/dispatch/TASK-ABD33-implementer/TASK-ABD33-implementer-db1be42bd0b2403fbdde57363256452a-stdout.log
+:DISPATCH_ATTEMPT: db1be42bd0b2403fbdde57363256452a
+:STARTED_AT:   [2026-10-29 Thu 13:02:09]
+:LIVENESS:     591f6c14578ef57796399b91c8a0bea1d5ba7c62
+:NEXT:         fix-implementer-watch-then-integrate
+:PREFLIGHT:    ok
+:REQUESTER:    member:tarn2
+:CLAIM_RUN:    run-01M63W1TPCVRY1F5BK89W7MQKX
+:CACHE_SEED:   skipped
+:CACHE_SEED_DETAIL: reason=not-cargo
+:MODEL:        gpt-6-astra
+:EFFORT:       high
+:REASON_INITIAL: dispatch service participant worker
+:REQUEST_IDENTITY: {"branch":"task-abd33-impl","credential_mode":null,"effort":"high","endpoint":"","from":"591f6c14578ef57796399b91c8a0bea1d5ba7c62","governance":null,"harness":"codex","harness_args":null,"kind":"implementer","mcp_isolation":null,"model":"gpt-6-astra","protocol":"app-server","provider":null,"resume_from":null,"simulated":"false","speed":null,"subject":"TASK-ABD33","transport":"spawn","worktree":"~/.orgasmic/worktrees/theaspirational.agent-framework/task-abd33"}
+:CODEX_BIN:    /opt/node/bin/codex
+:CODEX_VERSION: codex-cli 0.163.0
+:EVENT_ID:     829e3fdb-a15c-4ca4-9295-bb3a4f074125
+:END:
+
+* TX 2026-10-29 Thu 13:02:10 run.created TASK-ABD33
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-1de63e81-882d-4379-a3ac-4f7e4d08005b
+:TIME:         [2026-10-29 Thu 13:02:10]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-ABD33
+:TARGET:       .orgasmic/tmp/sessions/dispatch-TASK-ABD33-implementer-20261029T130209-run-01M63W1TPCVRY1F5BK89W7MQKX.jsonl
+:REASON:       dispatch service participant worker
+:RUN_ID:       run-01M63W1TPCVRY1F5BK89W7MQKX
+:ORIGIN:       cli_dispatch
+:WORKER:       implementer-codex-app-server
+:KIND:         implementer
+:HARNESS:      codex
+:PROTOCOL:     app-server
+:TRANSPORT:    spawn
+:BRIDGE:       none
+:MULTIPLEXER:  none
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-abd33
+:BRIEF_PATH:   .orgasmic/tmp/dispatch/TASK-ABD33-implementer/TASK-ABD33-implementer-db1be42bd0b2403fbdde57363256452a-brief.md
+:LAST_PATH:    .orgasmic/tmp/dispatch/TASK-ABD33-implementer/TASK-ABD33-implementer-db1be42bd0b2403fbdde57363256452a-last.txt
+:STDOUT_PATH:  .orgasmic/tmp/dispatch/TASK-ABD33-implementer/TASK-ABD33-implementer-db1be42bd0b2403fbdde57363256452a-stdout.log
+:DISPATCH_ATTEMPT: db1be42bd0b2403fbdde57363256452a
+:PID:          2165669
+:DISPATCH_TX:  tx-20261029-theaspirationalagent-1dfff76f-9c34-422b-8a86-cc7e71d84cbd
+:MODEL_OVERRIDE: gpt-6-astra
+:EFFORT_OVERRIDE: high
+:EVENT_ID:     dfeffca4-322d-4f51-95e5-ecbb326ed00a
+:END:

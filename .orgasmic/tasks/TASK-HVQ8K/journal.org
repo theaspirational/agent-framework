@@ -63,3 +63,19 @@ Ask ask-3bd8edd0 answered (Tarn's call, not owner): Manager answer (Tarn's engin
 :END:
 
 Ask ask-20b642cb3a344b99a9b7dcca478fecc8 answered (Tarn's call, not owner): Manager answer (Tarn's engineering call, not an owner decision): omit the stamp slot in slice A. The A verdict type has no stamp member and no isNormalizedStamp; a hook verdict that carries a stamp (or any unknown member) is an invalid shape and admits nothing, so nothing is silently dropped. Do not reserve metadata keys or touch storage. Slice D adds the stamp as an additive optional member together with its schema and storage. Document this in the PR-facing docs as 'stamp support arrives with context-only delivery' and note the deviation from W §6 in your report.
+
+* tx-20261029-theaspirationalagent-9b8aa1e8-423a-4134-b84c-737e288aebd0 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-9b8aa1e8-423a-4134-b84c-737e288aebd0
+:TIME:    [2026-10-29 Thu 13:02:04]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 0516bd8d-af3e-4d89-8f3d-7007721c45bb
+:END:
+
+Ask ask-8c10d500780c4ffea98ec5d4ba32ed73 answered (Tarn's call): Manager answer (Tarn's engineering call, not an owner decision): unchanged behaviour for unconfigured connections takes precedence. Leave pre-existing upstream connector policy (derivePushEventChannel's discord branch and anything like it) untouched in slice A. The connector-agnostic requirement applies to code this slice adds or changes, and the architecture/AST check should scope to the new admission modules and touched functions. List every pre-existing connector-specific site you find in the report, as a follow-up for a separate compatibility decision.
