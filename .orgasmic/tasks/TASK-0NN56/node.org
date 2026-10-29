@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-0NN56
 #+orgasmic_version: 2
 
-* DONE TASK-0NN56 Fork main: upstream main + #233 + #361 + recipient compatibility as commits
+* IN_PROGRESS TASK-0NN56 Fork main: upstream main + #233 + #361 + recipient compatibility as commits
 :PROPERTIES:
 :UID: df0a5e24-14f3-507b-9b99-e54e24cc178d
 :ID: TASK-0NN56
