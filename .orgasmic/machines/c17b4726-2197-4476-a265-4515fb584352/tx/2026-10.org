@@ -7436,3 +7436,19 @@
 :DELIVERY:     delivered
 :EVENT_ID:     b4057d40-9967-43ce-a64e-b1163373888d
 :END:
+
+* TX 2026-10-29 Thu 13:32:02 run.asked TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-e0108e74-17da-473a-a641-870c76ee56c0
+:TIME:         [2026-10-29 Thu 13:32:02]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       One ordering detail: the current required transport guard refuses hinted pushes after the pushEvents grant, but before PushHandler can validate the enabled feature set. W's lane matrix says existing authorization stays first, including feature authorization. I intend to keep the early tap unconditionally suppressed for required connections and move the hints refusal into the required push wrapper immediately after pure feature validation, still before the hook/dedup/notices. Is that the intended ordering (so unknown feature + hints yields the existing feature error, not admission_unsupported)?
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-3d4b2cd1ae8d489388ac43650d478ca1
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     5b0f4c79-652b-4647-bb75-a4d65b05f83d
+:END:
