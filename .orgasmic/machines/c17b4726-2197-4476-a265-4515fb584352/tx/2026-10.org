@@ -8059,3 +8059,34 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     e67cd2d1-9245-4e7d-80ad-7426c590e8ba
 :END:
+
+
+* TX 2026-10-29 Thu 15:31:52 manager.dispatch_orphaned TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-dc189004-d9ba-4c19-8001-be613eddfe62
+:TIME:         [2026-10-29 Thu 15:31:52]
+:TYPE:         manager.dispatch_orphaned
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       the dispatched run is gone without a report
+:DISPATCH_TX:  tx-20261029-theaspirationalagent-3391d0fd-c38e-47a7-a4fe-0e4ab0a16c9f
+:RELEASE_REASON: process_gone: the run is not live and no release of it is on record
+:RUN_ID:       run-01M6447860QN4GRKT3P7E2R7YX
+:EVENT_ID:     1637ba4c-d74f-4acf-947e-e4f6d8c02a42
+:END:
+
+* TX 2026-10-29 Thu 15:32:02 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-9ee9e52c-6e4e-4252-bb56-a04c296a500c
+:TIME:         [2026-10-29 Thu 15:32:02]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  1637ba4c-d74f-4acf-947e-e4f6d8c02a42
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     4949319e-f63f-4d72-8832-11ab87ddc465
+:END:
