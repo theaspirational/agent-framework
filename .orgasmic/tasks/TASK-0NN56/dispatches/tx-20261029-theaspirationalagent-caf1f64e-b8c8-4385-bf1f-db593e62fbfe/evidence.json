@@ -1,0 +1,25 @@
+{
+  "event_count": 286,
+  "tool_call_count": 18,
+  "unparsed_events": 0,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-0NN56-implementer-20261029T100328-run-01M63HTMPTP6T8R8MFH32TQNT4.jsonl",
+    "size_bytes": 351694
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T06-58-36-01a18674-1344-7270-9310-d09ff4e718e6.jsonl",
+    "session_id": "01a18674-1344-7270-9310-d09ff4e718e6",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll add throttled deferral diagnostics and the silent-start exemption, move the anchor regression to real ingress, and clarify the allowlist documentation. I’ll preserve existing commits and author/trailer conventions, then run fresh gates on both heads.The diagnostic and silent-start tests failed against the reviewed code and now pass. The real-ingress anchor test passed before the runtime changes, confirming the review’s correction: `decision.locus` already protects the anchor; the retained guard is defence in depth. The stacked head is committed and its full suite is running.Both heads pass the required install, typecheck, clean build, and full-suite gates with zero failures:\n\n- Stacked `5560cdd9`: 9,276 passed, 63 skipped.\n- Standalone `f48546e3`: 9,181 passed, 64 skipped.\n\nLayer-3 changed-line sets are identical, and the checkout is clean on the stacked branch. The report includes the anchor-guard correction and all evidence links."
+    }
+  ],
+  "narrative_truncated": false
+}
