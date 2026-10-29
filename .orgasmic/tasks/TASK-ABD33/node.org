@@ -1,0 +1,23 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-ABD33
+#+orgasmic_version: 2
+
+* BACKLOG TASK-ABD33 DESIGN: generic connector-agnostic recipient routing to replace the Slack-specific layer (WO-5b)
+:PROPERTIES:
+:UID: 417352c1-3557-577a-95b7-2b03370a5532
+:ID: TASK-ABD33
+:PRIORITY: P1
+:END:
+
+** Description
+Owner decision rcp:generic:design (TG 1207): the TASK-0NN56 recipient layer is Slack-specific (hard-coded serverId 'slack', slackRecipientRouting capability, slack:[CGD] channel format, supportRecipientBridge only on the server named slack). Routing must be generic in the runtime: the framework must not know about any connector. This task is a DESIGN only, which turns the accepted WO-5a checkpoint (TASK-VZ0CD, CMT-R4DF2) and TAB7M v0.5 into an implementable plan that replaces the Slack-specific layer.
+
+Inputs: /srv/review-drop/TASK-VZ0CD-CMT-R4DF2.md, /srv/review-drop/TAB7M-spec-draft-v0.5.md, /srv/review-drop/TASK-8K2H9-MAP-slice2b-K1.md, the Slack patch as rebased (recipient-on-main-r 36a9194253f319dcf79428b79893553dd9af4cb3 vs upstream 4a45766f019fa11c8699645bd6806ebf3e13e5d1) with docs/recipient-compatibility.md, and reviews /srv/review-drop/TASK-0NN56-REVIEW{1..4}.md.
+
+** Acceptance
+- A behaviour inventory of the Slack layer: each guarantee (frozen reply destination through queues, tools, retries and holds; turn-scoped typing; writeChannels; deferral and anchors) marked keep generically / drop / owner question.
+- A connector-agnostic contract: what a connector declares (handshake capability, MCPL extension or spec text) and what the host and framework own; no connector names or id formats in framework code.
+- How the existing 34 recipient tests become connector-neutral, plus a red test showing the framework has no 'slack' literal on these paths.
+- Slices with sizes; what goes upstream (anima-research/agent-framework, mcpl SPEC) and what stays on the fork; the migration for Slack (and later Telegram) connectors.
+- Owner questions labelled with recommendations; maintainer questions separate.
+- No code. Local design doc only.
