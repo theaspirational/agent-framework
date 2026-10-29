@@ -1,3 +1,4 @@
+import { AdmissionConnectError, admittedEnvelope, attachAdmission, wakeForbidden, type RequiredIngress } from './mcpl/inbound-admission.js';
 import { ToolPresentation, presentationTools, isPresentationTool, renderCatalogue, type PresentationSnapshot } from "./tool-presentation.js";
 import { presentAuthor } from './author-presentation.js';
 import { constants as bufferConstants } from 'node:buffer';
@@ -88,7 +89,7 @@ import { DEFAULT_SHUTDOWN_TIMEOUT_MS, validateShutdownTimeout, shutdownErrorMess
 import { REFUSAL_REACTIONS, REFUSAL_REACTION_FALLBACK, REFUSAL_REACTION_BASELINE } from './refusal-reactions.js';
 import { Agent, assertAgentSwitches, assertThinkingBinding, dryCompileStatsOf, type RenderStats } from './agent.js';
 import { assertBooleanSetting, holdsSettings, kindOf } from './config-checks.js';
-import { ModuleRegistry, checkedToolResult, ensureStateRegistered, storableToolResult, thrownResult } from './module-registry.js';
+import { ModuleRegistry, checkedToolResult, droppedToolResultLine, ensureStateRegistered, retiredPushLine, storableToolResult, thrownResult } from './module-registry.js';
 import { McplServerRegistry } from './mcpl/server-registry.js';
 import { prefixesMeet, prefixesMeetError } from './mcpl/prefix-rule.js';
 import { logDetail, logValue } from './mcpl/log-value.js';
@@ -876,7 +877,7 @@ import { ToolsetsModule, resolveAct, withLookHint, type TakenChange } from './mc
 import { ModernMcpConnection } from './mcpl/modern-connection.js';
 import { MAX_TIMER_MS, WITHHELD_TEXT, asText, credentialRedactor, redactUrl, redactServerText, resolveServerBinding, serverConfigProblems, serverCredentialPatterns, serverTextRedactor, type CredentialPattern } from './mcpl/protocol-family.js';
 import { MALFORMED_CONTENT_NOTICE, normalizeStandardToolResult } from './mcpl/tool-result-normalize.js';
-import { boundedForLog, describeCause } from './mcpl/errors.js';
+import { boundedForLog, describeCause, hostStoppedWhileHandling } from './mcpl/errors.js';
 import { assertServerConfigBooleans, buildWebSocketUrl, isWebSocketTransport } from './mcpl/transport.js';
 import type {
   McplServerConfig,
@@ -1488,6 +1489,7 @@ interface TurnRouting {
    */
   addressedElsewhere: Set<string>;
   heard?: Map<MessageId, number>;
+  inputsPin?: { agent: Agent; id: string };
 }
 
 /** A message that would re-pin its turn's locus (TurnRouting.arrivals). */
@@ -1516,6 +1518,29 @@ function freshTurnRouting(): TurnRouting {
     continuation: false, deliveries: [], suppressed: 0, drafts: [], keptPrivate: 0, arrivals: [], heard: new Map(),
     addressedElsewhere: new Set(),
   };
+}
+
+const TURN_INPUTS_SCAN = 64;
+
+function turnInputs(
+  cm: ContextManager, floor: number, agentName: string, sees: (metadata: unknown) => boolean,
+): { first: MessageId; last: MessageId } | undefined {
+  let first: MessageId | undefined;
+  let last: MessageId | undefined;
+  scan: for (let end = cm.getMessageCount(); end > 0; end -= TURN_INPUTS_SCAN) {
+    const { messages } = cm.getMessageWindow(Math.max(0, end - TURN_INPUTS_SCAN), Math.min(TURN_INPUTS_SCAN, end), { resolveBlobs: false });
+    for (let i = messages.length - 1; i >= 0; i--) {
+      const message = messages[i];
+      if (message.sequence <= floor) break scan;
+      if (!sees(message.metadata)) continue;
+      if (message.participant === agentName) break scan;
+      last ??= message.id;
+      const answers = Array.isArray(message.content) && message.content.length > 0
+        && message.content.every((block) => block.type === 'tool_result');
+      if (!answers) first = message.id;
+    }
+  }
+  return first !== undefined && last !== undefined ? { first, last } : undefined;
 }
 
 /**
@@ -1811,6 +1836,26 @@ interface DiscordAwarenessDrainPass {
   ended: boolean;
   /** Its promise, once registered. */
   drain?: Promise<DiscordAwarenessDrainOutcome>;
+}
+
+/** Whether a synthesized tool's nullable field is in use: omission, null and
+ *  the empty string all mean it isn't, so a caller whose provider presents
+ *  every property as required can still leave one unset. Any other value is
+ *  in use, and its field checks it. */
+function fieldInUse(value: unknown): boolean {
+  return value !== undefined && value !== null && value !== '';
+}
+
+/** A synthesized tool's integer field: an integer number, or a string of ASCII
+ *  digits once trimmed (a model may write an integer as a string), within the
+ *  integers a number holds exactly; NaN for anything else. Number() would read
+ *  " ", false and [] as 0, and "2.0" or "+2" as 2, and a longer run of digits
+ *  as a different, rounded number. */
+function integerField(value: unknown): number {
+  const n = typeof value === 'number' ? value
+    : typeof value === 'string' && /^[0-9]+$/.test(value.trim()) ? Number(value.trim())
+    : Number.NaN;
+  return Number.isSafeInteger(n) ? n : Number.NaN;
 }
 
 function normalizeDiscordAwarenessDeadline(value: number | undefined): number {
@@ -2422,6 +2467,19 @@ const MAINTENANCE_TICKS_PER_PASS = 8;
  *  together, and then on awareness drains still running, such as its
  *  startup's delivery. */
 const FAILED_CREATE_TEARDOWN_TIMEOUT_MS = 30_000;
+const ABANDON_GRACE_MS = 10_000;
+
+const testAbandonGraces = new WeakMap<AgentFramework, number>();
+
+/**
+ * For tests only: `framework`'s abandon takes `ms` as its grace in place of
+ * {@link ABANDON_GRACE_MS}. Set it only where the test holds every turn the
+ * abandon reaches past the grace, so no turn can end within it and a short
+ * grace only brings the abandon's report sooner.
+ */
+export function setAbandonGraceForTests(framework: AgentFramework, ms: number): void {
+  testAbandonGraces.set(framework, ms);
+}
 
 /** Local per-residence provider admission (AF #114 bounded first slice). */
 interface LocalProviderGate {
@@ -2700,6 +2758,7 @@ interface EphemeralRun {
   endReason?: AgentEndReason;
   /** Who ended it, when it was stopped from outside. */
   endedBy?: string;
+  endedFromOutside?: true;
 }
 
 /**
@@ -3302,6 +3361,17 @@ export function shedMayHelp(errorType: string | undefined, httpStatus: number | 
   return errorType === 'invalid_request' && (httpStatus === undefined || httpStatus === 400 || httpStatus === 422);
 }
 
+function responseParts(response: EventResponse | undefined): string {
+  return [
+    response?.addMessages?.length ? `${response.addMessages.length} message(s) to add` : '',
+    response?.editMessages?.length ? `${response.editMessages.length} edit(s)` : '',
+    response?.removeMessages?.length ? `${response.removeMessages.length} removal(s)` : '',
+    response?.stateUpdate !== undefined ? 'a state update' : '',
+    response?.requestInference ? 'an inference request' : '',
+    response?.toolsChanged ? 'a tools change' : '',
+  ].filter(Boolean).join(', ');
+}
+
 /**
  * What a thrown value says, safely and briefly, as boundedErrorMessage gives
  * it, with `recorded` applied before the cut, so no part of a credential
@@ -3786,6 +3856,7 @@ export class AgentFramework {
   private turnRearmMs: readonly number[] = DEFAULT_TURN_REARM_MS;
   private turnRearms: Map<string, number> = new Map();
   private exhaustingRearms: Set<string> = new Set();
+  private rearmDeadlineCuts: Set<string> = new Set();
   private statedWaitRuns: Map<string, StatedWaitRun> = new Map();
   /** N consecutive failed inferences ⇒ the agent is treated as hard-down and
    *  escalated loudly to stderr. */
@@ -4364,6 +4435,7 @@ export class AgentFramework {
       getMessage: (id) => this.getMessage(id),
       queryMessages: (filter, opts) => this.queryMessages(filter, opts),
       pushEvent: (event, moduleName) => this.pushModuleEvent(event, moduleName, true),
+      dropRetiredPush: (event, moduleName) => this.dropRetiredModuleEvent(event, moduleName),
       onTrace: (listener) => this.onTrace(listener),
       // The ONLY entry that confers module origin — a private closure the
       // framework hands to its own module registry. The public
@@ -5232,7 +5304,8 @@ export class AgentFramework {
    * @param teardownTimeoutMs Optional budget for each of stop()'s waits, in
    * turn: on the streams it cancels, on maintenance in flight (a pass or an
    * over-budget drain kick), on the event loop, on an operator's operations
-   * already running, on modules and MCPL together, then on Discord awareness
+   * already running, on modules and MCPL (its servers and the inference
+   * requests they made) together, then on Discord awareness
    * drains, which send nothing once stop() has begun, recording the call the
    * close ended. With a budget, a stop() can take up to six of them, besides
    * the withheld-spill deadline of a guard's write still under way. Omit to
@@ -5458,6 +5531,8 @@ export class AgentFramework {
     for (const wake of [...this.retryWaitWakers]) step(wake);
     this.guardSpillsClosed = false;
     step(() => this.queue.close());
+    let inferences: Array<{ label: string; promise: Promise<void> }> = [];
+    step(() => { inferences = this.inferenceRouter?.stopAll() ?? []; });
     step(() => this.tuneOutCoordinator?.stop());
 
     // Stop running code_execution scripts before cancelling streams: a
@@ -5605,6 +5680,7 @@ export class AgentFramework {
     // stop() waits for the stream itself (leftRunning). (A start() is refused
     // once a stop() is admitted, so no new lifecycle begins beside it.)
     for (const [name, run] of this.ephemeralRuns) run.settle.reject(ephemeralRunStopped(name));
+    for (const agent of this.agents.values()) step(() => { agent.unpinTurnInputs(); });
 
     // Admission closed when stop() began. What admitted operations start now,
     // such as a surgery's config materialization, joins the set, so wait until
@@ -5727,7 +5803,7 @@ export class AgentFramework {
     this.guardSpillsClosed = true;
 
     // Stop modules and both engines' MCP servers in parallel
-    const shutdownPromises: Promise<void>[] = [this.moduleRegistry.stopAll(teardownTimeoutMs)];
+    const shutdownPromises: Promise<void>[] = [this.moduleRegistry.stopAll(teardownTimeoutMs), waitFor(inferences)];
     if (this.mcplServerRegistry) {
       shutdownPromises.push(this.mcplServerRegistry.closeAll(teardownTimeoutMs));
     }
@@ -6475,11 +6551,22 @@ export class AgentFramework {
     if (wait && trigger && (wait.until === null || wait.until > now)) this.noteStatedWaitRun(agent.name, wait, now);
     return true;
   }
-  private rearmExhaustedTurn(agent: Agent, error: Error, trigger: InferenceRequest | undefined, ownsProviderGate: boolean, routing: TurnRouting | undefined): void {
+  private takeAsTransient(agentName: string, error: Error, trigger: InferenceRequest | undefined): boolean {
+    if (isTransientFailure(error)) {
+      this.rearmDeadlineCuts.delete(agentName);
+      return true;
+    }
+    if (!isRearmed(trigger) || !isDeadlineExpiry(error)) return false;
+    const first = !this.rearmDeadlineCuts.has(agentName);
+    this.rearmDeadlineCuts.add(agentName);
+    return first;
+  }
+
+  private rearmExhaustedTurn(agent: Agent, error: Error, trigger: InferenceRequest | undefined, ownsProviderGate: boolean, routing: TurnRouting | undefined, asTransient: boolean): void {
     if (!ownsProviderGate || trigger === undefined || this.providerAdmissionClosed || this.turnRearmMs.length === 0) return;
     const done = this.turnRearms.get(agent.name) ?? 0;
     const notSent = (why: string) => console.error(`[inference-rearm] agent=${agent.name} turn not re-armed: ${why}`);
-    if (!isTransientFailure(error)) {
+    if (!asTransient) {
       if (done > 0) notSent(`its failure isn't transient (${isMembraneError(error) ? error.type : boundFailureText(error.message, FAILURE_SUMMARY_MAX_CHARS)})`);
       return;
     }
@@ -7283,12 +7370,7 @@ export class AgentFramework {
    */
   pushEvent(event: ProcessEvent): void {
     if (event.type === 'tool-result' && this.queue?.isClosed) {
-      // What an operator reconciling a dropped result needs (the resident
-      // may run the tool again): which tool, and whether it succeeded.
-      const outcome = event.result.success && !event.result.isError
-        ? 'succeeded'
-        : `failed${event.result.error ? `: ${thrownText(event.result.error)}` : ''}`;
-      console.error(`[framework] ${event.agentName}: result of tool call ${event.callId} (${event.toolName ? `${event.toolName}, ` : ''}${event.moduleName}) arrived after stop — dropped; the tool ${outcome}`);
+      console.error(droppedToolResultLine(event, 'after stop'));
       return;
     }
     this.queue.push(event);
@@ -7316,6 +7398,14 @@ export class AgentFramework {
     }
     if (traced) this.pushEvent(event);
     else this.queue.push(event);
+  }
+
+  private dropRetiredModuleEvent(event: ProcessEvent, moduleName: string): void {
+    if (this.queue.isClosed) {
+      this.pushModuleEvent(event, moduleName, true);
+      return;
+    }
+    console.error(retiredPushLine(event, moduleName));
   }
 
   /**
@@ -7758,7 +7848,7 @@ export class AgentFramework {
     ];
   }
 
-  /** The registered workspace module, if any (used by save_image). */
+  /** The registered workspace module, if any (used by save_recent_image). */
   private getWorkspaceModule(): WorkspaceModule | undefined {
     const module = this.moduleRegistry.getAllModules().find((m) => m.name === 'workspace');
     return module && typeof (module as WorkspaceModule).writeBinary === 'function'
@@ -8972,7 +9062,7 @@ export class AgentFramework {
     // Bounded grace for cancelled streams. Stop cancels streams too; a turn
     // with no stream settles on its own. Report the abandon that already ran,
     // even if stop cuts its grace short.
-    const grace = Date.now() + 10_000;
+    const grace = Date.now() + (testAbandonGraces.get(this) ?? ABANDON_GRACE_MS);
     while (this.quiesced && !this.queue?.isClosed && this.activeTurnTokens.size > 0 && Date.now() < grace) {
       await new Promise((resolve) => setTimeout(resolve, 250));
     }
@@ -11415,6 +11505,7 @@ export class AgentFramework {
     if (run) {
       run.endReason ??= 'stopped';
       run.endedBy ??= options.by;
+      run.endedFromOutside = true;
       // The awaiting caller is told who stopped the job and why, whether or
       // not a stream was in flight: settled first, so the aborted stream's own
       // settle ('Stream cancelled') finds the run already settled. The caller's
@@ -11793,12 +11884,22 @@ export class AgentFramework {
     if (run) {
       run.endReason = reason;
       run.endedBy = record.ended?.by;
+      run.endedFromOutside = true;
       run.settle.reject(new AgentStoppedError(name, reason, record.ended?.by, detail));
       return;
     }
     const agent = this.agents.get(name);
     if (!agent) return;
     this.releaseAgentRuntime(agent, this.channelOfHome(record.homeChannel), undefined, record.lifetime.kind === 'persistent');
+  }
+
+  private forgetFailureAccounting(name: string): void {
+    this.consecutiveInferenceFailures.delete(name);
+    this.exhaustionRewinds.delete(name);
+    this.refusalStreak.delete(name);
+    this.refusalRewinds.delete(name);
+    this.rewindEpisode.delete(name);
+    if (this.forcedRewind.delete(name)) console.error(`[unstick] agent=${name} its /unstick session ended with its agent`);
   }
 
   /**
@@ -11845,6 +11946,8 @@ export class AgentFramework {
     this.agents.delete(name);
     this.agentConfigs.delete(name);
     this.deadlineCuts.delete(name);
+    this.freshCallsCut.delete(name);
+    this.forgetFailureAccounting(name);
     this.thinkingLossIncidents.forget(name);
     this.reasoningLoss.forget(name);
     // main's manager release: the context manager an ephemeral run or a fork
@@ -11886,6 +11989,7 @@ export class AgentFramework {
     // waits ends here as at a turn's end, alerted if it ran long
     // (endStatedWaitRun).
     this.turnRearms.delete(name);
+    this.rearmDeadlineCuts.delete(name);
     this.exhaustingRearms.delete(name);
     this.exhaustedTurns.delete(name);
     this.endStatedWaitRun(name);
@@ -12304,7 +12408,34 @@ export class AgentFramework {
     // Its scripts take it as a settle's end of the turn: the start sent
     // nothing, so none of its own calls is waiting on a script.
     this.settledTurns.add(routing);
+    this.releaseTurnInputs(routing);
     this.codeExecution?.scripts.turnEnded(agentName, { id: routing.turnId, live: this.liveTurns(agentName, routing) }, false);
+  }
+
+  private pinTurnInputs(agent: Agent, routing: TurnRouting): void {
+    let range: { first: MessageId; last: MessageId } | undefined;
+    try {
+      const cm = agent.getContextManager();
+      const watermark = agent.getConsumedWatermark();
+      if (watermark && watermark.branch === cm.currentBranch().name) {
+        range = turnInputs(cm, watermark.sequence, agent.name, (metadata) => this.agentSees(agent, metadata));
+      }
+    } catch (error) {
+      console.error(`[turn-inputs] ${agent.name}: could not read the turn's inputs, so none is pinned:`, error);
+    }
+    if (!range) {
+      agent.unpinTurnInputs();
+      return;
+    }
+    const id = agent.pinTurnInputs(range.first, range.last);
+    if (id !== undefined) routing.inputsPin = { agent, id };
+  }
+
+  private releaseTurnInputs(routing: TurnRouting): void {
+    const pin = routing.inputsPin;
+    if (!pin) return;
+    routing.inputsPin = undefined;
+    pin.agent.unpinTurnInputs(pin.id);
   }
 
   /** A logical turn's end, for every agent: it closes the agent's open
@@ -12344,7 +12475,10 @@ export class AgentFramework {
     // or of the stream that now holds the agent, are left alone.
     if (stream) {
       // Ended, unless it's the logical turn this settle left open.
-      if (this.openLogical.get(agentName) !== stream) this.settledTurns.add(stream);
+      if (this.openLogical.get(agentName) !== stream) {
+        this.settledTurns.add(stream);
+        this.releaseTurnInputs(stream);
+      }
       this.codeExecution?.scripts.turnEnded(
         agentName,
         { id: stream.turnId, live: this.liveTurns(agentName, stream) },
@@ -12612,6 +12746,8 @@ export class AgentFramework {
         this.eventGate?.onInferenceEnded(agent.name);
         this.agents.delete(agent.name);
         this.deadlineCuts.delete(agent.name);
+        this.freshCallsCut.delete(agent.name);
+        if (run.endedFromOutside) this.forgetFailureAccounting(agent.name);
         this.thinkingLossIncidents.forget(agent.name);
         this.reasoningLoss.forget(agent.name);
         // Its pending self-wake ends with it, as a fork's does.
@@ -12978,10 +13114,10 @@ export class AgentFramework {
   /** Synthesized drafts tool — present whenever MCPL channels are
    *  configured. A resident's held drafts (src/prose-drafts.ts): plain speech
    *  that was not sent, never published except by its resident's resend, and
-   *  kept as that module's retention says. Nullable
-   *  fields, cast like save_recent_image's: a caller whose provider presents
-   *  every property as required can still say "not in use". */
-  private static readonly DRAFTS_TOOL = {
+   *  kept as that module's retention says. Its optional fields are nullable,
+   *  as save_recent_image's selectors are: a caller whose provider presents
+   *  every property as required can still say "not in use" (fieldInUse). */
+  private static readonly DRAFTS_TOOL: import('./types/index.js').ToolDefinition = {
     name: 'drafts',
     description:
       'Your held drafts: plain speech of yours that was NOT sent — held back because an explicit send in its turn ' +
@@ -13020,12 +13156,12 @@ export class AgentFramework {
       },
       required: ['action'],
     },
-  } as unknown as import('./types/index.js').ToolDefinition;
+  };
 
-  /** Synthesized save_image tool — present when a workspace module is
+  /** Synthesized save_recent_image tool — present when a workspace module is
    *  registered. Lets the agent persist an image it has already seen in its
    *  own context (Discord attachments arrive inlined as base64 and are
-   *  otherwise unreachable as files). */
+   *  otherwise unreachable as files). Its three selectors are nullable. */
   private static readonly SAVE_IMAGE_TOOL: import('./types/index.js').ToolDefinition = {
     name: 'save_recent_image',
     description:
@@ -13041,7 +13177,8 @@ export class AgentFramework {
       'restart) the call fails and writes nothing — it never substitutes an older ' +
       'image. When other tool calls in the same batch are still running, the save ' +
       'waits for them so their images are counted. Receipts carry source tool call, MIME, byte size and SHA-256. Saved ' +
-      'files are visible via workspace tools.',
+      'files are visible via workspace tools. Select by `ref` or by ' +
+      '`index`/`count`; a selector you are not using may be omitted or passed as null.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -13049,19 +13186,27 @@ export class AgentFramework {
           type: 'string',
           description: 'Mount-prefixed destination path, e.g. "project/photos/name.png".',
         },
+        // Nullable selectors: a caller whose provider presents every property
+        // as required must still be able to say "not this selector". Omission,
+        // null and "" all mean it isn't used (fieldInUse); any other value is
+        // checked. The descriptions name null, the form to ask for.
         index: {
-          type: 'number',
-          description: 'Which image, counting back from the most recent (0 = most recent). Default 0.',
+          type: ['integer', 'null'],
+          description:
+            'Which image, counting back from the most recent (0 = most recent). Default 0. ' +
+            'null, like omitting it, means the default.',
         },
         count: {
-          type: 'number',
-          description: 'How many images to save, starting at `index` and going further back. Default 1.',
+          type: ['integer', 'null'],
+          description:
+            'How many images to save, starting at `index` and going further back. Default 1. ' +
+            'null, like omitting it, means the default.',
         },
         ref: {
-          type: 'string',
+          type: ['string', 'null'],
           description:
             'Save a specific tool-result image by its history ref (e.g. "img_k7x3q2_7", as shown in its placeholder in your context) instead of by position. ' +
-            'Mutually exclusive with `index`/`count`.',
+            'Mutually exclusive with `index`/`count`: pass null for the selector you are not using. null, like omitting it, means no ref.',
         },
       },
       required: ['path'],
@@ -16865,14 +17010,22 @@ export class AgentFramework {
   private async dispatchProcessEventToModules(event: ProcessEvent, startTime = Date.now()): Promise<void> {
     // Dispatch to all modules, tracking responses with module names
     const responses: ModuleProcessResponse[] = [];
-    for (const module of this.moduleRegistry.getAllModules()) {
+    const registrations = new Map<ModuleProcessResponse, object | undefined>();
+    const stillRegistered = (entry: ModuleProcessResponse): boolean =>
+      this.moduleRegistry.registrationOf(entry.moduleName) === registrations.get(entry);
+    const dispatched = this.moduleRegistry.getAllModules()
+      .map((module) => ({ module, registration: this.moduleRegistry.registrationOf(module.name) }));
+    for (const { module, registration } of dispatched) {
       // The framework's own toolsets module answers no event; every agent has
       // it now, so it isn't listed beside the modules that do.
       if (module instanceof ToolsetsModule) continue;
+      if (this.moduleRegistry.registrationOf(module.name) !== registration) continue;
       try {
         const processState = this.moduleRegistry.createProcessState(module.name);
         const response = await module.onProcess(event, processState);
-        responses.push({ moduleName: module.name, response });
+        const entry = { moduleName: module.name, response };
+        responses.push(entry);
+        registrations.set(entry, registration);
       } catch (error) {
         console.error(`Module ${module.name} error handling process event:`, error);
       }
@@ -16898,7 +17051,17 @@ export class AgentFramework {
     // responses, a tool call's dispatch and the trace go on, since a module
     // can't catch a throw on this path, and one module's mustn't cost the
     // event.
-    const applying = responses.filter(({ moduleName, response }) => {
+    const dropUnregistered = (entry: ModuleProcessResponse): boolean => {
+      if (stillRegistered(entry)) return false;
+      const parts = responseParts(entry.response);
+      if (parts) {
+        console.error(
+          `[process] module ${entry.moduleName} stopped before its response to ${event.type} was applied, so none of it was: ${parts}`,
+        );
+      }
+      return true;
+    };
+    const applying = responses.filter((entry) => !dropUnregistered(entry)).filter(({ moduleName, response }) => {
       const refusal = malformedResponseContent(response);
       if (refusal === null) return true;
       const { where, places } = refusal;
@@ -16921,7 +17084,7 @@ export class AgentFramework {
       const { moduleName, response } = entry;
       const step = { at: 'its start' };
       try {
-        await this.applyProcessResponse(response, event, moduleName, surface, step);
+        this.applyProcessResponse(response, event, moduleName, surface, step);
       } catch (error) {
         entry.threw = { at: step.at, error: error instanceof Error ? error.message : String(error) };
         console.error(
@@ -16949,7 +17112,7 @@ export class AgentFramework {
     }
   }
 
-  private async applyProcessResponse(
+  private applyProcessResponse(
     response: EventResponse,
     event: ProcessEvent,
     moduleName: string,
@@ -16957,7 +17120,7 @@ export class AgentFramework {
     surface: InboundSource | undefined,
     /** Names the operation under way, for the line when one throws. */
     step: { at: string },
-  ): Promise<void> {
+  ): void {
     // Add messages. Only the framework writes the inbound envelope: one a
     // module's metadata carries (echoed from a server's event, say) is
     // dropped, and a surface event's messages carry the framework's own.
@@ -17007,7 +17170,7 @@ export class AgentFramework {
     }
 
     // Queue inference requests
-    if (response.requestInference) {
+    if (response.requestInference && !wakeForbidden(event)) {
       step.at = 'its inference request';
       const source = 'source' in event ? (event as { source: string }).source : 'unknown';
 
@@ -17219,6 +17382,7 @@ export class AgentFramework {
         ...(event.tags ? { tags: event.tags } : {}),
       },
     });
+    if (admittedEnvelope in event && !decision.wake) event.triggerInference = false;
     metadata.triggered = decision.wake;
     if (decision.held) {
       // The admission record rides the message; the hold's own bookkeeping
@@ -17762,6 +17926,8 @@ export class AgentFramework {
       // Nothing live under the name: only what the process keeps by name.
       this.closingConversationAgents.delete(agentName);
       this.deadlineCuts.delete(agentName);
+      this.freshCallsCut.delete(agentName);
+      this.forgetFailureAccounting(agentName);
       this.thinkingLossIncidents.forget(agentName);
       this.reasoningLoss.forget(agentName);
       // A continuation of its turn still on its way goes with it.
@@ -18587,6 +18753,12 @@ export class AgentFramework {
   private coalescedAuthorized(occ: CoalescedOccurrence<CoalescedDelivery>): boolean {
     const server = this.mcplServerRegistry?.getServer(occ.serverId);
     if (!server?.isConnected || !server.policyEstablished) return false;
+    if (server.requiredAdmission) {
+      const envelope = (occ.event.event as unknown as { [admittedEnvelope]?: import('./mcpl/inbound-admission.js').AdmittedEnvelope })[admittedEnvelope];
+      // Neither persisted work without a live key nor a previous incarnation
+      // borrows the replacement transport's grant. This is not durable reauthorization.
+      if (!envelope || !server.requiredAdmission.isCurrent(envelope.connection)) return false;
+    }
     // §3.2: work admitted under another binding (the id since reassigned to a
     // different endpoint) never acquires the replacement peer's authority —
     // and its private notice data is never sent to that peer.
@@ -18686,6 +18858,8 @@ export class AgentFramework {
         ...(assemblingFor ? { assemblingFor } : {}),
         ...frozenSource(push.inboundSource),
       };
+      const envelope = (push as unknown as { [admittedEnvelope]?: import('./mcpl/inbound-admission.js').AdmittedEnvelope })[admittedEnvelope];
+      if (envelope) attachAdmission(event, envelope);
       const placement = await this.handleMcplChannelIncoming(event);
       await this.dispatchProcessEventToModules(event as unknown as ProcessEvent);
       return placement;
@@ -19073,6 +19247,7 @@ export class AgentFramework {
         ...(event.tags ? { tags: event.tags } : {}),
       },
     });
+    if (admittedEnvelope in event && !decision.wake) event.triggerInference = false;
     metadata.triggered = decision.wake;
     if (decision.held && triggerChannel) {
       metadata.tuneOut = { epochId: decision.held.epochId };
@@ -20432,8 +20607,6 @@ export class AgentFramework {
     const refuse = (error: string): ToolResult => ({ success: false, error, isError: true });
     // Plain text, not a JSON-quoted string: draft text must read exactly as held.
     const ok = (text: string): ToolResult => ({ success: true, data: [{ type: 'text', text }] });
-    // null and omission mean the same thing: the field is not in use.
-    const present = (v: unknown): boolean => v !== undefined && v !== null;
     const action = input.action;
     if (action !== 'list' && action !== 'read' && action !== 'resend' && action !== 'dismiss') {
       return refuse('action must be one of "list", "read", "resend" or "dismiss".');
@@ -20442,7 +20615,7 @@ export class AgentFramework {
       refuse(`${field} is not used by action "${action}" — pass null or omit it.`);
 
     let ids: string[] = [];
-    if (present(input.draftIds)) {
+    if (fieldInUse(input.draftIds)) {
       if (action === 'list') return unused('draftIds');
       if (!Array.isArray(input.draftIds) || input.draftIds.some((id) => typeof id !== 'string' || !id.trim())) {
         return refuse('draftIds must be a list of draft ids such as "d-k7x3qm2", or null.');
@@ -20451,15 +20624,19 @@ export class AgentFramework {
       if (new Set(ids).size !== ids.length) return refuse('draftIds names a draft more than once.');
       if (ids.length > 20) return refuse('draftIds names more than 20 drafts; act on them in smaller groups.');
     }
-    if (present(input.destination) && action !== 'resend') return unused('destination');
-    if (present(input.confirmDuplicate) && action !== 'resend') return unused('confirmDuplicate');
-    if (present(input.offset) && action !== 'list') return unused('offset');
+    if (fieldInUse(input.destination) && action !== 'resend') return unused('destination');
+    // false is "don't confirm", which every other action already does, so only
+    // true is a confirmDuplicate those actions refuse.
+    if (fieldInUse(input.confirmDuplicate) && input.confirmDuplicate !== false && action !== 'resend') {
+      return unused('confirmDuplicate');
+    }
+    if (fieldInUse(input.offset) && action !== 'list') return unused('offset');
 
     if (action === 'list') {
       let offset = 0;
-      if (present(input.offset)) {
+      if (fieldInUse(input.offset)) {
         const raw = input.offset;
-        const n = typeof raw === 'number' ? raw : typeof raw === 'string' && /^\d+$/.test(raw.trim()) ? Number(raw) : NaN;
+        const n = integerField(raw);
         if (!Number.isInteger(n) || n < 0) return refuse('offset must be a whole number of drafts to skip (0 or more), or null.');
         offset = n;
       }
@@ -20576,12 +20753,12 @@ export class AgentFramework {
     if (!registry) return refuse('No channels are configured, so there is nowhere to resend to.');
     const home = this.homeOf(agentName);
     let spec = typeof input.destination === 'string' ? input.destination.trim() : '';
-    if (present(input.destination) && typeof input.destination !== 'string') {
+    if (fieldInUse(input.destination) && typeof input.destination !== 'string') {
       return refuse('destination must be "#channel", "@person" or a channel id.');
     }
     if (!spec && !home) return refuse('resend needs a destination: "#channel", "@person" or a channel id.');
     let confirmDuplicate = false;
-    if (present(input.confirmDuplicate)) {
+    if (fieldInUse(input.confirmDuplicate)) {
       if (typeof input.confirmDuplicate !== 'boolean') return refuse('confirmDuplicate must be true, false or null.');
       confirmDuplicate = input.confirmDuplicate;
     }
@@ -23780,6 +23957,8 @@ export class AgentFramework {
     if (opensTurn) {
       const head = agent.branchHead();
       if (head) routing.start = head;
+      if (!routing.silent) this.pinTurnInputs(agent, routing);
+      else agent.unpinTurnInputs();
     }
     this.turnRouting.set(agent.name, routing);
     if (opensTurn) carry = undefined;
@@ -24228,6 +24407,7 @@ export class AgentFramework {
       }
 
       const retry = trigger && withTurnCarry(trigger, carry);
+      const asTransient = this.takeAsTransient(agent.name, err, trigger);
       if (ownsProviderGate && this.holdProviderAcceleration(agent, err, retry)) {
         // Capacity scheduling is not poisoned history. The cooldown timer owns
         // one later fresh compile; no immediate retry or exhaustion marker.
@@ -24245,7 +24425,7 @@ export class AgentFramework {
       }
 
       const cuts = isDeadlineExpiry(err) ? this.deadlineCuts.get(agent.name) ?? 0 : undefined;
-      const action: ErrorAction = statedWait === 'fail' || (isRearmed(trigger) && !gotPartway(routing))
+      const action: ErrorAction = statedWait === 'fail' || (isRearmed(trigger) && (!gotPartway(routing) || (isDeadlineExpiry(err) && !asTransient)))
         ? { retry: false } : this.errorPolicy.onInferenceError(err, agent.name, cuts ?? attempt);
       if (action.retry && cuts !== undefined) this.deadlineCuts.set(agent.name, cuts + 1);
       else this.deadlineCuts.delete(agent.name);
@@ -24306,7 +24486,7 @@ export class AgentFramework {
           speech: '',
           ...(statedWait === 'fail' ? this.statedWaitNotSlept(err) : { error: err.message }),
         }, routing);
-        if (isRearmed(trigger) && isTransientFailure(err)) this.exhaustingRearms.add(agent.name);
+        if (isRearmed(trigger) && asTransient) this.exhaustingRearms.add(agent.name);
         this.emitTrace({
           type: 'inference:exhausted',
           agentName: agent.name,
@@ -24326,7 +24506,7 @@ export class AgentFramework {
         if (action.emit) {
           this.pushEvent(action.emit);
         }
-        this.rearmExhaustedTurn(agent, err, trigger, ownsProviderGate, routing);
+        this.rearmExhaustedTurn(agent, err, trigger, ownsProviderGate, routing, asTransient);
       }
       // No handoff on either failure branch: the terminal branch deleted the
       // token above; the retry branch's recursive startAgentStream replaced
@@ -26074,6 +26254,7 @@ export class AgentFramework {
 
             this.abandonAgentScripts(agent.name, 'stream error', streamRouting);
             const retry = retryOf(trigger);
+            const asTransient = this.takeAsTransient(agent.name, err, trigger);
 
             // A hold takes the turn's retry, or, once stop() has closed
             // admission, the turn ends here (endFailureAtStop).
@@ -26090,7 +26271,7 @@ export class AgentFramework {
             }
 
             const cuts = isDeadlineExpiry(err) ? this.deadlineCuts.get(agent.name) ?? 0 : undefined;
-            const action: ErrorAction = statedWait === 'fail' || (isRearmed(trigger) && !gotPartway(streamRouting))
+            const action: ErrorAction = statedWait === 'fail' || (isRearmed(trigger) && (!gotPartway(streamRouting) || (isDeadlineExpiry(err) && !asTransient)))
               ? { retry: false } : this.errorPolicy.onInferenceError(err, agent.name, cuts ?? attempt);
             if (action.retry && cuts !== undefined) this.deadlineCuts.set(agent.name, cuts + 1);
             else this.deadlineCuts.delete(agent.name);
@@ -26151,7 +26332,7 @@ export class AgentFramework {
                 speech: '',
                 ...(statedWait === 'fail' ? this.statedWaitNotSlept(err) : { error: err.message }),
               }, this.agents.get(agent.name) === agent && agent.streamId === myStreamId ? streamRouting : undefined, streamRouting);
-              if (isRearmed(trigger) && isTransientFailure(err)) this.exhaustingRearms.add(agent.name);
+              if (isRearmed(trigger) && asTransient) this.exhaustingRearms.add(agent.name);
               this.emitTrace({
                 type: 'inference:exhausted',
                 agentName: agent.name,
@@ -26169,7 +26350,7 @@ export class AgentFramework {
               if (action.emit) {
                 this.pushEvent(action.emit);
               }
-              this.rearmExhaustedTurn(agent, err, trigger, ownsProviderGate, streamRouting);
+              this.rearmExhaustedTurn(agent, err, trigger, ownsProviderGate, streamRouting, asTransient);
             }
             break;
           }
@@ -26244,7 +26425,7 @@ export class AgentFramework {
                   agentName: agent.name,
                   error: terminal,
                 });
-                this.rearmExhaustedTurn(agent, new Error(terminal), trigger, ownsProviderGate, streamRouting);
+                this.rearmExhaustedTurn(agent, new Error(terminal), trigger, ownsProviderGate, streamRouting, false);
                 // Postmortem 2026-05-28 P2 #7: persist the abort to the
                 // inference log so future investigations can attribute the
                 // terminal cause without relying on live in-memory reducer
@@ -26262,6 +26443,7 @@ export class AgentFramework {
           }
 
           case 'usage': {
+            this.rearmDeadlineCuts.delete(agent.name);
             this.deadlineCuts.delete(agent.name);
             // Cumulative across the stream's rounds: replace, never sum.
             latestUsage = event.usage;
@@ -26505,6 +26687,7 @@ export class AgentFramework {
       agent.reset();
       this.emitTrace({ type: 'inference:failed', agentName: agent.name, error: err.message, stack: err.stack });
       const retry = retryOf(trigger);
+      const asTransient = this.takeAsTransient(agent.name, err, trigger);
       if (ownsProviderGate && this.holdProviderAcceleration(agent, err, retry)) {
         // Once stop() has closed admission, nothing is held, and the turn
         // ends here (endFailureAtStop).
@@ -26536,14 +26719,14 @@ export class AgentFramework {
         speech: '',
         ...(statedWait === 'fail' ? this.statedWaitNotSlept(err) : { error: err.message }),
       }, streamRouting);
-      if (isRearmed(trigger) && isTransientFailure(err)) this.exhaustingRearms.add(agent.name);
+      if (isRearmed(trigger) && asTransient) this.exhaustingRearms.add(agent.name);
       this.emitTrace({
         type: 'inference:exhausted',
         agentName: agent.name,
         error: err.message,
         ...this.classifyInferenceError(err),
       });
-      this.rearmExhaustedTurn(agent, err, trigger, ownsProviderGate, streamRouting);
+      this.rearmExhaustedTurn(agent, err, trigger, ownsProviderGate, streamRouting, asTransient);
       // Postmortem 2026-05-28 P2 #7: catch-path failures (stream itself
       // threw) were previously only visible via in-memory trace listeners.
       // Persist to inference log for forensic attribution.
@@ -29596,6 +29779,7 @@ export class AgentFramework {
   private noteSpokenTo(agentName: string, metadata: MessageMetadata | undefined): void {
     const agent = this.agents.get(agentName);
     if ((agent && !this.agentSees(agent, metadata)) || isOwnScheduleWrite(metadata) || !isConversationalInjection(metadata)) return;
+    this.rearmDeadlineCuts?.delete(agentName);
     if (this.turnRearms?.delete(agentName)) console.error(`[inference-rearm] agent=${agentName} re-send count started again: a message was said to it`);
   }
 
@@ -32025,6 +32209,9 @@ export class AgentFramework {
         // An accounting failure ends startup. create()'s release closes every
         // server connected so far, within its deadline.
         if (error instanceof DiscordAwarenessAccountingError) throw error;
+        // A required binder/attestation refusal is terminal; an ordinary
+        // transport outage retains the existing log-and-continue policy.
+        if (error instanceof AdmissionConnectError) throw error;
         // Fail-open: log and continue with remaining servers
         const err = error instanceof Error ? error : new Error(String(error));
         const message = redactServerText(err.message, config);
@@ -34472,12 +34659,9 @@ export class AgentFramework {
           // request turned away at stop gets, so it can send it again to
           // the host's next run. Optional chaining: prototype-built
           // harnesses leave the queue unset.
-          const stopping = !!this.queue?.isClosed;
+          const answer = this.queue?.isClosed ? hostStoppedWhileHandling() : { code: -32603, message: 'Internal error' };
           try {
-            tracked.respondError?.(
-              stopping ? -32000 : -32603,
-              stopping ? 'the host stopped while handling this request' : 'Internal error',
-            );
+            tracked.respondError?.(answer.code, answer.message);
           } catch (sendError) {
             responseError = recorded(describeCause(sendError));
           }
@@ -34589,6 +34773,16 @@ export class AgentFramework {
         this.refuseServerItem('push/event', connection.id, responder);
         return;
       }
+      if (connection.requiredAdmission) {
+        const original = connection.admissionFor(params);
+        const admission: RequiredIngress = {
+          ...original,
+          check: () => this.queue?.isClosed ? 'admission_not_ready' :
+            this.mcplServerRegistry?.getServer(connection.id) !== connection ? 'admission_stale' : original.check(),
+        };
+        await this.pushHandler?.handleRequiredPushEvent(connection.id, params, responder as never, admission);
+        return;
+      }
       // RFC-014 §6.1 carrier 2: the tool change this push explains was
       // applied as it was read; it's told after the event's own content. A
       // push the host then refuses still tells its change, on its own.
@@ -34634,6 +34828,7 @@ export class AgentFramework {
         respond: (result: unknown) => void;
         respondError: (code: number, message: string) => void;
         sendChunk?: (chunk: InferenceChunkParams) => void;
+        signal?: AbortSignal;
       },
     ) => {
       // RFC-006 §5.3 / SPEC §10.7: no inference from inside a render.
@@ -34652,6 +34847,20 @@ export class AgentFramework {
           this.refuseServerItem('inference/request', connection.id, responder);
           return;
         }
+        if (connection.requiredAdmission) {
+          const original = connection.admissionFor(params);
+          const admission: RequiredIngress = {
+            ...original,
+            check: () => this.queue?.isClosed || this.pushCoalescer?.isRendering(connection.id) ? 'admission_not_ready' :
+              this.mcplServerRegistry?.getServer(connection.id) !== connection ? 'admission_stale' : original.check(),
+          };
+          await this.inferenceRouter.handleInferenceRequest(connection.id, params, {
+            respond: responder.respond, respondError: responder.respondError, requestId: responder.id,
+            ...(responder.sendChunk ? { sendChunk: responder.sendChunk } : {}),
+            ...(responder.signal ? { signal: responder.signal } : {}),
+          }, admission);
+          return;
+        }
         await this.inferenceRouter.handleInferenceRequest(connection.id, params, {
           respond: responder.respond,
           respondError: responder.respondError,
@@ -34659,6 +34868,7 @@ export class AgentFramework {
           // Chunks go out on the transport the request came on, as its
           // answer does.
           ...(responder.sendChunk ? { sendChunk: responder.sendChunk } : {}),
+          ...(responder.signal ? { signal: responder.signal } : {}),
         });
       }
     });
@@ -34752,6 +34962,16 @@ export class AgentFramework {
     ) => {
       if (this.queue?.isClosed) {
         this.refuseServerItem('channels/incoming', connection.id, responder);
+        return;
+      }
+      if (connection.requiredAdmission) {
+        const original = connection.admissionFor(params);
+        const admission: RequiredIngress = {
+          ...original,
+          check: () => this.queue?.isClosed ? 'admission_not_ready' :
+            this.mcplServerRegistry?.getServer(connection.id) !== connection ? 'admission_stale' : original.check(),
+        };
+        await this.channelRegistry?.handleIncoming(connection.id, params, responder as never, admission);
         return;
       }
       await this.channelRegistry?.handleIncoming(connection.id, params, responder as never);
@@ -37247,20 +37467,39 @@ export class AgentFramework {
         let count = 1;
         /** Direct-ref mode: the one ref to find in the scannable context. */
         let wantedRef: string | null = null;
-        if (input.ref !== undefined) {
+        // A selector is in use only when it carries a value (fieldInUse), so a
+        // caller whose provider presents every property as required can still
+        // choose one, whichever of the two it fills the other selector with.
+        // Any other value is checked, never read as absent: a whitespace or
+        // malformed ref, or an index that isn't an integer, is refused rather
+        // than turned into a different image than the one the caller named.
+        // A malformed ref beside an index or count in use says how to leave a
+        // selector unused, since the caller may have meant the positional one, as
+        // the conflict refusal below does for a well-formed ref. No refusal of one
+        // selector on its own says it: a ref alone is the caller's one selector,
+        // and dropping it would save the newest image; an index and a count are
+        // one selector, and dropping either changes which images are saved.
+        if (fieldInUse(input.ref)) {
           if (typeof input.ref !== 'string' || !TOOL_IMAGE_REF_RE.test(input.ref)) {
-            throw new Error('save_recent_image: `ref` must look like "img_k7x3q2_7" (copy it from the image placeholder in your context)');
+            const positionalInUse = fieldInUse(input.index) || fieldInUse(input.count);
+            throw new Error(
+              'save_recent_image: `ref` must look like "img_k7x3q2_7" (copy it from the image placeholder in your context)' +
+              (positionalInUse ? ' (pass null, or leave it out, for a selector you are not using)' : ''),
+            );
           }
-          if (input.index !== undefined || input.count !== undefined) {
-            throw new Error('save_recent_image: `ref` is mutually exclusive with `index`/`count`');
+          if (fieldInUse(input.index) || fieldInUse(input.count)) {
+            throw new Error(
+              'save_recent_image: `ref` is mutually exclusive with `index`/`count` — pass null (or omit) ' +
+              'for the selector you are not using',
+            );
           }
           wantedRef = input.ref;
         } else {
-          index = input.index === undefined ? 0 : Number(input.index);
+          index = fieldInUse(input.index) ? integerField(input.index) : 0;
           if (!Number.isInteger(index) || index < 0) {
             throw new Error('save_recent_image: `index` must be a non-negative integer');
           }
-          count = input.count === undefined ? 1 : Number(input.count);
+          count = fieldInUse(input.count) ? integerField(input.count) : 1;
           const MAX_COUNT = 20;
           if (!Number.isInteger(count) || count < 1 || count > MAX_COUNT) {
             throw new Error(`save_recent_image: \`count\` must be an integer in 1..${MAX_COUNT}`);
