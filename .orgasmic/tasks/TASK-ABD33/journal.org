@@ -63,3 +63,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: fa7f6c8d-2400-46c6-9485-44b09b123a70
 :END:
+
+* tx-20261029-theaspirationalagent-0f6f5011-bcab-4a89-86f3-cd7780d89b00 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-0f6f5011-bcab-4a89-86f3-cd7780d89b00
+:TIME:    [2026-10-29 Thu 12:49:21]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-ABD33
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 498e8cf7-60d2-4678-a63a-cc2131d8e5a0
+:END:
+
+Owner decision O1 (Vasyl, TG button abd33:o1:phased): H1→H2 in separate opt-in phases; H1 retained until qualified; global stamp reservation in the enabled T profile; no downgrade over stamped history. O3/O4/O5 pending (TG 1222–1224).
