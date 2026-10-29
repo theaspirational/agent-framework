@@ -1,0 +1,25 @@
+{
+  "event_count": 326,
+  "tool_call_count": 15,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-0NN56-implementer-20261029T105748-run-01M63MY4CSE87EM7KC3V6XJFX8.jsonl",
+    "size_bytes": 331038
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T06-58-36-01a18674-1344-7270-9310-d09ff4e718e6.jsonl",
+    "session_id": "01a18674-1344-7270-9310-d09ff4e718e6",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll fetch upstream main and rebase onto it using the two new branch names, leaving the old refs intact. Then I’ll audit commit preservation, conflicts, and layer-3 equivalence before running fresh gates on both heads.Upstream main is `4a45766f`, eight commits beyond the previous base. Both rebases completed without conflicts. All 13 commits preserve their authors, messages, and patches; each new tree is exactly its old tree plus the upstream delta.\n\nThe upstream changes add subconscious reader window/thinking-binding configuration. They touch shared framework and agent files, but not the typing, budget-hold, or recipient-routing logic.Both rebased heads pass all required gates with zero failures:\n\n- `feat/typing-budget-recipient-r` → `4f942947`: 9,281 passed.\n- `recipient-on-main-r` → `36a91942`: 9,186 passed.\n\nNo conflicts or changes beyond upstream; old refs are preserved and layer-3 line sets remain identical. All 34 recipient rows ran on both heads, with only the existing standalone budget-hold skip. The report is ready in this round’s evidence directory."
+    }
+  ],
+  "narrative_truncated": false
+}
