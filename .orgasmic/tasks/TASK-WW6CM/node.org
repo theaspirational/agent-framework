@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-WW6CM
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-WW6CM PR #870 part 1: strict credential dial only (no floor, fewer codes, no redaction)
+* IN_REVIEW TASK-WW6CM PR #870 part 1: strict credential dial only (no floor, fewer codes, no redaction)
 :PROPERTIES:
 :UID: b7212445-75c1-5899-b4a3-cc168838bb4f
 :ID: TASK-WW6CM
