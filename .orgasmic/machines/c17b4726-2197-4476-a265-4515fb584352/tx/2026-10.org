@@ -7011,3 +7011,35 @@
 :DELIVERY:     delivered
 :EVENT_ID:     5e806628-03f4-4298-9132-767012fa3d75
 :END:
+
+* TX 2026-10-29 Thu 13:00:26 run.asked TASK-WW6CM
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-6f6f91d5-5a24-4a2d-8d53-c61bbe925015
+:TIME:         [2026-10-29 Thu 13:00:26]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-WW6CM
+:REASON:       For strict dial configuration refusals (for example non-loopback ws://, static token, or invalid binding), may I use connection-failed, reserving provider-failed exclusively for absent, throwing, empty, or non-sendable providers, while preserving descriptive shared configuration-validation errors?
+:RUN_ID:       run-01M63VX4YVY0N2ACGMABSXJ91J
+:ASK_ID:       ask-b6491a7e497a4e6b96d17f76a579c7b5
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     2497575f-d934-40e3-a0b0-a72f5d57f976
+:END:
+
+* TX 2026-10-29 Thu 13:00:47 run.asked TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-036265ef-6872-44ca-b70e-20fe2cf087ad
+:TIME:         [2026-10-29 Thu 13:00:47]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       The blocking limits question ask-3bd8edd0f3424c14ad472650212097ad ended with exit 5: 'the question is gone (run released or daemon restarted)', without an answer. Please confirm the operational decision: timeoutMs 1..60000, 64 pending preflights per connection, admission_denied on overload, independent connection budgets/sequential batch items, or supply alternatives. The task forbids choosing ambiguous design points, so I have not encoded these limits.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-78870de2c6d143738def2f8fd1913f2b
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     95651fa9-4caf-431e-a708-d3f34cd30b48
+:END:
