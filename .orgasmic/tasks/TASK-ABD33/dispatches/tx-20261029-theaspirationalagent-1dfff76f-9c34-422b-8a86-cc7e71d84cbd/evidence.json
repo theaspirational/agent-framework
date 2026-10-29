@@ -1,0 +1,25 @@
+{
+  "event_count": 134,
+  "tool_call_count": 10,
+  "unparsed_events": 1,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ABD33-implementer-20261029T130209-run-01M63W1TPCVRY1F5BK89W7MQKX.jsonl",
+    "size_bytes": 226901
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T13-02-10-01a187c0-ed42-7231-918c-064dabb395d2.jsonl",
+    "session_id": "01a187c0-ed42-7231-918c-064dabb395d2",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll sanitize the design document, preserve its technical citations and decisions, then run the privacy scan and adapted source audit before making one local commit.Committed the sanitized document. Both gates passed: the requested grep found zero hits, and the adapted source audit verified all 113 source citations, seven input hashes, and unchanged technical sections. A supplemental case-insensitive scan found only `wo-` inside “two-case” and “two-connector,” not internal identifiers."
+    }
+  ],
+  "narrative_truncated": false
+}
