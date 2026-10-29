@@ -1,0 +1,25 @@
+{
+  "event_count": 383,
+  "tool_call_count": 39,
+  "unparsed_events": 1,
+  "bounded_events": 9,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-0NN56-implementer-20261029T091717-run-01M63F62CHR2AMB907SNGAMDBA.jsonl",
+    "size_bytes": 549278
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T06-58-36-01a18674-1344-7270-9310-d09ff4e718e6.jsonl",
+    "session_id": "01a18674-1344-7270-9310-d09ff4e718e6",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the review. I’ll add fixes to both existing branches without rewriting them, prove the three findings red-first, and run fresh gates on both heads. I’ll also correct the report to attribute the replacement-test and write-allowlist decisions to the manager.The five regressions are now red for behavioral reasons. The open-turn problem is reachable through the production scheduler: a recipient wake arriving during a non-recipient tool-driven budget restart can keep the earlier turn’s continuation from running. I’ll keep the recipient wake queued and let that continuation finish, rather than adopt the new envelope and risk redirecting the earlier turn’s output.The stacked branch passes all 9,335 tests with zero failures. The same fix is now committed on `recipient-on-main`; I’m running its fresh install, typecheck, clean build, and full suite next.Both heads now pass their full suites with zero failures: 9,272 passed on the stack and 9,177 on standalone. The complete layer-3 changed-line sets are identical. I’m restoring the stacked checkout and finishing the evidence report, including the manager-attribution correction and production-path regression result."
+    }
+  ],
+  "narrative_truncated": false
+}
