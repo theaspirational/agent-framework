@@ -111,3 +111,19 @@ Manager answer to ask-c1461fc2 (Tarn's call): No source-only location is availab
 :END:
 
 HOLD: the recipient layer is the Slack-specific pr361 patch (hard-coded serverId 'slack', slackRecipientRouting capability, slack:[CGD] format, supportRecipientBridge only on the server named slack). That conflicts with the owner's plan to make routing generic in the runtime (TAB7M v0.5 / WO-5a inboundAdmission). Do not publish to fork main or upstream until the owner answers TG 1207. Rebased heads kept locally: 4f942947b6218ffcb51589fa9c5b4f3f55a93f4e, 36a9194253f319dcf79428b79893553dd9af4cb3. My gates: 9279/2 and 9184/2, both failures the known env-only liveness-watchdog pair.
+
+* tx-20261029-theaspirationalagent-375652ef-b73c-4a2b-b922-dae731662dd7 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-375652ef-b73c-4a2b-b922-dae731662dd7
+:TIME:    [2026-10-29 Thu 11:24:45]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-0NN56
+:TARGET: .orgasmic/tasks/TASK-0NN56/node.org
+:REASON: held pending owner answer on generic routing (TG 1207)
+:FROM_STATE: done
+:TO_STATE: in_review
+:EVENT_ID: 4d0704fb-8157-4c4a-8830-b79622db9877
+:END:
