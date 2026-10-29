@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-HVQ8K
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-HVQ8K IMPL slice A: generic required admission (WO-5a checkpoint) on upstream main
+* IN_PROGRESS TASK-HVQ8K IMPL slice A: generic required admission (WO-5a checkpoint) on upstream main
 :PROPERTIES:
 :UID: 71e25530-4cef-5a79-8fc6-0787a48f3bee
 :ID: TASK-HVQ8K
