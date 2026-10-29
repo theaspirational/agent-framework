@@ -1,0 +1,17 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-0NN56
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-0NN56 Fork main: upstream main + #233 + #361 + recipient compatibility as commits
+:PROPERTIES:
+:UID: df0a5e24-14f3-507b-9b99-e54e24cc178d
+:ID: TASK-0NN56
+:PRIORITY: P1
+:END:
+
+** Description
+Owner (Vasyl) chose `rcp:fork+pr` (TG 1152) and earlier "af should be 233+pr361": our agent-framework fork main = upstream main + #233 (disabled-mode typing) + #361 (budget hold, nissa-seru) + our recipient-compatibility change as real commits (replacing the installer-side patch `recipient-compatibility-on-pr361.patch`, sha256 2a9ce06c4aada2daf8b6f1ec3f7be91876f87cc88c15019e423b2a5730580499), then an upstream PR for the recipient change. Feeds the new release set (host v0.19.0) tested on Soma, then Rook/Heron.
+** Acceptance
+- Local branch on upstream main 0f11975e485c7077c6ed7cad9261621cd310a700 with three separable layers, each tested.
+- Recipient behaviours qualified with the frozen pr361-v1 tests mapped onto the new code.
+- No push/PR without the owner's button.
