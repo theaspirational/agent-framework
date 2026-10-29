@@ -95,3 +95,19 @@ Manager answer to ask-c1461fc2 (Tarn's call): No source-only location is availab
 :TO_STATE: in_progress
 :EVENT_ID: 105a09a4-80d0-4f60-ba2d-54764f3c023e
 :END:
+
+* tx-20261029-theaspirationalagent-d5e3a677-0ba9-44ab-8649-f44c82e5c6f0 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-d5e3a677-0ba9-44ab-8649-f44c82e5c6f0
+:TIME:    [2026-10-29 Thu 11:23:41]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-0NN56
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 9be18a73-8427-4c16-a451-cb3f3122d7e8
+:END:
+
+HOLD: the recipient layer is the Slack-specific pr361 patch (hard-coded serverId 'slack', slackRecipientRouting capability, slack:[CGD] format, supportRecipientBridge only on the server named slack). That conflicts with the owner's plan to make routing generic in the runtime (TAB7M v0.5 / WO-5a inboundAdmission). Do not publish to fork main or upstream until the owner answers TG 1207. Rebased heads kept locally: 4f942947b6218ffcb51589fa9c5b4f3f55a93f4e, 36a9194253f319dcf79428b79893553dd9af4cb3. My gates: 9279/2 and 9184/2, both failures the known env-only liveness-watchdog pair.
