@@ -1,0 +1,25 @@
+{
+  "event_count": 487,
+  "tool_call_count": 48,
+  "unparsed_events": 1,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-implementer-20261029T145324-run-01M642DGGHHPVM127DKKJ91M1C.jsonl",
+    "size_bytes": 701117
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T12-58-58-01a187be-009c-7d60-a203-865688097f58.jsonl",
+    "session_id": "01a187be-009c-7d60-a203-865688097f58",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the review and confirmed the two MEDIUM findings in source. I’ll add red-before tests, fix the guards and diagnostics, then reorganize the commits by lane and run all requested gates on the final tree under both Node versions.\n\nThe fixes and new witnesses pass. Required `tools/hints` is refused before the tap, ordinary transport outages no longer abort framework startup, and capability refusals retain the existing messages and notification logs. The new tests also kill the accessor/enumerability, receipt-guard, and decision-downgrade mutations.\n\nThe history is now six commits: shared core, one per ingress lane, compatibility tests, and documentation, with the requested authorship. I’m starting final-HEAD qualification.\n\nNode 22.23.3 qualification is complete: typecheck, build, 138 focused tests, and the full suite passed (9,291 passed, 63 skipped, zero failures). Node 22.12.0 typecheck and build also passed; its test runs are underway. Each lane patch independently applies to the shared core.\n\nFinal qualification passed on both Node 22.23.3 and 22.12.0: each full suite reports 9,291 passed, 63 skipped, and zero failures; all 138 focused tests pass on both. The AST and lane-patch checks pass, and the worktree is clean at `02ee2947`. The report includes per-finding fixes, red-before and mutation evidence, commit details, and residual risks.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
