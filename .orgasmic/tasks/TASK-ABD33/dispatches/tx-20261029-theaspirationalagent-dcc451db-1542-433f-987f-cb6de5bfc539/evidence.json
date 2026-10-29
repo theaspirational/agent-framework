@@ -1,0 +1,25 @@
+{
+  "event_count": 302,
+  "tool_call_count": 26,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ABD33-implementer-20261029T112544-run-01M63PH8ZF75G215JE6T06WDTC.jsonl",
+    "size_bytes": 446880
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T11-25-45-01a18768-a81d-7b62-b4c6-c9243fec4d5f.jsonl",
+    "session_id": "01a18768-a81d-7b62-b4c6-c9243fec4d5f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll read the required inputs and pinned code, then write and locally commit the design document. I won’t change code or publish anything.The supplied designs leave an important gap: WO-5a carries an opaque reply intent but deliberately does not route it, while TAB7M v0.5 leaves frozen replies and status connector-specific. I’ll make the boundary explicit: connector policy stays in host adapters; the runtime owns destination retention, turn ownership, and generic delivery-mode enforcement.The draft now maps all 34 test rows and identifies a current-main difference: `markAccepted` no longer updates the reply anchor. The plan therefore suppresses open-state repair and the later anchor update at separate sites. I’m checking the citations, scope and consistency before the local commit.Committed locally as `b9e770a1`. The audit passed: all seven input hashes match, 102 citation locations resolve, and all 34 logical test rows are mapped. It also confirmed the existing Slack literals as expected-red source witnesses. No runtime tests were run for this design-only change."
+    }
+  ],
+  "narrative_truncated": false
+}
