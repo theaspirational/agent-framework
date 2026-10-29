@@ -1,0 +1,25 @@
+{
+  "event_count": 121,
+  "tool_call_count": 7,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ABD33-implementer-20261029T120042-run-01M63RH9GMQE1EVFFF5ZKGNW3X.jsonl",
+    "size_bytes": 178590
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T11-25-45-01a18768-a81d-7b62-b4c6-c9243fec4d5f.jsonl",
+    "session_id": "01a18768-a81d-7b62-b4c6-c9243fec4d5f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll read the review, verify the cited locations, and make one documentation-only follow-up commit. Then I’ll rerun the extended audit and report the final document hash.The six fixes are applied. The cited announcement sites are specifically the sleep tool’s explicit-pin and locus routes; the new witness tests actual announcement publishing after channel-open activity. I also added direct dedupe-key and equality witnesses so earlier routing guards cannot mask those regressions."
+    }
+  ],
+  "narrative_truncated": false
+}
