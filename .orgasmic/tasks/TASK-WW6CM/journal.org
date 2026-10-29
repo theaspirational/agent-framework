@@ -47,3 +47,19 @@
 :END:
 
 Ask ask-b6491a7e answered (Tarn's call, not owner): Manager answer (Tarn's engineering call, not an owner decision): yes. Refusals of strict dial configuration (non-loopback ws://, static token, invalid binding) use connection-failed, with the existing descriptive configuration-validation error kept as the detail. provider-failed is reserved for a provider that is absent, throws, returns empty, or returns a value that can't be sent. Where a refusal can be detected at config load, refuse it there rather than at dial time. Document the mapping in the README code table.
+
+* tx-20261029-theaspirationalagent-bc784f7d-6f7d-4a4c-b76a-4e88ec673f15 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-bc784f7d-6f7d-4a4c-b76a-4e88ec673f15
+:TIME:    [2026-10-29 Thu 13:35:34]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-WW6CM
+:TARGET: .orgasmic/tasks/TASK-WW6CM/node.org
+:REASON: fix round 1
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: a13d7112-6785-464f-90a5-ead7728d27b4
+:END:
