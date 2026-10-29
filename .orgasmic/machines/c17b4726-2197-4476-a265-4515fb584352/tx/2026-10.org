@@ -6873,3 +6873,92 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     58897d24-6767-45e1-aaa9-780e0d277afd
 :END:
+
+
+* TX 2026-10-29 Thu 12:59:36 manager.dispatch_started TASK-WW6CM
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-bf5a6746-3e91-4317-85e6-6e198a42e489
+:TIME:         [2026-10-29 Thu 12:59:36]
+:TYPE:         manager.dispatch_started
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-WW6CM
+:TARGET:       .orgasmic/tmp/sessions/dispatch-TASK-WW6CM-implementer-20261029T125936-run-01M63VX4YVY0N2ACGMABSXJ91J.jsonl
+:REASON:
+:KIND:         implementer
+:HARNESS:      codex
+:PROTOCOL:     app-server
+:TRANSPORT:    spawn
+:BRIDGE:       none
+:MULTIPLEXER:  none
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-ww6cm
+:BRANCH:       task-ww6cm-impl
+:BRIEF_PATH:   .orgasmic/tmp/dispatch/TASK-WW6CM-implementer/TASK-WW6CM-implementer-a2a785183ebb4dfd8388370960f9555d-brief.md
+:LAST_PATH:    .orgasmic/tmp/dispatch/TASK-WW6CM-implementer/TASK-WW6CM-implementer-a2a785183ebb4dfd8388370960f9555d-last.txt
+:STDOUT_PATH:  .orgasmic/tmp/dispatch/TASK-WW6CM-implementer/TASK-WW6CM-implementer-a2a785183ebb4dfd8388370960f9555d-stdout.log
+:DISPATCH_ATTEMPT: a2a785183ebb4dfd8388370960f9555d
+:STARTED_AT:   [2026-10-29 Thu 12:59:36]
+:LIVENESS:     4a45766f019fa11c8699645bd6806ebf3e13e5d1
+:NEXT:         fix-implementer-watch-then-integrate
+:PREFLIGHT:    ok
+:REQUESTER:    member:tarn2
+:CLAIM_RUN:    run-01M63VX4YVY0N2ACGMABSXJ91J
+:CACHE_SEED:   skipped
+:CACHE_SEED_DETAIL: reason=not-cargo
+:MODEL:        gpt-6-astra
+:EFFORT:       high
+:REASON_INITIAL: dispatch service participant worker
+:REQUEST_IDENTITY: {"branch":"task-ww6cm-impl","credential_mode":null,"effort":"high","endpoint":"","from":"4a45766f019fa11c8699645bd6806ebf3e13e5d1","governance":null,"harness":"codex","harness_args":null,"kind":"implementer","mcp_isolation":null,"model":"gpt-6-astra","protocol":"app-server","provider":null,"resume_from":null,"simulated":"false","speed":null,"subject":"TASK-WW6CM","transport":"spawn","worktree":"~/.orgasmic/worktrees/theaspirational.agent-framework/task-ww6cm"}
+:CODEX_BIN:    /opt/node/bin/codex
+:CODEX_VERSION: codex-cli 0.163.0
+:EVENT_ID:     f45b16c8-fa33-4c56-b847-c4ef62ac8717
+:END:
+
+* TX 2026-10-29 Thu 12:59:37 run.created TASK-WW6CM
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-58225164-61f8-4623-a3f3-d49fdd1a1cbe
+:TIME:         [2026-10-29 Thu 12:59:37]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-WW6CM
+:TARGET:       .orgasmic/tmp/sessions/dispatch-TASK-WW6CM-implementer-20261029T125936-run-01M63VX4YVY0N2ACGMABSXJ91J.jsonl
+:REASON:       dispatch service participant worker
+:RUN_ID:       run-01M63VX4YVY0N2ACGMABSXJ91J
+:ORIGIN:       cli_dispatch
+:WORKER:       implementer-codex-app-server
+:KIND:         implementer
+:HARNESS:      codex
+:PROTOCOL:     app-server
+:TRANSPORT:    spawn
+:BRIDGE:       none
+:MULTIPLEXER:  none
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-ww6cm
+:BRIEF_PATH:   .orgasmic/tmp/dispatch/TASK-WW6CM-implementer/TASK-WW6CM-implementer-a2a785183ebb4dfd8388370960f9555d-brief.md
+:LAST_PATH:    .orgasmic/tmp/dispatch/TASK-WW6CM-implementer/TASK-WW6CM-implementer-a2a785183ebb4dfd8388370960f9555d-last.txt
+:STDOUT_PATH:  .orgasmic/tmp/dispatch/TASK-WW6CM-implementer/TASK-WW6CM-implementer-a2a785183ebb4dfd8388370960f9555d-stdout.log
+:DISPATCH_ATTEMPT: a2a785183ebb4dfd8388370960f9555d
+:PID:          2161238
+:DISPATCH_TX:  tx-20261029-theaspirationalagent-bf5a6746-3e91-4317-85e6-6e198a42e489
+:MODEL_OVERRIDE: gpt-6-astra
+:EFFORT_OVERRIDE: high
+:EVENT_ID:     ff991f99-6464-4585-add8-67a604687e11
+:END:
+
+* TX 2026-10-29 Thu 12:59:40 run.asked TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-b5b4bbe3-0ce6-4b5f-a96c-a76e8ee693ea
+:TIME:         [2026-10-29 Thu 12:59:40]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       W §10 leaves timeout bounds, maximum pending count, overload refusal, and connection fairness unresolved before implementation. For slice A, may I use a required timeoutMs integer in 1..60000, at most 64 pending preflights per connection (including attestation/validation), immediate admission_denied on overload, and independent per-connection budgets with sequential channel-batch items; or what exact limits/refusal/fairness should I implement?
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-3bd8edd0f3424c14ad472650212097ad
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     c3a653d3-fb30-4b92-a2cf-b0ed2dbd41f1
+:END:

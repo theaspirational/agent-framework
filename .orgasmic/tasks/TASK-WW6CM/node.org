@@ -1,0 +1,18 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-WW6CM
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-WW6CM PR #870 part 1: strict credential dial only (no floor, fewer codes, no redaction)
+:PROPERTIES:
+:UID: b7212445-75c1-5899-b4a3-cc168838bb4f
+:ID: TASK-WW6CM
+:PRIORITY: P1
+:END:
+
+** Description
+PR #870 split, part 1 (dial change only), on owner button pr870:split:accept (TG 1229) answering the upstream contributor review https://github.com/anima-research/agent-framework/pull/870#issuecomment-6470665456 .
+Keep: opt-in fail-closed dial when the configured provider throws/returns nothing/returns a non-sendable value; refusal of cleartext ws:// to non-loopback; runtime-support capability check via unexpected-response statusCode (followRedirects false); comparison harness stays outside the repo.
+Change: no 32-character floor; fewer error codes that separate server refusal from local refusal (proposed: provider-failed, credential-rejected (401/403), engine-unsupported, connection-failed); every failure built through one fail(); README/types/changelog/test names carry user documentation only, no review/provenance text; open-timeout test does not wait 15 s; credentialRequired goes through the project's boolean-setting check.
+Out: all sink redaction (strict registry, retire logic, [withheld] projection) -> part 2 later, on the existing bounded store.
+** Acceptance
+Branch on latest upstream main; red-before tests; full gates; small diff; local only until owner button.
