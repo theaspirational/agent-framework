@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 86393dc1-5d92-4673-9227-bdbce0f564a3
 :END:
+
+* tx-20261029-theaspirationalagent-0f5bb630-c986-47c7-86ed-3611dcdd7ac2 comment
+:PROPERTIES:
+:TX_ID:   tx-20261029-theaspirationalagent-0f5bb630-c986-47c7-86ed-3611dcdd7ac2
+:TIME:    [2026-10-29 Thu 13:01:08]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-WW6CM
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 59c9a87b-e7ed-4c8e-ab39-4e251bab4cdf
+:END:
+
+Ask ask-b6491a7e answered (Tarn's call, not owner): Manager answer (Tarn's engineering call, not an owner decision): yes. Refusals of strict dial configuration (non-loopback ws://, static token, invalid binding) use connection-failed, with the existing descriptive configuration-validation error kept as the detail. provider-failed is reserved for a provider that is absent, throws, returns empty, or returns a value that can't be sent. Where a refusal can be detected at config load, refuse it there rather than at dial time. Document the mapping in the README code table.

@@ -7043,3 +7043,35 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     95651fa9-4caf-431e-a708-d3f34cd30b48
 :END:
+
+* TX 2026-10-29 Thu 13:01:07 run.answered TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-d1240cfa-d73c-4a7a-b313-95f02d2258bd
+:TIME:         [2026-10-29 Thu 13:01:07]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Manager answer (Tarn's engineering call, not an owner decision), re-sent because the earlier delivery was lost: yes, exactly as you proposed. timeoutMs is a required integer in 1..60000 (validated at config load; invalid config refuses to start the connection, no default). At most 64 pending preflights per connection, counting attestation/validation; overload is refused immediately with admission_denied, with no queueing. Budgets are independent per connection; the items of one channel batch are admitted one after another in batch order, each with its own timeout. Make 60000 and 64 named constants, document them as initial bounds open to maintainer review, and test: timeout admits nothing; overload is refused; one connection's saturation doesn't affect another; batch order is preserved.
+:RUN_ID:       run-01M63VVZ46SV58RQ6QHPHXKTXN
+:ASK_ID:       ask-78870de2c6d143738def2f8fd1913f2b
+:EVENT_ID:     36821206-d3f4-44de-855d-03b8bdac1803
+:END:
+
+* TX 2026-10-29 Thu 13:01:07 run.answered TASK-WW6CM
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-78d6f316-e8b0-47a3-9736-4e1c6528e379
+:TIME:         [2026-10-29 Thu 13:01:07]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-WW6CM
+:REASON:       Manager answer (Tarn's engineering call, not an owner decision): yes. Refusals of strict dial configuration (non-loopback ws://, static token, invalid binding) use connection-failed, with the existing descriptive configuration-validation error kept as the detail. provider-failed is reserved for a provider that is absent, throws, returns empty, or returns a value that can't be sent. Where a refusal can be detected at config load, refuse it there rather than at dial time. Document the mapping in the README code table.
+:RUN_ID:       run-01M63VX4YVY0N2ACGMABSXJ91J
+:ASK_ID:       ask-b6491a7e497a4e6b96d17f76a579c7b5
+:MESSAGE_ID:   msg-d290d85556a549098c59a2a55272da00
+:DELIVERY:     delivered
+:EVENT_ID:     17c36c4c-864d-48e1-8e66-5f2c8f9bd532
+:END:
