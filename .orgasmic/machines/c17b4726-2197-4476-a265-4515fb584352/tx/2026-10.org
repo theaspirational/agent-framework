@@ -8090,3 +8090,37 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     4949319e-f63f-4d72-8832-11ab87ddc465
 :END:
+
+* TX 2026-10-29 Thu 15:32:09 run.created TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-da7504cd-0798-493e-959a-3d6d80f5c55a
+:TIME:         [2026-10-29 Thu 15:32:09]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       start_recovery_run replacing run run-01M6447860QN4GRKT3P7E2R7YX
+:RUN_ID:       run-01M644MF1V78E2MED3V42SKJ7X
+:ORIGIN:       recovery
+:ORIGIN_RUN_ID: run-01M6447860QN4GRKT3P7E2R7YX
+:ACTION:       start_recovery_run
+:KIND:         reviewer
+:EVENT_ID:     06677245-6d39-4732-8144-db8d30185c83
+:END:
+
+* TX 2026-10-29 Thu 15:32:31 run.cancelled TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261029-theaspirationalagent-38bda221-9df3-4bb7-98fb-a52e5d59d4d4
+:TIME:         [2026-10-29 Thu 15:32:31]
+:TYPE:         run.cancelled
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       cancelled by member:tarn2: started by mistake (run_recover without action); the prior reviewer died in a global OOM, investigate first
+:RUN_ID:       run-01M644MF1V78E2MED3V42SKJ7X
+:DISPATCH_TX:  tx-20261029-theaspirationalagent-3391d0fd-c38e-47a7-a4fe-0e4ab0a16c9f
+:CANCELLED_BY: member:tarn2
+:EVENT_ID:     9c45f89c-c228-4c6a-ae05-5b28a704f8cf
+:END:
