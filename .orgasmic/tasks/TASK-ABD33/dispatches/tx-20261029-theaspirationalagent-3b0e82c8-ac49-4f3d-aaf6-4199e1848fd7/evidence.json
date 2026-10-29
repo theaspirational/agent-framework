@@ -1,0 +1,25 @@
+{
+  "event_count": 142,
+  "tool_call_count": 6,
+  "unparsed_events": 1,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-ABD33-implementer-20261029T125430-run-01M63VKT85Z3D0XBEM85VSBYTN.jsonl",
+    "size_bytes": 151923
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T11-25-45-01a18768-a81d-7b62-b4c6-c9243fec4d5f.jsonl",
+    "session_id": "01a18768-a81d-7b62-b4c6-c9243fec4d5f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll record the four owner decisions, update the affected slice gates, and leave the maintainer questions open. Then I’ll make one local documentation commit and rerun the audit.Committed locally as `591f6c14`. The audit passed, including checks that the maintainer table, test-specification section and pinned-source citations are unchanged.\n\nFinal document SHA-256: `475da25d262cfffd2f36f091378b53d404a6f4d4f1d70cb1eaf8f968c07118ac`."
+    }
+  ],
+  "narrative_truncated": false
+}
