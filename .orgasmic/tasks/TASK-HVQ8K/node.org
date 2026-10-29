@@ -1,0 +1,20 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-HVQ8K
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-HVQ8K IMPL slice A: generic required admission (WO-5a checkpoint) on upstream main
+:PROPERTIES:
+:UID: 71e25530-4cef-5a79-8fc6-0787a48f3bee
+:ID: TASK-HVQ8K
+:PRIORITY: P1
+:END:
+
+** Description
+Slice A of docs/design/GENERIC-RECIPIENT-ROUTING.md (TASK-ABD33, design commit 591f6c14578ef57796399b91c8a0bea1d5ba7c62, doc sha256 475da25d262cfffd2f36f091378b53d404a6f4d4f1d70cb1eaf8f968c07118ac): port the WO-5a generic required-admission checkpoint (W = /srv/review-drop/TASK-VZ0CD-CMT-R4DF2.md) onto upstream main 4a45766f019fa11c8699645bd6806ebf3e13e5d1. Owner go: Telegram button abd33:next:sliceA. Owner decision O4 (abd33:o4:strict): strict limits only for an explicitly enabled required profile; unconfigured connections take the old path unchanged.
+** Acceptance
+- Connector-agnostic: no connector names, id formats or platform regexes in framework code.
+- Per design §4.1: required state before traffic; original instance/epoch captured at receipt; auth and ready-plane checks before the hook; required pre-ready traffic refused (not held); early push tap suppressed for required connections; await admission, validate the whole verdict, recheck connection/grant/registration, then apply effects. Timeout/throw/invalid/stale epoch/removed registration admit nothing.
+- Unconfigured connections: byte-for-byte old path, no added await, callback or synthetic verdict (tests prove it).
+- Real-transport refusal matrix across the ingress lanes (channels/incoming, push/event, inference/request); red-before tests.
+- Small reviewable commits, one per lane where possible, so upstream can take them as separate PRs.
+- Local only: no push, PR, Slack or Telegram.
