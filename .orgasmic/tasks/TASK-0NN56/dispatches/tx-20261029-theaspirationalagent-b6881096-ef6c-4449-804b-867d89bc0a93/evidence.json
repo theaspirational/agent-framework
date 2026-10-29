@@ -1,0 +1,25 @@
+{
+  "event_count": 1466,
+  "tool_call_count": 183,
+  "unparsed_events": 4,
+  "bounded_events": 36,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-0NN56-implementer-20261029T065836-run-01M63783T63Z42QNG09P652MBB.jsonl",
+    "size_bytes": 2337491
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/29/rollout-2026-10-29T06-58-36-01a18674-1344-7270-9310-d09ff4e718e6.jsonl",
+    "session_id": "01a18674-1344-7270-9310-d09ff4e718e6",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll establish the baseline gates, port the layers in order, and compare recipient tests against the frozen qualification evidence. I’ll keep all changes local and report any unfinished scope explicitly.The base is package version **0.30.0**. Install, typecheck, and build have passed; the full baseline suite is still running.\n\nCurrent main uses server-qualified channel references and a different agent registry, so #233 needs small adaptations. I also found that the frozen runtime lacks the custom recipient/overlap test files named in its provenance; the named host tests are present. I’ll distinguish historical qualification claims from tests reproduced here.Layers 1 and 2 are committed locally. The baseline finished with **9,148 passed, 0 failed, 63 skipped**. Layer 1’s focused gate passed **26/26**; #361’s 78-test file and the stop-step suite passed **99/99** after adapting one conversation-fork fixture to the current API.\n\nRecipient routing is the larger port: main has changed both delivery and turn ownership substantially. I’m checking those paths before applying the old patch so it cannot restore obsolete behavior.Layer 2’s full suite passed: **9,240 passed, 0 failed, 63 skipped**—92 additional passes over the base, with no new failures.\n\nThe recipient port now passes 23 focused tests, including real stdio MCPL ingress, handshake refusal, frozen thread routing, separate addressed turns, tool waits, retries, budget holds, explicit sends, and stale typing stops. The initial nine routing tests all failed on layer 2 before the port. I’m expanding that red check, then running the full-suite and standalone-branch gates.The first full layer-3 run has exposed compatibility regressions in existing prototype-based tests: the new optional-extension paths assume maps that those lightweight framework fixtures do not initialize. I’ll preserve that failed run, make absent extension state mean “disabled,” and rerun the targeted and full gates.The three layers are committed. The recipient tests pass, but the first full head run exposed failures in existing tests that construct a partial framework instance. I’ll preserve that failed result, fix the optional-state access, and rerun the gates before testing the standalone branch.\n\nThe supplied qualification artifacts are incomplete: the frozen runtime contains the named host tests, but not the runner or recipient test sources needed to reproduce the historical 366/21 counts. I’ve documented the gap and added replacement red-first tests.The stacked branch’s full suite is green: **9,263 passed, 0 failed, 63 skipped**, compared with **9,148 passed, 0 failed, 63 skipped** at the pinned base. I’ll now check the recipient layer on upstream main without either earlier layer.The standalone branch is green too: **9,170 passed, 0 failed, 64 skipped**. The extra skip is the budget-hold integration test, because upstream main lacks that feature. Layer 3 can therefore be proposed independently of both #233 and #361.\n\nI’m restoring the stacked checkout and finishing the report, including commit stats, test receipts, adaptations, and the draft upstream PR. The unresolved item is the missing historical qualification sources.The manager’s queued response confirms that the historical sources are unavailable and accepts documenting that gap. It also requests a specific replacement liveness test: an overlapping wake during a budget hold must produce one reply without stalling, alongside a fresh-after-summary control.\n\nI’ll add that synthetic witness, prove it red without #361, then rerun the affected gates.The replacement witnesses pass. The overlap case fails without #361 while the fresh-after-summary control passes; both pass with #361. The new tool-driven budget-restart recipient case also goes red without layer 3 and green with it.\n\nFinal full suites: **9,266 passed on the stacked branch** and **9,171 passed on `recipient-on-main`**, both with zero failures. The report is complete, and the worktree is back on the clean stacked branch."
+    }
+  ],
+  "narrative_truncated": false
+}
