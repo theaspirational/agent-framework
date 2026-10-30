@@ -1,0 +1,17 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-PK8RC
+#+orgasmic_version: 2
+
+* BACKLOG TASK-PK8RC Generic routing slice C: owned typing with stale-stop/successor safety
+:PROPERTIES:
+:UID: 7e0b5c53-c719-50e9-8d26-d40afe873b05
+:ID: TASK-PK8RC
+:PRIORITY: P1
+:END:
+
+** Description
+Slice C of docs/design/GENERIC-RECIPIENT-ROUTING.md (fork main 3be0d77f, §5 and §7 row C, O3). Base: narrowed B 27a321276c8c03efe3fbc810029d25d53ec04572 on A 869bb3ad.
+Full programme C (NOT only Alnold's disabled mode): typed typing owner = the existing turn id plus a server-qualified ChannelRef target in ChannelRegistry. A stale stop can't clear a successor; unscoped frame start/stop can't acquire or remove owned indicators; lifecycle (channel removal, disconnect, shutdown) has a separate force-cleanup; idle TTL ends ownership. Typing modes that emit it are tested, and disabled mode (no automatic typing) is ONE tested case, not the whole of C. Accurate bounded stale-deferral diagnostics.
+Explicitly OUT (kept for later, not closed): a threaded typing target (optional thread field). It belongs to the exact-thread gap (F-host owner decision 3), since narrowed B dropped thread transport. #233 is only a conditional consumer.
+** Acceptance
+Neutral rows 4–5, 11, 20–22 from the design §6, plus force-cleanup/mixed-queue; revert-failing tests; no connector literals (AST guard); gates on Node 22.23.3 and 22.12.0 under 16G; local commits only.
