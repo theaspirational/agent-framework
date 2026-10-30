@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-MD5AH
 #+orgasmic_version: 2
 
-* IN_PROGRESS TASK-MD5AH Gate: drop debounced batch events a turn already saw (upstream #814)
+* IN_REVIEW TASK-MD5AH Gate: drop debounced batch events a turn already saw (upstream #814)
 :PROPERTIES:
 :UID: e0474f77-9005-5b6e-8390-1f7513c4fe39
 :ID: TASK-MD5AH
