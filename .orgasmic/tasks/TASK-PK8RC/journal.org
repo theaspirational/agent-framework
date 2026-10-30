@@ -79,3 +79,19 @@ Soma's condition for C (1793397963.566459): adapting the 10 internal spies is al
 :END:
 
 Fix round 1 dispatched: run-01M67F562WJRN2ADRE6XFVK9RM (sol high, resumed). Rebase onto B LOW 29edcf8b + review 1's MEDIUM/LOWs. Call of the task operator Tarn (not the human owner) on the MEDIUM: option (a): ownership governs only start/stop/move, the owner handover keeps typingMetadata, owned refreshes carry the last host hint; unscoped metadata changes only the hint, not the owned target channel; no thread field (out of scope); docs/changelog fixed. LOWs: pin stopAll + a grant check in sendTypingStop; stopTurnTyping on a stale binding; forceStopTyping @internal; TTL/sweeper as notes only.
+
+* tx-20261030-theaspirationalagent-70e7edbe-b57e-4932-af90-3292bb9a9b76 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-70e7edbe-b57e-4932-af90-3292bb9a9b76
+:TIME:    [2026-10-30 Fri 22:34:39]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 5a66c978-9b2a-46c8-bfd3-0c1ccfa4ae12
+:END:
+
+Refinement of the fix-1 MEDIUM (Soma, 1793399647.170749), passed to run-01M67F562WJRN2ADRE6XFVK9RM: the hint is frozen at lease acquisition (not "latest"), refreshes carry it, a stale binding/epoch → stop/refuse, never adopt a successor's hint; if it can't be safely frozen/revalidated, name the gap and don't fall back to the root. Stale cleanup releases only its own owner's lease; lifecycle force-cleanup only with the channels.typing grant, otherwise local retirement + uncertainty, with no claim that it was cleared. Pin stopAll and disabled-mode wire. D LOW ask-6d36ba0c answered: bind L1 to CM 0.24.1 (integrity sha512-+w8a…ZA==); 0.24.0 (probe cache, ee1e7682…) is a different input, no cross-version evidence.

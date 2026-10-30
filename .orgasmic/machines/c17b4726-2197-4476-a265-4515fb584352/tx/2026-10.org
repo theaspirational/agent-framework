@@ -15351,3 +15351,36 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     68bcf45f-47c3-435e-83f5-38dcebb2c321
 :END:
+
+
+* TX 2026-10-30 Fri 22:34:38 run.answered TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-dc74a71b-b0a8-4583-9e4f-bf88ae5f9507
+:TIME:         [2026-10-30 Fri 22:34:38]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Call of the task operator Tarn: bind the L1 assert/test/report to the version D actually resolves: context-manager 0.24.1, integrity sha512-+w8a/I11CmK/8jIuB5+NbnsIULAkpX4uve0jULUQ3nuIanmwLRQkTVTJ8Z5mK+EjGNjoXMlR7fQvsrP9gJBKZA== (from package-lock.json). The integration set (A+B+D tarball) is NOT built yet; it will take D's lock, so there's no separate artifact for it yet; state that in the report. The 0.24.0 input belongs to the store probe (a sealed read-only cache: /srv/ci-fixtures/rtaln-host020-cache-20261030/tarballs/@animalabs__context-manager@0.24.0.tgz, sha256 ee1e7682c09a26b9db0cef45c51467df654f8f7f6a91f8fd843caf697097cf24 in that directory's SHA256SUMS). You don't need to analyse it or bind evidence to it; just state explicitly in the report that it's a different input and that 0.24.1 evidence isn't carried to 0.24.0 or the other way round. The assert itself is the runtime protection for any version. Continue.
+:RUN_ID:       run-01M67F20N3M33QABRKHQTQN6QN
+:ASK_ID:       ask-6d36ba0c5b01458a874b5d6d14bf543a
+:EVENT_ID:     b7af0336-293b-43b9-8218-c9642df46f16
+:END:
+
+* TX 2026-10-30 Fri 22:34:39 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-4f244493-a384-48e6-a8e1-79202d93fe5e
+:TIME:         [2026-10-30 Fri 22:34:39]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       BINDING refinement of the MEDIUM (from Soma; replaces the "latest host hint" wording in the brief): NO mutable "latest channel hint" retarget. Bind the existing validated host hint to the lease AT ACQUISITION (a frozen copy), and owned refreshes carry exactly that destination; a later host startTyping(ref, metadata) while owned does NOT change the owned refresh's hint. On a stale binding/epoch: stop/refuse, never adopt a successor's or newer hint. If the existing hint can't be safely frozen/revalidated, name that gap in the report/docs rather than falling back to the channel root. No B thread field.
+:RUN_ID:       run-01M67F562WJRN2ADRE6XFVK9RM
+:MESSAGE_ID:   msg-3432700e2f4241c7915ec3c67d72ce8e
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     35c6422d-e7d8-4827-a706-cfd734408119
+:END:
