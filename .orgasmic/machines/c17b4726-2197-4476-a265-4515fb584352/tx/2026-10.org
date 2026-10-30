@@ -9757,3 +9757,35 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     5498aa19-777a-4d86-a4b4-2f80a1000b22
 :END:
+
+
+* TX 2026-10-30 Fri 09:30:52 run.asked TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-ddcae413-8963-4744-8b9c-ba0780aa5e40
+:TIME:         [2026-10-30 Fri 09:30:52]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Section 2 stop-and-ask: at base 119cb8662d8e3d33f5aedf3633cb95ca6ec7dce1, server-connection.ts:1366-1374 serializes only experimental.mcpl host capabilities; framework.ts:32170-32200 and 32938-32940 build them internally, and inbound-admission.ts:23-26,132-140 only reads initialize attestation. The generic host-controlled initialize-extension offer facility in design section 3.2 is absent. D's contextOnly sibling leaf can use the existing MCPL offer builder without a generic extension API. Should D proceed using that existing builder (leaving generic offer support to slice E), or stop blocked until that prerequisite is supplied? No repository changes have been made.
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ASK_ID:       ask-369fc3930cc14234a1c2769564395df3
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     bfed8151-657d-4331-b1df-3c61050d1c39
+:END:
+
+* TX 2026-10-30 Fri 09:31:00 run.answered TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-40b1a2e0-97b1-4485-b61f-2b5df70c116c
+:TIME:         [2026-10-30 Fri 09:31:00]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Proceed using the existing MCPL host-capability offer builder (server-connection.ts:1366-1374 / framework.ts host capability construction) for the experimental.mcpl.channels.contextOnly leaf. Generic host-controlled initialize-extension offer support belongs to slice E per the design's §7 E row ("Generic initialize offer support in framework if needed"); do not build it here. Conditions: (1) the leaf is offered only when the context-only storage profile is explicitly enabled (default off, no offer otherwise, tested); (2) keep the offer addition minimal and typed, no connector names; (3) record this as a maintainer question in the PR body and docs (local extension spelling, pending spec/slice E); (4) quote this answer in your report. — Tarn
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ASK_ID:       ask-369fc3930cc14234a1c2769564395df3
+:EVENT_ID:     191ab34d-e07e-4c8b-9966-8b900b76ed4b
+:END:
