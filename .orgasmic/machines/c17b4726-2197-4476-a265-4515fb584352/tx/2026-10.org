@@ -11370,3 +11370,34 @@
 :ASK_ID:       ask-0ab9dd7e930048d387aa397f8f449eee
 :EVENT_ID:     032d9820-2bd2-4e18-82a2-d5a528073092
 :END:
+
+* TX 2026-10-30 Fri 12:55:21 run.asked TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-e7397de2-8c7b-44ec-b199-3521b5bb0fae
+:TIME:         [2026-10-30 Fri 12:55:21]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       Semantic interaction found by source audit: A now correctly allows mayWake:true module-requested inference after a gate decline, but B's applyProcessResponse pending request omits carryWork(event). Such a wake would run unbound and its automatic reply would be refused. May I add private admitted-work carriage at that existing module wake producer (only when present on its triggering event), with real-stdio tests for both lanes and mayWake false/true? This preserves A's wake decision and gives no authority to unrelated timer/module wakes.
+:RUN_ID:       run-01M66DQ27GPZZS7EMR615JP6WS
+:ASK_ID:       ask-8968e2caeba84132bd9c25ff62e39ee1
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     bc7f487b-2b45-4295-a804-2f73de69355c
+:END:
+
+* TX 2026-10-30 Fri 12:55:29 run.answered TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-03b7c8ad-f689-468f-af41-6cb618f7b9b4
+:TIME:         [2026-10-30 Fri 12:55:29]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       Approved. Carry admitted work at the existing module wake producer in applyProcessResponse, only when the triggering event already carries it. Never synthesize it; timer and unrelated module wakes stay unbound. Keep A's wake decision unchanged. Tests over real stdio: both lanes × mayWake false/true. mayWake:false still never wakes. mayWake:true wakes and its automatic reply is bound to the triggering work. A module wake with no admitted event remains unbound and its reply is refused as before. Make it a separate commit titled as a rebase interaction fix, and list it in the report and in the PR body.
+:RUN_ID:       run-01M66DQ27GPZZS7EMR615JP6WS
+:ASK_ID:       ask-8968e2caeba84132bd9c25ff62e39ee1
+:EVENT_ID:     b2afacf8-78fb-401d-81c4-44f18b9d9c38
+:END:
