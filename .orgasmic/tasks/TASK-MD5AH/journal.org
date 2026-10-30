@@ -95,3 +95,19 @@ Tarn engineering call ask-316ab2b83bf344e981350152ed0e40fc: aggregate render-bat
 :TO_STATE: in_progress
 :EVENT_ID: d19edcca-60c1-4468-a551-3f48b40e7025
 :END:
+
+* tx-20261030-theaspirationalagent-960e427e-c2ee-4018-9a43-b00402d72a54 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-960e427e-c2ee-4018-9a43-b00402d72a54
+:TIME:    [2026-10-30 Fri 16:28:01]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: d2c5529e-a07d-4d9d-92a0-193e4f0f6f20
+:END:
+
+Tarn gates at 43df5ab0 (fix1, on upstream 71193a9f), 16G scope: Node 22.23.3 and 22.12.0 both 9505 tests, 9440 pass, 2 fail, 63 skip. The 2 failures are the known environment-only watchdog tests (1751/1752 here), same as at every previous head.
