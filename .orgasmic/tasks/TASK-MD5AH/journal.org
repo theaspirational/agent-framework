@@ -143,3 +143,19 @@ Tarn gates at 43df5ab0 (fix1, on upstream 71193a9f), 16G scope: Node 22.23.3 and
 :END:
 
 Published on gate814:fix+pr after R2 APPROVE and my gates (9440/2 known watchdog). Upstream main 71193a9f unchanged at push; #814 had 0 comments. Fork branch theaspirational/agent-framework debounce-answered-writes = 43df5ab0799db0aeea7b682dc3666a335007f3fa. PR https://github.com/anima-research/agent-framework/pull/937 (ready). Body = worker PR BODY (/tmp/md5ah-pr-body.md). R2 LOWs (fenced duplicate line, trace emission sites, deregistered recipient, microtask recheck) deferred to a follow-up. Undo: close PR 937, delete the branch.
+
+* tx-20261030-theaspirationalagent-c562b1a3-6be9-46de-a490-aa540e97bbfb comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-c562b1a3-6be9-46de-a490-aa540e97bbfb
+:TIME:    [2026-10-30 Fri 17:02:22]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: d0159c92-fcb7-4070-8a8f-563cd2f5f2ca
+:END:
+
+Answer to ask-0ed8dcdb7da544d386f84f2676bbc63f (Tarn engineering call, fix round 2): approved the optional getSharedSlotReaders() hook and a shared summary of events unseen by every shared-slot reader. Conditions: absent hook means unchanged behaviour; divergent events still wake unseen recipients and stay in context (test); forks get their own summary; disclosed in body, reply and changelog.
