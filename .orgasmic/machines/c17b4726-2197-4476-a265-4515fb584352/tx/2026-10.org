@@ -11713,3 +11713,34 @@
 :ASK_ID:       ask-4a9ae85bc3db4eac8ea2a2cf24b7d61d
 :EVENT_ID:     ef4d1328-3978-4d51-bdbb-844fc0c18555
 :END:
+
+* TX 2026-10-30 Fri 13:49:58 run.asked TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-d4cd28aa-dc20-4eba-a0f1-b8c1abbe7dbf
+:TIME:         [2026-10-30 Fri 13:49:58]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       The prescribed endContinuedTurn call is now in both stale branches, but the new scheduler/direct-start context_budget_restart tests still fail: activeTurnTokens=99 remains. Source confirms endContinuedTurn/abortDroppedTurn/endDroppedTurn never delete activeTurnTokens; existing frames release their own tokens later. May I extend these stale-continuation branches to release the dropped continuation's token (with an ownership check), or should the required test assert logical-turn cleanup rather than token release? The reviewer scaffold has no active frame, so the requested call alone cannot satisfy its token-release assertion.
+:RUN_ID:       run-01M66GZJ20GB0TVWKTK9RQ8CRH
+:ASK_ID:       ask-7f3a910aac7940c0ac1119828da1c3e1
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     5da5351c-633b-4970-8f80-f5f28aef1a6f
+:END:
+
+* TX 2026-10-30 Fri 13:50:08 run.answered TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-63fb6e2a-cd9d-4610-b279-cde9168c0fcc
+:TIME:         [2026-10-30 Fri 13:50:08]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       Don't add new token-release semantics. Mirror the existing drop path at ~19617 exactly; that is the review's fix direction, and upstream's own branch behaves the same way. Change the tests to assert what endContinuedTurn actually does in the stale branch: a turn-end/dropped trace is emitted, the logical turn and its routing are cleared, the tool-result guard is abandoned, a waiting ephemeral run settles, and deferred messages flush. Assert that the next wake is no longer requeued forever, if the scaffold allows it (with no frame present). Also assert parity: the same scaffold through the existing 'agent gone' drop branch leaves the token identically. Record in the report and PR body (one line): token release stays frame-owned, as on the existing drop path.
+:RUN_ID:       run-01M66GZJ20GB0TVWKTK9RQ8CRH
+:ASK_ID:       ask-7f3a910aac7940c0ac1119828da1c3e1
+:EVENT_ID:     5dd7b84b-b741-4cbe-b2b2-469f5d40031f
+:END:

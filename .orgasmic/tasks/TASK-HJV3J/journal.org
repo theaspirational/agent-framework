@@ -182,3 +182,19 @@ Tarn answer to ask-8968e2caeba84132bd9c25ff62e39ee1 (engineering call): carry ad
 :END:
 
 Tarn answer to ask-4a9ae85bc3db4eac8ea2a2cf24b7d61d: reword 5b0c1a65 + the five bot-fix subjects (message-only, trees identical, range-diff proof); new commits topic-only; BOT REPLY keyed by file:line.
+
+* tx-20261030-theaspirationalagent-40cde261-4bdb-46dd-8d95-962a22ace04d comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-40cde261-4bdb-46dd-8d95-962a22ace04d
+:TIME:    [2026-10-30 Fri 13:50:09]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a767b883-409c-4a11-b50c-c239e6cc8596
+:END:
+
+Tarn answer to ask-7f3a910aac7940c0ac1119828da1c3e1 (engineering call): no new token-release semantics; mirror the existing drop path; tests assert endContinuedTurn effects plus parity with the existing 'agent gone' branch; token release stays frame-owned (disclosed).
