@@ -1,0 +1,25 @@
+{
+  "event_count": 614,
+  "tool_call_count": 92,
+  "unparsed_events": 1,
+  "bounded_events": 23,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XHZ4H-implementer-20261030T092951-run-01M6629SJZ1Q0E6H5WVBAX4E6B.jsonl",
+    "size_bytes": 1210556
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T09-29-52-01a18c24-eae5-7843-acd9-248d1af006b1.jsonl",
+    "session_id": "01a18c24-eae5-7843-acd9-248d1af006b1",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the pinned base and required instructions, then check the persistence and initialize-offer prerequisites before making changes. If either requires an out-of-repo change, I’ll stop and ask as directed.The base matches. I found no generic initialize-extension offer facility, although the existing MCPL offer builder appears sufficient for D’s capability leaf. Per §2, I’ve asked whether to use that existing path or wait for the separate prerequisite. No repository files have changed.The dispatcher clarified both prerequisites: D may use the existing MCPL offer builder, and O1 requires the new reader to reject stamped history when the profile is disabled. Older-code rollback must be explicitly documented as unsupported. The storage profile stays default-off; production enablement remains a separate decision.\n\nThe installed context-manager exposes source-row lineage and preserves metadata, so no companion change is needed for those paths so far. The loopback guard passed its network-denial and child-inheritance probes, and dependencies installed offline.The Node 22.23.3 baseline completed: 9,601 tests, with 9,532 passed, 6 failed, and 63 skipped. The failures involve subprocess tests affected by the required preload; I’m checking guard compatibility without weakening network isolation. The Node 22.12.0 baseline is still running.\n\nThe dispatcher also resolved push behavior: any top-level `delivery` field must be rejected before effects with `unsupported_combination`, regardless of its value, grants, or profile. Push without the field remains unchanged."
+    }
+  ],
+  "narrative_truncated": false
+}
