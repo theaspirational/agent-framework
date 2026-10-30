@@ -175,3 +175,19 @@ ask-d8e3a4466aad44398ba60d58fecd0c99 (LOW-b identity): answer by the task operat
 :END:
 
 Soma's additions to ask-d8e3 (Slack 1793403399.352169), passed to the worker by run_message: transport-owned identity captured from the lifecycle event (not "current" compared to itself); tests for stale teardown after replacement AND a same-object reconnect/epoch change, or an explicit BLOCKED gap; on mismatch don't delete the replacement's ChannelEntry either; legacy ID-only public behaviour specified/tested separately and unchanged, stale callbacks not routed through it; no identity → hints not retired (documented). Admission/grants/wire unchanged.
+
+* tx-20261030-theaspirationalagent-ba059285-bddf-44f7-af03-5ce80ef50494 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-ba059285-bddf-44f7-af03-5ce80ef50494
+:TIME:    [2026-10-30 Fri 23:37:53]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 43b8645c-a8df-4897-8995-0b93b2e16e4d
+:END:
+
+ask-ff83e523145b49eab8f4aec68e596cd1: answer by the task operator Tarn (not owner Vasyl), per Soma's rule "if indistinguishable, retain the explicit blocked gap". LOW-b = BLOCKED-FOR-SCOPE: no existing event-captured identity reaches handleChanged/removeServer (ChannelEntry private and replaced at registerEntry; transportEpoch/admissionEpochs private). The attempted connection-only deletion is reverted; legacy ID-only unchanged; the gap documented plus a test pinning the current behaviour. LOW-c: a throttle map bounded by size, not tied to lifecycle reaping.

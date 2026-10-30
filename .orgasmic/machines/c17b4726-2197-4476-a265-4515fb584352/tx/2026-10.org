@@ -15987,3 +15987,64 @@
 :DELIVERY:     delivered
 :EVENT_ID:     4238e37b-3764-42a9-923a-bd45be136ad1
 :END:
+
+* TX 2026-10-30 Fri 23:37:35 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-7e5b93e2-fb82-4211-bf18-7e2bc3ab7ac6
+:TIME:         [2026-10-30 Fri 23:37:35]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       LOW-b boundary audit: ChannelEntry identity is private and replaced at registerEntry; handleChanged/removeServer carry only server id, and connection.transportEpoch/admissionEpochs are private. The same-object connection parameter alone cannot distinguish an old-epoch teardown, and looking up entries/current connection at deletion time would violate your addition. No existing event-captured registration token reaches those APIs. I will not ship the attempted connection-only deletion. Confirm LOW-b should be marked BLOCKED-FOR-SCOPE (with legacy ID-only behavior retained), while a/c/d/e and all four fresh suites continue, unless you can identify an existing public event-captured identity I missed.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-ff83e523145b49eab8f4aec68e596cd1
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     547ae7e1-92c1-49a4-aa5c-323dc28e6597
+:END:
+
+* TX 2026-10-30 Fri 23:37:53 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-fb6b3e61-88f6-47da-ae9a-d54240f51e00
+:TIME:         [2026-10-30 Fri 23:37:53]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Confirmed (task operator Tarn, within Soma's boundary: "if indistinguishable, retain the explicit blocked gap"). LOW-b = BLOCKED-FOR-SCOPE. Don't ship the connection-only deletion; revert all attempted LOW-b code (no partial plumbing left in the diff). Keep the legacy ID-only behaviour unchanged. In the docs and report, name the gap exactly: hints for a removed channel aren't retired; the reasons (private ChannelEntry identity replaced at registerEntry; handleChanged/removeServer carry only the server id; transportEpoch/admissionEpochs are private; no event-captured registration token); the consequence (automatic typing suppressed after re-registration + accumulation per churned channel); and what a future fix needs (an event-captured registration/epoch token on the internal lifecycle path), without claiming generation safety. Add a test that PINS the current behaviour (the hint survives remove→re-register) as a documented gap, not a fix. a/c/d/e and the four fresh suites continue. For c: since there's no lifecycle-safe reaping, the per-destination throttle map must be bounded by size (LRU/cap) and must not depend on deletion by key on lifecycle events; describe that.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-ff83e523145b49eab8f4aec68e596cd1
+:EVENT_ID:     d05a8cce-8c11-46ec-9485-ef78eff1246c
+:END:
+
+* TX 2026-10-30 Fri 23:37:54 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-4757852d-3aa2-4b04-bd62-700e677b21f9
+:TIME:         [2026-10-30 Fri 23:37:54]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Correction to ask-ff83: transportEpoch IS public (I misread the preceding comment). Proposed safe option: capture existing connection+transportEpoch at channels-register/changed dispatch and disconnect start; associate each ChannelEntry at registration with that existing pair (WeakMap, no invented identity), and require entry identity plus matching pair at retirement. Missing pair remains legacy conservative no hint delete. This supplies the same-object epoch control. Is this existing-identity association within your no-new-identity-subsystem boundary?
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-096dc85f040c4aadb2a94c7dc7b4d75b
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     ef26af72-6c62-416d-8803-103d8a1f17bc
+:END:
+
+* TX 2026-10-30 Fri 23:37:54 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-6529dd70-1fb8-430d-b1cd-c5d4d3271287
+:TIME:         [2026-10-30 Fri 23:37:54]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  547ae7e1-92c1-49a4-aa5c-323dc28e6597
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     747f4a4b-1371-4325-a6de-2c0dfec2d9fb
+:END:
