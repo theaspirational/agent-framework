@@ -310,3 +310,19 @@ Re-review after fix + rebase (run-01M678PBMAA9ME3A7J82QMP97N): APPROVE at 27a321
 :END:
 
 Record (Tarn's call, NOT the owner's): ask-805f26737e894f34b79120406a6db2b3 (run-01M675WMW5VJZFQ9S6N1351R2R), answered 2026-10-30 19:54:26Z, tx-20261030-theaspirationalagent-1f85253c-d04a-4f40-b061-9ab70d3defbc (the tx shows only "Approved, with conditions:"; the full text is from the run session). The worker proposed moving B's consumer out of RequiredAdmission.run with its own timeout. My answer, verbatim in substance: approved, with conditions: (1) A's admission is unchanged and finishes first; the consumer runs after A's verdict with its own required timeoutMs 1..60000, its own AbortController, and cancellation on signal/connection invalidation; the 64-pending cap belongs to the consumer, overload = private, never admission_denied. (2) No admitted item is woken or published with an unresolved binding: either it's resolved, or definitively private (timeout/error/overload) before the auto-publishing turn starts; the wait is bounded by the consumer's timeout; docs/tests state that storage/admission are A's and the publish binding is B's. (3) A's final current/epoch check governs staleness; a route resolved after the epoch is invalidated is discarded, and the item goes private. (4) Tests: timeout → private+notice with admission accepted and woken; abort on invalidation; overload at 65 → private; stale epoch → discarded; no hook = exact slice A. (5) Delete round 3's same-deadline seam in inbound-admission.ts; target is zero diff to A's admission files. Correction: earlier, in Soma's thread (1793390241.912499), I claimed this call was "already recorded on HJV3J". That was false; this is the first record.
+
+* tx-20261030-theaspirationalagent-eb70d03b-bc5d-4ed8-b2b2-1741c120a9d1 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-eb70d03b-bc5d-4ed8-b2b2-1741c120a9d1
+:TIME:    [2026-10-30 Fri 22:25:54]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 0b77e658-1fb1-4352-8255-b3c793611ca2
+:END:
+
+Tarn's manager gate at 29edcf8b7f7b31d0ab35f59ab0e6aab75c0f4e04 (worktree /tmp/af-mine-b29e, 16G systemd scope, npm install; typecheck/build exit 0 on both Nodes). Node 22.23.3: 9767 tests / 9702 pass / 2 fail / 0 cancelled / 63 skip. Node 22.12.0: 9767 / 9702 / 2 / 0 / 63. Both failures: `not ok 1748 - watchdog kills a wedged process (action: 'exit' → SIGKILL)` and `not ok 1749 - watchdog aborts a wedged process (action: 'abort' → SIGABRT) and writes a report` (test/liveness-watchdog.test.ts). The same pair fails in my environment on pristine upstream a64cfc01 and at A 869bb3ad; the worker saw 9704/0. Root cause NOT established; not relabelled as env-only. #931 stays owner-held.
