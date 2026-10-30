@@ -1,0 +1,25 @@
+{
+  "event_count": 305,
+  "tool_call_count": 19,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-implementer-20261030T122550-run-01M66CC0TV4CF3RSJ92AH8VWW5.jsonl",
+    "size_bytes": 389730
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T10-39-31-01a18c64-adc9-79f0-8bc3-854e422f16b0.jsonl",
+    "session_id": "01a18c64-adc9-79f0-8bc3-854e422f16b0",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Upstream has advanced to `c5306693`, with stdio line-bound and stderr-buffering changes. I’ll add the two regressions and the no-spin guard, then rebase without squashing and run both-Node gates on the new base and head.\nThe cloning and re-hold regressions fail on `a218dfb0` with five dispatches instead of one; the fixed focused suite passes all 125 tests. The 21-commit rebase had no conflicts. New upstream base `c5306693` passed both-Node gates with **9449 passed, 0 failed, 63 skipped** each. Rebased-head gates are running.\nRound 4 is complete at `c848977f`. Typecheck, clean build and full tests passed on both Nodes: **9646 passed, 0 failed, 63 skipped** each. Upstream remains `c5306693`; the worktree is clean and nothing was pushed. The report contains the full updated disposition, PR body and rebase interaction notes.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
