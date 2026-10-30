@@ -11339,3 +11339,34 @@
 :ASK_ID:       ask-ca9ec985c90444d88fb03f1a0b63f0de
 :EVENT_ID:     2941ddee-c166-4ef4-8ab8-9c94075d04ef
 :END:
+
+* TX 2026-10-30 Fri 12:53:03 run.asked TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-e71ae3ab-cb48-4e47-a048-42549f38bc55
+:TIME:         [2026-10-30 Fri 12:53:03]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       For bot M3 I will reuse the existing 30-second stale-age / 60-second per-agent trace+stderr throttle and quiesce suppression, extracting only the existing diagnostic block into a local scheduler helper. Reply deferral will report the full non-stale pending batch at that decision point with an explicit reply-deferred qualifier plus current busy/idle-turn state; no request timestamps, ordering, retry/drop, or recovery semantics change. Is this diagnostic-only scope approved (without implementing slice C typing/lifecycle changes)?
+:RUN_ID:       run-01M66DQ27GPZZS7EMR615JP6WS
+:ASK_ID:       ask-0ab9dd7e930048d387aa397f8f449eee
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     6dce78a9-5c69-419a-975e-08d9d3d43621
+:END:
+
+* TX 2026-10-30 Fri 12:53:11 run.answered TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-b018facb-e0ab-4bac-a020-3e1acc8491e6
+:TIME:         [2026-10-30 Fri 12:53:11]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       Approved: diagnostic-only scope. Reuse the existing thresholds, throttle and quiesce suppression. Extract only the existing diagnostic block into a local helper, with behaviour byte-identical for the existing paths (pin it with a test). Add the reply-deferred qualifier. No timestamp, ordering, retry/drop, recovery or slice C typing/lifecycle changes. Add a test that a long reply-deferred backlog emits the stale diagnostic (once per throttle window), and one that quiesce suppresses it.
+:RUN_ID:       run-01M66DQ27GPZZS7EMR615JP6WS
+:ASK_ID:       ask-0ab9dd7e930048d387aa397f8f449eee
+:EVENT_ID:     032d9820-2bd2-4e18-82a2-d5a528073092
+:END:
