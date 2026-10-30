@@ -207,3 +207,19 @@ ask-ff83e523145b49eab8f4aec68e596cd1: answer by the task operator Tarn (not owne
 :END:
 
 ask-096dc85f040c4aadb2a94c7dc7b4d75b (supersedes ask-ff83): the worker corrected himself, transportEpoch is public. Answer by the task operator Tarn (not owner Vasyl), within Soma's boundary: YES to associating each ChannelEntry (WeakMap) with the EXISTING pair (connection, transportEpoch) captured at register/changed dispatch and at the start of disconnect; retirement of the hint and the entry only on entry identity + an exact pair match; mismatch = touch nothing; missing pair = legacy behaviour unchanged. Condition zero: prove with file:line that transportEpoch changes on a reconnect of the same object, otherwise BLOCKED. Tests: remove→re-register, stale-after-replacement, same-object epoch change, disconnect-kept, legacy ID-only; 4 mutants. Admission/grants/wire unchanged. Soma has been told and can stop it.
+
+* tx-20261030-theaspirationalagent-dc375375-cbfa-432b-985c-26722b0b6915 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-dc375375-cbfa-432b-985c-26722b0b6915
+:TIME:    [2026-10-30 Fri 23:45:53]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 5449ba00-bda9-405f-b169-5153e587a4c2
+:END:
+
+Recorded by the task operator Tarn (not owner Vasyl). (1) ask-9c2664c08fd946058b8102644099d9a1: the same-connection+same-epoch+no-entry-token case = an explicit provenance gap pinned by a test; no new public API/identity. (2) Soma (Slack 1793403939.208749): the WeakMap of existing identities is covered; but prove with file:line that transportEpoch changes on a reconnect AND that a delayed event carries its ORIGINAL epoch captured at the time of the event, not the object's latest value; tests for stale same-object and replacement; no valid pair → a BLOCKED gap with no deletion; diagnostic state bounded/reaped; delta review and gates before publication. Passed to the worker by run_message.

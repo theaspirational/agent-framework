@@ -16112,3 +16112,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     f96bf04a-f6e0-4c4b-b764-873d5e0114cd
 :END:
+
+* TX 2026-10-30 Fri 23:45:53 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-9d293c18-8537-4bc8-a75a-fdbae348b431
+:TIME:         [2026-10-30 Fri 23:45:53]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Binding addition to LOW-b (Soma, programme qualifier): public transportEpoch alone isn't enough. Prove with file:line that (1) it changes on a reconnect of the same object AND (2) the epoch passed with a delayed lifecycle event is the event's ORIGINAL epoch captured at the time of the event, not the object's latest value read when the stale callback fires. Required tests: a stale same-object callback (the epoch changed after the event, the callback arrives later) and stale-after-replacement, both rejected with no deletion of the hint/entry. Wherever there's no valid event-captured pair → a conservative BLOCKED gap with no deletion. Diagnostic state (the throttle map) bounded and reaped. Admission/grants/wire unchanged. Put all of this explicitly in the report.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:MESSAGE_ID:   msg-2910698c91b749169449722608ad346e
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     23562b8a-c251-42f8-8ae0-6b3c58a1483a
+:END:
