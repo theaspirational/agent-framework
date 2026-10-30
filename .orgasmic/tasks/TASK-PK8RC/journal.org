@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 3fa935a9-b031-4112-a4d9-3318dc3042a4
 :END:
+
+* tx-20261030-theaspirationalagent-c4eaf5d5-ec82-43bc-8d54-47d8d287aab0 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-c4eaf5d5-ec82-43bc-8d54-47d8d287aab0
+:TIME:    [2026-10-30 Fri 22:06:53]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: bb0453d8-1ae5-4238-8091-d170ee3c68db
+:END:
+
+Soma's condition for C (1793397963.566459): adapting the 10 internal spies is allowed only if the public-call/effect contract and disabled-mode behaviour are preserved, not just to make the suite green; an explicit mapping old assertion → retained behavioural coverage is required. Passed to reviewer run-01M67DE5BS82W97VTFWCEBQB9Y via run_message. Threaded typing remains an explicit C/E/F completion item.

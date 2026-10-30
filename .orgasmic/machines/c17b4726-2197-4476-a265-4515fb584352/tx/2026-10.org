@@ -14827,3 +14827,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     8b0d145c-6f87-4727-9e0e-77077d2ca281
 :END:
+
+
+* TX 2026-10-30 Fri 22:06:53 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-db6ea001-92c7-4419-9ae4-4a763e78fdde
+:TIME:         [2026-10-30 Fri 22:06:53]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Addition to check (d) from Soma, mandatory: for the 10 rewritten tests (explicit-prose-routing / present-while-acting), produce an explicit table: old assertion (at base 27a32127) → the retained behavioural coverage at head 08a0ec83 (test:line) → is the public-call/effect contract preserved (who sees what typing start/stop on the wire, under the same public calls) and disabled-mode behaviour (no automatic typing). Adapting internal spies is allowed, but only if the external effect is unchanged; any weakening of an assertion is a finding (MEDIUM or above). Ideally, run the old assertions against the observed wire effects of the new code.
+:RUN_ID:       run-01M67DE5BS82W97VTFWCEBQB9Y
+:MESSAGE_ID:   msg-f6448402d5ac4aa4a939c01f6528e1a3
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     9d07a4f2-7411-425a-a66c-6fef415d1424
+:END:
