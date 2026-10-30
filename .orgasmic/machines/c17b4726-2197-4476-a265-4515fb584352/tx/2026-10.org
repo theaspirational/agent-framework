@@ -15001,3 +15001,20 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     b42b9e53-f77a-4105-9b36-3dcd6af78776
 :END:
+
+* TX 2026-10-30 Fri 22:22:52 run.message TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-318c0d98-f5c3-4b9f-886c-422c6fbcb77a
+:TIME:         [2026-10-30 Fri 22:22:52]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Clarification for check (2): the rebase report's phrase "The owner confirmed via blocking clarification" (about D's wire seam) is wrong. It's the engineering call of the task operator Tarn, not the consent of the human owner. Don't give it any weight; judge the seam purely technically against the contract (minimality, no touching A's RequiredAdmission/epoch/hold, is it needed for D). Also: the base baseline 869bb3ad has two separate observations (the first run exit 1 from a workspace-three-way timeout, the retry green); don't merge them into "a green base". Addendum: /srv/review-drop/TASK-XHZ4H-REBASE-A869.ADDENDUM.md.
+:RUN_ID:       run-01M67ECE4VR4Z4F67TM8P7NNAW
+:MESSAGE_ID:   msg-d3028ac267f34846a8dd7b9d54c6b4ba
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     8b8923e2-06d7-4444-abec-f97fbe89fd1e
+:END:
