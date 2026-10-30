@@ -1,0 +1,25 @@
+{
+  "event_count": 184,
+  "tool_call_count": 22,
+  "unparsed_events": 0,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-implementer-20261030T111511-run-01M668ANMJV2SVKBVVH237B0SJ.jsonl",
+    "size_bytes": 317800
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T10-39-31-01a18c64-adc9-79f0-8bc3-854e422f16b0.jsonl",
+    "session_id": "01a18c64-adc9-79f0-8bc3-854e422f16b0",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll serialize admission for held traffic, keeping the unconfigured flush path unchanged. I’ll also add the explicit tool-hint override warning, remove the duplicate AST check, and correct the report wording about required connections’ lack of toolset presence.\nThe new burst/order tests failed on the starting revision and now pass. Held traffic drains sequentially, waits for slots still occupied by pre-pause callbacks, and preserves pause/reconnect boundaries. The hint override warning and single AST check are also committed. Both Node versions are now getting fresh full gates.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
