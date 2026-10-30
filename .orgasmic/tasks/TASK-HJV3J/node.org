@@ -1,0 +1,15 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-HJV3J
+#+orgasmic_version: 2
+
+* IN_PROGRESS TASK-HJV3J Generic routing slice B: destination and turn ownership (on top of admission slice A)
+:PROPERTIES:
+:UID: 5e7812ff-73f7-58bc-acd6-e27c8970ae3b
+:ID: TASK-HJV3J
+:PRIORITY: P2
+:END:
+
+** Description
+Slice B of docs/design/GENERIC-RECIPIENT-ROUTING.md §7 (fork main 3be0d77f). Stacks on slice A = branch required-inbound-admission 119cb8662d8e3d33f5aedf3633cb95ca6ec7dce1 (upstream PR #906). Owner go: Vasyl, Telegram 2026-10-30 ('Generic routing також продовжуй').
+** Acceptance
+Exit condition of slice B in §7, incl. O5 silent-resume regression; no connector literals; no #361 dependency; upstream-ready commits authored as Vasyl with GPT-6-Astra trailer.
