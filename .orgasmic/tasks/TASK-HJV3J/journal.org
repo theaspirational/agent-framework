@@ -198,3 +198,19 @@ Tarn answer to ask-4a9ae85bc3db4eac8ea2a2cf24b7d61d: reword 5b0c1a65 + the five 
 :END:
 
 Tarn answer to ask-7f3a910aac7940c0ac1119828da1c3e1 (engineering call): no new token-release semantics; mirror the existing drop path; tests assert endContinuedTurn effects plus parity with the existing 'agent gone' branch; token release stays frame-owned (disclosed).
+
+* tx-20261030-theaspirationalagent-d01e10ec-4f0a-4179-88c1-f284e551b5a5 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-d01e10ec-4f0a-4179-88c1-f284e551b5a5
+:TIME:    [2026-10-30 Fri 14:14:50]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:TARGET: .orgasmic/tasks/TASK-HJV3J/node.org
+:REASON: held: narrowing per nissa-seru, waiting her response
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: 401410a6-dd06-466c-b833-62673133749b
+:END:
