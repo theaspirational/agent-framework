@@ -1,0 +1,18 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-95FR2
+#+orgasmic_version: 2
+
+* BACKLOG TASK-95FR2 Gate #937 follow-up: re-review LOWs (fenced duplicate line, trace sites, deregistered recipient, microtask recheck)
+:PROPERTIES:
+:UID: 99414237-c3dd-5787-a17a-9d5f8f3380c5
+:ID: TASK-95FR2
+:PRIORITY: P3
+:END:
+
+** Description
+Follow-up to TASK-MD5AH (PR anima-research/agent-framework#937): 4 LOWs from re-review 2 (/srv/review-drop/TASK-MD5AH-REVIEW2.md).
+1. event-gate.ts:3872: two residents with open fences on the same event each write a batch reference line (duplicate in the shared slot).
+2. event-gate.ts:3876-3881: gate:debounce-delivered is now also emitted from the buffer flush and the fence release, once per policy; changelog doesn't say so.
+3. event-gate.ts:3840: a fence release targets the recipient captured at fence open, even if deregistered.
+4. event-gate.ts:4392-4409: the delivery microtask re-checks only disposed, not quiesced/inferring (pre-existing pattern).
+Do it as a push onto PR #937 if maintainers ask, otherwise as a separate PR after #937 lands.
