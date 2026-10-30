@@ -1,0 +1,25 @@
+{
+  "event_count": 377,
+  "tool_call_count": 33,
+  "unparsed_events": 0,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-implementer-20261030T114400-run-01M669ZE6X0JNYT9SXXRN4PQ5D.jsonl",
+    "size_bytes": 520590
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T10-39-31-01a18c64-adc9-79f0-8bc3-854e422f16b0.jsonl",
+    "session_id": "01a18c64-adc9-79f0-8bc3-854e422f16b0",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll separate the held inference’s dispatch milestone from its full lifetime, add regression tests, then rebase without squashing and run fresh gates on both the upstream base and rebased head.\nThe regression now passes: a held inference remains pending while later held pushes and channel data are stored in arrival order. The live-during-drain test also passes. All 20 commits rebased onto upstream `00d7d7aa` without conflicts; fresh base and head gates are next.\nThe new upstream base passed typecheck, clean build and full tests on both Nodes: **9432 passed, 0 failed, 63 skipped** each. The rebased-head gates are running. The report will include the unchanged commit mapping and interactions with upstream’s dependency and test changes.\nAll gates passed on both Nodes. Rebased head `a218dfb0`: **9626 passed, 0 failed, 63 skipped** each. Upstream is still `00d7d7aa`; the worktree is clean, and nothing was pushed. The report includes full disposition and PR-body blocks, plus the optional non-enumerable-receipt change deferred to preserve shallow-copy behavior.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
