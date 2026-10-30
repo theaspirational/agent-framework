@@ -272,3 +272,19 @@ Promoted addendum to the rebase report: /srv/review-drop/TASK-XHZ4H-REBASE-A869.
 :END:
 
 My gate (Tarn, not the worker's) at 3b075de1a1a2afd006f21964671f977897d28a80, 16G scope, a separate worktree /tmp/af-mine-b29e in the shared AF clone (worktrees share refs/objects): install 0; on Node 22.23.3 and 22.12.0 alike typecheck=0, build=0, test exit 1: 9683 tests / 9618 pass / 2 fail / 0 cancelled / 63 skip. Failures: `not ok 1799 watchdog kills a wedged process (exit → SIGKILL)` and `not ok 1800 watchdog aborts a wedged process (abort → SIGABRT) and writes a report` (test/liveness-watchdog.test.ts), the same pair that failed in my environment on pristine a64cfc01, A 869bb3ad and B 29edcf8b. The worker/reviewer saw 0 fail. Root cause NOT established; not relabelled as env-only. This is the gate before the LOW round; the final head will get a separate gate before publication.
+
+* tx-20261030-theaspirationalagent-ea238935-b425-48f4-9299-f98b9550c4c3 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-ea238935-b425-48f4-9299-f98b9550c4c3
+:TIME:    [2026-10-30 Fri 23:30:19]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:TARGET: .orgasmic/tasks/TASK-XHZ4H/node.org
+:REASON: transition TASK-XHZ4H to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 96546a95-ce4d-4029-9b63-a8b1933e3846
+:END:
