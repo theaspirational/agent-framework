@@ -15384,3 +15384,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     35c6422d-e7d8-4827-a706-cfd734408119
 :END:
+
+* TX 2026-10-30 Fri 22:35:11 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-95de0ebe-0fad-4762-8ac2-b73d4cfc8fd0
+:TIME:         [2026-10-30 Fri 22:35:11]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Clarification of "validated hint" (Soma, binding): the hint must belong to THIS turn's frozen binding/trigger (e.g. the hint that came with this turn's triggering event or binding), not simply whatever is latest in the channel's typingMetadata at acquisition time. Add a same-channel control with two topics/threads and a successor: the earlier lease neither follows the newer hint nor clears the newer owner. If the current API has no way to tie a hint to the turn's binding, DON'T use a snapshot of the channel's mutable state as a substitute: name it an explicit C/E/F gap in docs/report and keep the safe behaviour (no retargeting, no clearing someone else's lease); the gap stays visible.
+:RUN_ID:       run-01M67F562WJRN2ADRE6XFVK9RM
+:MESSAGE_ID:   msg-37b1182fb15144de9d45a31ad33ccfa4
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     ee55ecb7-4648-4169-989a-a20e22cbc495
+:END:
