@@ -11993,3 +11993,34 @@
 :ASK_ID:       ask-3566e44c3cf84c2e802d8a362875ae9c
 :EVENT_ID:     a0f2f2a0-36be-4e21-b367-109c44e86c0e
 :END:
+
+* TX 2026-10-30 Fri 14:42:41 run.asked TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-0456b42d-a20f-4428-88d8-c5a44729ccbe
+:TIME:         [2026-10-30 Fri 14:42:41]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       The real MCPL regression exposed one lifecycle ordering issue: normal completion calls gate.onInferenceEnded before awaiting final channel publication, so a held batch is checked before publishedAfterReading is recorded and still wakes. May I remove that early normal-completion gate release and rely on the existing unconditional finally release after speech dispatch? Agent.reset and inference:completed timing stay unchanged; failures/aborts keep their existing release paths. This holds only gate debounce delivery until the final reply actually settles.
+:RUN_ID:       run-01M66KAVRF18KPVPEGGWQYY3SK
+:ASK_ID:       ask-91886688e3e54f0eb6e2b338da76c682
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     adb4657a-9230-4bf7-a0ad-a34536c60aa2
+:END:
+
+* TX 2026-10-30 Fri 14:42:58 run.answered TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-28407917-eeb9-4c71-a3dd-7509121546a7
+:TIME:         [2026-10-30 Fri 14:42:58]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       Approved, with these conditions:
+:RUN_ID:       run-01M66KAVRF18KPVPEGGWQYY3SK
+:ASK_ID:       ask-91886688e3e54f0eb6e2b338da76c682
+:EVENT_ID:     4619f074-8fb6-45cb-8a7f-cfcfa6ab0264
+:END:
