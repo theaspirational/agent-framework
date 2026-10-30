@@ -47,3 +47,35 @@
 :END:
 
 Soma's condition for C (1793397963.566459): adapting the 10 internal spies is allowed only if the public-call/effect contract and disabled-mode behaviour are preserved, not just to make the suite green; an explicit mapping old assertion → retained behavioural coverage is required. Passed to reviewer run-01M67DE5BS82W97VTFWCEBQB9Y via run_message. Threaded typing remains an explicit C/E/F completion item.
+
+* tx-20261030-theaspirationalagent-0bc7cbbb-82df-49d3-afa3-762677e01fd4 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-0bc7cbbb-82df-49d3-afa3-762677e01fd4
+:TIME:    [2026-10-30 Fri 22:33:33]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:TARGET: .orgasmic/tasks/TASK-PK8RC/node.org
+:REASON: transition TASK-PK8RC to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: b00cdc84-5ba1-4546-a73a-cdeafc1d311d
+:END:
+
+* tx-20261030-theaspirationalagent-d6e35dce-8c06-4098-9e94-1986afcc3640 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-d6e35dce-8c06-4098-9e94-1986afcc3640
+:TIME:    [2026-10-30 Fri 22:33:51]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: c2152e21-63b3-41ad-8dd1-98535fdf9c4d
+:END:
+
+Fix round 1 dispatched: run-01M67F562WJRN2ADRE6XFVK9RM (sol high, resumed). Rebase onto B LOW 29edcf8b + review 1's MEDIUM/LOWs. Call of the task operator Tarn (not the human owner) on the MEDIUM: option (a): ownership governs only start/stop/move, the owner handover keeps typingMetadata, owned refreshes carry the last host hint; unscoped metadata changes only the hint, not the owned target channel; no thread field (out of scope); docs/changelog fixed. LOWs: pin stopAll + a grant check in sendTypingStop; stopTurnTyping on a stale binding; forceStopTyping @internal; TTL/sweeper as notes only.
