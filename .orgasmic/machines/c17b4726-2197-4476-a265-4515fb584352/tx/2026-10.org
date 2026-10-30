@@ -13163,3 +13163,33 @@
 :ASK_ID:       ask-1f5c9fdc2d7e4ccb8b26cde49c9a25c1
 :EVENT_ID:     9c91e5c0-9e2f-49ec-9b54-d392e95cc07e
 :END:
+
+* TX 2026-10-30 Fri 19:53:35 run.asked TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-b18d2744-a509-4468-aead-257f927b5d9e
+:TIME:         [2026-10-30 Fri 19:53:35]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       To keep routing timeout separate from A's admission refusal, I propose moving B's optional consumer outside RequiredAdmission.run: first complete A's unchanged bounded admission; then run the optional consumer with a separate bounded timeoutMs (required on replyAuthority, 1..60000), its own abort controller, and cancellation on signal/connection invalidation. Route errors return private work only; A's final current/check still controls stale admission. A's pending slot is released at its existing verdict boundary, and the routing consumer caps its own pending resolutions at 64 (overload => private, never admission_denied). This replaces round 3's same-deadline post-verdict seam. Is that separation approved?
+:RUN_ID:       run-01M675WMW5VJZFQ9S6N1351R2R
+:ASK_ID:       ask-805f26737e894f34b79120406a6db2b3
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     f895c4a2-3366-4b26-a486-700d913cee95
+:END:
+
+* TX 2026-10-30 Fri 19:53:40 implementer.reported TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-881dd1a8-2db3-4265-b9a9-d7389d0d9822
+:TIME:         [2026-10-30 Fri 19:53:40]
+:TYPE:         implementer.reported
+:ACTOR:        agent.implementer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:RUN_ID:       run-01M674E7CZAER1Q0T1QZMEH6YK
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
+:EVENT_ID:     a09cbc7f-6f17-438d-9497-e4bdad6fabac
+:END:
