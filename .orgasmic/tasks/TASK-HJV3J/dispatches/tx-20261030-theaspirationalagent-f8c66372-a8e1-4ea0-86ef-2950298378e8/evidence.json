@@ -1,0 +1,25 @@
+{
+  "event_count": 319,
+  "tool_call_count": 28,
+  "unparsed_events": 1,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HJV3J-implementer-20261030T083548-run-01M65Z6TMAPN4W9EFAPK9YGARM.jsonl",
+    "size_bytes": 457198
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T06-54-46-01a18b96-ee09-7020-a4dc-8d86c5ad5b16.jsonl",
+    "session_id": "01a18b96-ee09-7020-a4dc-8d86c5ad5b16",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll fix the three assigned findings in new commits on top of `02e36223`, leaving LOW-4 through LOW-7 untouched. I’ll first add regression tests for fresh-turn continuations and budget-restart ownership, then rerun the required gates on both Node versions.The new regression tests reproduced HIGH-1: auto-continue and rewind retries stopped after one turn. They now pass with admitted work carried into fresh turns, while forged and unknown owners are still rejected.\n\nMEDIUM-2’s completely streamless case cannot pass the current budget guards. I added a witness that removes the owner entry from a live stream; it reproduced the stall and now passes with the fallback. The architecture gate also covers both missing modules. All 13 mutation checks passed.The final gates passed on `7acacf17`: typecheck, build, and both full suites, each with 9,611 passed, 0 failed, and 63 skipped. The focused suite passed all 237 tests, and all 13 mutation checks passed. Only the assigned findings were changed; LOW-4 through LOW-7 remain deferred."
+    }
+  ],
+  "narrative_truncated": false
+}
