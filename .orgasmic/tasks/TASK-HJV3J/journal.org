@@ -102,3 +102,19 @@ Yes, with these conditions (manager decision):
 :END:
 
 Published on hjv3j:pub:both: #906 -> 66c9db3f (rebased A), PR #931 https://github.com/anima-research/agent-framework/pull/931 head 20610f0c, base main, stacked on #906. Tarn gates 9669/2/63 both Nodes (2 known env watchdog failures).
+
+* tx-20261030-theaspirationalagent-1ab83f67-82ee-4388-aa7b-4b4b32864509 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-1ab83f67-82ee-4388-aa7b-4b4b32864509
+:TIME:    [2026-10-30 Fri 12:51:02]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: f82a0cf6-af5c-42c2-b1f1-5e978e2af9f4
+:END:
+
+Tarn answer to ask-ca9ec985c90444d88fb03f1a0b63f0de (engineering call, per R1-5): accept A's deletion; B-scoped AST check only on new B modules, zero connector literals, no ceilings on existing modules; in-module B code gets behaviour tests.
