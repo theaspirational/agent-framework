@@ -351,3 +351,19 @@ Upstream #906 maintainer review R1 (Anarchid, CHANGES_REQUESTED, 1 blocker/4 maj
 :END:
 
 Tarn answer (own engineering call, per R1-10 maintainer preference): Confirmed. Limit the cap to mayWake:false, so on a required connection with mayWake:true (or absent) a gate decline behaves exactly as on an unconfigured connection, where modules can still wake. Replace the two old tests' intent: (1) with mayWake:true a module may wake despite a false gate, and the module-visible gate decision is preserved; (2) KEEP a test that mayWake:false still caps every downstream wake, module requestInference included, and that a later policy veto (an actual mayWake:false) still downgrades the module-visible event. Rename the tests to match. Docs/changelog: mayWake:false caps downstream wakes; mayWake:true does not override gate declines. Cite R1-10 in the commit and in the disposition.
+
+* tx-20261030-theaspirationalagent-255ba4ac-381c-4af1-8ece-ead9f3df9a9e task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-255ba4ac-381c-4af1-8ece-ead9f3df9a9e
+:TIME:    [2026-10-30 Fri 11:15:10]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:TARGET: .orgasmic/tasks/TASK-HVQ8K/node.org
+:REASON: fix round 2 for R1-3 residues (sequential flush)
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 2f55f2bc-36a9-4b00-bae8-81b36b4779e4
+:END:
