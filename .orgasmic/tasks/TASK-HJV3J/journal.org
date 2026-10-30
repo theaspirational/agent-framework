@@ -31,3 +31,26 @@
 :TO_STATE: in_progress
 :EVENT_ID: 7b19c3c7-bc4d-4e80-8c11-512e65d02089
 :END:
+
+* tx-20261030-theaspirationalagent-dd61f3de-edb3-4ca5-9e8b-04f46f135fef comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-dd61f3de-edb3-4ca5-9e8b-04f46f135fef
+:TIME:    [2026-10-30 Fri 06:56:16]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 2a01cabd-b6e4-499a-bac3-ce98296832d4
+:END:
+
+Manager answer to ask-cd1a821e (post-verdict seam in A code): YES, additive only, unchanged when unset, inside the same bounded/cancellable preflight, separate first commit, A tests unmodified + new seam tests, flagged as maintainer question (M3). Manager call, to be disclosed to owner.
+
+Yes, with these conditions (manager decision):
+1. Additive only: an optional post-verdict consumer seam in RequiredAdmission.capture/run and an optional private routing slot on the envelopes at A's channel/push admission sites. When unset, behaviour, ordering, timing, refusal codes, traces and public API of A must be byte-for-byte unchanged.
+2. The seam runs only after complete verdict validation, inside the same bounded/cancellable preflight (same deadline, same abort signal, same pending-slot release on cancel). A consumer throw or timeout must fail closed exactly like a refused verdict and must not leak or double-release the slot.
+3. Put the A-file changes in their own first commit of B ("expose post-admission routing seam"), separate from B's routing logic, so maintainers can review it against #906 alone. Do not edit, rewrite or squash A's commits.
+4. All of A's existing tests must pass unmodified. Add tests: unset seam = identical behaviour (equality vs base), consumer runs after allow only, never after refuse, cancel/stop/close during consumer, consumer throw/timeout.
+5. Record in the report and in the PR body that B touches inbound-admission.ts and the admission sites additively, and list it as a maintainer question (fits M3).
