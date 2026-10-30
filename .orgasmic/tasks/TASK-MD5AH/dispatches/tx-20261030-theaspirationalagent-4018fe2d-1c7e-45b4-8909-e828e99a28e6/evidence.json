@@ -1,0 +1,25 @@
+{
+  "event_count": 406,
+  "tool_call_count": 52,
+  "unparsed_events": 0,
+  "bounded_events": 12,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-MD5AH-implementer-20261030T170048-run-01M66W3GGSKTQSMWMFYMD1RKBW.jsonl",
+    "size_bytes": 634674
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T14-27-33-01a18d35-734e-7af2-96ea-301b6319e83f.jsonl",
+    "session_id": "01a18d35-734e-7af2-96ea-301b6319e83f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read all review inputs and confirmed the findings. Upstream is unchanged. The approved design uses a new optional shared-slot hook: shared summaries contain only the common unseen remainder, while unread recipients keep their wakes and stored input; forks get separate summaries. I’m adding regression tests for that trade-off, recipient removal, fence ownership, trace counts, and delivery-microtask races.The completed regression suite has 16 expected failures against the reviewed code and passes all 60 tests with the fixes. The broader targeted run passes 525 tests. Real framework tests confirm that unread residents retain the original input without a redundant shared summary, and a conversation fork receives its summary only in its own window.Both Node versions passed the full base and head gates: head has 9,466 passes, zero failures, and 63 skips. All 14 mutations were caught, and the restored build passes all 60 regressions. Upstream is still `71193a9f`, the worktree is clean, and nothing was pushed. I’m saving the final disposition table, bot reply, and PR body."
+    }
+  ],
+  "narrative_truncated": false
+}
