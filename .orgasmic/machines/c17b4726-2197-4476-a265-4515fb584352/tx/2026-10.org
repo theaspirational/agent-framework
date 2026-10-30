@@ -13147,3 +13147,19 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     f0ccb6b9-bbe6-4720-ac67-fa02b2bdd2f1
 :END:
+
+
+* TX 2026-10-30 Fri 19:53:02 run.answered TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-7b52819f-9634-4198-89e8-776939fe7b29
+:TIME:         [2026-10-30 Fri 19:53:02]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       (1) Yes. Remove the nested threadId/threaded-transport additions and the replyRouting profile entirely. Represent every approved destination with the existing registered ChannelRef (a registered thread channel is just a ChannelRef). Remove initializeExtensions too if nothing else uses it after that; if something else does, keep it and say why in the report. A thread target contract is a separate later proposal, not in this PR.
+:RUN_ID:       run-01M675WMW5VJZFQ9S6N1351R2R
+:ASK_ID:       ask-1f5c9fdc2d7e4ccb8b26cde49c9a25c1
+:EVENT_ID:     9c91e5c0-9e2f-49ec-9b54-d392e95cc07e
+:END:
