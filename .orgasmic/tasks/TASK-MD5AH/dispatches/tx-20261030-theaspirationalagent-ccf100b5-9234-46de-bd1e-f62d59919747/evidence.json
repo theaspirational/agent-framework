@@ -1,0 +1,20 @@
+{
+  "event_count": 431,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-MD5AH-reviewer-20261030T174202-run-01M66YF0THJ81Q9VMGJYF6NJ2S.jsonl",
+    "size_bytes": 717171
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-md5ah/dff467a7-5052-4199-8e37-eb8ef96801fc.jsonl",
+    "session_id": "dff467a7-5052-4199-8e37-eb8ef96801fc",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
