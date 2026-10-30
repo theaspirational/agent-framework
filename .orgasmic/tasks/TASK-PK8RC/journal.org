@@ -111,3 +111,35 @@ Refinement of the fix-1 MEDIUM (Soma, 1793399647.170749), passed to run-01M67F56
 :END:
 
 Answer to ask-9c264aa3 (run-01M67F562WJRN2ADRE6XFVK9RM), the task operator Tarn's call (not the human owner's): the API has no turn-qualified host hint, so take the gap path. When a live unowned indicator with host metadata exists, automatic owned typing does NOT acquire (no start/stop/force-stop, metadata untouched, no root fallback; the host indicator stays the host's; the terminal doesn't stop it; a throttled diagnostic). Without a hint, acquisition works as now. A host hint after acquisition doesn't retarget the owned refresh and doesn't clear the lease. Successor safety is tested separately without hints; we don't claim two validated topic leases. Docs: an explicit C/E/F gap.
+
+* tx-20261030-theaspirationalagent-86827610-4c92-4a03-9ff3-ed3d3df142aa comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-86827610-4c92-4a03-9ff3-ed3d3df142aa
+:TIME:    [2026-10-30 Fri 23:32:16]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: c1e0ae43-610b-494b-875a-6827ac639e19
+:END:
+
+Correction of the attribution in re-review 1 (/srv/review-drop/TASK-PK8RC-REREVIEW1.md, d860108a…): the thread carve-out / "incomplete thread path" is NOT owner-sanctioned (Vasyl decided nothing on this). It's a binding rule of Soma's as programme qualifier, relayed by the task operator Tarn (Slack 1793399682/1793399927). Re-review: APPROVE at d3230a69002b493fef94e501fbf5cfc9a211080b, 5 LOWs; the choice of a LOW round is pending (LOW-2, reaping hints for removed channels, waits on Soma's word because it touches the deletion rule).
+
+* tx-20261030-theaspirationalagent-dc676331-9b40-41d4-8a49-963f02895a8a task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-dc676331-9b40-41d4-8a49-963f02895a8a
+:TIME:    [2026-10-30 Fri 23:32:17]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:TARGET: .orgasmic/tasks/TASK-PK8RC/node.org
+:REASON: transition TASK-PK8RC to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: a1dbfe0f-4608-44d7-a87a-43d01ceed28b
+:END:
