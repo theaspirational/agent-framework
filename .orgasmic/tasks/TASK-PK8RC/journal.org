@@ -95,3 +95,19 @@ Fix round 1 dispatched: run-01M67F562WJRN2ADRE6XFVK9RM (sol high, resumed). Reba
 :END:
 
 Refinement of the fix-1 MEDIUM (Soma, 1793399647.170749), passed to run-01M67F562WJRN2ADRE6XFVK9RM: the hint is frozen at lease acquisition (not "latest"), refreshes carry it, a stale binding/epoch → stop/refuse, never adopt a successor's hint; if it can't be safely frozen/revalidated, name the gap and don't fall back to the root. Stale cleanup releases only its own owner's lease; lifecycle force-cleanup only with the channels.typing grant, otherwise local retirement + uncertainty, with no claim that it was cleared. Pin stopAll and disabled-mode wire. D LOW ask-6d36ba0c answered: bind L1 to CM 0.24.1 (integrity sha512-+w8a…ZA==); 0.24.0 (probe cache, ee1e7682…) is a different input, no cross-version evidence.
+
+* tx-20261030-theaspirationalagent-b1ffd01c-37be-49dc-910d-cb09166aba01 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-b1ffd01c-37be-49dc-910d-cb09166aba01
+:TIME:    [2026-10-30 Fri 22:37:24]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: b146d8b9-b74f-4080-9a33-77a32571bea6
+:END:
+
+Answer to ask-9c264aa3 (run-01M67F562WJRN2ADRE6XFVK9RM), the task operator Tarn's call (not the human owner's): the API has no turn-qualified host hint, so take the gap path. When a live unowned indicator with host metadata exists, automatic owned typing does NOT acquire (no start/stop/force-stop, metadata untouched, no root fallback; the host indicator stays the host's; the terminal doesn't stop it; a throttled diagnostic). Without a hint, acquisition works as now. A host hint after acquisition doesn't retarget the owned refresh and doesn't clear the lease. Successor safety is tested separately without hints; we don't claim two validated topic leases. Docs: an explicit C/E/F gap.
