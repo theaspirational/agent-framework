@@ -15938,3 +15938,35 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     d980914f-db44-439a-b17d-245598ba3558
 :END:
+
+
+* TX 2026-10-30 Fri 23:35:16 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-ac9b6627-e397-453d-9dda-c0613f3589ed
+:TIME:         [2026-10-30 Fri 23:35:16]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       LOW-b identity boundary: ChannelEntry object identity exists, but handleChanged(serverId, params) and removeServer(serverId) receive only an id; an already-late invocation cannot identify which registration it intended. May I thread the existing connection identity from framework handlers into registry lifecycle calls (optional host-only expected connection, guarded against the current registry connection), with entry-identity guarded retirement? Otherwise I will mark the stale-invocation portion BLOCKED-FOR-SCOPE rather than broad-delete by key.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-d8e3a4466aad44398ba60d58fecd0c99
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     cf51e739-798b-42e8-873d-c27801caf35a
+:END:
+
+* TX 2026-10-30 Fri 23:35:36 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-c62a614a-ae70-4bc7-a762-df23dc03ea9d
+:TIME:         [2026-10-30 Fri 23:35:36]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Yes (call by the task operator Tarn within Soma's boundary "use the existing connection/registration identity"; not an owner decision of Vasyl's). Conditions: (1) thread only the EXISTING connection identity from the framework handlers into the registry lifecycle calls as an optional, internal (host-only) expected-connection parameter; don't change the public export/signature of exported functions in an incompatible way, and don't introduce a new identity type; (2) delete the hint only when BOTH match: the expected connection == the registry's current connection for that server AND the ChannelEntry object being retired == the entry that was registered (entry-identity guarded); (3) if the expected identity is absent (an external host/old caller) or doesn't match → DON'T delete the hint (conservative = current behaviour), with no broad delete by key; record that case as a remaining gap in docs/report; (4) admission ordering, epoch, held dispatch, grants, and the inbound-admission.ts and RequiredAdmission blocks unchanged (byte-identical to A/B); (5) controls: remove→re-register; stale-old-teardown→new-hint (late call with the old identity → the new hint survives); disconnect-with-registration-kept; absent-identity → no delete; plus mutations: dropping the connection check and dropping the entry check are each killed. If you find the existing identity doesn't distinguish replacement in some path, mark that path BLOCKED-FOR-SCOPE and carry on with the rest.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-d8e3a4466aad44398ba60d58fecd0c99
+:EVENT_ID:     c15cddea-d626-4659-84b2-a6bfa01a1b9f
+:END:
