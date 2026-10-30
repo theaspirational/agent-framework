@@ -9094,3 +9094,20 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     102b05c0-5b6e-42da-9128-3c256f5b2323
 :END:
+
+
+* TX 2026-10-30 Fri 06:55:47 run.asked TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-dc852ac2-f2a6-4396-9547-8cb270d35e10
+:TIME:         [2026-10-30 Fri 06:55:47]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       May B add an optional post-verdict consumer seam inside RequiredAdmission.capture/run (src/mcpl/inbound-admission.ts:118-129), plus private-envelope carriage at A's channel/push admission sites, strictly preserving A behavior when unset? Design §3.3 requires routing after complete verdict validation within the same bounded/cancellable preflight, but A currently returns immediately after validation and constructs envelopes without a routing slot; the brief requires stopping before any change to A code.
+:RUN_ID:       run-01M65SDTHPQPT9CBRSFSBQ4WFC
+:ASK_ID:       ask-cd1a821e49ef485fb104967231d452cf
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     bdc90621-bc15-498a-85f3-09a478503792
+:END:
