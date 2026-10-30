@@ -16065,3 +16065,19 @@
 :DELIVERY:     delivered
 :EVENT_ID:     2492b214-2aa3-40e9-b80c-29151df15b86
 :END:
+
+* TX 2026-10-30 Fri 23:43:25 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-b459ed01-c2d5-4809-bacc-525fab874f63
+:TIME:         [2026-10-30 Fri 23:43:25]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       LOW-b implemented pair+WeakMap entry association and checked retirement helper; all four required identity mutants are assertion-killed. Detail to qualify: handleChanged removes synchronously before its first await, so it captures the entry at dispatch; removeServer's first pass is synchronous and its later pass retains the disconnect-start pair (close advances epoch). An arbitrary externally delayed callback with only the SAME connection+SAME epoch after same-epoch re-registration cannot identify its old entry via the public ID API; only entry-captured internal retirement can reject it. I will name this same-pair/no-entry-token case as an explicit remaining provenance gap, not claim full generation safety. Confirm that is the required conservative gap rather than authorizing another public snapshot API/identity subsystem.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-9c2664c08fd946058b8102644099d9a1
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     b4243297-91cf-42ed-b502-e286f212985a
+:END:
