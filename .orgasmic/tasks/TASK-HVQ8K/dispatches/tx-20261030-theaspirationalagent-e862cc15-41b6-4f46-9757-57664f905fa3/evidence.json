@@ -1,0 +1,20 @@
+{
+  "event_count": 721,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-reviewer-20261030T200940-run-01M676XB1PPWD7XS8810BSA6ZE.jsonl",
+    "size_bytes": 842679
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-hvq8k/a59d2e5b-f9ff-40a8-91e1-e06f17f14753.jsonl",
+    "session_id": "a59d2e5b-f9ff-40a8-91e1-e06f17f14753",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
