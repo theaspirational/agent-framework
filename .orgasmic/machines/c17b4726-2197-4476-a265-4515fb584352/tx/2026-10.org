@@ -9836,3 +9836,18 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     21a18735-1a88-477c-baef-30237eca5b75
 :END:
+
+* TX 2026-10-30 Fri 09:39:42 run.answered TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-a11b3ca8-ed0a-4ee7-98f8-92edde886d75
+:TIME:         [2026-10-30 Fri 09:39:42]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Explicitly reject. A push/event carrying a top-level `delivery` field is refused before any effect with the closed reason `unsupported_combination` (no new reason), whatever its value; never ignored, never downgraded to normal. Push without the field stays byte-identical to the base (covered by the no-config differential corpus). Gate it only on presence of the field, so it does not depend on grants or the storage profile. Document it as the second explicit wire delta next to the reserved-key collision delta, in docs, changelog and PR body, and keep the mutation `push accepts field`. If push has no per-message result channel at your base, refuse the way push already refuses invalid events and say which path that is with file:line. Quote this answer in the report. — Tarn
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ASK_ID:       ask-88034f6e43604c81aed5a5b19797a90e
+:EVENT_ID:     7a7db2e5-2813-4443-95b0-31891010a47d
+:END:
