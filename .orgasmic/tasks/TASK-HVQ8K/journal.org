@@ -335,3 +335,19 @@ Published on owner buttons hvq8k:main+pr (via TG 1302 '2 yes') + hvq8k:rebase+pu
 :END:
 
 Upstream #906 maintainer review R1 (Anarchid, CHANGES_REQUESTED, 1 blocker/4 major/5 minor) + 4 bot Mediums; copies /srv/review-drop/PR906-ANARCHID-R1.md, PR906-BOT-COMMENTS.md. Owner pr906:fix:all. Fix round run-01M6669APQD2QBQ44ZZ6DRVMCT from 66c9db3f on branch task-hvq8k-r1-fix.
+
+* tx-20261030-theaspirationalagent-f6acac27-7b25-4784-a92d-ac0a2015866c comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-f6acac27-7b25-4784-a92d-ac0a2015866c
+:TIME:    [2026-10-30 Fri 10:41:05]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 27aa9328-1856-4dfa-a2fb-2035261bd97b
+:END:
+
+Tarn answer (own engineering call, per R1-10 maintainer preference): Confirmed. Limit the cap to mayWake:false, so on a required connection with mayWake:true (or absent) a gate decline behaves exactly as on an unconfigured connection, where modules can still wake. Replace the two old tests' intent: (1) with mayWake:true a module may wake despite a false gate, and the module-visible gate decision is preserved; (2) KEEP a test that mayWake:false still caps every downstream wake, module requestInference included, and that a later policy veto (an actual mayWake:false) still downgrades the module-visible event. Rename the tests to match. Docs/changelog: mayWake:false caps downstream wakes; mayWake:true does not override gate declines. Cite R1-10 in the commit and in the disposition.

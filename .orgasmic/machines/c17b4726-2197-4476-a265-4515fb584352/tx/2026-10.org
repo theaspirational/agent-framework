@@ -10216,3 +10216,18 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     54f82d6a-8de5-47e3-8af1-cdbdb9b7bc31
 :END:
+
+* TX 2026-10-30 Fri 10:41:03 run.answered TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-744816db-d378-4cb4-b6c8-59aa238fe5b8
+:TIME:         [2026-10-30 Fri 10:41:03]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       Confirmed. Limit the cap to mayWake:false, so on a required connection with mayWake:true (or absent) a gate decline behaves exactly as on an unconfigured connection, where modules can still wake. Replace the two old tests' intent: (1) with mayWake:true a module may wake despite a false gate, and the module-visible gate decision is preserved; (2) KEEP a test that mayWake:false still caps every downstream wake, module requestInference included, and that a later policy veto (an actual mayWake:false) still downgrades the module-visible event. Rename the tests to match. Docs/changelog: mayWake:false caps downstream wakes; mayWake:true does not override gate declines. Cite R1-10 in the commit and in the disposition.
+:RUN_ID:       run-01M6669APQD2QBQ44ZZ6DRVMCT
+:ASK_ID:       ask-98d018a780354e77bb1fc26d5abe1ef7
+:EVENT_ID:     798f4ed8-be56-41f1-956d-f973a2a46493
+:END:
