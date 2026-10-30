@@ -1,0 +1,25 @@
+{
+  "event_count": 483,
+  "tool_call_count": 35,
+  "unparsed_events": 0,
+  "bounded_events": 6,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-PK8RC-implementer-20261030T223346-run-01M67F562WJRN2ADRE6XFVK9RM.jsonl",
+    "size_bytes": 659281
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T21-05-50-01a18ea2-1b81-7eb1-8edb-29b0ad6416e5.jsonl",
+    "session_id": "01a18ea2-1b81-7eb1-8edb-29b0ad6416e5",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the full review and verified its hash. I’ll first rebase onto `29edcf8b`, record conflicts and the range-diff, then make separate fixes for metadata preservation, shutdown/grant behavior, stale-lease release, and host-only cleanup documentation. All required gates will be fresh runs.The refinements rule out snapshotting `typingMetadata`: neither the current reply binding nor `TypingOwner` ties a host hint to a turn. I’ll keep that gap explicit rather than invent a thread or authority field. I’m clarifying the safe gap behavior while proceeding with the independent grant and stale-binding fixes.The operator-approved gap behavior is implemented: stored host hints—live or idle—block automatic acquisition without changing host wire activity or falling back to root. Hints arriving during a root lease are retained for the host, but cannot affect owned refreshes or stops.\n\nThe rebase had no conflicts; all five original patches range-diff as equal. Fresh base gates passed with **9,704 pass / 0 fail / 63 skip / 0 cancelled**. The focused suite passed 82 tests, and all 14 new guard mutations are assertion-killed. Both fresh head suites are still running.Both fresh head suites passed: **9,739 pass / 0 fail / 63 skip / 0 cancelled** on Node 22.23.3 and 22.12.0, with typecheck and build passing. The fresh base passed **9,704 / 0 / 63 / 0**. All 14 new mutations are assertion-killed.\n\nI’m finalizing the report with the thread-hint path explicitly incomplete and the TTL/unowned-sweeper items documented as unchanged risks."
+    }
+  ],
+  "narrative_truncated": false
+}
