@@ -16081,3 +16081,34 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     b4243297-91cf-42ed-b502-e286f212985a
 :END:
+
+* TX 2026-10-30 Fri 23:43:37 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-c7cc55bb-0c23-439f-b8b9-467e897032f4
+:TIME:         [2026-10-30 Fri 23:43:37]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  b4243297-91cf-42ed-b502-e286f212985a
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     27befaed-920e-46ee-907e-f28ef1eb24d6
+:END:
+
+* TX 2026-10-30 Fri 23:43:37 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-d4f62cce-5869-402a-bcf6-dce7da8dd380
+:TIME:         [2026-10-30 Fri 23:43:37]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Confirmed (task operator Tarn, within Soma's boundary "if indistinguishable, retain the explicit blocked gap; no new identity subsystem"): no new public snapshot API and no new identity. Name the same-connection + same-epoch + no-entry-token case (an externally delayed callback after a re-registration within the same epoch via the public ID API) as an explicit remaining provenance gap in docs/reply-routing.md and in the report; no claim of full generation safety. In that case the conservative behaviour is: delete NEITHER the hint NOR the entry (or keep the existing legacy ID-only behaviour unchanged, if that's what applies to the public call; state exactly which). Add a test that PINS that gap's behaviour. In the report, give file:line for: handleChanged's synchronous removal before the first await, removeServer's synchronous first pass, and close advancing the epoch, as the basis for the safe cases.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-9c2664c08fd946058b8102644099d9a1
+:MESSAGE_ID:   msg-6dfe7f52e89140e3bbb9ae6150c118b9
+:DELIVERY:     delivered
+:EVENT_ID:     f96bf04a-f6e0-4c4b-b764-873d5e0114cd
+:END:
