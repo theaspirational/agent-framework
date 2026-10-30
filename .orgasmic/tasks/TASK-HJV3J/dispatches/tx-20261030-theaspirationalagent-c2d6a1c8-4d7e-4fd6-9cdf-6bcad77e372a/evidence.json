@@ -1,0 +1,25 @@
+{
+  "event_count": 768,
+  "tool_call_count": 48,
+  "unparsed_events": 1,
+  "bounded_events": 8,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HJV3J-implementer-20261030T090450-run-01M660W02TBS6NX4K2NWJ0YHZ9.jsonl",
+    "size_bytes": 1112208
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T09-04-50-01a18c0e-02ec-7192-ab99-9e11c44699b8.jsonl",
+    "session_id": "01a18c0e-02ec-7192-ab99-9e11c44699b8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll check the upstream tip and local instructions, rebase both slices without pushing, then run the gate matrix and prepare the two PR bodies in the report.Both rebases applied without conflicts, and `git range-diff` shows all 6 A commits and 11 B commits are patch-equivalent. Upstream is still at `48f26ce5`.\n\nUpstream did change tool dispatch, including sleep/wake calls, so I’m checking how that interacts with reply ownership while running the baseline and A gates.The Node 22.23.3 baseline passed: **9,431 passed, 0 failed, 63 skipped**. Its focused suite passed **417/417**.\n\nI’m adding three integration tests for upstream changes: bound model sleep announcements, awaited sleep calls that must not borrow a live reply turn, and admission cancellation while module startup is pending. No production-code changes appear necessary.Baseline and A passed on both Node versions. A has **9,595 passed, 0 failed, 63 skipped**; its expanded focused suite passed **581/581** on each version.\n\nThe three new integration tests passed in the rebased development tree. Against pre-rebase B, two fail on the expected missing upstream behaviors, while the model-sleep control passes. I’m keeping them in a separate test-only commit after B’s 11 preserved commits, then running B’s full matrix and mutation script.B passed on Node 22.23.3: **9,671 passed, 0 failed, 63 skipped**, with **657/657** focused tests. The Node 22.12.0 run is underway, followed by the mutation script.\n\nThe metadata check confirms all original commit messages and patches are preserved. The internal-name scan found no matches in the commit range or either prepared PR body. Nothing has been pushed or edited on GitHub.All gates passed, including both Node versions, both focused suites, and **13/13 mutation checks**. The final audit confirms a clean worktree and the required commit identities and trailers.\n\nThe last upstream freshness check is still running. Once it returns, I’ll finalize the report with both PR bodies.The final upstream check returned the same `48f26ce5` tip. The report is complete with both PR bodies, the gate table, and the interaction analysis. Both local branches are clean; no pushes or GitHub edits were made."
+    }
+  ],
+  "narrative_truncated": false
+}
