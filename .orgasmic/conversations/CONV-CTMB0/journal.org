@@ -105,3 +105,18 @@
 :RUN_ID: run-01M6778WBGZYGCHS9PT3SWWRH3
 :EVENT_ID: 2bab94df-6f90-4a47-8054-2b73e6660981
 :END:
+
+* tx-20261030-theaspirationalagent-a5ea7557-6103-4239-817f-b9906629acc3 conversation.run_released
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-a5ea7557-6103-4239-817f-b9906629acc3
+:TIME:    [2026-10-30 Fri 20:42:47]
+:TYPE:    conversation.run_released
+:ACTOR:   orgasmic
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-CTMB0/node.org
+:REASON: worker finalize for TASK-XHZ4H
+:NODE_ID: CONV-CTMB0
+:RUN_ID: run-01M6778WBGZYGCHS9PT3SWWRH3
+:EVENT_ID: 16acb828-4e25-4eca-b956-3305320e3fac
+:END:
