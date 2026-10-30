@@ -255,3 +255,19 @@ Upstream (nissa-seru, #937 issuecomment-6533202122, relayed by Alnold): maintain
 :END:
 
 Soma 1793393648.336669 on #937/MD5AH: the maintainer route is pending upstream work, not a landing. When it lands, replace our carry ONLY after mapping our retained requirements (lanes, partial batches, per-resident answers, ambient/addressed, stored events, throw/refuse/stop/dispose, aborted/failed, heartbeat/reminder) onto the scheduler approach. The dropped fence-specific assertions don't in themselves prove loss of the underlying safeguards, and don't in themselves prove they're preserved either.
+
+* tx-20261030-theaspirationalagent-063ae078-0455-4fc0-9136-215bd26d8b93 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-063ae078-0455-4fc0-9136-215bd26d8b93
+:TIME:    [2026-10-30 Fri 20:58:41]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a16569f9-234c-46ca-ae81-5343c537bbd6
+:END:
+
+Upstream #943 (nissa-seru, relayed by Alnold): "fix(gate): deliver what the gate held for a turn only if nothing took it back". EventGate.flushInferenceBufferIfClear now re-checks quiesce/turn-started when the microtask runs; held events keep their order (cap 100); dispose empties them. It credits our #937 diagnosis and tests (the 3 interruption tests are adapted from ours). 4 tests, red at 71193a9f. Apparently separate from the scheduler route for #814 (maybe a later PR). Map our retained requirements onto #943 + the scheduler route before swapping our carry. No action from us; Alnold keeps watching. https://github.com/anima-research/agent-framework/pull/943
