@@ -9918,3 +9918,54 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     6dcf11fc-4bcf-4b0a-9108-7af74a42a6a7
 :END:
+
+* TX 2026-10-30 Fri 10:06:22 manager.dispatch_orphaned TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-b047fb9b-4c13-4dd7-ab54-1141d2722701
+:TIME:         [2026-10-30 Fri 10:06:22]
+:TYPE:         manager.dispatch_orphaned
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:TARGET:       ledgers/theaspirational.agent-framework/.orgasmic/tmp/sessions/dispatch-TASK-XHZ4H-implementer-20261030T092951-run-01M6629SJZ1Q0E6H5WVBAX4E6B.jsonl
+:REASON:       worker never called `orgasmic dispatch finalize` before the run was released
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
+:RELEASE_REASON: protocol_end_without_finalize
+:EXIT_REASON:  transport_error
+:HARNESS_ERROR: Selected model is at capacity. Please try a different model.
+:EVENT_ID:     0e755c16-e664-495c-8831-0d544cdffb24
+:END:
+
+* TX 2026-10-30 Fri 10:06:28 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-5b8e5e6d-3a77-46c2-a9df-d5e7706186bd
+:TIME:         [2026-10-30 Fri 10:06:28]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  0e755c16-e664-495c-8831-0d544cdffb24
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     251dec22-2d29-4f48-99ae-779d6c1b3a2e
+:END:
+
+* TX 2026-10-30 Fri 10:06:42 run.created TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-e69c5d35-87b5-4025-b516-b5cb17f12435
+:TIME:         [2026-10-30 Fri 10:06:42]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       start_recovery_run replacing run run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:RUN_ID:       run-01M664D8X0V6PS7HFXBK9176KX
+:ORIGIN:       recovery
+:ORIGIN_RUN_ID: run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ACTION:       start_recovery_run
+:KIND:         implementer
+:EVENT_ID:     46fbb017-ef13-465b-8f2d-65457220768e
+:END:

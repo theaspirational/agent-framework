@@ -30,3 +30,18 @@
 :RUN_ID: run-01M6629SJZ1Q0E6H5WVBAX4E6B
 :EVENT_ID: 8d21967e-31bd-4cd8-a3fa-df981f45f98b
 :END:
+
+* tx-20261030-theaspirationalagent-dde9ab4d-ab28-4b6f-9d6f-28924f49956a conversation.run_recovered
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-dde9ab4d-ab28-4b6f-9d6f-28924f49956a
+:TIME:    [2026-10-30 Fri 10:06:42]
+:TYPE:    conversation.run_recovered
+:ACTOR:   orgasmic
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-CTMB0/node.org
+:REASON: recovery run started
+:NODE_ID: CONV-CTMB0
+:RUN_ID: run-01M664D8X0V6PS7HFXBK9176KX
+:EVENT_ID: 85dd1857-222c-4e0b-b077-9bb5c6ad300f
+:END:
