@@ -399,3 +399,19 @@ Tarn answer (own engineering call, per R1-10 maintainer preference): Confirmed. 
 :END:
 
 Tarn gates at a218dfb0 (16G scope, npm run clean before build): Node 22.23.3 and 22.12.0 each 9689 tests / 9624 pass / 2 fail / 63 skip. The 2 failures are the known liveness-watchdog SIGKILL/SIGABRT tests (1750/1751), which fail only in my environment; the worker and reviewers got 0 fail. Logs /tmp/afa.test.v22.*.log.
+
+* tx-20261030-theaspirationalagent-50477b4e-dd09-41dd-9f12-a6b33890997a task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-50477b4e-dd09-41dd-9f12-a6b33890997a
+:TIME:    [2026-10-30 Fri 12:21:11]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:TARGET: .orgasmic/tasks/TASK-HVQ8K/node.org
+:REASON: awaiting owner: publish vs tiny LOW round
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: a8bd921b-0803-4cc5-bef9-39019c328ad3
+:END:
