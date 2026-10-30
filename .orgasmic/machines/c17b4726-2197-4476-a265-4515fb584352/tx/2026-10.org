@@ -11947,3 +11947,34 @@
 :DELIVERY:     delivered
 :EVENT_ID:     e400f20a-94f0-4191-a4e9-5296770609f4
 :END:
+
+
+* TX 2026-10-30 Fri 14:29:25 run.asked TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-82fd4118-8066-4615-a175-eb50f65b9d60
+:TIME:         [2026-10-30 Fri 14:29:25]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       Proposed minimal additive EventGate API change: an optional WritePlacement argument to evaluate, retained with each pending event, plus an optional host callback to test that placement for each recipient using existing deferredWriteDone/storedMessageDone and answered watermarks. Delivery filters per recipient; unknown/other-agent placements stay wakeable (preserving #819 safety and leaving #243 targeting unchanged). Are these additive hooks approved? No new seen tracker or gate rule changes.
+:RUN_ID:       run-01M66KAVRF18KPVPEGGWQYY3SK
+:ASK_ID:       ask-3566e44c3cf84c2e802d8a362875ae9c
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     eb98c6f8-64aa-4d1c-a62c-7428e35eea3b
+:END:
+
+* TX 2026-10-30 Fri 14:29:35 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-4ab3c0e2-2f51-4c66-805d-02f4d60a1b2c
+:TIME:         [2026-10-30 Fri 14:29:35]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  eb98c6f8-64aa-4d1c-a62c-7428e35eea3b
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     a04965d2-2756-442c-9f5d-9bfe5525e328
+:END:

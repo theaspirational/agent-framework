@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 97eaae22-b81e-4abb-bc77-f7b911cb14c9
 :END:
+
+* tx-20261030-theaspirationalagent-eaec941c-7e93-4c66-a22c-b6565b70a77b comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-eaec941c-7e93-4c66-a22c-b6565b70a77b
+:TIME:    [2026-10-30 Fri 14:29:35]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: fca9c375-d342-4021-bc6b-738abeb34d95
+:END:
+
+Tarn engineering call ask-461cd95b812d4f26be5f703c19a26a9b: approved additive optional WritePlacement on evaluate + host placement callback (reuses deferredWriteDone/storedMessageDone); conditions: no-op when absent, framework wires all call sites, throw => wakeable, check at fire time, disclose in changelog/PR body.
