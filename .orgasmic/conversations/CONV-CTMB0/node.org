@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-CTMB0
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Implement TASK-XHZ4H
+:PROPERTIES:
+:UID: 2f188c98-4780-5f39-a208-360e72109c1d
+:ID: CONV-CTMB0
+:PURPOSE: implement
+:OWNER: ["member","tarn2"]
+:PROVIDER: codex
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
+:RUNS:  run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:CREATED_AT: 2026-10-30T09:29:51Z
+:END:

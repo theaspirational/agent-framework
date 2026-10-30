@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-XHZ4H
 #+orgasmic_version: 2
 
-* BACKLOG TASK-XHZ4H Generic routing slice D: context-only delivery (wire mode, effects, durable classification)
+* IN_PROGRESS TASK-XHZ4H Generic routing slice D: context-only delivery (wire mode, effects, durable classification)
 :PROPERTIES:
 :UID: 957500bb-09e1-560b-9cc4-a9a12ca25d14
 :ID: TASK-XHZ4H
