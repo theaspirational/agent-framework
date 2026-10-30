@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-PK8RC
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-PK8RC Generic routing slice C: owned typing with stale-stop/successor safety
+* DONE TASK-PK8RC Generic routing slice C: owned typing with stale-stop/successor safety
 :PROPERTIES:
 :UID: 7e0b5c53-c719-50e9-8d26-d40afe873b05
 :ID: TASK-PK8RC
