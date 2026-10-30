@@ -1,0 +1,25 @@
+{
+  "event_count": 451,
+  "tool_call_count": 43,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XHZ4H-implementer-20261030T223202-run-01M67F20N3M33QABRKHQTQN6QN.jsonl",
+    "size_bytes": 616586
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-26-29-01a18e47-2096-7a31-bcbe-8057f0b59b46.jsonl",
+    "session_id": "01a18e47-2096-7a31-bcbe-8057f0b59b46",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read review 3 in full. I’ll fix the four LOWs in separate commits, leave A’s admission blocks unchanged, and run fresh full gates on both Node versions. The report will attribute engineering calls to task operator Tarn, not owner Vasyl.The four fixes are committed. The fork-seed guard throws before any rows are written if normalization changes the count; its test pins the resolved context-manager 0.24.1 normalizer hash. Operator Tarn confirmed the integration set is not built yet and will use D’s lock; the 0.24.0 store probe is a separate input. The corpus now has a non-vacuous ordinary assistant-metadata control checked with omitted, off and on profiles.The new focused controls pass on both Node versions. The expanded base/head corpus is byte-identical, and removing only the added metadata control reproduces the previous comparison byte-for-byte. Static checks confirm A’s admission blocks are unchanged and the server-connection edits are comments only. Both full suites are still running without failures reported so far.Both fresh full suites passed: **9,687 tests, 9,624 pass, 0 fail, 63 skipped** on each Node version. Head is `b6e225e07a8214894c3f721dfb14ac0c1cf75714`. The report includes all four dispositions, exact dependency inputs, the separate previous corpus result, and the updated PR body. Finalizing locally; nothing was pushed."
+    }
+  ],
+  "narrative_truncated": false
+}
