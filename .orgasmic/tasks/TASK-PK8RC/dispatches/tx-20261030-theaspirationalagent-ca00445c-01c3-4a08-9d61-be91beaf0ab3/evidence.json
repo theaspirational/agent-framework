@@ -1,0 +1,25 @@
+{
+  "event_count": 709,
+  "tool_call_count": 104,
+  "unparsed_events": 0,
+  "bounded_events": 10,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-PK8RC-implementer-20261030T210550-run-01M67A45AAA93376VDXNYS0VY1.jsonl",
+    "size_bytes": 1410539
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T21-05-50-01a18ea2-1b81-7eb1-8edb-29b0ad6416e5.jsonl",
+    "session_id": "01a18ea2-1b81-7eb1-8edb-29b0ad6416e5",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll inspect the existing turn and typing lifecycles, add registry-owned leases and frozen-target integration, then run mutation checks and the required head/base gates. Thread targeting will remain explicitly out of scope.The lease and turn integration are committed separately from the diagnostics change. Focused checks now pass for all three emitting modes, disabled/private/silent turns, successor safety, lifecycle cleanup, and real stdio typing. The base suite is running; next are mutation checks and the full head gates on both Node versions.All 32 mutation checks are assertion-killed. I also updated legacy lifecycle test doubles to observe the owned typing API; the targeted lifecycle tests pass. The final-head and base full-suite gates are still running under the required memory limits, with no failures reported so far.The base suite passed: 9,703 pass, 0 fail, 63 skip. Both head runs found ten failures in legacy tests that were still observing the unowned API; those fixture corrections pass their 213-test focused suite.\n\nA separate red/green probe also found that unbound wakes could still emit typing on reply-authorized connections. I’ve added a narrow guard and regressions for all emitting modes. The final checks now kill 33 mutations; I’ll rerun both full head gates with these fixes.Both final-head gates passed typecheck and the full suite on Node 22.23.3 and 22.12.0: **9,729 pass, 0 fail, 63 skip** on each. The base had **9,703 pass, 0 fail, 63 skip**, and all 33 mutations are killed. I’m finalizing the report with the thread-target gap left open."
+    }
+  ],
+  "narrative_truncated": false
+}
