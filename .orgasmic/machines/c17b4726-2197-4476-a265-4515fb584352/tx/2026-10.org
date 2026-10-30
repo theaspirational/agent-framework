@@ -9789,3 +9789,34 @@
 :ASK_ID:       ask-369fc3930cc14234a1c2769564395df3
 :EVENT_ID:     191ab34d-e07e-4c8b-9966-8b900b76ed4b
 :END:
+
+* TX 2026-10-30 Fri 09:34:15 run.asked TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-35f00f5f-ad00-4a0c-a676-4b89910cd6be
+:TIME:         [2026-10-30 Fri 09:34:15]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       O1 boundary: cached/installed context-manager 0.24.1 (integrity pinned in persistence-preflight.txt) preserves metadata at src/message-store.ts:686-720,2347 and exposes summary lineage via types/strategy.ts:2430-2438 plus context-manager.ts:2449-2452, so no companion is presently needed for provenance. But its open path (context-manager.ts:518-545,568-580), Chronicle 0.5.1 open config (index.d.ts:89-101,276), and base framework.ts:450-455 have no minimum-reader/classification compatibility gate: rolling back to the base will ignore a new stamp and classify it as conversational. D can add fail-closed startup when this NEW reader has the profile disabled, but cannot make an unchanged old reader refuse metadata-only stamps. Is that disabled-profile test plus an explicit prohibition on old-code rollback the intended O1 acceptance, or must D remain storage-disabled pending a companion minimum-reader gate/backport? No production edits yet; the base gate is running.
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ASK_ID:       ask-cea9e10e204c44e3ae33d3974f1da9fc
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     1ba9d3f7-e0eb-4129-852c-7449ff0448b7
+:END:
+
+* TX 2026-10-30 Fri 09:34:28 run.answered TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-d2efa80b-afee-40ef-956e-49cdca43786a
+:TIME:         [2026-10-30 Fri 09:34:28]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Yes for this slice: (1) the NEW reader fails closed at startup when stamped rows exist and the profile is disabled/ignored (test it), (2) unknown/malformed/future stamps never promoted, (3) the storage profile stays default-off and is never offered without explicit enablement, and (4) docs + changelog + PR body state plainly that enabling the profile is one-way: rolling back to framework code older than this change is unsupported and would treat stamped rows as conversational, because the current context-manager/Chronicle open path has no minimum-reader gate. Put the missing minimum-reader/classification gate in context-manager (with your file:line evidence) as an explicit maintainer question and follow-up, not a change here. Do not touch context-manager. Production enablement of the profile is a separate owner decision outside this slice. Quote this answer in your report. — Tarn
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ASK_ID:       ask-cea9e10e204c44e3ae33d3974f1da9fc
+:EVENT_ID:     e1ff44bc-ae43-4da6-8ac9-651b50db6679
+:END:

@@ -63,3 +63,19 @@ Brief v1 by Alnold (sha256 80d0ddad...8e8678, 13,140 B) dispatched by Tarn from 
 :END:
 
 Ask (initialize-extension offer facility absent) answered by Tarn as own engineering call: use the existing MCPL offer builder for the contextOnly leaf, only when the storage profile is enabled; generic offer support stays in slice E; maintainer question in PR body.
+
+* tx-20261030-theaspirationalagent-1cfd7937-d12f-4903-a197-d8e2738767ef comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-1cfd7937-d12f-4903-a197-d8e2738767ef
+:TIME:    [2026-10-30 Fri 09:34:29]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: ed5ebbe9-9bc0-44f2-bad5-f887809144aa
+:END:
+
+Ask 2 (O1 vs old readers) answered by Tarn: new reader fails closed; profile default-off; old-code rollback documented as unsupported once enabled; CM minimum-reader gate = maintainer question + follow-up; production enablement is a separate owner decision.
