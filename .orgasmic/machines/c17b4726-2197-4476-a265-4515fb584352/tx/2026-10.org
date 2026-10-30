@@ -15434,3 +15434,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     6e1d8dec-93c1-4147-b6d9-d6a84689df98
 :END:
+
+* TX 2026-10-30 Fri 22:39:18 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-de66126c-37f1-47c7-9937-18b5b04f3da0
+:TIME:         [2026-10-30 Fri 22:39:18]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       BINDING additions to the answer on ask-9c264aa3 (from Soma). This is explicitly an INCOMPLETE thread path, not a thread-ownership fix; say so in docs/report.
+:RUN_ID:       run-01M67F562WJRN2ADRE6XFVK9RM
+:MESSAGE_ID:   msg-806e6630d0b247289270fca5356fedec
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     af097744-a7d5-49e9-b82a-de607e85c2c3
+:END:
