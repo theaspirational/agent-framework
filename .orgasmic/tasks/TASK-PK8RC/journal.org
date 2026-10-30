@@ -239,3 +239,19 @@ Recorded by the task operator Tarn (not owner Vasyl). (1) ask-9c2664c08fd946058b
 :END:
 
 ask-21f97cb315f34955aeecd5c037e0d7c1: answer by the task operator Tarn (not owner Vasyl). No wire/event epoch API is needed: the original epoch is captured in the transport closure (server-connection.ts:2573), old-epoch controls are dropped (:2607-2610), synchronous emit (:2739-2742), the framework calls the registry before its first await (:35156/:35171), PROCESS_EVENTS discarded on reset (:638-645), flush boundary (:928-931). Conditions: cite it in docs/report; load-bearing tests (a stale same-object control doesn't reach the registry; a mutant removing the epoch check/flush boundary is killed); admission/transport not changed for the tests; external callbacks with no pair = a documented gap.
+
+* tx-20261030-theaspirationalagent-ed58a600-fe97-4bd5-b32d-6c1d48471c97 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-ed58a600-fe97-4bd5-b32d-6c1d48471c97
+:TIME:    [2026-10-30 Fri 23:47:42]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 41a6461c-e839-427d-9d68-8e0eb177c2dc
+:END:
+
+Soma (Slack 1793404051.110089): no new wire/event token API; the existing internal provenance is enough only once my/the delta reviewer's source check + load-bearing tests confirm it (the worker's account alone isn't closure). Separate the paths: (A) parsed transport controls and (B) disconnect/close/error → removeServer; the line-closure guard doesn't prove (B). Both paths covered, including a same-object reconnect; no pair = a named gap. No production admission/transport changes for the tests. Then a bounded delta review + gates. Passed to the worker by run_message (task operator Tarn).

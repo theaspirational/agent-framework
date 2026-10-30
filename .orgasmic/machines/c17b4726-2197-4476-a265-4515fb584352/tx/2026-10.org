@@ -16162,3 +16162,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     bef1fe6c-c14c-43a0-a376-96469eeb6467
 :END:
+
+* TX 2026-10-30 Fri 23:47:42 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-120c3519-25ef-4bdc-bdac-adf95a2f4941
+:TIME:         [2026-10-30 Fri 23:47:42]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Binding addition (Soma): separate two paths that can retire an entry/hint: (A) parsed transport controls (channels/register/changed via the line-closure guard :2573/:2607-2610), and (B) disconnect/close/error lifecycle callbacks → removeServer. The line-closure guard does NOT prove (B) is safe. For (B), prove separately with file:line where the pair is captured (at the start of disconnect/close/error handling, before the epoch advances) and how it travels to the retirement; tests for (B) including a same-object reconnect: a late close/error callback of the old epoch after the reconnect doesn't delete the new registration's entry or hint. Any path, in (A) or (B), without a valid captured pair = a named conservative gap with no deletion. Temporary test mutants are allowed; production admission/transport changes just to make the tests pass are NOT. In the report, a table: path → capture site → retirement site → test → killed mutant / or GAP.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:MESSAGE_ID:   msg-104b373352754b43b2cad57b60e19a94
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     0ab1bc2e-0c54-4509-9271-1125946a9b9b
+:END:
