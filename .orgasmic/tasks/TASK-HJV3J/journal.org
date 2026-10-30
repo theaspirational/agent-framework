@@ -230,3 +230,19 @@ Tarn answer to ask-7f3a910aac7940c0ac1119828da1c3e1 (engineering call): no new t
 :END:
 
 Narrowing ask-1f5c9fdc answered (Tarn engineering call under gen:exec): (1) drop the threaded transport and the replyRouting profile, approved destinations = existing registered ChannelRef, initializeExtensions removed if unused; (2) optional opt-in sync `authorize(input,destination)` hook (neutral name, no I/O), checked at binding and before each automatic send. Any failure keeps admission/wake, leaves prose private with a notice, never falls back; with no hook, behaviour is unchanged.
+
+* tx-20261030-theaspirationalagent-9e3a7c5c-93e1-4423-bc1e-145421dfcc21 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-9e3a7c5c-93e1-4423-bc1e-145421dfcc21
+:TIME:    [2026-10-30 Fri 20:24:46]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:TARGET: .orgasmic/tasks/TASK-HJV3J/node.org
+:REASON: transition TASK-HJV3J to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: a8f3f2f3-9a55-4262-ba7c-b071bc7db5eb
+:END:
