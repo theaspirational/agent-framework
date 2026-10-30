@@ -294,3 +294,19 @@ Re-review after fix + rebase (run-01M678PBMAA9ME3A7J82QMP97N): APPROVE at 27a321
 :TO_STATE: in_progress
 :EVENT_ID: da9c7d2d-eaf7-4b72-abcd-17b9db182a13
 :END:
+
+* tx-20261030-theaspirationalagent-d256692a-314d-4b77-b6d1-e5dfbcc2fd3e comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-d256692a-314d-4b77-b6d1-e5dfbcc2fd3e
+:TIME:    [2026-10-30 Fri 22:05:25]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a1047302-4a60-4750-ad6a-f3451b7409d3
+:END:
+
+Record (Tarn's call, NOT the owner's): ask-805f26737e894f34b79120406a6db2b3 (run-01M675WMW5VJZFQ9S6N1351R2R), answered 2026-10-30 19:54:26Z, tx-20261030-theaspirationalagent-1f85253c-d04a-4f40-b061-9ab70d3defbc (the tx shows only "Approved, with conditions:"; the full text is from the run session). The worker proposed moving B's consumer out of RequiredAdmission.run with its own timeout. My answer, verbatim in substance: approved, with conditions: (1) A's admission is unchanged and finishes first; the consumer runs after A's verdict with its own required timeoutMs 1..60000, its own AbortController, and cancellation on signal/connection invalidation; the 64-pending cap belongs to the consumer, overload = private, never admission_denied. (2) No admitted item is woken or published with an unresolved binding: either it's resolved, or definitively private (timeout/error/overload) before the auto-publishing turn starts; the wait is bounded by the consumer's timeout; docs/tests state that storage/admission are A's and the publish binding is B's. (3) A's final current/epoch check governs staleness; a route resolved after the epoch is invalidated is discarded, and the item goes private. (4) Tests: timeout → private+notice with admission accepted and woken; abort on invalidation; overload at 65 → private; stale epoch → discarded; no hook = exact slice A. (5) Delete round 3's same-deadline seam in inbound-admission.ts; target is zero diff to A's admission files. Correction: earlier, in Soma's thread (1793390241.912499), I claimed this call was "already recorded on HJV3J". That was false; this is the first record.
