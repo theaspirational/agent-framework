@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-NPX7K
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-MD5AH
+:PROPERTIES:
+:UID: 4ecf848e-22d6-521f-a5fd-5707d27fc9ac
+:ID: CONV-NPX7K
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-md5ah
+:RUNS:  run-01M66NJE71YXVQNEWFXXMF3K2M
+:CREATED_AT: 2026-10-30T15:06:37Z
+:END:
