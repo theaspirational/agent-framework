@@ -11275,3 +11275,35 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     21489b8a-042a-4ee9-a4d4-e9c47cecaf57
 :END:
+
+
+* TX 2026-10-30 Fri 12:49:57 run.asked TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-3dc048d2-d101-42a8-9259-c37c01a56e0a
+:TIME:         [2026-10-30 Fri 12:49:57]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       The required docs/design/GENERIC-RECIPIENT-ROUTING.md is absent from this worktree. May I use /srv/review-drop/GENERIC-RECIPIENT-ROUTING-r2.md as the design reference? For bot M2, I propose skipping the reply consumer only for inference-request (direct RPC answer, no automatic reply), retaining push-event binding because pushes can wake automatic replies; is that the intended scope?
+:RUN_ID:       run-01M66DQ27GPZZS7EMR615JP6WS
+:ASK_ID:       ask-1e611ff5318341a4990c8c7ad6bb593b
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     3dc3d04c-e388-4948-942c-45c63e7ffd25
+:END:
+
+* TX 2026-10-30 Fri 12:50:10 run.answered TASK-HJV3J
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-61bcd22c-0b53-48ba-afcc-17aebea7d02f
+:TIME:         [2026-10-30 Fri 12:50:10]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HJV3J
+:REASON:       1) Design reference: use the published, sanitized version: `git -C ~/src/agent-framework show db44514b12a4da64633fd705b790e1610e683ddd:docs/design/GENERIC-RECIPIENT-ROUTING.md` (fork main commit). The review-drop r2 copy is an older internal draft; use it only for history. Do not add the design doc to this branch.
+:RUN_ID:       run-01M66DQ27GPZZS7EMR615JP6WS
+:ASK_ID:       ask-1e611ff5318341a4990c8c7ad6bb593b
+:EVENT_ID:     aa65e498-cfe9-46e6-94b9-aac65e0ab17b
+:END:
