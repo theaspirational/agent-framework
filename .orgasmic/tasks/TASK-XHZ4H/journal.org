@@ -95,3 +95,19 @@ Ask 2 (O1 vs old readers) answered by Tarn: new reader fails closed; profile def
 :END:
 
 Ask 3 answered by Tarn: push/event with top-level delivery field is rejected before effects (unsupported_combination), no-field push byte-identical; documented as second wire delta.
+
+* tx-20261030-theaspirationalagent-62899820-e84c-4a49-a027-732b59cc4707 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-62899820-e84c-4a49-a027-732b59cc4707
+:TIME:    [2026-10-30 Fri 10:06:54]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 69079f26-c9b1-4155-80b5-55dc337ac3a1
+:END:
+
+Run run-01M6629SJZ1Q0E6H5WVBAX4E6B died (model at capacity) with dirty worktree (10 files, +197/-22). Native resume unavailable; started recovery run run-01M664D8X0V6PS7HFXBK9176KX in same worktree, with the 3 dispatcher answers restated.
