@@ -256,3 +256,19 @@ Promoted addendum to the rebase report: /srv/review-drop/TASK-XHZ4H-REBASE-A869.
 :TO_STATE: in_progress
 :EVENT_ID: 337bfa49-a0a5-47bc-bedd-8142ec9ac0b6
 :END:
+
+* tx-20261030-theaspirationalagent-e38d0526-fac0-4184-bdcf-06e0634686da comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-e38d0526-fac0-4184-bdcf-06e0634686da
+:TIME:    [2026-10-30 Fri 23:01:03]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a0228787-9b1f-4fad-8f45-4d213b377c45
+:END:
+
+My gate (Tarn, not the worker's) at 3b075de1a1a2afd006f21964671f977897d28a80, 16G scope, a separate worktree /tmp/af-mine-b29e in the shared AF clone (worktrees share refs/objects): install 0; on Node 22.23.3 and 22.12.0 alike typecheck=0, build=0, test exit 1: 9683 tests / 9618 pass / 2 fail / 0 cancelled / 63 skip. Failures: `not ok 1799 watchdog kills a wedged process (exit → SIGKILL)` and `not ok 1800 watchdog aborts a wedged process (abort → SIGABRT) and writes a report` (test/liveness-watchdog.test.ts), the same pair that failed in my environment on pristine a64cfc01, A 869bb3ad and B 29edcf8b. The worker/reviewer saw 0 fail. Root cause NOT established; not relabelled as env-only. This is the gate before the LOW round; the final head will get a separate gate before publication.
