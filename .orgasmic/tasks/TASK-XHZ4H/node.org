@@ -1,0 +1,15 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-XHZ4H
+#+orgasmic_version: 2
+
+* BACKLOG TASK-XHZ4H Generic routing slice D: context-only delivery (wire mode, effects, durable classification)
+:PROPERTIES:
+:UID: 957500bb-09e1-560b-9cc4-a9a12ca25d14
+:ID: TASK-XHZ4H
+:PRIORITY: P1
+:END:
+
+** Description
+Slice D of docs/design/GENERIC-RECIPIENT-ROUTING.md §7 (fork main 3be0d77f): per-message delivery "context-only" behind channels.contextOnly grant; no-open/no-anchor/no-wake effects; host-owned versioned stored classification and reconstruction. After A (#906); independent of B. Owner: rt:D:go. Brief by Alnold; first consumer telegram-mcpl group bot-to-bot.
+** Acceptance
+Per the D row: T battery incl. compaction/restart and reserved-key collision delta; one-way stamped history, no downgrade (O1); no advertising before persistence gates pass; Soma G-T1..G-T3; no connector literals.
