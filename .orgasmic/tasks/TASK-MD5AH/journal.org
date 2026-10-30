@@ -239,3 +239,19 @@ Fix round 2 published on pr937:fix+pub after R3 APPROVE + my gates (9464/2 known
 :END:
 
 Upstream (nissa-seru, #937 issuecomment-6533202122, relayed by Alnold): maintainers are fixing #814 by a different route on a branch from #937's head (acfccc9a): a debounced batch's wake is dropped at turn start if every event is already read and answered (the same rule as a direct wake); no publication fence and no 65 s deadline. Most of our requirement tests and the diagnosis carry over, with 3 changes; test/debounce-seen-batch, debounce-recipient-delivery, the fork-summary test and the gate-role outcome are dropped. No action asked of us; #937 is probably superseded. Don't push or update #937 further unless asked. Track the upstream branch and drop our fork-main delta once it lands.
+
+* tx-20261030-theaspirationalagent-40350dfc-c177-4478-a275-41697937c44d comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-40350dfc-c177-4478-a275-41697937c44d
+:TIME:    [2026-10-30 Fri 20:54:18]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: d34e1f49-c13f-4d11-b572-41ce3be918d0
+:END:
+
+Soma 1793393648.336669 on #937/MD5AH: the maintainer route is pending upstream work, not a landing. When it lands, replace our carry ONLY after mapping our retained requirements (lanes, partial batches, per-resident answers, ambient/addressed, stored events, throw/refuse/stop/dispose, aborted/failed, heartbeat/reminder) onto the scheduler approach. The dropped fence-specific assertions don't in themselves prove loss of the underlying safeguards, and don't in themselves prove they're preserved either.
