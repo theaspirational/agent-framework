@@ -10199,3 +10199,20 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     89f41e60-d147-4d97-b5ee-6098458d330a
 :END:
+
+
+* TX 2026-10-30 Fri 10:40:52 run.asked TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-530b4232-d985-43eb-ae60-dc6c0cf3a893
+:TIME:         [2026-10-30 Fri 10:40:52]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:REASON:       R1-10 preferred fix conflicts with explicit existing tests named “true verdict cannot let a module override an existing false gate” and “a later policy veto downgrades the module-visible event”. I propose limiting wakeForbidden to mayWake:false and updating those tests to permit module wakes with mayWake:true, preserving the module-visible gate decision. Please confirm this replacement of the old tests’ intent.
+:RUN_ID:       run-01M6669APQD2QBQ44ZZ6DRVMCT
+:ASK_ID:       ask-98d018a780354e77bb1fc26d5abe1ef7
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     54f82d6a-8de5-47e3-8af1-cdbdb9b7bc31
+:END:
