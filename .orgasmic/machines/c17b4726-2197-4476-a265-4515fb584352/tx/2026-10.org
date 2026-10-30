@@ -12024,3 +12024,19 @@
 :ASK_ID:       ask-91886688e3e54f0eb6e2b338da76c682
 :EVENT_ID:     4619f074-8fb6-45cb-8a7f-cfcfa6ab0264
 :END:
+
+* TX 2026-10-30 Fri 14:50:28 run.asked TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-a1aeabe8-f45c-4a9b-9d49-ff70cb154f5e
+:TIME:         [2026-10-30 Fri 14:50:28]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       Call-site audit found queueCoalescedWakes also admits render-batch wakes. Before materialization it has no placement; its plain deferred-render branch has a deferredId/owner, but reply requirements depend on allAmbient for the entire render, not the latest event tags GateEventInfo carries. I propose leaving this aggregate-render path unmarked (as an explicit conservative limitation), rather than changing gate tag semantics or expanding the placement API again. Ordinary module, channel, push, and message-mode heartbeat placements are wired. Is that scoped exception acceptable?
+:RUN_ID:       run-01M66KAVRF18KPVPEGGWQYY3SK
+:ASK_ID:       ask-316ab2b83bf344e981350152ed0e40fc
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     fb5890f0-7854-4b0b-abaa-c2de2ba3d2c6
+:END:
