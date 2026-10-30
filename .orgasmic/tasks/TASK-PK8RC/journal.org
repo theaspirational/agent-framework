@@ -223,3 +223,19 @@ ask-096dc85f040c4aadb2a94c7dc7b4d75b (supersedes ask-ff83): the worker corrected
 :END:
 
 Recorded by the task operator Tarn (not owner Vasyl). (1) ask-9c2664c08fd946058b8102644099d9a1: the same-connection+same-epoch+no-entry-token case = an explicit provenance gap pinned by a test; no new public API/identity. (2) Soma (Slack 1793403939.208749): the WeakMap of existing identities is covered; but prove with file:line that transportEpoch changes on a reconnect AND that a delayed event carries its ORIGINAL epoch captured at the time of the event, not the object's latest value; tests for stale same-object and replacement; no valid pair → a BLOCKED gap with no deletion; diagnostic state bounded/reaped; delta review and gates before publication. Passed to the worker by run_message.
+
+* tx-20261030-theaspirationalagent-2514b098-6e75-4f6b-849d-5f0ad47baca5 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-2514b098-6e75-4f6b-849d-5f0ad47baca5
+:TIME:    [2026-10-30 Fri 23:46:50]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 7dc99a5a-a709-4851-aca3-4a9941dc77f8
+:END:
+
+ask-21f97cb315f34955aeecd5c037e0d7c1: answer by the task operator Tarn (not owner Vasyl). No wire/event epoch API is needed: the original epoch is captured in the transport closure (server-connection.ts:2573), old-epoch controls are dropped (:2607-2610), synchronous emit (:2739-2742), the framework calls the registry before its first await (:35156/:35171), PROCESS_EVENTS discarded on reset (:638-645), flush boundary (:928-931). Conditions: cite it in docs/report; load-bearing tests (a stale same-object control doesn't reach the registry; a mutant removing the epoch check/flush boundary is killed); admission/transport not changed for the tests; external callbacks with no pair = a documented gap.

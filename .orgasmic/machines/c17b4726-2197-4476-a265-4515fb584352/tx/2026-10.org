@@ -16145,3 +16145,20 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     3e15f04a-9ae3-49a9-9a2e-26ed2cd7bd34
 :END:
+
+* TX 2026-10-30 Fri 23:46:50 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-13c6e725-963e-4a01-b3e7-3acb46eff294
+:TIME:         [2026-10-30 Fri 23:46:50]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       No wire/event-carried epoch API is needed (task operator Tarn, within Soma's boundary: an event-captured original pair; no new API/identity). The chain you described is accepted as the basis, on these conditions: (1) cite it in the report and in docs/reply-routing.md with exact file:line (server-connection.ts:2573 closure capture, :2607-2610 old-epoch drop, :2684/2687 → :2739-2742 synchronous emit, framework :35156/:35171 registry call before the first await, PROCESS_EVENTS :1290+ discarded on reset :638-645, flush boundary :928-931). (2) Prove it with load-bearing tests, not just by reading: a stale-epoch control after a same-object reconnect never reaches the registry (no hint/entry deletion), and a mutant that removes the epoch check at :2607-2610 (or the flush boundary :928-931) is killed by at least one of your tests. If such a test needs a change to admission/transport files, DON'T change them: describe it as an unmeasured link of the proof. (3) Arbitrary external callbacks with no original pair stay unsupported (no ID fallback), documented as a gap. Admission/grants/wire unchanged.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-21f97cb315f34955aeecd5c037e0d7c1
+:MESSAGE_ID:   msg-4df7b28b36b5432d897a7a3effc57d5a
+:DELIVERY:     delivered
+:EVENT_ID:     bef1fe6c-c14c-43a0-a376-96469eeb6467
+:END:
