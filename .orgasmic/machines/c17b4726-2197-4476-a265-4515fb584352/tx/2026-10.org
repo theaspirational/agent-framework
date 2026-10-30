@@ -12664,3 +12664,48 @@
 :ASK_ID:       ask-0ed8dcdb7da544d386f84f2676bbc63f
 :EVENT_ID:     575a20e6-8e9c-48db-9eae-eb495485d7df
 :END:
+
+* TX 2026-10-30 Fri 17:19:25 run.asked TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-4c4e31f8-3ed6-49cf-b98f-1fa8debe3513
+:TIME:         [2026-10-30 Fri 17:19:25]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       Clarifying the approved absent-hook condition: I preserve exactly the legacy batch-line grouping/placement when getSharedSlotReaders is absent, pinned by a test. The independently requested live-recipient, placement-owner fence, trace-dedup and microtask-safety fixes still apply without that hook. Is this the intended compatibility boundary?
+:RUN_ID:       run-01M66W3GGSKTQSMWMFYMD1RKBW
+:ASK_ID:       ask-4aa2732c56684352974a5cb7122e4aea
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     007b8863-557e-4fae-95e2-555e1822bfbe
+:END:
+
+* TX 2026-10-30 Fri 17:19:32 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-8f8d4093-2425-40d7-8a05-0516b1b51459
+:TIME:         [2026-10-30 Fri 17:19:32]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  007b8863-557e-4fae-95e2-555e1822bfbe
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     8d42a1ba-aa1e-40c5-b632-40f981398b66
+:END:
+
+* TX 2026-10-30 Fri 17:19:33 run.answered TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-77564af5-1c2b-4f59-9899-81c01692afbc
+:TIME:         [2026-10-30 Fri 17:19:33]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       Yes, that's the intended boundary. Without the hook, only the batch-line grouping and placement stay as they were at 43df5ab0 (pinned by a test). The live-recipient check, the owner-only fence, the trace dedup and the microtask re-check apply in both cases, each with its own test.
+:RUN_ID:       run-01M66W3GGSKTQSMWMFYMD1RKBW
+:ASK_ID:       ask-4aa2732c56684352974a5cb7122e4aea
+:EVENT_ID:     f2f1d552-4768-47bc-ac86-090d79d224af
+:END:

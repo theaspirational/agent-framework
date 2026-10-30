@@ -159,3 +159,19 @@ Published on gate814:fix+pr after R2 APPROVE and my gates (9440/2 known watchdog
 :END:
 
 Answer to ask-0ed8dcdb7da544d386f84f2676bbc63f (Tarn engineering call, fix round 2): approved the optional getSharedSlotReaders() hook and a shared summary of events unseen by every shared-slot reader. Conditions: absent hook means unchanged behaviour; divergent events still wake unseen recipients and stay in context (test); forks get their own summary; disclosed in body, reply and changelog.
+
+* tx-20261030-theaspirationalagent-e54f2180-b8e4-4891-a1ae-2b5d34ca74be comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-e54f2180-b8e4-4891-a1ae-2b5d34ca74be
+:TIME:    [2026-10-30 Fri 17:19:33]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 41a3d0cc-fd4a-4794-a38b-639c5caa6325
+:END:
+
+Answer to ask-4aa2732c56684352974a5cb7122e4aea: confirmed. The absent hook preserves only the legacy batch-line grouping and placement; the other fixes apply regardless, each tested.
