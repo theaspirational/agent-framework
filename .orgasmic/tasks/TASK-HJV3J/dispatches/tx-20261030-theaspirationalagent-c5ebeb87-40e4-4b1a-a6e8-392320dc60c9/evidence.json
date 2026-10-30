@@ -1,0 +1,25 @@
+{
+  "event_count": 354,
+  "tool_call_count": 27,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HJV3J-implementer-20261030T210549-run-01M67A45EZ4E2M05BYRY9TH7Y1.jsonl",
+    "size_bytes": 480623
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-51-49-01a18e5e-56d8-7063-bd1d-159de90e5cf5.jsonl",
+    "session_id": "01a18e5e-56d8-7063-bd1d-159de90e5cf5",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll address the two LOW findings in one commit: exact clause-specific configuration errors, plus 60-second per-connection throttling for fail-closed diagnostics. Then I’ll run the clause-removal probes, focused suites, typecheck, and both full Node matrices. No push or PR edits.\nThe focused suite passes all 176 tests, and typecheck passes. Removing each of the five validation clauses makes exactly its own rejection cases fail. Fake-time tests confirm the 60-second throttle, shared across failure paths and reconnects but independent between connections. The first full Node matrix is still progressing under the requested memory limit.\nThe full Node 22.23.3 suite passed: 9,704 passed, 0 failed, 63 skipped (9,767 total). The Node 22.12.0 run is now underway at the same clean head.\nBoth full suites passed at `29edcf8b`: 9,704 passed, 0 failed, 63 skipped on each Node version. Typecheck, all 176 focused tests, and all five clause-removal probes passed their gates. The worktree is clean, and `inbound-admission.ts` remains unchanged. I’m finalizing the report.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
