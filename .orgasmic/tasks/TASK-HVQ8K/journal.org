@@ -383,3 +383,19 @@ Tarn answer (own engineering call, per R1-10 maintainer preference): Confirmed. 
 :TO_STATE: in_progress
 :EVENT_ID: 855ccb2b-433d-4621-a7c6-1b0737d3d13b
 :END:
+
+* tx-20261030-theaspirationalagent-2bdb4f70-486b-457b-8d6d-c450f610fe21 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-2bdb4f70-486b-457b-8d6d-c450f610fe21
+:TIME:    [2026-10-30 Fri 12:11:15]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HVQ8K
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 4912454c-c02a-40a9-a104-c36cb7464585
+:END:
+
+Tarn gates at a218dfb0 (16G scope, npm run clean before build): Node 22.23.3 and 22.12.0 each 9689 tests / 9624 pass / 2 fail / 63 skip. The 2 failures are the known liveness-watchdog SIGKILL/SIGABRT tests (1750/1751), which fail only in my environment; the worker and reviewers got 0 fail. Logs /tmp/afa.test.v22.*.log.
