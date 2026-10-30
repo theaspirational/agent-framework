@@ -175,3 +175,19 @@ Answer to ask-0ed8dcdb7da544d386f84f2676bbc63f (Tarn engineering call, fix round
 :END:
 
 Answer to ask-4aa2732c56684352974a5cb7122e4aea: confirmed. The absent hook preserves only the legacy batch-line grouping and placement; the other fixes apply regardless, each tested.
+
+* tx-20261030-theaspirationalagent-806f38f8-9ec7-40e7-aab8-c0dc5a7c0490 comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-806f38f8-9ec7-40e7-aab8-c0dc5a7c0490
+:TIME:    [2026-10-30 Fri 17:48:18]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 15924733-3f03-4991-a877-1d2fbe5bafea
+:END:
+
+Tarn gates at acfccc9a (fix round 2), 16G scope: Node 22.23.3 and 22.12.0 both 9529 tests, 9464 pass, 2 fail, 63 skip. The 2 failures are the known environment-only watchdog tests (1753/1754). Opus re-review 3 run-01M66YF0THJ81Q9VMGJYF6NJ2S running.
