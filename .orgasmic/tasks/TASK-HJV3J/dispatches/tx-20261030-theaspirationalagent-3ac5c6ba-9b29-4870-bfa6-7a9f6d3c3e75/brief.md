@@ -1,0 +1,13 @@
+PR #931 (slice B: bind automatic replies to admitted work, stacked on #906): rebase onto the fixed #906 and fix the bot review.
+Inputs:
+- Current B head 20610f0cfef13423e5bdb1bd29a6eb9b5396e193 (12 commits on the old A 66c9db3fd840c7d821aa4f8e9d5ce389b19d923c).
+- New A = #906 head c848977fc2280b378576f0eb72c2b07a0a93b86f (21 commits on upstream c5306693e0684efefb0122cba740ca74f6b4fc92). Fetch it from the task-hvq8k worktree branch `task-hvq8k-r1-fix`.
+- Bot review (5 Mediums, 2026-10-30 10:18Z at 20610f0c): /srv/review-drop/PR931-BOT-COMMENTS.md. Read it in full.
+- Previous B reports: /srv/review-drop/TASK-HJV3J-FIX1.md, TASK-HJV3J-REBASE1.md. #906 changes and disposition: /srv/review-drop/TASK-HVQ8K-R1FIX4.md.
+Work:
+1. ls-remote upstream main first and at the end; report both.
+2. `git rebase --onto c848977f 66c9db3f` the B commits (no squash). A changed a lot (sequential held drain, held inference released at dispatch, emit-guard dispatch window, mayWake semantics R1-10, toolHints, coalescing refused, exports). Resolve conflicts preserving A's semantics exactly. Report every conflict and every semantic interaction (especially reply routing vs held drain and dispatch release, mayWake:true module wakes, refused coalescing).
+3. Fix all 5 bot Mediums in additive commits on top (cite "bot M1".."M5" in messages): resolver `threadId: undefined` refused as admission_invalid (reply-routing.ts:69); resolver running on the inference and push lanes (server-connection.ts:2613); reply-deferred requests bypass scheduler stale/wedge diagnostics; docs must say opted-in connections refuse unbound automatic replies; publish-refusal branches untested. For each: a repro test that fails before and passes after, or an argued "not a defect" with evidence. Ask (ask tool) before any design change or a touch to another repo.
+4. Gates on base c848977f and on the head, both Nodes (/opt/node/bin 22.23.3, /tmp/credential-engines/node-v22.12.0-linux-x64/bin), npm install --ignore-scripts --no-save, typecheck, npm run clean + build, npm test, under XDG_RUNTIME_DIR=/run/user/1002 systemd-run --user --scope -p MemoryMax=16G -p MemorySwapMax=0.
+5. Identity on every commit: author and committer Vasyl Dovhanchyn <48733736+theaspirational@users.noreply.github.com> with trailer `Co-Authored-By: GPT-6-Astra <noreply@openai.com>`. No internal names (our hosts, agents, task ids, paths) in commits, docs, or texts.
+Output: report with a range-diff, gates, and two blocks: BEGIN BOT REPLY / END BOT REPLY (short per-Medium disposition citing commits, public-ready) and BEGIN PR BODY / END PR BODY (updated #931 body; its own range is c848977f..HEAD). No push, PR edits or comments.
