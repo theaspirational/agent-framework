@@ -9820,3 +9820,19 @@
 :ASK_ID:       ask-cea9e10e204c44e3ae33d3974f1da9fc
 :EVENT_ID:     e1ff44bc-ae43-4da6-8ac9-651b50db6679
 :END:
+
+* TX 2026-10-30 Fri 09:38:28 run.asked TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-97d363cf-ffc3-4f00-9149-e672de0b4998
+:TIME:         [2026-10-30 Fri 09:38:28]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       One wire-boundary clarification before edits: section 1 says push behavior is unchanged except reserved-key collision handling, while section 3/design M3 forbids silently downgrading an unsupported push selector and section 4 requires a mutation for push accepting the field. Should a top-level delivery field on push/event be explicitly rejected before effects (unsupported_combination, leaving no-field push unchanged), or remain an ignored unknown field as on the base? I will not enable context-only effects on push either way.
+:RUN_ID:       run-01M6629SJZ1Q0E6H5WVBAX4E6B
+:ASK_ID:       ask-88034f6e43604c81aed5a5b19797a90e
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     21a18735-1a88-477c-baef-30237eca5b75
+:END:
