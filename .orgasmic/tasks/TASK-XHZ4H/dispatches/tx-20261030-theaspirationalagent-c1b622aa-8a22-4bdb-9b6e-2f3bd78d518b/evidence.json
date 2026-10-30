@@ -1,0 +1,25 @@
+{
+  "event_count": 725,
+  "tool_call_count": 70,
+  "unparsed_events": 0,
+  "bounded_events": 8,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XHZ4H-implementer-20261030T204317-run-01M678TWVHMZV88R82T02CGENQ.jsonl",
+    "size_bytes": 918530
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-26-29-01a18e47-2096-7a31-bcbe-8057f0b59b46.jsonl",
+    "session_id": "01a18e47-2096-7a31-bcbe-8057f0b59b46",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll create a recovery ref at `51cf9b1e`, rebase the 14 D commits onto `869bb3ad`, and record every conflict resolution. I’ll check the declared-injection stream path and upstream removals, then run the requested gates and comparisons on the refreshed stack.\nThe rebase replayed all 14 commits without conflicts; every range-diff entry is unchanged. The owner also confirmed that the reviewed D wire seam should remain, while A’s admission machinery must stay byte-identical. Verification against the refreshed base is underway.The targeted checks pass: context-only messages neither inject nor cause a follow-up wake with stream support set to `true`, `false`, or undeclared. Modern compatibility and no-grant controls pass; the red control produces exactly the two expected failures. The no-config corpus is byte-identical. The full suites are still running.All targeted gates are complete. The three clean full-suite runs—refreshed base on 22.23.3 and head on both versions—are still progressing, with no failures reported so far. No behavioral change or extra commit has been needed beyond the rebase.The refreshed-base suite exited with one cancelled test file: `workspace-three-way.test.js` hit the existing 600-second timeout. It reported no failed assertions. I’ll retain that result and check the same file in isolation; both head suites are still running.Both head suites passed: **9,683 tests, 9,620 pass, 0 fail, 63 skipped** on each Node version. I’m rerunning the base suite to obtain a complete count without the timeout, while retaining the first run’s evidence.The timed-out baseline file passed in isolation: **407/407** under the unchanged 600-second limit. The fresh full-base rerun is still progressing without failures; both head suites and all targeted checks are complete.The full-base rerun passed: **9,629 tests, 9,566 pass, 0 fail, 63 skipped**. Both head versions passed **9,683 tests, 9,620 pass, 0 fail, 63 skipped**. The report includes the initial timeout, all 14 unchanged range-diff entries, the retained D seam, and the updated PR draft. Finalizing locally now."
+    }
+  ],
+  "narrative_truncated": false
+}
