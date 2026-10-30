@@ -1,0 +1,25 @@
+{
+  "event_count": 375,
+  "tool_call_count": 54,
+  "unparsed_events": 1,
+  "bounded_events": 11,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HVQ8K-implementer-20261030T103930-run-01M6669APQD2QBQ44ZZ6DRVMCT.jsonl",
+    "size_bytes": 745139
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T10-39-31-01a18c64-adc9-79f0-8bc3-854e422f16b0.jsonl",
+    "session_id": "01a18c64-adc9-79f0-8bc3-854e422f16b0",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "The worktree is at the requested PR head, and upstream main is unchanged. I’ll capture the base gates on both Node versions, then make scoped fix commits and run the same gates on the final head.\nThe base passes on both Node versions: 9,595 passed, 0 failed, 63 skipped each. The null-line test reproduced the crash before the fix and now passes. Required traffic now waits through quiesce/startup staging, and required connections no longer advertise tool hints. For coalescing, I’m taking the brief’s smaller option: refuse it as unsupported rather than acknowledge work that cannot survive reconnect safely.\nAll requested fixes are committed, and the focused admission suites pass. The final head also passes typecheck, build and the full suite on Node 22.23.3: 9,612 passed, 0 failed, 63 skipped. The Node 22.12.0 run is still in progress; its typecheck and build have passed.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
