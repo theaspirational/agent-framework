@@ -210,3 +210,18 @@
 :RUN_ID: run-01M6697H781998A16JAEAKH1KT
 :EVENT_ID: 197f442d-05d1-43b1-8360-0234ea0bbfa0
 :END:
+
+* tx-20261030-theaspirationalagent-b2bd5cec-089e-4f5f-b347-d551a8bd4681 conversation.run_started
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-b2bd5cec-089e-4f5f-b347-d551a8bd4681
+:TIME:    [2026-10-30 Fri 12:04:50]
+:TYPE:    conversation.run_started
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-V8HHS/node.org
+:REASON: dispatch attempt started
+:NODE_ID: CONV-V8HHS
+:RUN_ID: run-01M66B5HS2VPJ1XQE6H496K7SR
+:EVENT_ID: 5154cbfd-e93e-46ae-b5d6-52214e416c3b
+:END:
