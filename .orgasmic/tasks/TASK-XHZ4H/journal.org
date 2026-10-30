@@ -191,3 +191,20 @@ Fix round 1 dispatched under owner go `xhz4h:fix:afterA` (Soma confirmed no new 
 :TO_STATE: in_progress
 :EVENT_ID: 5f2d0fd8-a648-4056-bfef-8f7cda315fe3
 :END:
+
+* tx-20261030-theaspirationalagent-b1ac2821-662e-4408-ba32-f499caa2c2ad comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-b1ac2821-662e-4408-ba32-f499caa2c2ad
+:TIME:    [2026-10-30 Fri 20:45:22]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 0619be02-8113-400c-931e-b1cd8e7ff839
+:END:
+
+Tarn's own call (not owner) on ask-da16e58f: "A zero diff" = inbound-admission.ts + all RequiredAdmission scheduling/epoch/hold/flush/refusal blocks. The reviewed D wire seam in server-connection.ts (selector-aware refuseCapability, the params at the grant check, the pre-tap push rejection) stays unchanged and is listed with line ranges.
+Soma pre-publication guard (1793393080.399209): before any D publication, scan the ENTIRE range to publish (every commit and blob), not only the final tree, for /srv, review-drop, evidence paths, private projection content and internal names. If anything is found, build a clean public branch from the reviewed final tree on the public base; private refs stay local; no push --all, no force on main, no branch deletion.
