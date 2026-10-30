@@ -70,3 +70,19 @@ Yes, with these conditions (manager decision):
 :TO_STATE: in_progress
 :EVENT_ID: 6db73029-394b-4637-9a9a-5f549840d57e
 :END:
+
+* tx-20261030-theaspirationalagent-7f21ecd8-59ec-4344-9e78-70adcde10cee task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-7f21ecd8-59ec-4344-9e78-70adcde10cee
+:TIME:    [2026-10-30 Fri 09:54:46]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-HJV3J
+:TARGET: .orgasmic/tasks/TASK-HJV3J/node.org
+:REASON: rebased; publication pending owner button
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: dbfb5994-d85e-4f20-959c-66e0715e8a95
+:END:
