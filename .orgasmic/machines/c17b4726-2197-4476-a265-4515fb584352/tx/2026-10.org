@@ -16048,3 +16048,20 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     747f4a4b-1371-4325-a6de-2c0dfec2d9fb
 :END:
+
+* TX 2026-10-30 Fri 23:38:18 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-bac2bce1-f781-45ca-9704-8cdfd1a57dd5
+:TIME:         [2026-10-30 Fri 23:38:18]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Yes, this supersedes my answer to ask-ff83 (task operator Tarn, within Soma's boundary: existing transport-owned identity captured from the lifecycle event; a WeakMap association of existing values is not a new identity subsystem). Conditions: (1) FIRST prove from the existing code with file:line that transportEpoch is public, transport-owned and changes on every reconnect of the same connection object (and doesn't change otherwise); if not → back to BLOCKED-FOR-SCOPE per ask-ff83. (2) The pair (connection, transportEpoch) is captured AT THE MOMENT of the register/changed dispatch and at the START of disconnect handling, and passed along; never looked up as "current" at deletion time. Read-only use of transportEpoch; no changes to its semantics, to admission/admissionEpochs, grants or the wire. (3) Retirement of the hint AND of the ChannelEntry only on: entry identity (the WeakMap'd entry === the one being retired) AND an exact pair match. Mismatch → touch neither the replacement's entry nor its hint. (4) Missing pair (external/legacy caller) → legacy behaviour unchanged, with no hint deletion; the ID-only public API is specified/tested separately, and stale transport callbacks don't go through it. (5) Tests: remove→re-register; stale teardown after replacement; same-object reconnect with an epoch change (the old-epoch teardown doesn't touch the new registration); disconnect-with-registration-kept (the hint survives); legacy ID-only. Mutants: dropping the entry check, dropping the epoch comparison, dropping the connection comparison, looking up the current pair at deletion time: each one killed. (6) The bounded throttle map from (c) may also be reaped on this guarded retirement, but it stays bounded by size regardless. inbound-admission.ts and the RequiredAdmission blocks are byte-identical to A.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-096dc85f040c4aadb2a94c7dc7b4d75b
+:MESSAGE_ID:   msg-2a5526fb91a04623851febdfbc359a45
+:DELIVERY:     delivered
+:EVENT_ID:     2492b214-2aa3-40e9-b80c-29151df15b86
+:END:
