@@ -223,3 +223,19 @@ Tarn gates at acfccc9a (fix round 2), 16G scope: Node 22.23.3 and 22.12.0 both 9
 :END:
 
 Fix round 2 published on pr937:fix+pub after R3 APPROVE + my gates (9464/2 known watchdog, both Nodes). Fast-forward push (no force) debounce-answered-writes 43df5ab0 -> acfccc9a24e663a7c17c166a1a364bc1aeb3c2ca; upstream main 71193a9f unchanged; no new comments before the push. PR body PATCHed (verified); bot reply https://github.com/anima-research/agent-framework/pull/937#issuecomment-6529771675. R3 LOWs (4 test/doc gaps) go to TASK-95FR2.
+
+* tx-20261030-theaspirationalagent-a2423ce6-8c40-410f-8003-dbd5be8ae54f comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-a2423ce6-8c40-410f-8003-dbd5be8ae54f
+:TIME:    [2026-10-30 Fri 20:52:26]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 67ae8d42-c67f-496a-b4aa-64dcac3d6673
+:END:
+
+Upstream (nissa-seru, #937 issuecomment-6533202122, relayed by Alnold): maintainers are fixing #814 by a different route on a branch from #937's head (acfccc9a): a debounced batch's wake is dropped at turn start if every event is already read and answered (the same rule as a direct wake); no publication fence and no 65 s deadline. Most of our requirement tests and the diagnosis carry over, with 3 changes; test/debounce-seen-batch, debounce-recipient-delivery, the fork-summary test and the gate-role outcome are dropped. No action asked of us; #937 is probably superseded. Don't push or update #937 further unless asked. Track the upstream branch and drop our fork-main delta once it lands.
