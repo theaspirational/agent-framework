@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-RQG41
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-PK8RC
+:PROPERTIES:
+:UID: 89e96c42-0ae9-5136-8bbe-9db454e29b14
+:ID: CONV-RQG41
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-pk8rc
+:RUNS:  run-01M67DE5BS82W97VTFWCEBQB9Y
+:CREATED_AT: 2026-10-30T22:03:43Z
+:END:
