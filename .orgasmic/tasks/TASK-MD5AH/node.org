@@ -1,0 +1,17 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-MD5AH
+#+orgasmic_version: 2
+
+* BACKLOG TASK-MD5AH Gate: drop debounced batch events a turn already saw (upstream #814)
+:PROPERTIES:
+:UID: e0474f77-9005-5b6e-8390-1f7513c4fe39
+:ID: TASK-MD5AH
+:PRIORITY: P2
+:END:
+
+** Description
+Upstream issue https://github.com/anima-research/agent-framework/issues/814 (open). The EventGate holds a debounce batch during inference (bufferForInference) and delivers it after a turn that already saw those events, causing an extra wake. One deployment saw up to 129 such wakes in 8h. Relayed by Alder (ZA-20261030-38:send); owner go gate814:pr (TG 1412).
+** Acceptance
+- seen events dropped from batches; a fully seen batch causes no wake; unseen events kept
+- red test for the #814 case plus the channel path
+- Opus review, gates on 2 Nodes; PR 'Fixes #814' on owner button
