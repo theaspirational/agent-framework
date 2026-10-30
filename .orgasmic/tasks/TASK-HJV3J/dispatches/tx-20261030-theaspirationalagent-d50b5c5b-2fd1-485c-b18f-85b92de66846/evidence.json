@@ -1,0 +1,25 @@
+{
+  "event_count": 433,
+  "tool_call_count": 55,
+  "unparsed_events": 2,
+  "bounded_events": 23,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HJV3J-implementer-20261030T195149-run-01M675WMW5VJZFQ9S6N1351R2R.jsonl",
+    "size_bytes": 668772
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-51-49-01a18e5e-56d8-7063-bd1d-159de90e5cf5.jsonl",
+    "session_id": "01a18e5e-56d8-7063-bd1d-159de90e5cf5",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll compare round 3 with slice A, narrow the routing contract, and preserve the recovery ref. Then I’ll run both required Node matrices locally. I won’t push, edit the PR, or rebase onto newer upstream.\nThe confirmed scope removes nested-thread transport and uses registered channels only. I’ll rename the host option to `replyAuthority`, keep route failures separate from admission failures, and re-check every shared cause before publishing.\nThe focused suite passes all 110 tests, including shared-turn revocation, private-with-notice failures, route-less pushes, explicit sends, and owner/silent-resume behavior. Slice A’s `inbound-admission.ts` is unchanged. Both baseline Node runs also passed: 9,646 passed, 0 failed, 63 skipped. Next I’ll finish the clean commit series and run the full head gates.\nBoth full head suites passed: 9,756 passed, 0 failed, 63 skipped on Node 22.23.3 and 22.12.0. Typecheck passed too. The four-commit series is clean on `c848977f`, and the recovery ref is intact. I’m writing the final report and PR-body draft now.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
