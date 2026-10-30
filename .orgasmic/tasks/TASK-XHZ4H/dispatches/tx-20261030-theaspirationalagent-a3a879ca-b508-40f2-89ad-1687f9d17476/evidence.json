@@ -1,0 +1,25 @@
+{
+  "event_count": 766,
+  "tool_call_count": 86,
+  "unparsed_events": 0,
+  "bounded_events": 12,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XHZ4H-implementer-20261030T192628-run-01M674E7CZAER1Q0T1QZMEH6YK.jsonl",
+    "size_bytes": 1160933
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-26-29-01a18e47-2096-7a31-bcbe-8057f0b59b46.jsonl",
+    "session_id": "01a18e47-2096-7a31-bcbe-8057f0b59b46",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll read the review and repository instructions, rebase D onto the fixed A head, then address the approved findings in separate commits and run both Node-version gates. I won’t push or open a PR.\nThe rebase is complete. I preserved A’s ordered drain, dispatch window, held-inference release, and mayWake-only module ceiling. I also kept A’s deletion of the superseded connector-inventory test; D’s dependency-closure AST check remains.\n\nNext I’m fixing refusal responses and diagnostics, per-server grant opt-in, startup floor-scan cost, and compatibility coverage.\nThe base gate on Node 22.23.3 passed: **9,646 pass, 0 fail, 63 skipped**. The Node 22.12.0 base run is underway.\n\nThe focused fixes pass. The widened corpus now exercises wakes, admission decisions, anchors, repinning, typing, coalescing, holds, live-answer injection/send suppression, and real fork seeding with omitted and disabled profiles. I’m comparing that same corpus against the fixed A build.\nThe first head run found one deterministic failure: the modern-server config test’s exact deny-by-default list needs to include the new `channels.contextOnly` entry. I’ll update that expectation and add an explicit leaf case, then rerun the full gates at the resulting head. No production-path change is needed.\nBoth base runs passed: **9,646 pass, 0 fail, 63 skipped** each. The final head passed on Node 22.12.0: **9,692 pass, 0 fail, 63 skipped**. The clean-build Node 22.23.3 run is still running.\n\nThe final-head differential corpus is byte-identical to the fixed base after projection of generated receipts, identities, and times. The report contains all finding dispositions, admission seams, deferred LOWs, and the stacked PR draft.\nAll required gates passed on both Node versions:\n\n- **Base:** 9,646 pass / 0 fail / 63 skipped\n- **Head:** 9,692 pass / 0 fail / 63 skipped\n\nThat is **+46 tests, +46 passes, no new skips**. The worktree is clean at `a5b02a07fd4c380ded751e01ada2ce3e6b242cca`. I’m finalizing the report; nothing was pushed or opened publicly.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
