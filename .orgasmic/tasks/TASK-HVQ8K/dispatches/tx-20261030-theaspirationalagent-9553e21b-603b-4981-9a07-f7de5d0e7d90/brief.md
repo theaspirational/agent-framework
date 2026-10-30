@@ -1,0 +1,8 @@
+Slice A (required inbound admission, open upstream PR #906) refresh. Owner programme go `gen:exec`. Local only: no push, no PR edits.
+
+Base: your worktree starts at c848977fc2280b378576f0eb72c2b07a0a93b86f (current #906 head, 21 commits on upstream c5306693).
+1. Rebase the #906 commits (c5306693..c848977f) onto upstream main a64cfc010f4df5090c698e9fa7926b1d3aa0dc5a (fetch the `upstream` remote first if needed). Keep per-commit structure. Resolve conflicts in favour of upstream's new behaviour plus A's contract, and list every conflict and how you resolved it. Also list upstream changes between c5306693 and a64cfc01 that touch admission, MCPL ingress, inference/request, pushes, holds, or abort/stop, and check that A's guarantees still hold against them (add tests where upstream added a new path).
+2. Don't change A's design. If upstream changes force a semantic change, stop and ask.
+3. Gates: full `npm test` on Node 22.23.3 and 22.12.0 under `systemd-run --user --scope -p MemoryMax=16G -p MemorySwapMax=0`, plus typecheck. Report base (a64cfc01) and head counts; any failure must also fail on base.
+4. Identity: author/committer `Vasyl Dovhanchyn <48733736+theaspirational@users.noreply.github.com>`, keep existing trailers. No internal names, task ids, hosts or agents anywhere.
+5. Report: final head sha, `git range-diff` summary (old vs new), conflict list, gates, and a `BEGIN PR BODY`/`END PR BODY` refresh only if the body's facts changed.
