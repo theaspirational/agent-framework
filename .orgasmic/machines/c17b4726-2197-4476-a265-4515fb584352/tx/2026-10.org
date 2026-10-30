@@ -13911,3 +13911,35 @@
 :WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-hjv3j
 :EVENT_ID:     c497bddf-17f9-4965-9c93-ef21c91c275c
 :END:
+
+
+* TX 2026-10-30 Fri 20:23:48 run.message TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-58c35caa-3361-49b9-a341-03a6df4aed74
+:TIME:         [2026-10-30 Fri 20:23:48]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       An addition to M-A (please confirm in the report): the modern-family exclusion only restores config compatibility. It must NOT grant context-only delivery. Add negative controls: a modern server with `['channels.*']` is accepted, yet it still gets no context-only grant or mode. Context-only still requires an MCPL-family advertised and granted `channels.contextOnly` plus a validated mode, with no fallback wake and no unsupported-enable path.
+:RUN_ID:       run-01M6778WBGZYGCHS9PT3SWWRH3
+:MESSAGE_ID:   msg-bd07436227924191984654f7cb752848
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     74818b5e-1eaf-4697-bc51-fd764fa1a06d
+:END:
+
+* TX 2026-10-30 Fri 20:24:10 implementer.reported TASK-HVQ8K
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-5737ba9c-4f0a-4dff-8200-f3134baf03d3
+:TIME:         [2026-10-30 Fri 20:24:10]
+:TYPE:         implementer.reported
+:ACTOR:        agent.implementer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-HVQ8K
+:RUN_ID:       run-01M677CE77Y3169R4HQ2G1FZW0
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-hvq8k
+:EVENT_ID:     89623d0a-0080-4c04-97c5-0e92eb93abb0
+:END:
