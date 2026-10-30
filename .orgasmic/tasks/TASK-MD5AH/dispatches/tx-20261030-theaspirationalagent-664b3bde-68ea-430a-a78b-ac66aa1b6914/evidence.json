@@ -1,0 +1,25 @@
+{
+  "event_count": 634,
+  "tool_call_count": 80,
+  "unparsed_events": 2,
+  "bounded_events": 21,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-MD5AH-implementer-20261030T142732-run-01M66KAVRF18KPVPEGGWQYY3SK.jsonl",
+    "size_bytes": 1027871
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T14-27-33-01a18d35-734e-7af2-96ea-301b6319e83f.jsonl",
+    "session_id": "01a18d35-734e-7af2-96ea-301b6319e83f",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll inspect the issue, merged fix, and request/gate lifecycle first, then add regression tests before changing the debounce behavior. I’ll run the requested base/head checks on both Node versions and leave a local commit without pushing.\nThe existing scheduler uses answered-request watermarks, not “present in context,” to decide whether a wake is redundant. I’ll reuse that test and carry write placements into debounce batches. This also preserves the existing safeguards for failed requests, channel replies, and other agents sharing a store.\n\nThe base checks are running. The additive gate hooks have been approved; absent those hooks, standalone gate behavior will remain unchanged.\nBoth base runs passed: 9,405 passed, 0 failed, 63 skipped on each Node version. The new regressions failed on the base as expected, including the real MCPL channel path.\n\nThe fix currently passes 18 of 19 new tests. The remaining test exposed a completion-order race: the gate releases its held batch before final channel publication is acknowledged. I’m checking the narrow lifecycle adjustment needed to handle that case.\nAll 25 new tests now pass, including publication failure, refusal, shutdown, and disposal cases. Existing gate tests are unchanged.\n\nOnly placement-backed channel debounce checks wait for final publication; judge, status, sleep, and self-wake timing remain unchanged. Aggregate render-batch wakes remain conservatively wakeable, as agreed, with a test pinning that limitation. The local commit is made, and the full head checks are running.\nThe full head run passed on Node 22.23.3: 9,430 passed, 0 failed, 63 skipped. Node 22.12.0 is running now; afterward I’ll recheck upstream main and finalize the report and PR text.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
