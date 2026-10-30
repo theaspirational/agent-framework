@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-MCH4X
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-HJV3J
+:PROPERTIES:
+:UID: 247477c5-22ba-5d88-8f38-a6f16713d48c
+:ID: CONV-MCH4X
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-hjv3j
+:RUNS:  run-01M65Y9K5VXESQRVZE69VBKVZY
+:CREATED_AT: 2026-10-30T08:19:50Z
+:END:
