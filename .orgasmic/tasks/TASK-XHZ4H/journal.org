@@ -240,3 +240,19 @@ Correction of attribution: the rebase report (run-01M678TWVHMZV88R82T02CGENQ, /s
 :END:
 
 Promoted addendum to the rebase report: /srv/review-drop/TASK-XHZ4H-REBASE-A869.ADDENDUM.md sha256 7326f0e4cdf14dadad7eefc5ffe03cef21148c6325cdcb2a26916b1e730bb962 (original report ed5bb4fb… unchanged). It contains (a) the attribution correction: the D seam is the engineering call of the task operator Tarn on ask-da16e58f, not the consent of the human owner Vasyl; (b) the two baseline observations at 869bb3ad kept separately: the first run exit 1 (workspace-three-way timeout 600 s, 1 cancelled), retry 9566/0/63. In future briefs: "the human owner Vasyl" ≠ "the task operator Tarn"; engineering ask answers are Tarn's calls.
+
+* tx-20261030-theaspirationalagent-5ad5ecef-d8c2-439a-952b-50ea1594d3e5 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-5ad5ecef-d8c2-439a-952b-50ea1594d3e5
+:TIME:    [2026-10-30 Fri 22:31:52]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:TARGET: .orgasmic/tasks/TASK-XHZ4H/node.org
+:REASON: transition TASK-XHZ4H to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 337bfa49-a0a5-47bc-bedd-8142ec9ac0b6
+:END:
