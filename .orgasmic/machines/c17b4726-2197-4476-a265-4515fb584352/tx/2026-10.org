@@ -15970,3 +15970,20 @@
 :ASK_ID:       ask-d8e3a4466aad44398ba60d58fecd0c99
 :EVENT_ID:     c15cddea-d626-4659-84b2-a6bfa01a1b9f
 :END:
+
+* TX 2026-10-30 Fri 23:36:48 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-e3d287a8-b87b-46f8-98b3-e3ab6b98d9c7
+:TIME:         [2026-10-30 Fri 23:36:48]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Binding additions to ask-d8e3 (Soma, programme qualifier; within scope, no owner decision): (1) identity is TRANSPORT-OWNED (the connection object/epoch held by the transport), not a claimed server id/metadata. The expected old registration is CAPTURED from the relevant lifecycle event (at registration/close of that connection), not looked up as "current" at deletion time and compared to itself. (2) The same connection object can span reconnects: tests for stale teardown AFTER replacement AND for a same-object reconnect/epoch change. Use the existing epoch/entry identity if it exists; if it can't be distinguished → an explicit BLOCKED gap, not a claim of generation safety. (3) On mismatch in the identity-guarded path, don't delete the replacement's ChannelEntry either (not just spare its hint): test this. (4) Specify and test the legacy ID-only public behaviour (handleChanged/removeServer without identity) SEPARATELY and leave it unchanged; don't route stale transport callbacks through that unguarded fallback; don't silently redefine the public API. (5) Hint retirement without identity: conservatively absent and documented. Admission/grants/wire protocol unchanged; no new identity subsystem; no live removals.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:MESSAGE_ID:   msg-0177c7bba6e74416ab759a1fbbe36180
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     4238e37b-3764-42a9-923a-bd45be136ad1
+:END:
