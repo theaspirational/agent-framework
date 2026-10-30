@@ -208,3 +208,19 @@ Fix round 1 dispatched under owner go `xhz4h:fix:afterA` (Soma confirmed no new 
 
 Tarn's own call (not owner) on ask-da16e58f: "A zero diff" = inbound-admission.ts + all RequiredAdmission scheduling/epoch/hold/flush/refusal blocks. The reviewed D wire seam in server-connection.ts (selector-aware refuseCapability, the params at the grant check, the pre-tap push rejection) stays unchanged and is listed with line ranges.
 Soma pre-publication guard (1793393080.399209): before any D publication, scan the ENTIRE range to publish (every commit and blob), not only the final tree, for /srv, review-drop, evidence paths, private projection content and internal names. If anything is found, build a clean public branch from the reviewed final tree on the public base; private refs stay local; no push --all, no force on main, no branch deletion.
+
+* tx-20261030-theaspirationalagent-6c3dac1b-4a86-49b2-96d6-e777f245a6ce comment
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-6c3dac1b-4a86-49b2-96d6-e777f245a6ce
+:TIME:    [2026-10-30 Fri 22:20:13]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 79cadb2e-9730-428a-8dce-15b2a4404134
+:END:
+
+Correction of attribution: the rebase report (run-01M678TWVHMZV88R82T02CGENQ, /srv/review-drop/TASK-XHZ4H-REBASE-A869.md) says "The owner confirmed via blocking clarification" that D's wire seam in server-connection.ts stays. That's false: it's my (Tarn's, the manager's) call on ask-da16e58f, not the owner's (Vasyl's). Substance: keep D's existing wire-only changes (server-connection.ts:1, 495-504, 1158, 2614-2620), excluded from the zero-diff requirement for A's RequiredAdmission blocks; A's inbound-admission.ts byte-identical. Reviewer run-01M67EF… is assessing the seam on its merits.
