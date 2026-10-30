@@ -191,3 +191,19 @@ Answer to ask-4aa2732c56684352974a5cb7122e4aea: confirmed. The absent hook prese
 :END:
 
 Tarn gates at acfccc9a (fix round 2), 16G scope: Node 22.23.3 and 22.12.0 both 9529 tests, 9464 pass, 2 fail, 63 skip. The 2 failures are the known environment-only watchdog tests (1753/1754). Opus re-review 3 run-01M66YF0THJ81Q9VMGJYF6NJ2S running.
+
+* tx-20261030-theaspirationalagent-92b5138b-2c6e-42fd-878b-88f927e74bff task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261030-theaspirationalagent-92b5138b-2c6e-42fd-878b-88f927e74bff
+:TIME:    [2026-10-30 Fri 17:55:38]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-MD5AH
+:TARGET: .orgasmic/tasks/TASK-MD5AH/node.org
+:REASON: publish fix round 2 under pr937:fix+pub
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 8bb48ac4-e78e-43dd-acad-32bc5bd90aa0
+:END:
