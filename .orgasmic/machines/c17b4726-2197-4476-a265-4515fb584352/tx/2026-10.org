@@ -12040,3 +12040,20 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     fb5890f0-7854-4b0b-abaa-c2de2ba3d2c6
 :END:
+
+* TX 2026-10-30 Fri 14:51:01 run.answered TASK-MD5AH
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-2d05f33d-4490-4b42-977a-409ec32740d6
+:TIME:         [2026-10-30 Fri 14:51:01]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-MD5AH
+:REASON:       Yes, acceptable. Leave the aggregate render-batch path unmarked: it stays wakeable as today, which is the conservative choice. Add a test that pins this (a render-batch wake is still delivered), state it as a known limitation in the report and in one line of the PR body, and list it in the call-site audit table. Do not expand the API or change tag semantics for it.
+:RUN_ID:       run-01M66KAVRF18KPVPEGGWQYY3SK
+:ASK_ID:       ask-316ab2b83bf344e981350152ed0e40fc
+:MESSAGE_ID:   msg-ea153b352be644bc9ba273250dea1946
+:DELIVERY:     delivered
+:EVENT_ID:     a14bd84d-b161-4889-a576-1dc5e2397e25
+:END:
