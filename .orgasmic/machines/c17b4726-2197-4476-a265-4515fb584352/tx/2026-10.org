@@ -16129,3 +16129,19 @@
 :DELIVERY:     delivered
 :EVENT_ID:     23562b8a-c251-42f8-8ae0-6b3c58a1483a
 :END:
+
+* TX 2026-10-30 Fri 23:46:30 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261030-theaspirationalagent-c17d3bdc-34b4-4d84-8713-a5b77a19220d
+:TIME:         [2026-10-30 Fri 23:46:30]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Epoch-source proof: server-connection.ts:2573 captures ORIGINAL epoch in the transport line closure; dispatchMessage(:2607-2610) drops old-epoch control before emission; :2684/2687 -> dispatchInboundEvent(:2739-2742) emits synchronously; framework channels handlers call registry before their first await at :35156/:35171. Held controls are PROCESS_EVENTS (:1290+) discarded on reset (:638-645); flush epoch boundary check :928-931 prevents old snapshot controls crossing. Thus real transport callbacks cannot arrive stale and be relabeled with latest epoch; the framework reads at this synchronous dispatch. Direct delayed registry controls pass the originally captured pair (tests already capture oldEpoch before increment and invoke after replacement). Arbitrary external callbacks lacking an original pair remain unsupported, not routed to ID fallback. I will cite this chain explicitly; please flag if your boundary requires a wire/event-carried epoch API instead (that would be an unimplemented gap, since controls don't expose such a token).
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-21f97cb315f34955aeecd5c037e0d7c1
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     3e15f04a-9ae3-49a9-9a2e-26ed2cd7bd34
+:END:
