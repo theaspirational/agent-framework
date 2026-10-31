@@ -1,0 +1,21 @@
+Your worktree is this work chain's shared tree, checked out detached at 3c95d166242892206b5e1e5d624b3c9ebb062323 — the commit you review. Leave it exactly as you found it: no commits, no edits, no new files (ignored build output is fine). The next round of the chain runs here, and the daemon records anything you leave behind when your dispatch is closed.
+
+Reviewed implementer evidence ($ORGASMIC_REVIEWED_EVIDENCE_DIR): /home/orgasmic/.orgasmic/runs/run-01M67PQ853E43HZ3FBZBQSDAB9/evidence
+
+BOUNDED DELTA REVIEW of the C LOW round (TASK-PK8RC, owned typing, AF). Range d3230a69002b493fef94e501fbf5cfc9a211080b..3c95d166242892206b5e1e5d624b3c9ebb062323 (8 commits). Not a whole audit. Task operator: Tarn; engineering constraints: Soma (programme qualifier); not decisions by the owner Vasyl. Read in full: /srv/review-drop/TASK-PK8RC-LOWS-FINAL.md (sha256 85d5d52415231803ef1bcc914065490efecb94f4491a8e131d02f2a0977d567c) and the previous review /srv/review-drop/TASK-PK8RC-REREVIEW1.md (LOW a–e).
+
+CHECK, with file:line:
+1. LOW a–e are closed as described; (b) hint retirement only with a captured (connection, transportEpoch) + entry identity; a mismatch spares the replacement entry, its hint and its stamp; the ambiguous same-pair/no-entry-token case is refused (the gap is pinned by a test), with no fallback to the ID-only API; the legacy ID-only API is unchanged.
+2. The lifecycle table, independently from the source: (A) parsed transport controls: the epoch captured in the line closure (server-connection.ts ~:2573), dropped after the boundary (~:2607-2610), synchronous emit before the first await; (B) disconnect → removeServer: connection/epoch captured at disconnect start (framework.ts ~:34357-34358, carried through ~:34363/:34399), the guard at channel-registry.ts ~:2715-2725; close → transportClosed (not removeServer, framework.ts ~:35454-35459); error = trace only. transportEpoch = a transport-boundary counter (resetPolicyForTransportBoundary ~:598-602; called on reconnect, explicit close, transport loss). Tarn has seen these lines; confirm or refute independently, and check that (B) is proven by a test SEPARATELY from (A).
+3. The stopAll restore only for an ACTIVE UNOWNED indicator with snapshot entry + hint-object identity (===); owned/newer/idle hints not touched; the existing shared-channel shutdown assertion byte-identical to d3230a69.
+4. The diagnostics map: 256 per destination, 60 s windows, reaped on actual retirement/shutdown, not on transient disconnects.
+5. Re-derive at least 3 mutants yourself (e.g. drop the epoch check in removeServer, look up the "current" pair instead of the captured one, remove the === hint identity in stopAll) and show they are killed.
+6. Test doubles `getServer: () => null` in the 2 legacy disconnect tests: no assertion was weakened (diff the asserts).
+7. Hygiene: no internal names/private paths in commits, docs or the PR body; authors are Vasyl noreply + Sol trailer.
+GATES: reuse of the worker's receipts is NOT acceptance; run your own focused run (the typing/channel-registry test files, Node 22.23.3 /opt/node-v22.23.3-linux-x64/bin/node, in a scope with a timeout) and give exact numbers. Verdict approve/reject; HIGH/MEDIUM/LOW with file:line. Don't change code.
+
+## Gates already passed at this commit
+
+orgasmic recorded these gate runs in the implementer's worktree, each on a clean tree it left clean, at 3c95d166242892206b5e1e5d624b3c9ebb062323 — the commit your worktree is cut at — or at an ancestor of it whose gate inputs are identical to this commit's: the two trees differ only in paths this project marks as not gate inputs. Read the log instead of running the gate again. Run scoped probes and required gates that lack a reusable receipt. The manager names required gates; project policy also applies. Missing receipts do not assign a full suite.
+
+- `r4-isolated-head-22233` — exit 0 — `systemd-run --user --scope -p MemoryMax=16G -p MemorySwapMax=0 /home/orgasmic/.orgasmic/runs/run-01M67PQ853E43HZ3FBZBQSDAB9/evidence/run-isolated.sh /opt/node-v22.23.3-linux-x64/bin` (cwd `.`) — at `3c95d166242892206b5e1e5d624b3c9ebb062323` — log `/home/orgasmic/.orgasmic/runs/run-01M67PQ853E43HZ3FBZBQSDAB9/evidence/gate-r4-isolated-head-22233-01M67SFMV0879944SXT272YA6Q.log`
