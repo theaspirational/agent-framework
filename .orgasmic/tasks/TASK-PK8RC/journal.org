@@ -271,3 +271,19 @@ Soma (Slack 1793404051.110089): no new wire/event token API; the existing intern
 :END:
 
 ask-9d63c1254f344441b3377aa88989e9f3 (base d3230a69, both Nodes, AF_TEST_CONCURRENCY=32: 9754/9690/0 fail/63 skip/1 cancelled, workspace-three-way.test.js 600 s timeout). Answer by the task operator Tarn: green isn't mandatory, but no "environmental" without evidence. Isolated runs of the file on base and head on both Nodes sequentially; a full-suite rerun with concurrency 8 if head has a cancellation; exact counts for every run. Done only if fail=0, the cancellation reproduces on base and the isolated file matches; otherwise blocked with the data.
+
+* tx-20261031-theaspirationalagent-a46c0eaa-c7d0-4cb4-92e5-e6cc3ef5ccf3 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-a46c0eaa-c7d0-4cb4-92e5-e6cc3ef5ccf3
+:TIME:    [2026-10-31 Sat 00:02:10]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: dcb001fc-a45b-4236-96bf-1ad74178a446
+:END:
+
+ask-7be2e6be8abb4d8888c3cbae9415f084: answer by the task operator Tarn. LOW-b broke the existing shared-channel-id test (stopAll forgets an active UNOWNED indicator's metadata). Restore the base behaviour: a stopAll snapshot of the existing ChannelEntry + the identity of that very hint object; retire only on an exact match; owned/newer/idle hints preserved; the existing test's assertions byte-identical to d3230a69; mutants on both comparisons + a control for a hint replaced after the snapshot. Not a new rule.

@@ -16228,3 +16228,18 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     8f53d522-312c-425a-bef8-8b79a24246d6
 :END:
+
+* TX 2026-10-31 Sat 00:02:10 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-1a56f944-6843-4a4c-8df3-89ad49161c88
+:TIME:         [2026-10-31 Sat 00:02:10]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Yes, keep the base behaviour (task operator Tarn; LOW-b is not meant to change the existing stopAll semantics for an UNOWNED active indicator). Conditions: (1) the existing shared-channel-id test stays assertion-byte-identical to d3230a69 (no weakening, no rewrite); (2) the stopAll snapshot uses only existing objects (the ChannelEntry and the identity of that very host-hint object), no new token/API; retire only if the entry is the one in the snapshot and the hint is that same unchanged object (===); (3) owned leases, a hint newer than the snapshot, and idle orphan hints are preserved, as the existing tests require; (4) a stopAll on a channel with an owned lease doesn't delete the host hint; the grant check on outward stops stays; (5) mutants: dropping the entry comparison and dropping the hint-object comparison are each killed; plus a control "a hint replaced after the snapshot survives". Describe this in the report as restoring base behaviour, not a new rule.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-7be2e6be8abb4d8888c3cbae9415f084
+:EVENT_ID:     07216b58-d447-461a-b103-9fc69958aaaf
+:END:
