@@ -191,3 +191,24 @@ Fix-2 review APPROVE + required follow-up (9572aac4…): MEDIUM wrong receiver d
 :TO_STATE: in_progress
 :EVENT_ID: ff6e7959-a562-49d7-a546-cd951e8cb287
 :END:
+
+* tx-20261031-theaspirationalagent-81194317-f614-45e1-bcaf-13888ee61f45 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-81194317-f614-45e1-bcaf-13888ee61f45
+:TIME:    [2026-10-31 Sat 05:17:04]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-S4Q8F
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 3ad5c4a8-ea32-492f-9dc8-46325c232dc6
+:END:
+
+Tarn (task operator), closing check for a0970645d403a7a76449221fc36f240a7aa2464b. Soma (qualifier) accepted it without a separate re-review; this is not an owner decision.
+1) Bindings: HEAD a0970645, show-toplevel = the task-s4q8f worktree itself, porcelain 0. src/mcpl/registration-ingress.ts = git show HEAD (3ae9d1ac…ca07); dist/src/mcpl/registration-ingress.js b7f26100…9caa contains `forItem: () => denied`; dist/test/registration-fork-outer.test.js dd59de3a…dfe.
+2) My targeted run (bounded: systemd-run scope 4G/swap0, timeout 600s+30s, head -c 4MB, Node 22.23.3 absolute path, conc 1, --test-timeout=120000, pattern refusal ingress|direct nested|bare capture|helper allow): 6/6 pass, 0 fail/cancel/skip, PIPE=0 0 — refusal ingress B=false/true (direct nested forks admission_missing before effects), issued fork helper allow/deny and bare capture explicit argument B=false/true. Log /tmp/s4q8f-tarn-targeted.log sha256 9624b969…058d.
+3) Full-range history/privacy scan upstream a64cfc01..a0970645 (40 commits; A 869bb3ad and B 29edcf8b are ancestors): all 40 have author and committer Vasyl Dovhanchyn noreply; messages + patches against internal names/hosts/paths/task/run/conv ids/token prefixes/private keys — 0 hits apart from the false positive "timer/home/heartbeat" (docs prose). This is not publication: the range contains B (#931 owner hold), so a dependent branch must not be published until Vasyl releases it.
+Disclosed: the worker's preliminary ungated metadata cmp exit 2 (inventory text not copied) — kept as a failure, not a behavioural gate.
+Status: the I7 source candidate for LOCAL integration only. Old LOW-3 (white-box epoch provenance) is OPEN; an external custom wrapper without composer issuance is a limitation with no proof credit. Not live/runtime qualification; doesn't unblock all of T2/2a.
