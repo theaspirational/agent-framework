@@ -288,3 +288,19 @@ My gate (Tarn, not the worker's) at 3b075de1a1a2afd006f21964671f977897d28a80, 16
 :TO_STATE: in_progress
 :EVENT_ID: 96546a95-ce4d-4029-9b63-a8b1933e3846
 :END:
+
+* tx-20261031-theaspirationalagent-7f04792a-3784-443d-8aaa-a0e4d3ad40d4 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-7f04792a-3784-443d-8aaa-a0e4d3ad40d4
+:TIME:    [2026-10-31 Sat 00:05:36]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: a69b2aa1-5ebf-441d-8e63-4d68c2dc3c8c
+:END:
+
+Correction of the midnight checkpoint (Slack 1793404982.107769), by the task operator Tarn: (1) INT-1 = A+B+D; C goes into INT-2. My statement "INT-1 blocked on C" was wrong; there's no concrete API dependency of INT-1 on C. (2) D 3rd failure: the full TAP of my first run at b6e225e0 on Node 22.23.3 was NOT kept: my script cut the output with `tail -40`; logs/failures.log contains only runtime failure events, not test names. That loss is recorded; I'm not guessing the third test. A predeclared matched comparison is running (/tmp/afd-plan.txt, bg-45). (3) AF-scope: TASK-S4Q8F dispatched from B 29edcf8b, independent of C.
