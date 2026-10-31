@@ -1,0 +1,20 @@
+{
+  "event_count": 361,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-PK8RC-reviewer-20261031T033132-run-01M6806DT12H3PRV28TJD7882E.jsonl",
+    "size_bytes": 668374
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-pk8rc/9499175e-1010-46de-a120-309b3033f0cf.jsonl",
+    "session_id": "9499175e-1010-46de-a120-309b3033f0cf",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
