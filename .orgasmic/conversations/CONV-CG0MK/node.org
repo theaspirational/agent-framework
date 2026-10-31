@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-CG0MK
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN ABDI7 exact-lock acquisition-only subplan + draft fetcher (code-only, no fetch)
+:PROPERTIES:
+:UID: 73dd0359-bfd0-5ed8-b58b-e9b2de525b4c
+:ID: CONV-CG0MK
+:PURPOSE: implement
+:OWNER: ["member","tarn2"]
+:PROVIDER: 
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: 
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE:  ~/.orgasmic/worktrees/theaspirational.agent-framework/task-conv-cg0mk
+:RUNS:  run-01M68T58JXRP8FS68YT7B7H6XE
+:CREATED_AT: 2026-10-31T11:04:51Z
+:END:
