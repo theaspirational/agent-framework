@@ -18748,3 +18748,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     0ce5bd31-3256-4e9c-b06d-ec1d3cd24aa1
 :END:
+
+
+* TX 2026-10-31 Sat 04:08:46 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-d79a1b6c-b5a5-4bde-a7e5-23894ba5e8a0
+:TIME:         [2026-10-31 Sat 04:08:46]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Addition to the brief (Soma's condition, programme qualifier): the receiver concern is MATERIAL. Required: real-path controls (the framework/registry path where possible, otherwise a direct call on the real objects) for receivers: detached (`const f=adm.forItem; f()`), wrong (`.call(otherIngress)`), missing (`.call(undefined)`), spread (`({...adm}).forItem()`). The required property: an unsupported call must REFUSE BEFORE EFFECTS (no host admit/A, no B consumption, no store/wake) — NOT silently fall back to the weaker original check. Check that the outer and item guards, B on/off and epoch provenance are preserved in each case. If receiver capture doesn't give this — that's a HIGH/MEDIUM with a concrete probe; a green suite isn't acceptance. No new authority/wire subsystem in the recommendations.
+:RUN_ID:       run-01M68270P7KBBXT53D6M7VG0QQ
+:MESSAGE_ID:   msg-556eded5ad2f421f90869aebf8314bad
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     9b0b74fc-ea53-4a4a-ab5b-438518b38c24
+:END:
