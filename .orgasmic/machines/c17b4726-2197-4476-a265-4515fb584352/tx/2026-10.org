@@ -19038,3 +19038,59 @@
 :WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
 :EVENT_ID:     e02269c2-aa6f-49e6-9a53-53effeb1cc79
 :END:
+
+
+* TX 2026-10-31 Sat 04:22:36 implementer.done TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-d2dcd3c3-f030-4671-adce-c05d28782f4f
+:TIME:         [2026-10-31 Sat 04:22:36]
+:TYPE:         implementer.done
+:ACTOR:        agent.implementer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Round 3 evidence-only close, HELD/BLOCKED. Head 93427f90: the fixture's SDK workload counters; rvearly and after-create killed on both Nodes (all-zero deepEqual), reorder/no-hash/no-evidence/marker-move killed; rvnoassert/rvdirectflag SURVIVE (expected, disclosed). head-23 9688 PASS; head-12 9688/9622/3 fail — three tune-out wait timeouts (20000 ms), head-unique: fresh matched base-12 b6e225e0 passes them. Cause unknown, not relabelled. /tmp/rv-early-store-HfWt was already gone — nothing deleted. Report /srv/review-drop/TASK-XHZ4H-HASHFIX3.md (b7d89bec…; truncated to 32 KiB by the daemon).
+:MODEL:        gpt-6.1-sol
+:EFFORT:       high
+:WORKER_COMMIT: 93427f90a16bcfbcf815217f4c080669ab842a71
+:BRANCH:       task-xhz4h-impl
+:SLICE_CONTINUES: true
+:CLOSED_TX:    tx-20261031-theaspirationalagent-fd05fc78-8b0c-4269-9c87-bfde069095cb
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-XHZ4H/dispatches/tx-20261031-theaspirationalagent-fd05fc78-8b0c-4269-9c87-bfde069095cb/report.md
+:LIFECYCLE_FROM: in_progress
+:LIFECYCLE_TO: in_review
+:EVENT_ID:     e5e7455d-32f0-4952-9a8f-79c6001f648e
+:RELEASES_CLAIM_RUN: run-01M681T4Y5G7VP7ZAQYJ8GM8HN
+:END:
+
+* TX 2026-10-31 Sat 04:22:36 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-93720176-e87d-4df8-91c6-a2ba2eecb8a2
+:TIME:         [2026-10-31 Sat 04:22:36]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  e02269c2-aa6f-49e6-9a53-53effeb1cc79
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     e1f847a2-cd30-4018-8136-ef07926b1df0
+:END:
+
+* TX 2026-10-31 Sat 04:22:55 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-79bebffc-ed38-4af2-8354-c47f0dac1cd6
+:TIME:         [2026-10-31 Sat 04:22:55]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Addition to the brief (Soma's condition, programme qualifier): an explicit parameter is NOT enforcement by itself. Required: (1) rerun the SAME concrete counterexample from the reviewer's real-path-receiver-probe — a real bare capture() receipt passed AS THE EXPLICIT outer argument — and the arrow-forwarder path, on the real WebSocket→framework→ChannelRegistry path, B off/on. If a weaker-but-valid object still bypasses the outer guard — record it as an exact UNRESOLVED CONTRACT GAP; don't present "visible in review" as invariant enforcement. (2) Preferred design: bind the full guard at supported construction/composition time (e.g. the fork captures the outer chain when the wrapper/composer is created, or a validated internal outer-context — a private brand/WeakMap token issued only by supported wrappers), rather than guessing by structural shape. If that requires a new authority/wire subsystem — STOP and ask. (3) Missing/unsupported call → refuse before effects. (4) For supported wrappers/copies — BOTH allow AND deny controls (an outer guard that permits → accepted; one that forbids → refused), so that a blanket-refuse fix can't green the tests. (5) B on/off, per-item receipts and the frozen epoch preserved. In the report — a table of every receiver/argument shape × allow/deny × B with effects (host A, B consumption, store/wake/publication).
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:MESSAGE_ID:   msg-c73914b35f184330891abce97f6e3c8c
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     c784d224-3f66-4651-80fe-81947c757edb
+:END:
