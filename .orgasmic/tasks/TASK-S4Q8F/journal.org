@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 4ff6f064-754c-4a79-b045-49d808f32947
 :END:
+
+* tx-20261031-theaspirationalagent-84ce37a0-72b2-4cf1-beaa-b7d5c4d60787 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-84ce37a0-72b2-4cf1-beaa-b7d5c4d60787
+:TIME:    [2026-10-31 Sat 00:55:01]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-S4Q8F
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 6758faa1-5693-4bb9-8d0a-f2cd9c2260c3
+:END:
+
+Stall of run-01M67MDC3Y7G9B9R6R58KVBMWD (00:54Z), reconciliation by the task operator Tarn: commits 50512535, 25b118cf, 47f3b4f2 (head 47f3b4f2195d2ff544815ea29a410c3a335864ba), tree clean. Matched plan (gate-plan.md): base 29edcf8b 22.23.3 = exit 0 for all stages, 9767/9704/0/0/63. The plan was revised before the first head cell (final head 25b118cf → 47f3b4f2; recorded in matrix-plan-revision.log; no cell rerun). The 22.23.3 head cell (pid 3449508, scope af-scope-22.23.3-head-3449468, started 00:38:46Z) is STILL RUNNING after the matrix owner 3449468 died; its dispatch-gate receipt will be missing. Not killed and not duplicated; continuation (22.12.0 base, 22.12.0 head) only after it finishes. Note: at the same time the PK8RC suite (r4-matched-base-22120) is running; both cells share the host; that's a property of the environment, recorded, not a cause. Both stalls = the 600 s stall detector during a long silent suite (daemon UX issue to file).
