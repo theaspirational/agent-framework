@@ -1,0 +1,20 @@
+{
+  "event_count": 441,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XGHH2-reviewer-20261031T103033-run-01M68R5MV7RE2REFKFXFFYRF9T.jsonl",
+    "size_bytes": 631311
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-xghh2/f6152e9f-9dc2-490e-bb17-439b237ab007.jsonl",
+    "session_id": "f6152e9f-9dc2-490e-bb17-439b237ab007",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
