@@ -19214,3 +19214,21 @@
 :EFFORT_OVERRIDE: medium
 :EVENT_ID:     3f3f8fc1-59aa-4dec-bd34-4cd5bfb183e7
 :END:
+
+
+* TX 2026-10-31 Sat 04:27:32 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-6d55f003-2f41-49f8-8922-1d30671ded8c
+:TIME:         [2026-10-31 Sat 04:27:32]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Addition to ask-53244491 (Soma: within the covered fix, under conditions): (1) the compositor only authenticates the EXISTING admission binding — it doesn't mint new permissions, scope authority, grants or persistent identity. (2) Lifetime-safe bookkeeping: WeakMap/WeakSet or a brand on the object; NO unbounded strong registry of per-item objects — show in a test/probe that forks/items aren't held (e.g. a WeakRef + gc under --expose-gc, or a structural proof that a strong collection doesn't exist). (3) No new public API: check the actual export/type reachability (what's reachable from the package's exports/entry points and .d.ts after the build), not just an empty index.ts diff. (4) If the guard/check/admit identity changes after issuance (replacing a function on the object, mutating a frozen copy is impossible — but check a non-frozen one) — validation must NOT be silently preserved: refuse admission_missing, plus a control and a mutant. (5) Everything else from the previous answer is in force: the bare-receipt/arrow negatives, allow+deny for each supported wrapper, a binding mutant in each wrapper, profile-off/A invariance; a break of a legitimate composition = STOP, not a blanket refuse.
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:MESSAGE_ID:   msg-67b863d09ff34cb48045d4a07825e516
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     97eedd49-547f-43c9-a2fe-42c24acf6657
+:END:
