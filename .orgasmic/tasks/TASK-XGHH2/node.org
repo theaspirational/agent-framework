@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-XGHH2
 #+orgasmic_version: 2
 
-* IN_REVIEW TASK-XGHH2 DX9KM execution v2 drafts: controller, producer and unit wrapper (private, code-only, not executed)
+* IN_PROGRESS TASK-XGHH2 DX9KM execution v2 drafts: controller, producer and unit wrapper (private, code-only, not executed)
 :PROPERTIES:
 :UID: 7b8eef78-d6e9-51bd-a319-ded9f76f764a
 :ID: TASK-XGHH2
