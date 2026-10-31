@@ -339,3 +339,19 @@ D matched comparison (task operator Tarn; plan /tmp/afd-plan.txt; bg-48), the la
 22.23.3 base 3b075de1: OUTER=0 INSTALL/TYPECHECK/BUILD=0, 9683/9618/2 fail/0 cancelled/63 skip, TESTEXIT=1, PIPE=0, TAP 4,179,498 B (below the cap). Failures: 1799, 1800 (liveness watchdog exit/abort).
 22.23.3 head b6e225e0: OUTER=0, stages 0, 9687/9621/3 fail/0/63, TESTEXIT=1, PIPE=0, TAP 4,182,524 B. Failures: 1803, 1804 (the same watchdog pair) + **884 "fork seed normalization preserves alignment or refuses before any shifted normal classification is stored"** (context-only-delivery.test.js:515), assertion in fixtures/context-only-fork-seed-child.mjs:12: package.json version '0.24.2' !== '0.24.1'.
 Facts: the repo has no root lockfile; package.json "@animalabs/context-manager": "^0.24.0"; my fresh `npm install` resolved **0.24.2** in both clones (the task-xhz4h worktree has 0.24.1). The normalizer file in 0.24.2 dist/src/normalize-tool-messages.js has sha256 dcfff6de…701a, the same as the 0.24.1 hash the fixture checks. So the third failure = the L1 fixture's version pin vs dependency resolution without a lockfile; that's exactly LOW-1 of review 4 ("the version pin is stricter than its hash contract"). The test exists only on head, so the difference is head-only. I'm not claiming the cause of the 2 lost names of the first runs (logs lost). The 22.12.0 cells of bg-48 are INVALID (my PATH error, exit 127, no tests); a single new launch of only those two cells: bg-50 (amendment recorded in the plan).
+
+* tx-20261031-theaspirationalagent-869c7e77-c053-4ff1-811f-7d6323c5700c task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-869c7e77-c053-4ff1-811f-7d6323c5700c
+:TIME:    [2026-10-31 Sat 03:24:21]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:TARGET: .orgasmic/tasks/TASK-XHZ4H/node.org
+:REASON: transition TASK-XHZ4H to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 7ac6abf0-40e8-49e5-a21c-8338da3e0aa9
+:END:
