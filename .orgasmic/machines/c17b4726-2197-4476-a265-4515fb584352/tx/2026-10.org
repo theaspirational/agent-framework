@@ -21768,3 +21768,17 @@
 :REASON:       Read BLUEPRINT-v2.md in full (640 lines, sections 1-9, B1-B13). Verified empirically: repo-local git config ~/src/agent-framework/.git/config is mode 0664 uid/gid 1002 (worker-writable) while controller.py:86-87 GIT neutralises only system+global config, hooksPath, global attributesFile, fsmonitor, protocol; candidate tree f8af03a8 has NO .gitattributes so the smudge/export-attribute path is not presently exploitable. Separately: the planned root-run git archive (BLUEPRINT-v2 5a) will likely abort on git dubious-ownership since CONTROL_ENV carries no SUDO_UID and GIT_CONFIG_GLOBAL=/dev/null removes safe.directory - fails closed but blocks the plan, and is absent from B1-B13. Also found: capture_unit:358-361 DEADLINE branch has no break, so stop_owned re-runs each iteration and consumes the reserved final 15s; capture_unit:361 raises leaving an un-stopped unit when invocation was never observed. Candidate tree has neither dist/ nor node_modules/, so both nested binds need mountpoint creation. Next: closure-reconstruction-plan.md + 10-row lock spot-check.
 :EVENT_ID:     bd8209aa-8b60-4bd6-92e4-2b060c0fceb9
 :END:
+
+
+* TX 2026-10-31 Sat 10:41:33 worker.progress TASK-XGHH2
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-d63a9002-545a-4fd5-a3bf-6faab7a01e47
+:TIME:         [2026-10-31 Sat 10:41:33]
+:TYPE:         worker.progress
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XGHH2
+:REASON:       Verification complete. lock-tarballs.tsv is BYTE-IDENTICAL to a fresh jq regeneration from the sealed lock (100/100 rows, not just 10); lock claims all confirmed: 101 keys incl root, lockfileVersion 3, 47 optional, 56 dev, all registry.npmjs.org HTTPS, all sha512, hasInstallScript exactly esbuild 0.28.2 + fsevents 2.3.3 (optional darwin). Confirmed sealed typescript is 7.0.2 whose bin/tsc shim delegates to @typescript/typescript-linux-x64/lib/tsc, a 24101026-byte statically-linked go1.26.4 ELF; both BLUEPRINT 5b hashes (2219f428, 4f2de678) match exactly. go1.26.4 is cgroup-CPU-aware so CPUQuota=400% is honoured (dropped an earlier GOMAXPROCS concern). Verified /var/run -> /run is a real symlink, so the /var/run tmpfs entry is a verified alias not mere uncertainty. Verified NO code path in any of the 4 scripts can mint the operator marker. unit-template.json and BASE_PROPERTIES are 28/28 identical. All 4 DRAFT headers present, all files 0444 no exec bits. Tracked tree clean at f8af03a8. Writing report.
+:EVENT_ID:     7e2ae937-52b3-48da-b267-0ec6f997394e
+:END:
