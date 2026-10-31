@@ -1,0 +1,25 @@
+{
+  "event_count": 600,
+  "tool_call_count": 39,
+  "unparsed_events": 0,
+  "bounded_events": 9,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-S4Q8F-implementer-20261031T033950-run-01M680NKSB65W88J6PJ9P6F8JC.jsonl",
+    "size_bytes": 702590
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T00-05-38-01a18f46-b4de-7b81-99ec-68d8b8a63bb8.jsonl",
+    "session_id": "01a18f46-b4de-7b81-99ec-68d8b8a63bb8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ve read the review and npm-ls explanation. I’ll first probe ready and pending mid-batch replacements at the unchanged head. Then I’ll add exact reason assertions, rename the raw factory to `forItemUnchecked`, and test that the safe helper retains the outer framework checks.\n\nUnderstood—the by-construction requirement supersedes the rename option. I’ll make direct calls to the reachable factory carry the outer checks, including before and after admission awaits, and add a mutant that removes that composition. The replacement probe matched the expected ready/pending verdicts; the interim focused suite passed 99/99 but won’t qualify the revised head.\n\nThe revised head passed 99/99 focused tests. All ten mutants were killed: the six earlier cases, ready/pending replacement cases, dropped outer composition, and lost B-wrapper receiver. Profile-off output still matches `ddc883dd…`. The two B cells have matching reuse bindings; I’m starting the fresh head cells, sequentially.\n\n22.23.3 head: typecheck/build exited 0/0; tests have produced 62,494 lines (3.60 MB), with no observed failure entries. The per-item-epoch mutant still fails only on the key-association observation; the retained outer stale check continues to block storage.\n\n22.23.3 head completed: stage exits 0/0/0; 9,866 total, 9,803 pass, 0 fail, 63 skip, 0 cancelled. Producer/capture exits are 0/0, with no truncation. The 22.12.0 head cell has started.\n\n22.12.0 head completed: stage exits 0/0/0; 9,866 total, 9,803 pass, 0 fail, 63 skip, 0 cancelled. Producer/capture exits are 0/0, with no truncation. I’m collecting the final binding metadata and read-only process reconciliation now.\n\nThe report is complete at clean head `c09aca30`: 99/99 focused tests, ten killed mutants, unchanged profile-off hash, and both fresh head cells passing with 9,803 pass / 0 fail / 63 skip. Final bindings are unchanged, and process reconciliation found zero matching survivors. I’m finalizing with the full evidence report.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
