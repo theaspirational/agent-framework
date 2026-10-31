@@ -1,0 +1,25 @@
+{
+  "event_count": 643,
+  "tool_call_count": 25,
+  "unparsed_events": 0,
+  "bounded_events": 1,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-DX9KM-implementer-20261031T093614-run-01M68N26DAFETZCQF1HFVF5APT.jsonl",
+    "size_bytes": 651021
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T08-08-38-01a19100-e739-73a3-a277-6f36c4de8e9a.jsonl",
+    "session_id": "01a19100-e739-73a3-a277-6f36c4de8e9a",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "`git rev-parse HEAD` = `9184d91e796ccd201831d9456a8662d9abd47d28`; branch = `unqualified-local-abdi7-20261031`.\n\nBoth input hashes match. The sanitised preflight found no executable machinery or applicable attributes, and `recovery/abdi7-r3-9184d91e` is created at the base. I’ll keep this round limited to the diagnostic, probe surface, test corrections and omission-boundary documentation. No build/test run.The snapshot instruction arrived after the normal switch and recovery-ref creation, but before any code edit. Both operations were against `9184d91e`, not I7. I’ll verify the newly enumerated checks and pause for clarification on the ordering deviation before editing.Tarn answered YES: retain the correct recovery ref and proceed from the verified clean `9184d91e` base. I’ll record the deviation explicitly: I switched without first asking about the I7 checkout, did not capture pre-switch porcelain, and performed the enumerated checks after the recovery ref was created. No code edit occurred before this answer.\n\nI’ll keep the ambient probe export for this bounded round: removing it would require a replacement cross-module observation path or larger reorganisation. The report will state that it is shipped and reachable through unsupported resolution paths; `@internal` does not hide it.The scoped positive will now prove acceptance, storage and classification before checking zero callbacks. The scoped re-wrapper refusal is being labelled as a negative case. Next are source-only throttle and constant-copy diagnostic assertions; no tests will run.Before committing, the binding truth table remains:\n\n1. Trusted CONTEXT_ONLY suppresses preparation: zero resolve, zero authorize, no routing fields; A and storage still run.\n2. Trusted NORMAL, or legacy normal with no context-only decision, retains existing preparation prerequisites and behaviour.\n3. In the supported internal context-only chain, a lost optional argument remains suppressed by the captured carrier; scoped identity violations may refuse earlier.\n4. Push/event and inference/request remain unchanged.\n\nThis is source-level reasoning, not a runtime claim. The five unsupported outside-scope deferrals remain separate. Mode comparison fixes constant-identity diagnostics; it cannot recover a missing ALS store from another module copy.Committed `f8af03a852c85daf9bb8079937b994fe5419ca20` on the required branch. All eight fresh source-only Git gates exited 0, including reachability and clean-tree checks. I’m completing the report with the snapshot-sequence deviation and Tarn’s authorization to proceed. No build/test run."
+    }
+  ],
+  "narrative_truncated": false
+}
