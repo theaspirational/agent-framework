@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-07MRZ
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN XGHH2 r3 targeted re-review (read-only)
+:PROPERTIES:
+:UID: 84bbbb33-6ab6-5f72-b1ba-cf9358c42f4c
+:ID: CONV-07MRZ
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: 
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: 
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: 
+:RUNS: 
+:CREATED_AT: 2026-10-31T12:29:50Z
+:END:
