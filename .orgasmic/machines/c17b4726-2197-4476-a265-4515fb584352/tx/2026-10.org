@@ -19736,3 +19736,20 @@
 :ASK_ID:       ask-a1f27e7911b14e098a5cd11e5733425f
 :EVENT_ID:     b33dd3b5-9a2b-4039-9d17-dd25a220453e
 :END:
+
+* TX 2026-10-31 Sat 05:10:25 run.message TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-c01cddcd-fe42-4f1d-bea0-6a6a86ac4bc4
+:TIME:         [2026-10-31 Sat 05:10:25]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       An addition to my answer to ask-a1f27e79 (qualifier Soma via task operator Tarn): (1) --test-timeout=600000 is the recorded actual flag of the full cell; it restores the approved comparison. Confirm it in the exact argv in the report. (2) For staged/copied trees (data/workload-head, the base fixture-closure): bind the actually consumed contents and builds via manifests (sha of the test/dist files you run + the closure manifest/lock) before and after. (3) If you cite a Git identity: first verify `git -C <tree> rev-parse --show-toplevel` equals the realpath of that tree itself. If git walks up to the parent checkout, DON'T report its HEAD as the identity of the staged tree; use only the content manifest. One pair, in-test budgets and bounds unchanged.
+:RUN_ID:       run-01M685PJ2DQ3FQ9M9KC23Q3CY9
+:MESSAGE_ID:   msg-96d86ca9c45d4493b688e60c3da1353f
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     046ba5a7-687c-4a86-81ce-6020fe760cf0
+:END:
