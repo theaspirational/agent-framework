@@ -1,0 +1,25 @@
+{
+  "event_count": 493,
+  "tool_call_count": 71,
+  "unparsed_events": 0,
+  "bounded_events": 13,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-S4Q8F-implementer-20261031T000537-run-01M67MDC3Y7G9B9R6R58KVBMWD.jsonl",
+    "size_bytes": 928995
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T00-05-38-01a18f46-b4de-7b81-99ec-68d8b8a63bb8.jsonl",
+    "session_id": "01a18f46-b4de-7b81-99ec-68d8b8a63bb8",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll read the frozen contract and repository instructions first, then implement the opt-in view, add the required probes, and run the predeclared base/head gates.The frozen §4 requires both the read-only view and a bounded host projector. I’ll store the sidecar on real `ChannelRegistry` entries and give the binder an epoch-scoped view. The existing lane checks can enforce post-await invalidation without edits to their RequiredAdmission blocks. A small additive change to `inbound-admission.ts` is needed to pass the view to the binder and tie it to epoch lifetime.The focused suite is green: 72 tests pass, including 50 synthetic fixture ingress cases and real framework tests for push ordering, post-A/B replacement races, epoch invalidation, immutable snapshots, ancestry, and B send-time refusal. Next I’ll run the four required mutants, then commit and run the predeclared sequential Node gate matrix.All four required mutants were killed by named tests. I also found two existing descriptor-rewrite paths that need scope invalidation: an inbound-only open response and lazy-placeholder backfill. I’ll add those checks before the head gates. The base run is continuing unchanged; the sequencer is paused before its first head run."
+    }
+  ],
+  "narrative_truncated": false
+}
