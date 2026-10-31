@@ -16243,3 +16243,20 @@
 :ASK_ID:       ask-7be2e6be8abb4d8888c3cbae9415f084
 :EVENT_ID:     07216b58-d447-461a-b103-9fc69958aaaf
 :END:
+
+* TX 2026-10-31 Sat 00:04:12 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-a679a4aa-7aa6-44df-b270-e0082f041b70
+:TIME:         [2026-10-31 Sat 00:04:12]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Binding refinement of the gates (Soma; supersedes "head rerun at 8" from my answer to ask-9d63): no asymmetric comparisons and no retry-until-green. Predeclare in the report, before running: ONE matched pair base d3230a69 + final head on EACH Node, sequentially, at THE SAME concurrency (AF_TEST_CONCURRENCY=8), plus fixed paired isolated runs of workspace-three-way.test.js (base+head, both Nodes). Keep the 32/parallel observations as a separate section, not replaced. Pin the head sha and settings; exact exit/total/pass/fail/skip/cancelled for EVERY run; no inference of an "environmental" cause from a later green run. Bounded: if a discrepancy remains, list it explicitly as unresolved, with no further debugging. stopAll: restoring only for an ACTIVE UNOWNED indicator; don't generalise to idle/owned/newer hints.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:MESSAGE_ID:   msg-b8d0599b320b44c1979ed2a56f5cba06
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     e388fca8-d174-44f2-b375-bea0cc143dd3
+:END:
