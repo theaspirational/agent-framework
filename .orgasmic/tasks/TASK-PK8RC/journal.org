@@ -399,3 +399,19 @@ Task operator Tarn, 01:56Z. (1) The continuation's final report: /srv/review-dro
 :END:
 
 The bounded delta review run-01M67TS6WCCR35Q0H9NPZJ8VBC: REJECT (/srv/review-drop/TASK-PK8RC-LOWS-DELTA-REVIEW.md sha256 d3fc9c74643663deda6f1bf98da3405ff2163b2c8906374aaa914b9f7ff70b22). HIGH-1: guarded retirement doesn't remove the dead server's entries in 3 ordinary paths (a lazy push entry without a record, a same-epoch re-announce/replacedWithinEpoch, an earlier-epoch entry); resolveChannel still resolves them. HIGH-2: the function-level guard at :2717 makes the second disconnect pass (framework.ts:34399) inert, because getServer(id) is already undefined; serverRemovals isn't incremented the second time. MEDIUM: the legacy doubles `getServer: () => null` bypass the production path (both fail with a real identity); mutants M1b/M2b/M7 (the captured comparison isolated) survive; the wire answers accepted:false to a legitimate removal. LOW: forceStopTyping on an identified removal without an entry; stamp reap after the refusal. Confirmed: the epoch table, (B) is proven separately from (A), the stopAll restore, the diagnostics map, hygiene, LOW a/c/d/e. CORRECTION from the task operator Tarn: my source check (tx aa134c88) called the table "matches", which is true for the lines, but I missed that :34399 can't act (HIGH-2). Fix round run-01M67W0Y48J8WSM1ZYEBFQH5G0 (sol high): only the hint+stamp provenance-gated; entry retirement if there's no strictly newer record; the replacement's entry/hint/stamp spared; the function-level guard removed; doubles with a real identity + a separate ID-only variant; split mutants with witnesses or removal of the redundant conjunct (the captured pair as the basis); a matched pair on one frozen closure.
+
+* tx-20261031-theaspirationalagent-574d6039-aca4-4ec0-b091-19b5e2e2b88c comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-574d6039-aca4-4ec0-b091-19b5e2e2b88c
+:TIME:    [2026-10-31 Sat 02:21:08]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: d60e5f20-e8e2-43c3-b4f8-eb91d12fbe91
+:END:
+
+Brief change for fix round run-01M67W0Y48J8WSM1ZYEBFQH5G0 (Soma 1793413232.577609; passed on by the task operator Tarn, delivered mid-turn 02:20:54Z, msg-6256e3f1): my "retire unless a newer one is proven" (from the review's fix direction) is WITHDRAWN; it's not equivalent to the agreed exact-match condition. Now: a bounded revert of the LOW-b-specific production entry-retirement guards/stamps/plumbing to the d3230a69 behaviour; ordinary dead-server cleanup and the ID-only API as in the base; keep a/c/d/e and the base stopAll coverage; the unreaped hint = an explicit conservative gap; no new claim about hint deletion; the doubles back to d3230a69, no invented identities. Checks: real-identity removal, both disconnect passes + a late registration, wire accepted:true, profile-off, a hunk list of the diff against d3230a69. C stays rejected/unpublished. The rejected head is kept as branch task-pk8rc-lowb-rejected-3c95d166 (= 3c95d166242892206b5e1e5d624b3c9ebb062323, created by Tarn 02:20Z). Afterwards: an independent delta review + final gates + history.

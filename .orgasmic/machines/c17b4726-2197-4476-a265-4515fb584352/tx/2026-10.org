@@ -17201,3 +17201,36 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     45e0d3ff-8e1a-457e-9e9a-b982e93002bd
 :END:
+
+* TX 2026-10-31 Sat 02:20:54 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-af809a7d-7bc0-4033-adf6-d8379ca41f8e
+:TIME:         [2026-10-31 Sat 02:20:54]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       BRIEF CHANGE (Soma, programme qualifier, 1793413232; passed on by the task operator Tarn). This REPLACES points 1, 2, 4, 5 of the brief: DON'T implement "retire unless a newer one is proven"; it isn't the same as the agreed exact-match condition (unstamped lazy entries, different connection objects whose epochs aren't globally ordered).
+:RUN_ID:       run-01M67W0Y48J8WSM1ZYEBFQH5G0
+:MESSAGE_ID:   msg-6256e3f1541344e084a6a06ccf654a76
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     118b8e32-4ee5-4fe9-81f0-808050b74774
+:END:
+
+* TX 2026-10-31 Sat 02:21:09 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-86f85b98-29a4-4e65-901e-4b247370437c
+:TIME:         [2026-10-31 Sat 02:21:09]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Revert clarification: restoring stopTypingWhere exactly to d3230a69 also restores active unowned hint deletion on force cleanup and makes the later stopAll snapshot guards unnecessary. I plan to restore both together (and keep unchanged shared-channel shutdown assertion plus original grant/disabled controls), so channel-registry.ts differs from d323 only by the bounded per-destination throttle and its reaps. Is that the intended bounded revert?
+:RUN_ID:       run-01M67W0Y48J8WSM1ZYEBFQH5G0
+:ASK_ID:       ask-a1d56326ed65499597ce702fc687ad1d
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     ac449b6a-f57a-4e1f-842c-35021b937fcd
+:END:
