@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-V86DH
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN ACQ v2 whole-fetcher targeted re-review
+:PROPERTIES:
+:UID: 6628ed8c-e934-59a6-8389-36c76cf08a26
+:ID: CONV-V86DH
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: 
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: 
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE:  ~/.orgasmic/worktrees/theaspirational.agent-framework/task-conv-v86dh-review
+:RUNS:  run-01M68X0SF6PP250N3A0G4V9QWQ
+:CREATED_AT: 2026-10-31T11:54:56Z
+:END:
