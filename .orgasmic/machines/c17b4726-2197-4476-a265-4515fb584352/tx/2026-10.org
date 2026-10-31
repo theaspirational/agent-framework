@@ -16483,3 +16483,21 @@
 :DELIVERY:     delivered
 :EVENT_ID:     ed1761fc-3f39-44ca-80ce-4f9f6e2d3ab5
 :END:
+
+* TX 2026-10-31 Sat 00:54:14 manager.dispatch_orphaned TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-5c7ec927-882e-476f-ae28-4d8ff11984e0
+:TIME:         [2026-10-31 Sat 00:54:14]
+:TYPE:         manager.dispatch_orphaned
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:TARGET:       ledgers/theaspirational.agent-framework/.orgasmic/tmp/sessions/dispatch-TASK-S4Q8F-implementer-20261031T000537-run-01M67MDC3Y7G9B9R6R58KVBMWD.jsonl
+:REASON:       worker never called `orgasmic dispatch finalize` before the run was released
+:RUN_ID:       run-01M67MDC3Y7G9B9R6R58KVBMWD
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-s4q8f
+:RELEASE_REASON: stall_timeout_exceeded: no work evidence for 600s; 11 process(es) under pid 3342382 at 3.4% cpu (work threshold 5.0%)
+:EXIT_REASON:  stall_killed
+:EVENT_ID:     5ed0bb6d-5641-4d27-b622-be3d294badcd
+:END:

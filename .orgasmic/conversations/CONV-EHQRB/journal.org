@@ -30,3 +30,18 @@
 :RUN_ID: run-01M67MDC3Y7G9B9R6R58KVBMWD
 :EVENT_ID: f2aef5c7-266d-461c-bbfb-c42ff4e3ed62
 :END:
+
+* tx-20261031-theaspirationalagent-04b2736d-9564-4d58-a065-83cb37003901 conversation.run_released
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-04b2736d-9564-4d58-a065-83cb37003901
+:TIME:    [2026-10-31 Sat 00:54:14]
+:TYPE:    conversation.run_released
+:ACTOR:   orgasmic
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-EHQRB/node.org
+:REASON: stall_timeout_exceeded: no work evidence for 600s; 11 process(es) under pid 3342382 at 3.4% cpu (work threshold 5.0%)
+:NODE_ID: CONV-EHQRB
+:RUN_ID: run-01M67MDC3Y7G9B9R6R58KVBMWD
+:EVENT_ID: 0555887d-0f7c-4982-8c49-7224f191488c
+:END:
