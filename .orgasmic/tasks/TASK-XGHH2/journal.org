@@ -31,3 +31,19 @@
 :TO_STATE: in_progress
 :EVENT_ID: 991d8e2e-d944-4655-8ae1-3e501af7dffa
 :END:
+
+* tx-20261031-theaspirationalagent-5dc849d2-1eb5-4833-b3b7-3da4e3e8a8c5 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-5dc849d2-1eb5-4833-b3b7-3da4e3e8a8c5
+:TIME:    [2026-10-31 Sat 10:50:58]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XGHH2
+:TARGET: .orgasmic/tasks/TASK-XGHH2/node.org
+:REASON: The approve close moved it to done. The drafts need a B2-B6 round plus the H1-H3 fixes.
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 4b887852-9436-4d8d-9717-cdb642a32a46
+:END:
