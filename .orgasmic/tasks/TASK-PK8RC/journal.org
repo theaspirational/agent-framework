@@ -351,3 +351,19 @@ Reconciliation after the stall of run-01M67JH84WHFD8T7T4938H7ZWM (task operator 
 :END:
 
 A new operator safety cutoff (Soma 1793408669.994559; NOT an original bound): the cell r4-matched-base-22120 of run-01M67PQ853E43HZ3FBZBQSDAB9: suite pid 3477313 (/bin/bash .../evidence/run-suite-8.sh, Node 22.12.0, base d3230a69), start Sat 00:46:51Z, scope run-u70119.scope; the parent dispatch gate pid 3477276 in the worker's scope. Cutoff = start + 3000 s = 01:36:51Z. Watcher bg-49: if pid+start+scope still match at the cutoff → save the logs to /tmp/pk8rc-cutoff/, TERM on the scope, ≤60 s grace, KILL only if the scope is alive, verify; record operator-terminated/inconclusive. If it finishes earlier, nothing is done. No replay.
+
+* tx-20261031-theaspirationalagent-496a1cae-e54c-4bd8-aab3-cbcc302f4047 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-496a1cae-e54c-4bd8-aab3-cbcc302f4047
+:TIME:    [2026-10-31 Sat 01:05:48]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: c9aca025-dda7-4d54-8c2c-b6b743753a77
+:END:
+
+r4-matched-base-22120 (pid 3477313, 00:46:51Z, run-u70119.scope) finished on its own BEFORE the operator cutoff of 01:36:51Z: gate exited:0, d3230a69, Node 22.12.0, concurrency 8: 9802/9739/0 fail/0 cancelled/63 skip, clean=yes. The cutoff wasn't used; nothing terminated; bg-49 cancelled. The next cell r4-matched-head-22120 (pid 3550956, 01:05:08Z, run-u70135.scope) runs with the bound inside run-suite-8.sh (timeout --signal=TERM --kill-after=60s 3000s + capped-command.py). The 22.12.0 pair = a disclosed method difference (unbounded base / bounded head).
