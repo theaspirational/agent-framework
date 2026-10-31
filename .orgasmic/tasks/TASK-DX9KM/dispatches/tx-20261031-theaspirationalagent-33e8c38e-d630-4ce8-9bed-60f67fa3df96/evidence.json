@@ -1,0 +1,20 @@
+{
+  "event_count": 271,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 1,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-DX9KM-reviewer-20261031T095301-run-01M68P0Y4WJFGCFD4A8NGSK9DZ.jsonl",
+    "size_bytes": 568205
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-dx9km/a9c39ca4-6026-40e1-9dcd-17add2b8afd3.jsonl",
+    "session_id": "a9c39ca4-6026-40e1-9dcd-17add2b8afd3",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
