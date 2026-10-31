@@ -1,0 +1,20 @@
+{
+  "event_count": 95,
+  "tool_call_count": 25,
+  "unparsed_events": 1,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-CONV-CG0MK-implementer-20261031T113620-run-01M68VY4JSDK109GBDY7G5QMZG.jsonl",
+    "size_bytes": 254779
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T11-05-17-01a191a2-a4df-71e1-bcff-7aaafe0fbbfa.jsonl",
+    "session_id": "01a191a2-a4df-71e1-bcff-7aaafe0fbbfa",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
