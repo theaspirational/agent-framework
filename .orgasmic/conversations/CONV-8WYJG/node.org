@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-8WYJG
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-S4Q8F
+:PROPERTIES:
+:UID: b8199b13-db0b-553e-9152-0233325a103d
+:ID: CONV-8WYJG
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-s4q8f
+:RUNS:  run-01M67ZX4GW8QKMHB0H22XQ7ARE
+:CREATED_AT: 2026-10-31T03:26:28Z
+:END:
