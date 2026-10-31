@@ -19232,3 +19232,48 @@
 :DELIVERY:     delivered
 :EVENT_ID:     97eedd49-547f-43c9-a2fe-42c24acf6657
 :END:
+
+* TX 2026-10-31 Sat 04:27:58 run.asked TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-f0c5f833-ab7a-4aed-a062-6c8c14370e82
+:TIME:         [2026-10-31 Sat 04:27:58]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       API reachability audit found an existing conflict: src/index.ts exports McplServerConnection; its generated server-connection.d.ts exposes admissionFor(params): RequiredIngress, whose forItem currently has the receiver-only signature. The required forItem(outer: RequiredIngress) therefore necessarily changes an already reachable type, even with an empty index/public-types diff. May I make only that existing signature change, with no new root exports or public context/compositor members, and report the exact .d.ts delta? Otherwise the explicit-parameter requirement and unchanged public-type reachability cannot both hold.
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:ASK_ID:       ask-e3d796a55c5e4faba4be5be68bee8eca
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     1246f0f6-4a44-453c-b7d9-5a1d4049900d
+:END:
+
+* TX 2026-10-31 Sat 04:28:16 run.answered TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-cf70822e-e60a-48ab-bfc5-30ccf0df53ea
+:TIME:         [2026-10-31 Sat 04:28:16]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Task operator Tarn's answer: YES, only that signature. Verified: `forItem` doesn't exist at B 29edcf8b or at 47f3b4f2 — it was introduced by this same task in b52dd8c4 (`git log -S forItem 29edcf8b..c09aca30`), it's unpublished. So the change touches the type of our own unpublished addition, not an upstream/B public type. Conditions: (1) no new root exports, public members of a context/compositor, new public types; forItem stays an optional member of RequiredIngress (or explain why not); (2) in the report, the exact .d.ts delta of the built output relative to BOTH B 29edcf8b (the target comparison: the only difference from B = the presence of the forItem member and its signature) and c09aca30 (receiver → parameter); (3) if any other reachable public type changes — STOP and ask. Everything else from the previous answers is in force.
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:ASK_ID:       ask-e3d796a55c5e4faba4be5be68bee8eca
+:EVENT_ID:     13aeef23-8de2-467e-96ec-5bb5bf793921
+:END:
+
+* TX 2026-10-31 Sat 04:28:18 implementer.reported TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-7b3051b7-60b8-4e69-8852-74e8919d4c0f
+:TIME:         [2026-10-31 Sat 04:28:18]
+:TYPE:         implementer.reported
+:ACTOR:        agent.implementer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:RUN_ID:       run-01M6838A7CBXAWYC4MNMCZRKXB
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
+:EVENT_ID:     3595a53f-4c0c-4e82-a803-1fa0ae1c1cf6
+:END:
