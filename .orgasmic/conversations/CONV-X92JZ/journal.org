@@ -15,3 +15,18 @@
 :EVENT_ID: 697f6050-9884-4cb4-af97-357bd0ec5c87
 :REQUEST_REPLAY_V1: {"request_id":"tarn-abdi7-acq-review-conv-1","mutation":{"operation":"conversation.created","project_id":"theaspirational.agent-framework","payload_sha256":"1b9158a7b7b054b02af8cbf12ee4ed26a2f4aad6b28bb37ac108213baf51e111"},"mutation_id":"CONV-X92JZ","written_paths":[{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-X92JZ/node.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-X92JZ/links.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-X92JZ/journal.org"}]}
 :END:
+
+* tx-20261031-theaspirationalagent-673ed48a-6e9a-44fc-aab6-6ccca5e7221e conversation.run_started
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-673ed48a-6e9a-44fc-aab6-6ccca5e7221e
+:TIME:    [2026-10-31 Sat 11:20:11]
+:TYPE:    conversation.run_started
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-X92JZ/node.org
+:REASON: dispatch attempt started
+:NODE_ID: CONV-X92JZ
+:RUN_ID: run-01M68V0GRKWKD8WX7NPX2VZ1YK
+:EVENT_ID: 766571a1-9e20-48f2-b5ac-4f72e95fca07
+:END:
