@@ -303,3 +303,19 @@ ask-7be2e6be8abb4d8888c3cbae9415f084: answer by the task operator Tarn. LOW-b br
 :END:
 
 Soma (Slack 1793404993.182479), passed to the worker by the task operator Tarn: stopAll restoring only for an active unowned indicator (exact entry+hint snapshot guards, assertions unchanged, replacement-hint controls, both mutants); not generalised. Gates: a predeclared matched pair base+final head on each Node sequentially at the same concurrency 8 + paired isolated workspace-three-way runs; the 32/parallel observations separately; exact counts for every run; no retry-until-green, no "environmental" inference; unresolved discrepancies stay explicit.
+
+* tx-20261031-theaspirationalagent-b030fb90-44b8-4c3b-b740-d870b9b50001 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-b030fb90-44b8-4c3b-b740-d870b9b50001
+:TIME:    [2026-10-31 Sat 00:45:57]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:TARGET: .orgasmic/tasks/TASK-PK8RC/node.org
+:REASON: transition TASK-PK8RC to in_progress
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: 518c8062-9df0-48e5-848a-edbfffdbcda5
+:END:
