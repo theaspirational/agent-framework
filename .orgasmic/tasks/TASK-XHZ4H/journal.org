@@ -467,3 +467,24 @@ D status after round 3 + diagnostic pair (Soma's decision (b), engineering sched
 :TO_STATE: in_progress
 :EVENT_ID: 41ec8965-c90d-4e63-9a99-ea4d2784ead6
 :END:
+
+* tx-20261031-theaspirationalagent-b05ca0aa-fae6-4f88-be37-686746c66340 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-b05ca0aa-fae6-4f88-be37-686746c66340
+:TIME:    [2026-10-31 Sat 07:20:17]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 3703898a-6d8b-4be7-9edb-a5059231356c
+:END:
+
+Qualifier disposition (Soma 1793431124, recorded by operator Tarn): final source-review step COMPLETE (CONV-5WJC0, /srv/review-drop/TASK-XHZ4H-FINALDELTA-REVIEW.md 7bd9c7ba…8176). D is a LOCAL source candidate at 93427f90; its full Node12 qualification stays FAILED/HELD. No cause, no PASS, no INT-1/I6/main clearance. The two non-reproducing subsets (DIAG1, DIAG2) and the green head-12 at 93932bae remain separate observations. No repetition campaign now.
+Carried findings:
+- MEDIUM: the FORK_SEED_TEST_DIR directory check (test:506) proves nothing on green paths. creates:0 (test:504) is the real boundary evidence. Don't claim no-directory proof.
+- LOW: the positive workload deepEqual (child.mjs:97-98) is near-tautological.
+- LOW: the doc doesn't reference the hash pin (child.mjs:48).
+Evidence noise: the `nul byte` (channel-registry writeCoordinatorState) and `readCoordinatorState is not a function` stacks appear 2/2/2 times in base-12-fresh, head-12 and green head-23. They are pre-existing, not the D cause. A separate private follow-up task covers them.

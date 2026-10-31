@@ -1,0 +1,20 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-55WHY
+#+orgasmic_version: 2
+
+* BACKLOG TASK-55WHY Tune-out coordinator-state baseline defects (nul byte write; missing readCoordinatorState). Triage only, private
+:PROPERTIES:
+:UID: a2f9d76a-ceed-52cc-a0a5-f7ef96f5e78b
+:ID: TASK-55WHY
+:PRIORITY: P3
+:END:
+
+** Description
+Baseline defects in tune-out coordinator state, seen as swallowed log errors in the AF full suite (private evidence, not for public reports):
+1. `[tune-out] ... could not be stored: Error: nul byte found in provided data at position: 4` in ChannelRegistry.writeCoordinatorState (dist/src/mcpl/channel-registry.js), code GenericFailure.
+2. `[tune-out] ... could not be read: TypeError: this.channelRegistry.readCoordinatorState is not a function` in TuneOutCoordinator.lastLooks (dist/src/tune-out/coordinator.js).
+Each appears exactly twice in base-12-fresh, head-12 and green head-23 of XHZ4H (run-01M681T4… evidence), so they are pre-existing and outcome-neutral. No test asserts a round trip of coordinator state.
+NOT the D (XHZ4H) cause, and NOT an implementation authorisation: triage/reading only until there's a separate decision.
+** Acceptance
+- Triage: on which base (upstream main?) it reproduces, and which tests trigger it
+- A proposal: fix vs upstream issue, with the evidence kept private
