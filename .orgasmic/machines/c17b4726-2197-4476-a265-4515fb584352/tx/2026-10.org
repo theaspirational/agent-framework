@@ -17234,3 +17234,20 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     ac449b6a-f57a-4e1f-842c-35021b937fcd
 :END:
+
+* TX 2026-10-31 Sat 02:22:02 run.answered TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-8665a159-e601-42cd-8e47-15642959862d
+:TIME:         [2026-10-31 Sat 02:22:02]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Yes, that's the intended bounded revert (task operator Tarn's call, within Soma's direction 1793413232). Restore stopTypingWhere and stopAll TOGETHER exactly as at d3230a69 (the stopAll snapshot guards existed only because of the LOW-b change, so they go too). This is the BASELINE behaviour, not a new claim about hint deletion; write it that way in the docs. Keep unchanged: the shared-channel shutdown assertion, the original grant/disabled controls, all base assertions. channel-registry.ts differs from d3230a69 ONLY by the bounded per-destination throttle (256/60s) and its reaps; list every hunk. Tests added only for the reverted LOW-b/snapshot mechanisms may be removed, but name each one in the report with the reason (which reverted mechanism it covered); DON'T remove/weaken anything that exists at d3230a69. The LOW-e AST guard: if helpers (retireRegistration etc.) disappear, re-target the guard at the remaining destination-choosing code without reducing coverage of a/c, and show that. The unreaped/conservative hint gap = an explicit item in the docs. Then the gates as in the brief.
+:RUN_ID:       run-01M67W0Y48J8WSM1ZYEBFQH5G0
+:ASK_ID:       ask-a1d56326ed65499597ce702fc687ad1d
+:MESSAGE_ID:   msg-794825177c9949529dc9c6371ccb6b8c
+:DELIVERY:     delivered
+:EVENT_ID:     f94f9aa4-de44-4d31-8108-ca2d1759b897
+:END:
