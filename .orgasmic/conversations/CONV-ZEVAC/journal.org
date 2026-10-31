@@ -15,3 +15,18 @@
 :EVENT_ID: 62b5c70a-e230-4a6c-ad9e-0eb9ac4d14c0
 :REQUEST_REPLAY_V1: {"request_id":"tarn-xghh2-r2-review-conv-1","mutation":{"operation":"conversation.created","project_id":"theaspirational.agent-framework","payload_sha256":"0e8aee95781af389c38b29ebb13843345989a8109aca896203ae0e1839bc1ade"},"mutation_id":"CONV-ZEVAC","written_paths":[{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-ZEVAC/node.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-ZEVAC/links.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-ZEVAC/journal.org"}]}
 :END:
+
+* tx-20261031-theaspirationalagent-b848b833-4a9d-4d3c-a170-2ee48f6fb635 conversation.run_started
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-b848b833-4a9d-4d3c-a170-2ee48f6fb635
+:TIME:    [2026-10-31 Sat 11:32:24]
+:TYPE:    conversation.run_started
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-ZEVAC/node.org
+:REASON: dispatch attempt started
+:NODE_ID: CONV-ZEVAC
+:RUN_ID: run-01M68VPW5V3F0ZJJS1D9XT69GQ
+:EVENT_ID: 877aab30-100e-4462-b7da-8ab90f77c40c
+:END:

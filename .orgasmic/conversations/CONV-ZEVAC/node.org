@@ -17,7 +17,7 @@
 :HARNESS_ARGS: 
 :MODE: 
 :MACHINE: c17b4726-2197-4476-a265-4515fb584352
-:WORKTREE: 
-:RUNS: 
+:WORKTREE:  ~/.orgasmic/worktrees/theaspirational.agent-framework/task-conv-zevac-review
+:RUNS:  run-01M68VPW5V3F0ZJJS1D9XT69GQ
 :CREATED_AT: 2026-10-31T11:32:02Z
 :END:
