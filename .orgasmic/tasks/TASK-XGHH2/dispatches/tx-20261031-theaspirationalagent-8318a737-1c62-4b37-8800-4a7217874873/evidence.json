@@ -1,0 +1,25 @@
+{
+  "event_count": 444,
+  "tool_call_count": 34,
+  "unparsed_events": 1,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XGHH2-implementer-20261031T100653-run-01M68PTAARYBQB49XNQJ504V2C.jsonl",
+    "size_bytes": 596108
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T10-06-54-01a1916d-2e84-78d0-abf0-d8ac3c779640.jsonl",
+    "session_id": "01a1916d-2e84-78d0-abf0-d8ac3c779640",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the supplied input hashes first, then read the records and draft only under the evidence directory. I won’t execute package code, run the drafted scripts, or make git writes. Any unverified isolation claims will remain explicit blockers.\n\nThe new canary record’s hash matches. I’ll incorporate its PID-1, reaping and RuntimeMaxSec observations, and use the identity-bound catatonit TERM path—not TERM to MainPID/unshare. The go file will be an operator-supplied scope marker, and the payload will verify its dropped credentials before any producer runs. The first draft checkpoint is already written.\n\nThe draft set is written, including the operator’s additions. It remains fail-closed and incomplete: the blueprint names the missing provisioning, canary, effective-state and teardown adapters rather than treating the reference code as execution-ready. I’m now recording checksums and the final blocker inventory. The tracked tree remains clean.\n\n## Changed\nDrafts, checksums and blocker inventory are in [report.md](../evidence/report.md).\n\n## Verification Gates\nInput hashes and draft checksums matched. Tracked tree is clean. No package or draft execution occurred.\n\n## Unmet Criteria\nController integration remains incomplete. Report discloses possible automatic index refresh, a 15-second progress-cadence miss, and no dispatch finalization.\n\n## Residual Risk\nPrivate, unreviewed drafts only. Execution remains refused and unauthorised.The report already exists. I’ll finalize as **blocked** using that file, without `--commit`: the controller adapters remain incomplete, and the task forbids git writes.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
