@@ -17251,3 +17251,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     f94f9aa4-de44-4d31-8108-ca2d1759b897
 :END:
+
+* TX 2026-10-31 Sat 02:23:11 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-9bab87a7-501f-4981-972c-054fc34c85cd
+:TIME:         [2026-10-31 Sat 02:23:11]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Clarification (Soma 1793413363, passed on by the task operator Tarn): the revert = a full restoration of stopTypingWhere/the ordinary cleanup to the d3230a69 behaviour, NOT a hybrid with the withdrawn LOW-b guards. The throttle/reaping changes affect ONLY the diagnostic state (the 256/60s stamp map); they must not reintroduce an entry/hint-retirement policy through another helper. Show that in the hunk list (for each hunk: diagnostic only, or a/c/e). Keep every base assertion; list the removed tests of the withdrawn mechanisms with reasons; the rejected evidence stays.
+:RUN_ID:       run-01M67W0Y48J8WSM1ZYEBFQH5G0
+:MESSAGE_ID:   msg-db499046a78342dfa1f30b50393ed26d
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     f2580812-88be-46de-857e-c2fdb8011b30
+:END:
