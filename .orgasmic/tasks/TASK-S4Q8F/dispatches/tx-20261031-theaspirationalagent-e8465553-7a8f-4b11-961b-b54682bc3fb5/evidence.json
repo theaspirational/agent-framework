@@ -1,0 +1,20 @@
+{
+  "event_count": 592,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-S4Q8F-reviewer-20261031T040649-run-01M68270P7KBBXT53D6M7VG0QQ.jsonl",
+    "size_bytes": 765484
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-s4q8f/5754cad3-3267-4ec6-95cd-d29fd9608b48.jsonl",
+    "session_id": "5754cad3-3267-4ec6-95cd-d29fd9608b48",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
