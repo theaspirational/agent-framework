@@ -1,0 +1,25 @@
+{
+  "event_count": 293,
+  "tool_call_count": 10,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XHZ4H-implementer-20261031T050744-run-01M685PJ2DQ3FQ9M9KC23Q3CY9.jsonl",
+    "size_bytes": 286994
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-26-29-01a18e47-2096-7a31-bcbe-8057f0b59b46.jsonl",
+    "session_id": "01a18e47-2096-7a31-bcbe-8057f0b59b46",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "Preflight found a flag conflict: the recorded full head-12 command and `package.json` both use `--test-timeout=600000`, which the new brief says not to use. The assigned root also has a different dependency closure; the existing `data/workload-head` checkout has the requested head and frozen closure. I’ll ask which timeout and head checkout to use before running anything. Free space is about 23.9 GiB, above the 20-GiB reserve.\nThe operator corrected the brief: use the recorded `--test-timeout=600000`, with unchanged in-test budgets, and use the existing `data/workload-head` and `data/fixture-closure` trees. I’ll record that correction and run the four-file pair once each, reconciling the head cell’s owned processes before starting base.\nThe four-file pair completed. Head: 43 tests, 43 pass. Base: 42 tests, 41 pass, 1 fail—the old fixture’s CM version assertion. All five tune-out leaves passed in both cells. Neither capture was inconclusive, and both scopes were empty after completion; no TERM or KILL was needed. This remains a reproduction observation, not qualification or a causal finding.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
