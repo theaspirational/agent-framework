@@ -18574,3 +18574,21 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     cb52f85c-64ba-4407-933c-59ae991b9874
 :END:
+
+
+* TX 2026-10-31 Sat 04:01:05 run.message TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-2b9d9e0b-de30-422b-b7ee-350aba431edc
+:TIME:         [2026-10-31 Sat 04:01:05]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Narrowing round 3 (Soma's condition, programme qualifier): ONE small test-only round, not a new instrumentation framework. (1) Observe the fixture's ACTUAL SDK call sites (calls to AgentFramework.create/store acquisition, addMessage, and normalization) with wrappers at the call site inside the fixture itself, preserving receiver/return/error semantics. DON'T redefine non-configurable native methods and DON'T patch SDK/loader exports (beyond the existing mock.module for stripUnpairedToolBlocks) — remember the "Cannot redefine property" lesson. (2) A missing directory by itself ISN'T proof — the main proof is counters = 0; the directory check is only an addition. (3) Mismatch: the exact reason "normalizer hash contract mismatch; re-audit required" + all counters 0. (4) rvearly is a mandatory killed mutant; keep its earlier real-write observation (the reviewer's evidence) as a reference. (5) Order: focused controls/mutants first → freeze once → final-head gates (reused base labelled). (6) CLEANUP — I'm withdrawing my instruction about /tmp/rv-early-store-*: no broad deletion. Delete only exact reviewer-owned synthetic paths named in the reviewer's evidence, only after the counterexample/report is preserved and after checking that nobody is using them (lsof/fuser); record each path. If in doubt — don't delete, list it. No production changes, no native reader-format claims.
+:RUN_ID:       run-01M681T4Y5G7VP7ZAQYJ8GM8HN
+:MESSAGE_ID:   msg-5e3a65121cb04f6980659d1683023b3c
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     571fdcb7-b9c0-4d56-a5f5-1167a4184872
+:END:
