@@ -17873,3 +17873,38 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     97ddceee-04cd-4694-ac5d-16620a1d2432
 :END:
+
+
+* TX 2026-10-31 Sat 03:35:00 run.message TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-ccf7e961-e975-4874-8a19-712ad2542898
+:TIME:         [2026-10-31 Sat 03:35:00]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Clarification of my answer to ask-758e21c5 (Soma's condition, programme qualifier): the marker must observe the ACTUAL invocation of the witness — emit it in the same code path that invokes the first real fork work (e.g. in the mocked normalizer/stripUnpairedToolBlocks wrapper on the first normalizations++, or right at the first real fork call), not as a decorative console.log line at the top. The real fork-before-hash reorder mutant (the hash assert moved below the real fork work) must be KEPT and rerun — don't replace it with an easier print-order mutant; the marker-move mutant is only an addition. Show explicitly that on changed bytes the guard refuses BEFORE the first real fork work (the marker/normalization counter = 0). No product logging/dependency changes.
+:RUN_ID:       run-01M67ZSW69W73G44KPCTCACQ7Z
+:MESSAGE_ID:   msg-a4ce87d771594b458b315bc94823ac05
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     00af17db-a049-4266-9e23-65dbf273a42a
+:END:
+
+* TX 2026-10-31 Sat 03:35:00 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-54c5e48f-4d4f-4d4e-bfc1-b4f203d910ef
+:TIME:         [2026-10-31 Sat 03:35:00]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       An addition to check (6), Soma's condition: keep the npm-ls discrepancy OPEN until it's explained. The same inode/lock/inventory is NOT by itself equivalent resolution context — record for each tree: cwd/prefix, the package.json manifest (diff base vs head), npm version/config/flags, and the actual resolved entries (several of the 526 "missing"/41 "extraneous" by name, and why). Don't "repair" the comparison with a reinstall and don't call ELSPROBLEMS harmless without an explanation. If it can't be explained — state that as an open MEDIUM/limitation, not a pass.
+:RUN_ID:       run-01M67ZX4GW8QKMHB0H22XQ7ARE
+:MESSAGE_ID:   msg-6fefd1b6e20344678a6f3e89b4a709e5
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     dd6e6857-9445-4d50-b29a-be4ebcc5c322
+:END:
