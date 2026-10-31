@@ -1,0 +1,20 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-DX9KM
+#+orgasmic_version: 2
+
+* BACKLOG TASK-DX9KM Unqualified local A+B+D+I7 composition, stage 1: code-only merge
+:PROPERTIES:
+:UID: 854527c5-53cc-50c2-bde2-c7f87978f209
+:ID: TASK-DX9KM
+:PRIORITY: P1
+:END:
+
+** Description
+Unqualified local composition of A+B+D+I7 on agent-framework, STAGE 1: code-only merge plus an independent semantic review. Authorised by qualifier Soma (Slack 1793434074) as covered EM8Q2 work. This is not an owner decision.
+Heads: A 869bb3add7b48893d48b2ce50ea423e4b33fdfbc; B 29edcf8b7f7b31d0ab35f59ab0e6aab75c0f4e04; I7 a0970645d403a7a76449221fc36f240a7aa2464b (contains A and B); D 93427f90a16bcfbcf815217f4c080669ab842a71 (contains A). merge-base(I7, D) = A. Seven files are touched on both sides.
+Plan: /srv/review-drop/tarn-rtaln-20261030/EM8Q2-NEXT-SOURCE-WORK-v1.md (e6990ae4…c5a9), §3.
+** Acceptance
+- A local ref unqualified-local-abdi7-20261031 with a non-force merge commit of I7 and D. Both parents preserved, and recovery refs for both.
+- No build, package execution, test suite, lifecycle run, native 2b, push, main reset or deletion.
+- An independent review covers auto-merged semantics as well as conflict hunks: D storage/classification ordering × per-item issued-context composition, frozen epochs, A refusal, B routing, profile-off.
+- UNQUALIFIED; inherits D's release hold and the #931 hold. Can't clear I6 or lift production barriers.
