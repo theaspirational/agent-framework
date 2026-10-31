@@ -17688,3 +17688,49 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     89034b8a-3663-4b1b-ac90-2f1e1d161090
 :END:
+
+
+* TX 2026-10-31 Sat 03:30:32 run.asked TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-46e818b7-c2f8-4bc7-9a67-459042c53fff
+:TIME:         [2026-10-31 Sat 03:30:32]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       The exact-stdout assertion plus JSON evidence checks passes pristine tests and kills evidence deletion/hash removal, but the specified late-hash reorder mutant still survives on both Nodes: framework diagnostics are on stderr, so stdout remains exactly the evidence line. May I add one explicit test-only FORK_SEED_WITNESS_STARTED stdout marker immediately after the hash assertion and before any witness work? The mandated exact-stdout assertion would then deterministically kill late validation without touching src/deps/production guard. I will retain the first survivor observations and rerun the specified mutants and fresh head cells only after the decision.
+:RUN_ID:       run-01M67ZSW69W73G44KPCTCACQ7Z
+:ASK_ID:       ask-758e21c51d93492daa038c789f97cb8b
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     b2bf2c39-e2fd-4e1f-b127-d01f4c347b4a
+:END:
+
+* TX 2026-10-31 Sat 03:30:51 run.answered TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-138d7cef-2608-4eb6-b63d-56541de49061
+:TIME:         [2026-10-31 Sat 03:30:51]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       Yes, this is the task operator Tarn's call (not the owner's): a test-only marker FORK_SEED_WITNESS_STARTED is allowed, under these conditions: (1) it's a SEPARATE first statement of the witness work (before framework creation/addMessage/fork), not bundled with the hash assert, so that moving the hash assert lower leaves the marker in front of the witness work; (2) the mismatch test: stdout === exactly the evidence line (the marker is absent); (3) the positive test: the evidence line, then the marker, then FORK_SEED_ALIGNMENT_OK, in that order; (4) an extra mutant: move the marker below the witness work → must be killed by the positive test (otherwise the marker doesn't prove "before"); (5) the first survivor observations of the reorder mutant (both Nodes) stay in the report as the first-try result, not erased; (6) no src/deps/production guard changes. Then all mutants (reorder, evidence deletion, hash removal, marker-move) and the fresh head cells as in the brief.
+:RUN_ID:       run-01M67ZSW69W73G44KPCTCACQ7Z
+:ASK_ID:       ask-758e21c51d93492daa038c789f97cb8b
+:EVENT_ID:     0146dba1-f3ae-4b35-b4f0-e275d447fc64
+:END:
+
+* TX 2026-10-31 Sat 03:30:51 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-af72f1cf-a065-4a5b-81b4-ff76efcecdae
+:TIME:         [2026-10-31 Sat 03:30:51]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  b2bf2c39-e2fd-4e1f-b127-d01f4c347b4a
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     eb47c35e-db4a-47ad-8a46-db97698e8717
+:END:

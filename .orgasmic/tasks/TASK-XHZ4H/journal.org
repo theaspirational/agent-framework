@@ -355,3 +355,19 @@ Facts: the repo has no root lockfile; package.json "@animalabs/context-manager":
 :TO_STATE: in_progress
 :EVENT_ID: 7ac6abf0-40e8-49e5-a21c-8338da3e0aa9
 :END:
+
+* tx-20261031-theaspirationalagent-69543cd1-ac78-47ad-94d5-a70c580636d0 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-69543cd1-ac78-47ad-94d5-a70c580636d0
+:TIME:    [2026-10-31 Sat 03:30:51]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 07d84278-65d4-45f2-a41b-e82ecd6b253e
+:END:
+
+ask-758e21c5 (fix round 2, run-01M67ZSW69W73G44KPCTCACQ7Z): the reviewer's reorder mutant survived the exact-stdout assert on both Nodes (framework diagnostics go to stderr). The task operator Tarn's call (not the owner's): a test-only FORK_SEED_WITNESS_STARTED as a separate first statement of the witness; mismatch stdout = exactly the evidence line; positive order evidence→marker→ALIGNMENT_OK; an extra marker-move mutant must be killed; the first survivor observations are kept; no src/deps/guard.
