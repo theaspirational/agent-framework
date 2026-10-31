@@ -16647,3 +16647,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     74462b1f-9504-436c-aea7-0920b54679bf
 :END:
+
+* TX 2026-10-31 Sat 00:59:55 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-5fdf1147-3ce7-4110-9670-00bc820ebf07
+:TIME:         [2026-10-31 Sat 00:59:55]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Clarification (Soma): the 22.12.0 pair (base with no bound, head with the timeout bound) is a DISCLOSED METHOD DIFFERENCE, not an identical pair; describe it in the report exactly that way and don't rerun the base cell to even it out. A timeout or log truncation = inconclusive. Progress lines show actually observed activity (e.g. the log line count/last test), not invented work.
+:RUN_ID:       run-01M67PQ853E43HZ3FBZBQSDAB9
+:MESSAGE_ID:   msg-8a8262f7b5d84d54a00be16543b1fc04
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     fa195857-5489-450c-a518-32387537249a
+:END:
