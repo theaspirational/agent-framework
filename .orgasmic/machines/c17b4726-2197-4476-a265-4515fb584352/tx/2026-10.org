@@ -18766,3 +18766,20 @@
 :DELIVERY:     queued
 :EVENT_ID:     9b0b74fc-ea53-4a4a-ab5b-438518b38c24
 :END:
+
+* TX 2026-10-31 Sat 04:10:05 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-127af6ee-8481-4f19-8a82-120b9ba79962
+:TIME:         [2026-10-31 Sat 04:10:05]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       A clarification from Soma to my previous message: not every spread copy is invalid. Test POSITIVELY the actually supported framework wrapper/copy path (e.g. framework.ts's queue/connection wrapper, withReplyConsumer's spread) — it must keep the full outer+item binding and work. NEGATIVELY: detached/wrong/weakened copies — they must refuse before effects, without a weaker fallback. The invariant: "no guard bypass and no weaker fallback", NOT "reject all object spreads". Don't recommend fixes that break legitimate framework composition just to make the negatives green.
+:RUN_ID:       run-01M68270P7KBBXT53D6M7VG0QQ
+:MESSAGE_ID:   msg-24b09e598c1b4641815c9492b4ea8aa2
+:FROM:         member:tarn2
+:DELIVERY:     queued
+:EVENT_ID:     e38bf8ca-9f6d-4590-adae-4538cc10868b
+:END:
