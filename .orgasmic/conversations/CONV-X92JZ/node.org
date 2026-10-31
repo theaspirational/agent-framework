@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-X92JZ
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN ABDI7 ACQ-v1 independent read-only review (input binding plus full fetcher)
+:PROPERTIES:
+:UID: 6a0b357a-376b-5190-93f3-71037d8153fe
+:ID: CONV-X92JZ
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: 
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: 
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: 
+:RUNS: 
+:CREATED_AT: 2026-10-31T11:19:48Z
+:END:
