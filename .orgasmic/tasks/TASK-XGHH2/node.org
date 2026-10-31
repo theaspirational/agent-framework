@@ -1,0 +1,23 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-XGHH2
+#+orgasmic_version: 2
+
+* BACKLOG TASK-XGHH2 DX9KM execution v2 drafts: controller, producer and unit wrapper (private, code-only, not executed)
+:PROPERTIES:
+:UID: 7b8eef78-d6e9-51bd-a319-ded9f76f764a
+:ID: TASK-XGHH2
+:PARENT: TASK-DX9KM
+:PRIORITY: P1
+:END:
+
+** Description
+Private drafting of the stage-1 execution blueprint v2 for the UNQUALIFIED local A+B+D+I7 composition, plus the controller, producer and unit-wrapper scripts. The scripts are drafts only. Nothing may execute, including the wrapper; the candidate slot refuses execution until it is resolved. Scope comes from qualifier Soma (1793441074); operator is Tarn. Not an owner decision.
+
+** Acceptance
+- Drafts only in the evidence dir. No repo commit, no execution.
+- Facts only from the cited verified inputs; any unknown is named.
+- A candidate slot that refuses execution until resolved.
+- One original aggregate deadline.
+- Private manifests and artifact handoff.
+- Exact privilege and resource boundaries.
+- A closure plan for option (b), exact-lock reconstruction with scripts disabled, written as a plan only.
