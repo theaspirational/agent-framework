@@ -431,3 +431,19 @@ Brief change for fix round run-01M67W0Y48J8WSM1ZYEBFQH5G0 (Soma 1793413232.57760
 :TO_STATE: in_progress
 :EVENT_ID: 135858ef-4603-49c4-9d03-45b2119f9786
 :END:
+
+* tx-20261031-theaspirationalagent-e0e78347-23c8-438a-96df-112fd9c07d40 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-e0e78347-23c8-438a-96df-112fd9c07d40
+:TIME:    [2026-10-31 Sat 03:45:18]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 20924866-ffb2-48e0-a778-dfb7e520d20f
+:END:
+
+Same-code reuse (the task operator Tarn checked it, Soma agrees): `git diff --stat 7504acbd 46be5586 -- src test package.json package-lock.json npm-shrinkwrap.json` is empty; the only changed file is docs/reply-routing.md. The 4 matched cells at 7504acbd (run-01M67W0Y48J8WSM1ZYEBFQH5G0) are labelled SAME-CODE REUSE for 46be5586, not fresh. The historically missing exits stay missing. A fresh independent INT-2 composition gate is mandatory before bundle qualification; composition/publication doesn't bypass the #931 hold.

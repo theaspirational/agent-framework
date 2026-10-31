@@ -18276,3 +18276,20 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     736214c9-89a5-4acc-9b27-ccf800d0038e
 :END:
+
+* TX 2026-10-31 Sat 03:45:17 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-4ffe5f10-330b-4b51-90ce-d34388d66347
+:TIME:         [2026-10-31 Sat 03:45:17]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       A clarification of LOW-2 (Soma's condition): don't choose a rename — the outer+item checks must compose BY CONSTRUCTION on the usable path: the publicly reachable fork (what a batch lane calls) must already include the outer check, so a caller can't skip it; a safer name/comment alone doesn't count. A test: a direct call to the reachable fork without the helper still refuses on outer framework.ts:35200-35203 conditions (queue closed → admission_not_ready; foreign connection → admission_stale) + a mutant that removes the composition → killed. The replacement behaviour: explicit verdict controls for both cases (the replacement's scope resolved → m2 accepted against the new generation; unresolved → the expected verdict per the current code, and if it's a false pass — STOP/ask). Keep the explanation of the npm-ls resolution context (the symlinked .matched-base) and the earlier failed evidence (the first differential, the dev failure) in the report.
+:RUN_ID:       run-01M680NKSB65W88J6PJ9P6F8JC
+:MESSAGE_ID:   msg-ec406eff1640416c99bff7b41789d3ca
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     f2a40687-50db-4b5f-822e-89d7a2fc0c6f
+:END:
