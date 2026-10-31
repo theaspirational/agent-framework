@@ -1,0 +1,25 @@
+{
+  "event_count": 362,
+  "tool_call_count": 32,
+  "unparsed_events": 0,
+  "bounded_events": 4,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-HJV3J-implementer-20261031T114648-run-01M68WH91PFZGYNYPHBX4WN2KK.jsonl",
+    "size_bytes": 604920
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T11-46-48-01a191c8-a737-70c1-a059-f67cb01e08cf.jsonl",
+    "session_id": "01a191c8-a737-70c1-a059-f67cb01e08cf",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "## Changed\nLocal heads:\n- A: `4df24aab92748d1ca347abc1ffa27b73ce7a454f`\n- B: `6c5c31af3daa1f0ab4719b8ae89d55be86cff681`\n\nConflict-free rebases; one privacy-only documentation adjustment. Authors, messages and trailers preserved. Final privacy scans: zero hits.\n\n## Verification Gates\nNode 22.12.0; build/typecheck passed everywhere.\n\n| Target | Pass | Fail | Skip |\n|---|---:|---:|---:|\n| Base | 9363 | 0 | 63 |\n| A | 9566 | 0 | 63 |\n| B | 9704 | 0 | 63 |\n\n## Unmet Criteria\nNone. Evidence and verified `SHA256SUMS`: `$ORGASMIC_EVIDENCE_DIR/pr931-prep/`.\n\n## Residual Risk\nHistorical watchdog failures remain unexplained; both named tests passed here. No push performed."
+    }
+  ],
+  "narrative_truncated": false
+}
