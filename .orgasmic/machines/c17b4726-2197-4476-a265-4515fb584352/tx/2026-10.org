@@ -19124,3 +19124,93 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     6b792eb6-71fc-4b2b-8795-7884473ad7e2
 :END:
+
+* TX 2026-10-31 Sat 04:24:59 run.answered TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-0970e2c2-3759-4243-8d68-ab0ebd4ac8c9
+:TIME:         [2026-10-31 Sat 04:24:59]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Task operator Tarn's answer (in line with Soma's preferred direction "bind the full guard at supported composition / validated internal outer-context"): YES, with boundaries. (1) The compositor is INTERNAL: not exported from src/index.ts, no changes to the public types/API surface, wire, schema, grants, RefusalCode (use the existing admission_missing; if it doesn't exist — STOP). Show `git diff` of src/index.ts and the public types = empty. (2) Apply only in the three framework spread+override wrappers (framework.ts ~:35008/35082/35199) and the B/fork constructors; record each call site with file:line. (3) Behaviour without registration scope/profile-off — byte-identical (ddc883dd… or an explained change = STOP); the ordinary non-forked admission path and upstream A behaviour are unchanged — the A focused tests are unchanged and green. (4) Validation = membership in a compositor-issued registry (WeakMap/brand) + exact key/check/admit identity; frozen copies preserving those functions — allow; a bare capture, an unregistered override, an arrow forwarder, a detached/missing outer — refuse admission_missing before effects. (5) Controls for EVERY supported wrapper/copy: allow (outer permits → accepted) AND deny (outer forbids → refused), B off/on; the reviewer's concrete counterexample (a bare receipt as an explicit argument) + the arrow forwarder on the real path; mutants: removing the registry check, removing the binding in each of the three wrappers, a blanket refuse (killed by the allow controls). (6) If a legitimate in-tree composition outside these 3+B turns out to stop working — STOP and ask, don't widen. (7) In the report, separately: what is enforced, and the residual (e.g. what a compositor-issued object can still be weakened by), without the claim "visible in review = enforced".
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:ASK_ID:       ask-5324449191f840d09a8fecee026661a9
+:EVENT_ID:     d4423f1e-a986-4f56-87fb-e0a608a2c508
+:END:
+
+* TX 2026-10-31 Sat 04:25:00 manager.dispatch_started TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-a21653cc-f44c-48f3-89be-f9fc925581d9
+:TIME:         [2026-10-31 Sat 04:25:00]
+:TYPE:         manager.dispatch_started
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:TARGET:       .orgasmic/tmp/sessions/dispatch-TASK-XHZ4H-implementer-20261031T042500-run-01M6838A7CBXAWYC4MNMCZRKXB.jsonl
+:REASON:
+:KIND:         implementer
+:HARNESS:      codex
+:PROTOCOL:     app-server
+:TRANSPORT:    spawn
+:BRIDGE:       none
+:MULTIPLEXER:  none
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
+:BRANCH:       task-xhz4h-impl
+:BRIEF_PATH:   .orgasmic/tmp/dispatch/TASK-XHZ4H-implementer/TASK-XHZ4H-implementer-ac8d42ab6fb4461ebf3cb3051f094f81-brief.md
+:LAST_PATH:    .orgasmic/tmp/dispatch/TASK-XHZ4H-implementer/TASK-XHZ4H-implementer-ac8d42ab6fb4461ebf3cb3051f094f81-last.txt
+:STDOUT_PATH:  .orgasmic/tmp/dispatch/TASK-XHZ4H-implementer/TASK-XHZ4H-implementer-ac8d42ab6fb4461ebf3cb3051f094f81-stdout.log
+:DISPATCH_ATTEMPT: ac8d42ab6fb4461ebf3cb3051f094f81
+:STARTED_AT:   [2026-10-31 Sat 04:25:00]
+:LIVENESS:     93427f90a16bcfbcf815217f4c080669ab842a71
+:NEXT:         fix-implementer-watch-then-integrate
+:PREFLIGHT:    ok
+:REQUESTER:    member:tarn2
+:CLAIM_RUN:    run-01M6838A7CBXAWYC4MNMCZRKXB
+:CACHE_SEED:   skipped
+:CACHE_SEED_DETAIL: reason=not-cargo
+:MODEL:        gpt-6.1-sol
+:EFFORT:       medium
+:REASON_INITIAL: dispatch service participant worker
+:REQUEST_IDENTITY: {"branch":"task-xhz4h-impl","credential_mode":null,"effort":"medium","endpoint":"","from":"93427f90a16bcfbcf815217f4c080669ab842a71","governance":null,"harness":"codex","harness_args":null,"kind":"implementer","mcp_isolation":null,"model":"gpt-6.1-sol","protocol":"app-server","provider":null,"resume_from":"run-01M681T4Y5G7VP7ZAQYJ8GM8HN","simulated":"false","speed":null,"subject":"TASK-XHZ4H","transport":"spawn","worktree":"~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h"}
+:CODEX_BIN:    /opt/node/bin/codex
+:CODEX_VERSION: codex-cli 0.163.0
+:RESUMES_TX:   tx-20261031-theaspirationalagent-fd05fc78-8b0c-4269-9c87-bfde069095cb
+:RESUMED_SESSION: 01a18e47-2096-7a31-bcbe-8057f0b59b46
+:RESUMED_CONTEXT: 156686 of 475000 tokens (32%)
+:EVENT_ID:     f0d5f4c5-2d13-4a02-b497-3b05ab2ac918
+:END:
+
+* TX 2026-10-31 Sat 04:25:01 run.created TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-6a0844d0-7af1-406b-9e20-aac1af7dc1ce
+:TIME:         [2026-10-31 Sat 04:25:01]
+:TYPE:         run.created
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:TARGET:       .orgasmic/tmp/sessions/dispatch-TASK-XHZ4H-implementer-20261031T042500-run-01M6838A7CBXAWYC4MNMCZRKXB.jsonl
+:REASON:       dispatch service participant worker
+:RUN_ID:       run-01M6838A7CBXAWYC4MNMCZRKXB
+:ORIGIN:       cli_dispatch
+:WORKER:       implementer-codex-app-server
+:KIND:         implementer
+:HARNESS:      codex
+:PROTOCOL:     app-server
+:TRANSPORT:    spawn
+:BRIDGE:       none
+:MULTIPLEXER:  none
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xhz4h
+:BRIEF_PATH:   .orgasmic/tmp/dispatch/TASK-XHZ4H-implementer/TASK-XHZ4H-implementer-ac8d42ab6fb4461ebf3cb3051f094f81-brief.md
+:LAST_PATH:    .orgasmic/tmp/dispatch/TASK-XHZ4H-implementer/TASK-XHZ4H-implementer-ac8d42ab6fb4461ebf3cb3051f094f81-last.txt
+:STDOUT_PATH:  .orgasmic/tmp/dispatch/TASK-XHZ4H-implementer/TASK-XHZ4H-implementer-ac8d42ab6fb4461ebf3cb3051f094f81-stdout.log
+:DISPATCH_ATTEMPT: ac8d42ab6fb4461ebf3cb3051f094f81
+:PID:          435810
+:DISPATCH_TX:  tx-20261031-theaspirationalagent-a21653cc-f44c-48f3-89be-f9fc925581d9
+:MODEL_OVERRIDE: gpt-6.1-sol
+:EFFORT_OVERRIDE: medium
+:EVENT_ID:     3f3f8fc1-59aa-4dec-bd34-4cd5bfb183e7
+:END:
