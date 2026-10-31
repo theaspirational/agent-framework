@@ -120,3 +120,27 @@ Qualifier rulings in force: 1793435300, 1793436130, 1793437032, 1793437197, 1793
 :TO_STATE: in_progress
 :EVENT_ID: 30e5a76d-2cdc-4821-b5b4-082628771c58
 :END:
+
+* tx-20261031-theaspirationalagent-e5476f42-c373-4e9e-ab15-5ee59673487d comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-e5476f42-c373-4e9e-ab15-5ee59673487d
+:TIME:    [2026-10-31 Sat 09:39:44]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-DX9KM
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: df31e293-d06f-49c9-85c7-17aa1ca0053d
+:END:
+
+Operator record, round 4 (run-01M68N26DAFETZCQF1HFVF5APT).
+
+The worktree was dispatched onto task-dx9km-impl at I7 a0970645. Before my explicit snapshot instruction (delivered 09:38:07Z), the worker switched to unqualified-local-abdi7-20261031 and created recovery/abdi7-r3-9184d91e at 9184d91e at 09:37:06Z, without the STOP-and-ask the brief required. It recorded no porcelain before the switch. It ran the verifications afterwards.
+
+Qualifier Soma (1793439561) classes this as an unauthorised procedural transition under the brief, not authorised after the fact. The verified resulting state is usable.
+
+Prospective go: continue code-only from the clean 9184d91e base on the composition branch. No ref was moved or deleted, and task-dx9km-impl stays at I7.
+
+Tooling follow-up: orgasmic TASK-XBFVF (private; it grants no authority to patch or restart anything).
