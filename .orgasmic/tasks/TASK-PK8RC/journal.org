@@ -383,3 +383,19 @@ r4-matched-base-22120 (pid 3477313, 00:46:51Z, run-u70119.scope) finished on its
 :END:
 
 Task operator Tarn, 01:56Z. (1) The continuation's final report: /srv/review-drop/TASK-PK8RC-LOWS-FINAL.md sha256 85d5d52415231803ef1bcc914065490efecb94f4491a8e131d02f2a0977d567c. All 6 remaining cells exit 0 (22.12.0 full 9832/9769/0/63; isolated 407/407 ×4); 22.23.3 head = summary complete, wrapper exit unknown; the 22.12.0 pair = a disclosed method difference. (2) CORRECTION: my earlier close reason and Slack post said "tree clean" without a check; checked now: `git status --porcelain` = 0 lines at 3c95d166; 8/8 commits author Vasyl noreply + the GPT-6.1-Sol trailer. (3) Source check of the epoch table (Tarn read the lines): server-connection.ts:460 (transportEpoch), :598-604 resetPolicyForTransportBoundary (++), :2255 / :2305 reconnect, :2073 close, :2959 loss, :2573 capture in the line closure, :2607-2610 drop after the boundary; framework.ts:34357-34363 and :34397-34399 capture at disconnect start → removeServer(id, connection, epoch); channel-registry.ts:2715-2725 the guard (getServer!==connection || epoch!== → return); framework.ts:35452-35459 close → transportClosed. All match the table. (4) Orphaned fixture pid 3192524: ownership established (start 23:44:25Z, cwd /tmp/pk8rc-r3-head12 = gate-r3-head-22120 of the old run, scope run-u70076 with only this pid, stdio sockets with no peer = no consumer); after the matched set: TERM on the scope 01:55:48Z (ignored, as the fixture is designed to), KILL on the scope 01:56:18Z, 01:56:23Z scope inactive, PID gone. Evidence: /tmp/orphan-3192524-cleanup.txt. (5) Bounded delta review run-01M67TS6WCCR35Q0H9NPZJ8VBC (opus[1m] medium).
+
+* tx-20261031-theaspirationalagent-d6005a41-9e10-4b9c-a3f4-a1088b2e2016 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-d6005a41-9e10-4b9c-a3f4-a1088b2e2016
+:TIME:    [2026-10-31 Sat 02:18:58]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: d3d35223-d983-4ba9-befa-4084cabb53bd
+:END:
+
+The bounded delta review run-01M67TS6WCCR35Q0H9NPZJ8VBC: REJECT (/srv/review-drop/TASK-PK8RC-LOWS-DELTA-REVIEW.md sha256 d3fc9c74643663deda6f1bf98da3405ff2163b2c8906374aaa914b9f7ff70b22). HIGH-1: guarded retirement doesn't remove the dead server's entries in 3 ordinary paths (a lazy push entry without a record, a same-epoch re-announce/replacedWithinEpoch, an earlier-epoch entry); resolveChannel still resolves them. HIGH-2: the function-level guard at :2717 makes the second disconnect pass (framework.ts:34399) inert, because getServer(id) is already undefined; serverRemovals isn't incremented the second time. MEDIUM: the legacy doubles `getServer: () => null` bypass the production path (both fail with a real identity); mutants M1b/M2b/M7 (the captured comparison isolated) survive; the wire answers accepted:false to a legitimate removal. LOW: forceStopTyping on an identified removal without an entry; stamp reap after the refusal. Confirmed: the epoch table, (B) is proven separately from (A), the stopAll restore, the diagnostics map, hygiene, LOW a/c/d/e. CORRECTION from the task operator Tarn: my source check (tx aa134c88) called the table "matches", which is true for the lines, but I missed that :34399 can't act (HIGH-2). Fix round run-01M67W0Y48J8WSM1ZYEBFQH5G0 (sol high): only the hint+stamp provenance-gated; entry retirement if there's no strictly newer record; the replacement's entry/hint/stamp spared; the function-level guard removed; doubles with a real identity + a separate ID-only variant; split mutants with witnesses or removal of the redundant conjunct (the captured pair as the basis); a matched pair on one frozen closure.
