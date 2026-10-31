@@ -1,0 +1,20 @@
+{
+  "event_count": 312,
+  "tool_call_count": 0,
+  "unparsed_events": 0,
+  "bounded_events": 3,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-CONV-X92JZ-reviewer-20261031T112010-run-01M68V0GRKWKD8WX7NPX2VZ1YK.jsonl",
+    "size_bytes": 436621
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.claude/projects/-home-orgasmic--orgasmic-worktrees-theaspirational-agent-framework-task-conv-x92jz-review/b5e9ce41-dba6-4ec3-bb9b-33a3758d4442.jsonl",
+    "session_id": "b5e9ce41-dba6-4ec3-bb9b-33a3758d4442",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [],
+  "narrative_truncated": false
+}
