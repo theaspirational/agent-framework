@@ -1,0 +1,25 @@
+{
+  "event_count": 198,
+  "tool_call_count": 39,
+  "unparsed_events": 0,
+  "bounded_events": 12,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XGHH2-implementer-20261031T115618-run-01M68X2NTV1X6A8B1JDGZAQ9RG.jsonl",
+    "size_bytes": 465331
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T10-06-54-01a1916d-2e84-78d0-abf0-d8ac3c779640.jsonl",
+    "session_id": "01a1916d-2e84-78d0-abf0-d8ac3c779640",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll preserve r2 and narrow the draft to types, build and artifact/declaration inspection. HEAD and all supplied hashes match; r2 checks 21/21. I’ll read the review and probe handoff as data only—no rerun, parsing or execution of drafts.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
