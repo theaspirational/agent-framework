@@ -16465,3 +16465,21 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     bf80a4ef-a395-4160-a32d-17ef72a3c997
 :END:
+
+
+* TX 2026-10-31 Sat 00:47:41 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-452c806a-c5b1-4269-a104-e23459ed40d3
+:TIME:         [2026-10-31 Sat 00:47:41]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Reconciliation (Soma's binding condition; checked by the task operator Tarn at 00:47Z): of the old run's processes, only an orphaned test fixture survives, pid 3192524 (node 22.12.0 from /tmp/task-pk8rc-tools, `long-line-stubborn`, ignores SIGTERM, parent systemd --user, alive since ~23:44, ~0% cpu). It is NOT a suite; DON'T kill it, record it in the report as a leak from an earlier test run. The old gate-r3-matched-base-22233 = exit 0 (9802/9739/0/0/63). gate-r3-matched-head-22233 at 3c95d166: the summary is complete in the log (9832/9769/0 fail/0 cancelled/63 skip, clean=yes) but there's NO 'gate exited' line: record its status as 'summary complete, wrapper exit unknown (session killed)'; don't rerun it. Your r4-matched-base-22120 started after the reconciliation; there's no duplication. All final tests and the history checks bind to 3c95d166242892206b5e1e5d624b3c9ebb062323. The epoch table is a DRAFT: describe transportEpoch as a transport-boundary counter (reset on reconnect, explicit close, transport loss), not purely a reconnect counter; keep the same-pair/no-entry-token gap.
+:RUN_ID:       run-01M67PQ853E43HZ3FBZBQSDAB9
+:MESSAGE_ID:   msg-3303afbbb04e4326b5d992f9b98a3289
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     ed1761fc-3f39-44ca-80ce-4f9f6e2d3ab5
+:END:
