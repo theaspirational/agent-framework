@@ -451,3 +451,19 @@ Round 2 review APPROVE (9ff5c32b…): MEDIUM — the refusal boundary = the firs
 :END:
 
 D status after round 3 + diagnostic pair (Soma's decision (b), engineering scheduling): D/INT-1 HELD, no further D runs in this window; revisit at the next substantive checkpoint. Three separate records: (1) the full head-12 at 93427f90 FAILED, 3 tune-out timeouts, head-unique against the fresh base b6e225e0 (report TASK-XHZ4H-HASHFIX3-FULL.md 66d40f10…); (2) the isolated pair of the 3 files: head and base 5/5 pass, "not reproduced in this selected subset" (TASK-XHZ4H-DIAG1.md fb1b3e21…); (3) the worker's TAP parser fix — only a re-parse of existing logs. Correcting my wording: identical recorded inputs don't rule out order, transient state, scheduling or nondeterminism; the child-process interaction of the changed fixture is only a plausible hypothesis, not a cause. No targeted fix on this hypothesis.
+
+* tx-20261031-theaspirationalagent-89c49bec-2850-4fcd-83dd-21cdf9a27550 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-89c49bec-2850-4fcd-83dd-21cdf9a27550
+:TIME:    [2026-10-31 Sat 05:13:49]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-XHZ4H
+:TARGET: .orgasmic/tasks/TASK-XHZ4H/node.org
+:REASON: D stays held after diag-2 (Soma (b))
+:FROM_STATE: in_review
+:TO_STATE: in_progress
+:EVENT_ID: 41ec8965-c90d-4e63-9a99-ea4d2784ead6
+:END:
