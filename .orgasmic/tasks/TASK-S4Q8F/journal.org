@@ -111,3 +111,19 @@ The 22.23.3 head 47f3b4f2 cell (pid 3449508, start 00:38:46Z, scope af-scope-22.
 :END:
 
 Fix-round conditions (Soma 1793411412.730529, passed on by the task operator Tarn to run-01M67TBE53E4YSJ4E1KCSZDFCK): per-item registration capture without refreshing provenance; the same invalidated registration still refuses; a transport epoch change invalidates all old-epoch items (the epoch isn't read per item); no borrowing of a sibling's scope for an unknown registration; an exact receipt↔messageId association; no lazy/fallback; A/B/grant/verdict/profile-off unchanged; the first failed differential is kept. Mutants: a per-item epoch read, a shared ref, a lazy fallback. Closure requires Tarn's source check + a bounded independent review + fresh-head gates.
+
+* tx-20261031-theaspirationalagent-6a851bc1-a384-46ee-9a38-3775e93db12d task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-6a851bc1-a384-46ee-9a38-3775e93db12d
+:TIME:    [2026-10-31 Sat 03:39:29]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-S4Q8F
+:TARGET: .orgasmic/tasks/TASK-S4Q8F/node.org
+:REASON: transition TASK-S4Q8F to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 9f995526-6154-4ab7-b087-2c04cac597a5
+:END:

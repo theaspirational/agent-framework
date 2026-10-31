@@ -415,3 +415,19 @@ The bounded delta review run-01M67TS6WCCR35Q0H9NPZJ8VBC: REJECT (/srv/review-dro
 :END:
 
 Brief change for fix round run-01M67W0Y48J8WSM1ZYEBFQH5G0 (Soma 1793413232.577609; passed on by the task operator Tarn, delivered mid-turn 02:20:54Z, msg-6256e3f1): my "retire unless a newer one is proven" (from the review's fix direction) is WITHDRAWN; it's not equivalent to the agreed exact-match condition. Now: a bounded revert of the LOW-b-specific production entry-retirement guards/stamps/plumbing to the d3230a69 behaviour; ordinary dead-server cleanup and the ID-only API as in the base; keep a/c/d/e and the base stopAll coverage; the unreaped hint = an explicit conservative gap; no new claim about hint deletion; the doubles back to d3230a69, no invented identities. Checks: real-identity removal, both disconnect passes + a late registration, wire accepted:true, profile-off, a hunk list of the diff against d3230a69. C stays rejected/unpublished. The rejected head is kept as branch task-pk8rc-lowb-rejected-3c95d166 (= 3c95d166242892206b5e1e5d624b3c9ebb062323, created by Tarn 02:20Z). Afterwards: an independent delta review + final gates + history.
+
+* tx-20261031-theaspirationalagent-c465bbf4-9f9c-49b7-82b1-7d14f5c2b407 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-c465bbf4-9f9c-49b7-82b1-7d14f5c2b407
+:TIME:    [2026-10-31 Sat 03:39:55]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:TARGET: .orgasmic/tasks/TASK-PK8RC/node.org
+:REASON: transition TASK-PK8RC to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 135858ef-4603-49c4-9d03-45b2119f9786
+:END:

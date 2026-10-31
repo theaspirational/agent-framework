@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-S4Q8F
 #+orgasmic_version: 2
 
-* DONE TASK-S4Q8F AF-scope: opt-in epoch-bound read-only registration view for the inbound binder (generic recipient, T1 contract)
+* IN_PROGRESS TASK-S4Q8F AF-scope: opt-in epoch-bound read-only registration view for the inbound binder (generic recipient, T1 contract)
 :PROPERTIES:
 :UID: ae1686f5-1c17-509f-b846-46770838c356
 :ID: TASK-S4Q8F
