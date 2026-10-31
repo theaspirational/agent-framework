@@ -19330,3 +19330,20 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     dbf714d0-3be1-4ade-8553-d3a5ee85d521
 :END:
+
+* TX 2026-10-31 Sat 04:29:41 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-ad8ed7db-1c9a-4741-8fb0-911df64d1975
+:TIME:         [2026-10-31 Sat 04:29:41]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Correction to my answer to ask-e3d796a5 (Soma): in the .d.ts report, separate TWO deltas: (A) the already-scoped public view changes of S4Q8F relative to B 29edcf8b (everything S4Q8F added before r3: the registration view, forItem, etc. — the exact declaration diff), and (B) the new r3 changes relative to c09aca30 (only the forItem signature: receiver → parameter). Don't write "the package differs from B by one member" unless the declaration diff proves it — show the actual diff. Document the valid invocation/refusal contract (who may call forItem and with what; what refuses admission_missing) in the docs/comment. Any unrelated reachable type/export change in (B) — STOP. Unpublished status is not a general permission to expand the API.
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:MESSAGE_ID:   msg-04fe1eb349df4bdfa2e27e950f35ec29
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     2a2ff746-8730-4c9f-bbf3-dde169bd0ad5
+:END:
