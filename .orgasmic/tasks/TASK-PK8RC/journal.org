@@ -319,3 +319,19 @@ Soma (Slack 1793404993.182479), passed to the worker by the task operator Tarn: 
 :TO_STATE: in_progress
 :EVENT_ID: 518c8062-9df0-48e5-848a-edbfffdbcda5
 :END:
+
+* tx-20261031-theaspirationalagent-e989bfba-7a65-40c2-90bd-224166110ae5 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-e989bfba-7a65-40c2-90bd-224166110ae5
+:TIME:    [2026-10-31 Sat 00:49:24]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 0efc3fe2-ed39-419f-bd26-540005a595ac
+:END:
+
+Reconciliation after the stall of run-01M67JH84WHFD8T7T4938H7ZWM (task operator Tarn, 00:47Z). matched-base-22233 d3230a69: exit 0, 9802/9739/0/0/63. matched-head-22233 3c95d166: SUMMARY COMPLETE (9832/9769/0 fail/0 cancelled/63 skip, clean=yes), WRAPPER EXIT UNKNOWN (session killed); not upgraded to exit 0 and not rerun (Soma 1793407725.907059). No old suites survived. Orphaned fixture pid 3192524 (node 22.12.0 long-line-stubborn, ignores SIGTERM, ~23:44, under systemd --user): not killed. After the matched set: if ownership is established (old invocation + PID/start time/cgroup, no live consumer), bounded cleanup of that exact pid with the evidence saved; otherwise leave it and report.
