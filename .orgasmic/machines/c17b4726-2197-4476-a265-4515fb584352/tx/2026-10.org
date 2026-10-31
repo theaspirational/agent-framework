@@ -16212,3 +16212,19 @@
 :DELIVERY:     delivered
 :EVENT_ID:     f5dac663-9890-4909-ad6f-6e6555541870
 :END:
+
+* TX 2026-10-31 Sat 00:01:50 run.asked TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-5188c1ee-5e6e-4e7d-bec5-ca4b4bbc6775
+:TIME:         [2026-10-31 Sat 00:01:50]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       Full intermediate gates exposed the existing load-bearing shared-channel-id test: stopAll must forget an active UNOWNED indicator's metadata before re-registration. LOW-b now preserves hints on state-only force cleanup, so that old shutdown behavior is lost (owned/newer and idle orphan hints still must be preserved by existing tests). May I keep the ordinary unowned shutdown semantics via a stopAll snapshot of the actual entry + host-hint object, retiring only that unchanged hint when that entry leaves, while preserving mid-owned/newer/idle hints? Or does your exact LOW-b boundary intend this old test's behavior to change? I won't weaken the existing assertion silently.
+:RUN_ID:       run-01M67JH84WHFD8T7T4938H7ZWM
+:ASK_ID:       ask-7be2e6be8abb4d8888c3cbae9415f084
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     8f53d522-312c-425a-bef8-8b79a24246d6
+:END:
