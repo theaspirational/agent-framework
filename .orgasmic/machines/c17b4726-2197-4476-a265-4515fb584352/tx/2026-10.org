@@ -16664,3 +16664,20 @@
 :DELIVERY:     delivered
 :EVENT_ID:     fa195857-5489-450c-a518-32387537249a
 :END:
+
+* TX 2026-10-31 Sat 01:07:09 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-f9e715e8-013f-4aa8-a961-0ad58b9b6b1f
+:TIME:         [2026-10-31 Sat 01:07:09]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       A clarification for the report (Soma, programme qualifier; passed on by the task operator Tarn; DON'T change the scripts mid-run): when classifying the result, treat as INCONCLUSIVE not just 124/137 but also a hit on the log cap (TRUNCATION=at-cap), log_capture_exit≠0, and a producer stage_command_exit=141/SIGPIPE; list stage_command_exit and log_capture_exit separately. After the set: reconcile surviving processes by scope/cgroup + start time (a timeout doesn't prove detached fixtures are gone); report survivors; DON'T kill them yourself.
+:RUN_ID:       run-01M67QDRZ11X7TTXYZ7P5VPY9Z
+:MESSAGE_ID:   msg-0daa07e874e14f578ef6b61d0a367684
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     11ad01e2-36a8-462d-9d82-27474cbb5980
+:END:
