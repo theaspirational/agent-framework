@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-HAQZ1
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN Review TASK-XGHH2
+:PROPERTIES:
+:UID: cf068be2-96e1-5d95-9175-f29261065f4a
+:ID: CONV-HAQZ1
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: claude
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: chat
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xghh2
+:RUNS: 
+:CREATED_AT: 2026-10-31T10:30:32Z
+:END:
