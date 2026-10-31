@@ -19108,3 +19108,19 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     7a0cdb2d-8c7d-4010-bd5f-d0fcb8bc0053
 :END:
+
+* TX 2026-10-31 Sat 04:24:25 run.asked TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-0ec4a6fa-d9e4-47d5-9276-58c225440226
+:TIME:         [2026-10-31 Sat 04:24:25]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       To enforce the added no-weaker-outer invariant, may I add an internal outer-context compositor and call it in the three framework RequiredAdmission spread+override wrappers and the B/fork constructors? It would bind the full check chain and validate compositor-issued context plus exact key/check/admit identity; frozen copies retaining those functions stay supported, while a bare capture or an unregistered override refuses admission_missing. Without that supported-composition boundary, arbitrary structurally valid stronger and weaker explicit arguments cannot be distinguished; I would report an UNRESOLVED CONTRACT GAP rather than claim enforcement.
+:RUN_ID:       run-01M6832514GX6VMH3AZ46W99KS
+:ASK_ID:       ask-5324449191f840d09a8fecee026661a9
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     6b792eb6-71fc-4b2b-8795-7884473ad7e2
+:END:
