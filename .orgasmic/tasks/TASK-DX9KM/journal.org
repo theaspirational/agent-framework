@@ -160,3 +160,35 @@ Tooling follow-up: orgasmic TASK-XBFVF (private; it grants no authority to patch
 :TO_STATE: in_progress
 :EVENT_ID: 6648e9eb-b376-42d1-98fe-e83d87c594b4
 :END:
+
+* tx-20261031-theaspirationalagent-e204e267-0100-4e30-a581-3018c16efec7 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-e204e267-0100-4e30-a581-3018c16efec7
+:TIME:    [2026-10-31 Sat 10:06:52]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-DX9KM
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 04ececeb-c7fa-400f-9ba7-3d288b4d385a
+:END:
+
+CANDIDATE_HEAD freeze (qualifier Soma, 1793441124; not an owner decision): f8af03a852c85daf9bb8079937b994fe5419ca20 on unqualified-local-abdi7-20261031 is the statically reviewed candidate.
+- This is not runtime, emit or Bun qualification, and not a stage-1 go. No further code round comes before the bounded diagnostic execution plan.
+
+Evidence:
+- R4 report /srv/review-drop/TASK-DX9KM-LOW1-R4.md (ac8de90105e836073d73bf699a695ef750bdc657dea83eb2beec49e75ecca866), preserved.
+- Static review /srv/review-drop/TASK-DX9KM-LOW1-R4-REVIEW1.md (13897d604cd95099231e0fe44d8f268c04aae92fbaf2b376cad936d24c8ef114). APPROVE (static), 0 HIGH / 0 MEDIUM / 6 LOW.
+- Linked erratum /srv/review-drop/TASK-DX9KM-LOW1-R4-ERRATUM1.md (7a4093a57fba53aeefc538140bbb7f2e9fd9ef7b3000aa346c458eb758e87bc6), covering E and F. Snapshot transition, exactly: "unauthorised procedural transition under the brief; verified resulting state; prospective go only".
+
+LOW disposition:
+- A, diagnostic follow-up: mode-only predicate; a forged mode-matching non-restricting argument silences the diagnostic while suppression still holds. No claim of full structural diagnostic coverage.
+- C, test follow-up: the forItem forwarding of diagnosticConnection at reply-admission.ts:68 is untested. No claim that it is tested.
+- B, scoped limitation: the default admission.key gives an epoch-scoped throttle for direct helper callers. Production passes the ServerConnection.
+- D, scoped limitation: the test mocks the process-global performance.now.
+- E and F: erratum above.
+- Separate, out of scope: reply-routing.ts:95-104 wall-clock Date.now throttle.
+
+Holds unchanged: publication, D, I6, private ancestry, live.
