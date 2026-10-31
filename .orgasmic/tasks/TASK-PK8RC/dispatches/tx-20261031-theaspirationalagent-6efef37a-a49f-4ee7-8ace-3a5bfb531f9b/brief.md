@@ -1,0 +1,20 @@
+# Implement fix round — Dispatch Brief
+```brief
+Continuation of the C LOW round (TASK-PK8RC) after the stall of run-01M67JH84WHFD8T7T4938H7ZWM (the stall detector killed it at about 00:45Z; the native session isn't resumable). Head 3c95d166242892206b5e1e5d624b3c9ebb062323; DON'T change any code. Your previous evidence is in /home/orgasmic/.orgasmic/runs/run-01M67JH84WHFD8T7T4938H7ZWM/evidence/ (report.md draft, all gate-r3-*.log). Already done for the predeclared matched comparison (AF_TEST_CONCURRENCY=8, sequentially): base d3230a69 22.23.3 (gate-r3-matched-base-22233-*.log) and head 22.23.3 (gate-r3-matched-head-22233-*.log). Remaining exactly per plan, ONE run each, sequentially, in a 16G systemd --user scope: (1) matched base d3230a69 Node 22.12.0, (2) matched head 3c95d166 Node 22.12.0, (3) paired isolated workspace-three-way.test.js: base and head on both Nodes. If any of these runs was already completed before the stall (check the logs), don't rerun it; say which. Then: a full report with ALL runs (the 32/parallel observations as a separate section; earlier head/proven/final runs at their actual settings), exact exit/total/pass/fail/skip/cancelled, failure names for each fail/cancel, no "environmental" labels and no retry-until-green; discrepancies stay explicit. To avoid stall-kills: print a progress line at least every 5 minutes while waiting on a suite (e.g. tail the log). The binding conditions from the previous run (Soma/Tarn, see brief.md and the messages in the previous run) all still apply. Finalize done if fail=0 on head and cancellations reproduce on base under the same conditions; otherwise blocked with the data.
+```
+
+## Round context
+Resume round contract: 2. Continues dispatch tx-20261030-theaspirationalagent-938054c5-e3be-4c5d-9167-076c94931f5c, run run-01M67JH84WHFD8T7T4938H7ZWM, in your own native session and the same worktree.
+Changed this round: the brief above narrows the assignment; use this run's evidence directory and report, not the earlier round's destination.
+Original instructions are history, not missing context. Original scope, security and read-only-ledger boundaries still apply, narrowed by this brief. Do not replay startup reads unless changed facts or this brief require them. Do not merge or close the dispatch.
+
+## Evidence and verification
+Earlier reads/code/reports remain context, not new proof. Identify valid inherited evidence and its unchanged inputs/scope in this round's report. No earlier gate pass is implied by resuming. Verify findings against current source. Run assigned checks and scoped probes through `orgasmic dispatch gate <name> -- <cmd> [args...]`; missing receipts do not assign a full suite. Keep builds outside evidence.
+
+## Completion for this round
+Report Changed, Verification Gates (commands/results/logs and inherited evidence), Unmet Criteria, and Residual Risk in `$ORGASMIC_EVIDENCE_DIR/report.md`. If unset, substitute a scratch path outside the worktree below.
+For done, satisfy the narrowed brief and make a local commit in this worktree; stage explicit paths and do not bypass hooks. Then run:
+`orgasmic dispatch finalize --status done --summary-file "$ORGASMIC_EVIDENCE_DIR/report.md"`
+If blocked, report the exact unmet criteria and run:
+`orgasmic dispatch finalize --status blocked --reason "<why>" --summary-file "$ORGASMIC_EVIDENCE_DIR/report.md"`
+Blocking decision: `orgasmic dispatch ask "<question>"`; keep it alive for the stdout answer. A timeout is not permission. With `--no-wait`, Codex app-server accepts answers/messages mid-turn; other multi-turn harnesses receive them at turn boundaries or finalize. If finalize refuses for pending messages, handle their full text and retry. Successful finalize is terminal; no work follows it. Never disclose credentials or the run token.

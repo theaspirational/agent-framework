@@ -1,0 +1,25 @@
+{
+  "event_count": 562,
+  "tool_call_count": 37,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-PK8RC-implementer-20261031T004558-run-01M67PQ853E43HZ3FBZBQSDAB9.jsonl",
+    "size_bytes": 652365
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T21-05-50-01a18ea2-1b81-7eb1-8edb-29b0ad6416e5.jsonl",
+    "session_id": "01a18ea2-1b81-7eb1-8edb-29b0ad6416e5",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll keep the code pinned at `3c95d166`, check which planned runs completed, and run only the remaining checks. I’ll print progress at least every five minutes.\n\nReconciliation noted. I’ll report the inherited head run as “summary complete, wrapper exit unknown (session killed)” and won’t rerun it. I’ll record PID 3192524 as the earlier fixture leak and leave it untouched. The epoch description will remain a transport-boundary counter, with the same-pair/no-entry-token gap explicit.\n\nI’ll leave the running base cell unchanged and add the deadlines and log cap only to cells not yet started. I’ll disclose the Node 22.12.0 bound difference, won’t rerun base, and will treat any timeout or truncation as inconclusive.\n\nBase on Node 22.12.0 completed: exit 0, 9802 tests, 9739 pass, 0 fail, 63 skipped, 0 cancelled. Head is now running with the disclosed 3000-second bound and capped log capture. No code has changed.\n\nHead on Node 22.12.0 completed: exit 0, 9832 tests, 9769 pass, 0 fail, 63 skipped, 0 cancelled. The 3000-second bound did not fire. The first isolated check—base on Node 22.23.3—is running; the other three remain queued sequentially.\n\nAll six continuation runs completed with exit 0. Both isolated base/head pairs report 407 pass, 0 fail, 0 skipped, 0 cancelled. I’m checking capture metadata and assembling the full run ledger, including the earlier failures, cancellations, and unknown wrapper exit.\n\nThe report is complete. Code remains pinned and clean at `3c95d166`; all six continuation cells exited 0, with no timeout or truncation in the five bounded cells. Both isolated pairs match. The report retains every historical failure/cancellation and the inherited unknown wrapper exit. I’ll finalize as done.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
