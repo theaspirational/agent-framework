@@ -18881,3 +18881,54 @@
 :DELIVERY:     delivered
 :EVENT_ID:     c4744d3e-5472-4acf-9300-ff7edeeb5d33
 :END:
+
+* TX 2026-10-31 Sat 04:20:41 reviewer.reported TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-4b86ca59-4605-4bbc-9e6b-13e092e5152b
+:TIME:         [2026-10-31 Sat 04:20:41]
+:TYPE:         reviewer.reported
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:RUN_ID:       run-01M68270P7KBBXT53D6M7VG0QQ
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-s4q8f
+:EVENT_ID:     5d5d7428-5780-4814-b959-d5054c49c579
+:END:
+
+* TX 2026-10-31 Sat 04:21:06 reviewer.done TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-e9bc6db1-5688-479a-9562-8eeb9d55a214
+:TIME:         [2026-10-31 Sat 04:21:06]
+:TYPE:         reviewer.done
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Delta review of fix round 2: APPROVE with a required follow-up. Composition by construction confirmed on all shipped paths (outer-composition mutant killed, single B consumption, profile-off ddc883dd identical). MEDIUM: a wrong receiver (forItem.call(bareReceipt) or an arrow forwarder) silently drops the outer guard with effects (host A, publication with B on) — not reachable today, but it violates Soma's refuse-before-effects invariant; detached/missing → TypeError instead of a refusal. Fix: an explicit outer parameter + a fail-closed arm, negative tests, an arrow-forwarder mutant. LOW: a comment on ?? admission.check(); LOW-3 stays open.
+:MODEL:        opus[1m]
+:EFFORT:       medium
+:REVIEWED_DIFF: 39c76401f1be9191e5f62f66b497828d4f30fd56..c09aca307a6f08ad839e7cd592632d35fc899920
+:CLOSED_TX:    tx-20261031-theaspirationalagent-e8465553-7a8f-4b11-961b-b54682bc3fb5
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-S4Q8F/dispatches/tx-20261031-theaspirationalagent-e8465553-7a8f-4b11-961b-b54682bc3fb5/report.md
+:VERDICT:      approve
+:LIFECYCLE_FROM: in_review
+:LIFECYCLE_TO: done
+:EVENT_ID:     f607951d-378d-4327-9002-c87191d73035
+:RELEASES_CLAIM_RUN: run-01M68270P7KBBXT53D6M7VG0QQ
+:END:
+
+* TX 2026-10-31 Sat 04:21:06 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-b9253b1b-47b8-4734-aa5f-e1f973eaa2a3
+:TIME:         [2026-10-31 Sat 04:21:06]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  5d5d7428-5780-4814-b959-d5054c49c579
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     ec33c96e-1a11-495f-894c-9b742565d605
+:END:
