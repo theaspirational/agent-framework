@@ -1,0 +1,25 @@
+{
+  "event_count": 270,
+  "tool_call_count": 14,
+  "unparsed_events": 2,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-CONV-CG0MK-implementer-20261031T110517-run-01M68T58JXRP8FS68YT7B7H6XE.jsonl",
+    "size_bytes": 302886
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T11-05-17-01a191a2-a4df-71e1-bcff-7aaafe0fbbfa.jsonl",
+    "session_id": "01a191a2-a4df-71e1-bcff-7aaafe0fbbfa",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "## Changed\nCreated the acquisition-only draft bundle in `$ORGASMIC_EVIDENCE_DIR/acq-v1/`, including `report.md` and `SHA256SUMS`.\n\n## Verification Gates\nImmutable hashes matched; independently regenerated TSV was byte-identical: **100 rows, 99 deduplicated fetches**.\n\nDraft limits: **30 s/request**, **1,800 s aggregate + 5 s hard-stop grace**, concurrency **2**; **64 MiB/file**, **512 MiB aggregate**, **544 MiB disk**.\n\n## Unmet Criteria\nNo execution, syntax check, fetch, commit or finalize. Operator slots remain **UNSET**. Full refusal/outcome sets and hashes are in `report.md`.\n\n## Residual Risk\nAll runtime behaviour remains **UNVERIFIED**. No readiness or fetch-go claim.\n\nSHA256SUMS: `ff9bad0e1785c2a9ebdd308925e3ca106a1b91aae72066d51cf6173202598272`"
+    }
+  ],
+  "narrative_truncated": false
+}
