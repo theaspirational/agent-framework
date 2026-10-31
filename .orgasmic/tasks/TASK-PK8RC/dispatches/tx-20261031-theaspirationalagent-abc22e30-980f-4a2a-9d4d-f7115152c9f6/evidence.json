@@ -1,0 +1,25 @@
+{
+  "event_count": 810,
+  "tool_call_count": 69,
+  "unparsed_events": 0,
+  "bounded_events": 7,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-PK8RC-implementer-20261031T021838-run-01M67W0Y48J8WSM1ZYEBFQH5G0.jsonl",
+    "size_bytes": 1163491
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T21-05-50-01a18ea2-1b81-7eb1-8edb-29b0ad6416e5.jsonl",
+    "session_id": "01a18ea2-1b81-7eb1-8edb-29b0ad6416e5",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’m separating entry retirement from conservative hint cleanup, restoring the production-path tests, and correcting the mutation claims. Then I’ll run the fresh base/head gates against one frozen dependency closure, with the specified bounds and log capture.The bounded revert is committed. Compared with `d3230a69`, `framework.ts` is unchanged; the registry differs only in the bounded per-destination diagnostic throttle and its three cleanup reaps. The original lifecycle doubles and baseline assertions are restored. The focused development run passed 367 tests; next are mutation probes and the four predeclared full-suite cells.Base `3c95d166` completed on Node 22.23.3: 9,832 total, 9,769 passed, 63 skipped, no failures or cancellations. Producer and capture exits were both 0, with no truncation. The final-head cell is now running on the same closure and settings.Final head passed on Node 22.23.3: 9,813 total, 9,750 passed, 63 skipped, no failures or cancellations. Both exits were 0; the log was not truncated. The 19-test reduction is accounted for by removing withdrawn-mechanism tests and adding five lifecycle controls. The Node 22.12.0 base cell is now running.The Node 22.12.0 base cell also passed: 9,832 total, 9,769 passed, 63 skipped, no failures or cancellations, and no timeout or truncation. The fourth and final full-suite cell—final head on Node 22.12.0—is now running.All four full-suite cells passed. Final head has 9,750 passes, 63 skips, and zero failures or cancellations on each Node; every producer/capture/gate exit was 0, with no timeout or truncation. Dependency manifests were unchanged. Read-only reconciliation found no surviving test fixtures; other worker/service processes were left untouched. I’m finalizing the report."
+    }
+  ],
+  "narrative_truncated": false
+}
