@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-5WJC0
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN XHZ4H: read-only review of the final delta plus head-12 evidence
+:PROPERTIES:
+:UID: 6f361bae-9149-577d-aabb-1f82246da444
+:ID: CONV-5WJC0
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: 
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: 
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE:  ~/.orgasmic/worktrees/theaspirational.agent-framework/task-conv-5wjc0-review
+:RUNS:  run-01M68CGF5T57XZRKR3CPQFV7CB
+:CREATED_AT: 2026-10-31T07:06:33Z
+:END:
