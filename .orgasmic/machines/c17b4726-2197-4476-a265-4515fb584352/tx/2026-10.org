@@ -16629,3 +16629,21 @@
 :EFFORT_OVERRIDE: high
 :EVENT_ID:     86924d93-b87d-4b91-88e2-b56c0e497ad3
 :END:
+
+
+* TX 2026-10-31 Sat 00:58:34 run.message TASK-PK8RC
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-39211a55-d54a-4eec-8191-44b5c264fe8c
+:TIME:         [2026-10-31 Sat 00:58:34]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-PK8RC
+:REASON:       METHOD CHANGE (Soma, programme qualifier; passed on by the task operator Tarn): the cell already running, r4-matched-base-22120, DON'T interrupt or restart it; record it as a cell with no whole-command bound. EVERY cell not yet started (matched head 22120 and all the isolated workspace-three-way runs) gets an explicit whole-command deadline and kill grace: `timeout --signal=TERM --kill-after=60s 3000s` around typecheck+build+test (for an isolated file, 900s) inside the same systemd --user scope (MemoryMax=16G, MemorySwapMax=0), plus bounded full-log capture (cap 64 MiB, record any truncation). The same policy for paired cells. A timeout = "operator-bounded timeout, inconclusive", not a failure. Record the method change in the report; the historical unbounded observations stay as they are and aren't replayed. While waiting on a suite, a progress line at least every 4 minutes (protection against the stall detector).
+:RUN_ID:       run-01M67PQ853E43HZ3FBZBQSDAB9
+:MESSAGE_ID:   msg-066d9139fce64567aa242041d4f5629c
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     74462b1f-9504-436c-aea7-0920b54679bf
+:END:
