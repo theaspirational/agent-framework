@@ -1,0 +1,25 @@
+{
+  "event_count": 394,
+  "tool_call_count": 24,
+  "unparsed_events": 1,
+  "bounded_events": 5,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-DX9KM-implementer-20261031T082907-run-01M68H7A0PSTV76HAV765V0V2C.jsonl",
+    "size_bytes": 473348
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T08-08-38-01a19100-e739-73a3-a277-6f36c4de8e9a.jsonl",
+    "session_id": "01a19100-e739-73a3-a277-6f36c4de8e9a",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll run the machinery audit before any other Git command, then read LOW-1 and verify the branch and recovery refs. I’ll keep the fix limited to suppressing reply preparation for the trusted applied context-only plan, add test source without running it, and create a new commit.The audit found no executable machinery or applicable attributes, and the three required named refs match. The worktree initially had the dispatch branch checked out; I switched to the verified composition branch and added the merge recovery ref.\n\nI’m passing the validated plan through the internal admission call to the reply-preparation condition. A’s admission and D’s pre/post checks remain in place; absent or conversational plans retain the existing reply path.The source change is in place, and the new test source covers context-only acceptance, both mixed-batch orders, negative/stale admission, post-hook grant narrowing, and normal delivery despite a false wake gate. It also checks that forged wire or metadata hints cannot suppress preparation without an applied plan. I’m reviewing the diff and unchanged checks before committing; no tests will run.The fix is committed as `b05df842`, followed by the one-line test-typing commit `54ebfc58`; neither has a co-author trailer. Fresh source-only gates passed at `54ebfc58`: whitespace, protected-module equality, reachability of the original merge and both parents, and tracked-tree cleanliness.\n\nThe report contains the diff citations, assertion names, mutant descriptions, audit, and command chronology. No build/test run; runtime behavior and type correctness remain unverified."
+    }
+  ],
+  "narrative_truncated": false
+}
