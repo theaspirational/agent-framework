@@ -335,3 +335,19 @@ Soma (Slack 1793404993.182479), passed to the worker by the task operator Tarn: 
 :END:
 
 Reconciliation after the stall of run-01M67JH84WHFD8T7T4938H7ZWM (task operator Tarn, 00:47Z). matched-base-22233 d3230a69: exit 0, 9802/9739/0/0/63. matched-head-22233 3c95d166: SUMMARY COMPLETE (9832/9769/0 fail/0 cancelled/63 skip, clean=yes), WRAPPER EXIT UNKNOWN (session killed); not upgraded to exit 0 and not rerun (Soma 1793407725.907059). No old suites survived. Orphaned fixture pid 3192524 (node 22.12.0 long-line-stubborn, ignores SIGTERM, ~23:44, under systemd --user): not killed. After the matched set: if ownership is established (old invocation + PID/start time/cgroup, no live consumer), bounded cleanup of that exact pid with the evidence saved; otherwise leave it and report.
+
+* tx-20261031-theaspirationalagent-b56b0740-5b64-429e-b483-77fb83e0bc33 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-b56b0740-5b64-429e-b483-77fb83e0bc33
+:TIME:    [2026-10-31 Sat 01:04:57]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 8b4c1454-d5d3-46fb-9376-f0433083f993
+:END:
+
+A new operator safety cutoff (Soma 1793408669.994559; NOT an original bound): the cell r4-matched-base-22120 of run-01M67PQ853E43HZ3FBZBQSDAB9: suite pid 3477313 (/bin/bash .../evidence/run-suite-8.sh, Node 22.12.0, base d3230a69), start Sat 00:46:51Z, scope run-u70119.scope; the parent dispatch gate pid 3477276 in the worker's scope. Cutoff = start + 3000 s = 01:36:51Z. Watcher bg-49: if pid+start+scope still match at the cutoff → save the logs to /tmp/pk8rc-cutoff/, TERM on the scope, ≤60 s grace, KILL only if the scope is alive, verify; record operator-terminated/inconclusive. If it finishes earlier, nothing is done. No replay.
