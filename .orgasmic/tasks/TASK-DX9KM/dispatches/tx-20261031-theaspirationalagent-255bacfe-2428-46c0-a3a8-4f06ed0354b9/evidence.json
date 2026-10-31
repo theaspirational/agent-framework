@@ -1,0 +1,25 @@
+{
+  "event_count": 858,
+  "tool_call_count": 23,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-DX9KM-implementer-20261031T085759-run-01M68JW5EB1QKRDB4KSVDEFVD5.jsonl",
+    "size_bytes": 786924
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T08-08-38-01a19100-e739-73a3-a277-6f36c4de8e9a.jsonl",
+    "session_id": "01a19100-e739-73a3-a277-6f36c4de8e9a",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll read and checksum the two reports, then repeat the sanitised machinery audit before any ref or source Git checks. I’ll evaluate the fail-closed mechanism against the scoped and unscoped paths, add the requested test source and surface inventory, and keep all checks source-only.Understood. I won’t use raw selector presence as the omission guard.\n\n| Case | Required behavior |\n| --- | --- |\n| Trusted applied `CONTEXT_ONLY` | No preparation: zero resolve, zero authorize, no routing fields. |\n| Trusted `NORMAL`, or legacy normal with no context-only decision | Preserve the existing normal preparation path. |\n| Internal context-only decision whose forwarding argument is lost | Retain the trusted restriction independently and suppress preparation; never fall back to legacy normal. |\n| Push/event and inference/request | Preserve their existing behavior, including push preparation where applicable and no inference reply consumer. |\n\nI’ll evaluate an item-identity sidecar populated only by D’s validated host decision. It would carry a restriction, not authority, and survive a wrapper dropping the optional argument.An internal async-local dispatch carrier looks narrower and safer than an item-identity sidecar: it survives a three-argument wrapper without depending on item identity or raw fields, and the MCPL code already uses `AsyncLocalStorage`.\n\nI’ll set it around the existing admission call using D’s validated plan. A lost context-only argument will still suppress preparation; a restricted diagnostic will make that loss detectable by the test source. The public optional parameter will remain unchanged.The fail-closed carrier is now in the source. It preserves the validated context-only restriction across a lost optional argument, without inspecting wire fields. Push ignores the channel-only carrier.\n\nThe test source now parameterises scoped/unscoped setup, reads the live `pendingRequests` field, and uses an admission barrier for the stale case. I’m adding the four truth-table rows and the explicit wrapper-drop witness next. No tests have run.Before committing, I’m restating the required truth table:\n\n| Case | Required result |\n| --- | --- |\n| Trusted `CONTEXT_ONLY` | Always suppress: zero resolve, zero authorize, no routing fields. |\n| Trusted `NORMAL`, or legacy normal with no context-only decision | Preserve existing normal preparation and routing prerequisites. |\n| Context-only dispatch with a lost optional argument | Retained private context suppresses preparation; diagnose the argument loss, never treat it as legacy normal. |\n| Push/event and inference/request | No channel carrier is applied or consumed; retain existing behavior. |\n\nALS is only the internal means of retaining that restriction across async wrappers—not qualification evidence. I’ll capture it synchronously at consumer entry, use only scoped `run`, and add source witnesses for concurrency, nesting, restoration and lane isolation. Bun/Node behavior remains unknown.The source witnesses now cover interleaved context-only/normal admissions, both nesting directions, and restoration after throws, awaits and async rejection. The push and inference controls also assert that admission sees no channel carrier.\n\nThe truth table still matches the code: context-only suppresses; normal/legacy retains existing preparation; a lost optional argument stays suppressed by the captured private context; push/inference remain isolated. No public signature or root type export changed. I’ll run the final Git checks and commit next; runtime ALS behavior remains unknown.Committed locally as `9184d91e796ccd201831d9456a8662d9abd47d28`. Seven fresh source-only gates passed: whitespace, protected-module equality, reachability of all four required commits, and tracked-tree cleanliness.\n\nThe report includes the corrected truth table, entry-capture analysis, source-test inventory, omission-mutant matrix and exact surface deltas. No build/test run. Bun/Node ALS behavior, declaration emit and consumer compatibility remain UNKNOWN; all release holds remain."
+    }
+  ],
+  "narrative_truncated": false
+}
