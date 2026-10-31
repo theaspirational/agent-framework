@@ -1,0 +1,23 @@
+#+title: orgasmic Conversation CONV-ZEVAC
+#+orgasmic_version: 2
+
+#+todo: OPEN | ARCHIVED
+
+* OPEN XGHH2 r2 complete-bundle independent re-review
+:PROPERTIES:
+:UID: a116d26a-0aab-51c1-b232-1b2a3c0c2e83
+:ID: CONV-ZEVAC
+:PURPOSE: review
+:OWNER: ["member","tarn2"]
+:PROVIDER: 
+:MODEL: 
+:EFFORT: 
+:ACCESS: 
+:SERVICE_TIER: 
+:HARNESS_ARGS: 
+:MODE: 
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:WORKTREE: 
+:RUNS: 
+:CREATED_AT: 2026-10-31T11:32:02Z
+:END:

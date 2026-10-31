@@ -1,0 +1,17 @@
+#+title: orgasmic journal CONV-ZEVAC
+#+orgasmic_version: 2
+
+* tx-20261031-theaspirationalagent-590ac34b-5242-42a3-9b16-7f35b7e0b0e0 graph.conversations.created
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-590ac34b-5242-42a3-9b16-7f35b7e0b0e0
+:TIME:    [2026-10-31 Sat 11:32:02]
+:TYPE:    graph.conversations.created
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-ZEVAC/node.org
+:REASON: created Conversation CONV-ZEVAC
+:NODE_ID: CONV-ZEVAC
+:EVENT_ID: 62b5c70a-e230-4a6c-ad9e-0eb9ac4d14c0
+:REQUEST_REPLAY_V1: {"request_id":"tarn-xghh2-r2-review-conv-1","mutation":{"operation":"conversation.created","project_id":"theaspirational.agent-framework","payload_sha256":"0e8aee95781af389c38b29ebb13843345989a8109aca896203ae0e1839bc1ade"},"mutation_id":"CONV-ZEVAC","written_paths":[{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-ZEVAC/node.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-ZEVAC/links.org"},{"project":"theaspirational.agent-framework","relative":".orgasmic/conversations/CONV-ZEVAC/journal.org"}]}
+:END:
