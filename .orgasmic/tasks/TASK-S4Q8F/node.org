@@ -1,0 +1,19 @@
+#+plugin: tasks schema=1
+#+title: orgasmic task TASK-S4Q8F
+#+orgasmic_version: 2
+
+* BACKLOG TASK-S4Q8F AF-scope: opt-in epoch-bound read-only registration view for the inbound binder (generic recipient, T1 contract)
+:PROPERTIES:
+:UID: ae1686f5-1c17-509f-b846-46770838c356
+:ID: TASK-S4Q8F
+:PRIORITY: P1
+:END:
+
+** Description
+Programme TASK-EM8Q2 (connectome-coordinator). The conditional AF-scope item (8–16 h) from host design §6, refined by the frozen T1 contract (connectome-host bff8c46e3a4c403f62b738cead317863d43fca9c, docs/design/generic-recipient-scope-contract.md §4 "Minimal proposed local interface"). Base: B 29edcf8b7f7b31d0ab35f59ab0e6aab75c0f4e04 (on A 869bb3ad). Minimal opt-in plumbing: an epoch-bound read-only view of accepted registration identity/lifecycle for the A binder. Doesn't replace A/B, doesn't expose the mutable registry, doesn't interpret connector-specific parent fields, no new public wire field.
+** Acceptance
+- Implementation per T1 §4 (lifetime, ordering, permission semantics fixed; spelling/packaging is engineering)
+- Opt-in: without the binder, behaviour byte-identical to B; inbound-admission ordering/epoch/grants never relaxed
+- Tests: synthetic scope-cases (invented ids), invalidation after await/epoch change, no lazy-register, mutants
+- Gates on both Nodes, matched base/head
+- No push; a bounded review afterwards
