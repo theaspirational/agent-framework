@@ -143,3 +143,35 @@ Fix-round conditions (Soma 1793411412.730529, passed on by the task operator Tar
 :END:
 
 Soma's receiver condition (relayed to reviewer run-01M68270P7KBBXT53D6M7VG0QQ, msg-556eded5, QUEUED — delivered_at null; check that the review covers it, otherwise a separate probe round): real-path controls for detached/wrong/missing/spread receivers in forItem; an unsupported call must refuse BEFORE effects (no admit/A/B/store/wake), not fall back to the original check; outer+item guards, B on/off and epoch provenance are preserved. Acceptance isn't by a green suite.
+
+* tx-20261031-theaspirationalagent-5645be3d-12f4-431a-9b53-0836de9ca4d9 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-5645be3d-12f4-431a-9b53-0836de9ca4d9
+:TIME:    [2026-10-31 Sat 04:21:20]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-S4Q8F
+:TARGET: .orgasmic/tasks/TASK-S4Q8F/node.org
+:REASON: transition TASK-S4Q8F to in_progress
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: b6412136-baee-4fa4-b761-4bdb8016365a
+:END:
+
+* tx-20261031-theaspirationalagent-a7577a65-baa3-4125-9a58-5a14fba47db6 comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-a7577a65-baa3-4125-9a58-5a14fba47db6
+:TIME:    [2026-10-31 Sat 04:21:43]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-S4Q8F
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: bb4c3855-45fd-4061-8cec-95d78c1796c8
+:END:
+
+Fix-2 review APPROVE + required follow-up (9572aac4…): MEDIUM wrong receiver drops the outer guard with effects (not reachable today). Fix round 3: run-01M6832514GX6VMH3AZ46W99KS — explicit forItem(outer), fail-closed admission_missing (if the code doesn't exist — STOP), real-path negative/positive receiver tests, 3 mutants, a defence-in-depth comment; base B reused only with bindings, fresh head on both Nodes.
