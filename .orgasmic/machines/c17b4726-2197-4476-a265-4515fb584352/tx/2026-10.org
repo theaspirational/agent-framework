@@ -21799,3 +21799,30 @@
 :DELIVERY:     delivered
 :EVENT_ID:     ed422d74-346b-446f-8822-665cd07eadf8
 :END:
+
+* TX 2026-10-31 Sat 10:48:45 worker.progress TASK-XGHH2
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-2bacf73f-722b-4032-8f1d-d088ed742898
+:TIME:         [2026-10-31 Sat 10:48:45]
+:TYPE:         worker.progress
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XGHH2
+:REASON:       Handled manager msg-d52e4cf290074455b4eadb1f6f7ca3ff (Soma 1793442719): report amended with (a) scope framing as bounded DESIGN review of a PARTIAL bundle, refusals/placeholders treated as correct behaviour; (b) STOP-for-affected-part markers on all 3 HIGH and 5 control-boundary MEDIUM findings; (c) new 'Refusal to permissive-default risk' section R1-R7, headlined by payload_preflight controller.py:391-405 where deleting the terminal raise at :405 yields an almost entirely unchecked preflight since only interfaces!=['lo'] is asserted while mountinfo/ns evidence is merely collected; (d) B6 streaming pre-allocation-bounded capture design, 8 requirements plus a single bounded_read refactor that collapses B6+L1+L3; (e) B8 prevention-vs-attempt-observation split with claimable/not-claimable wording and controlled-canary-only proposal shape, explicitly excluding real file modification, new/system-wide tracers and ptrace/seccomp/LD_PRELOAD; (f) B1-B13 status table all open and visible, plus proposed B14-B17. Report 816 lines. Worktree unchanged, tree clean at f8af03a8. Retrying finalize.
+:EVENT_ID:     61e7195c-c558-4d87-a249-607cd6aaf8f1
+:END:
+
+* TX 2026-10-31 Sat 10:48:48 reviewer.reported TASK-XGHH2
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-42ac3de9-9105-4a00-bc2c-165f3b1cbd62
+:TIME:         [2026-10-31 Sat 10:48:48]
+:TYPE:         reviewer.reported
+:ACTOR:        agent.reviewer
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XGHH2
+:RUN_ID:       run-01M68R5MV7RE2REFKFXFFYRF9T
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-xghh2
+:EVENT_ID:     66fcd873-5418-4324-b452-c32c2e21515c
+:END:
