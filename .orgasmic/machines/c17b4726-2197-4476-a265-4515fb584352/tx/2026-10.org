@@ -18783,3 +18783,19 @@
 :DELIVERY:     queued
 :EVENT_ID:     e38bf8ca-9f6d-4590-adae-4538cc10868b
 :END:
+
+* TX 2026-10-31 Sat 04:12:49 run.asked TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-984cfb16-e86a-4e47-9197-feca1b9a9a08
+:TIME:         [2026-10-31 Sat 04:12:49]
+:TYPE:         run.asked
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       The single fresh head-12 cell at 93427f90 finished conclusively with exit 1: 9688 total, 9622 pass, 3 fail, 63 skip, 0 cancelled. The failed leaves are tune-out-e2e: runs the full divert → wake → auto-cancel arc; tune-out-reader-epoch-shared: a real reader fork carries its epoch and leaves a later hold and channel untouched; tune-out-reader-fork-handoff: names queued messages by their write handles, gives a failed fork’s messages to the next reader, and hands nothing twice once they land. Each timed out; two enclosing suites also report not ok. Head-23 passed. The reused b6 base-12 cell had only the old fixture version-pin failure, not these three. No head retry was run and source/deps are unchanged beyond the two fixture test files. Shall I run one fresh matched full base-12 cell on the frozen closure to seek the required base counterexample, or stop with the new failures unclassified? Production fixes remain out of scope.
+:RUN_ID:       run-01M681T4Y5G7VP7ZAQYJ8GM8HN
+:ASK_ID:       ask-8d27adde703e4bb4b1563c204c570d7f
+:TIMEOUT_SECS: 1800
+:EVENT_ID:     0cb16ee1-f595-43af-bda3-31260d577f18
+:END:
