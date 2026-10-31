@@ -19720,3 +19720,19 @@
 :TIMEOUT_SECS: 1800
 :EVENT_ID:     d9632cc1-b2e9-40b4-9698-83b1728f9d0b
 :END:
+
+
+* TX 2026-10-31 Sat 05:08:53 run.answered TASK-XHZ4H
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-d720322b-a07c-4d33-9954-a6ae530820e4
+:TIME:         [2026-10-31 Sat 05:08:53]
+:TYPE:         run.answered
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XHZ4H
+:REASON:       My mistake in the brief (task operator Tarn): use exactly the RECORDED value of the full head-12 cell, --test-timeout=600000 (head-12.log:29 and package.json at both commits). "Not 600000" was wrong: the requirement is identity with the full-suite flags and unchanged in-test budgets (the 20 s polls aren't touched). Record this conflict and my correction in the report. The trees: YES, use the same ones as r3/diag-1: head = data/workload-head at 93427f90 with the frozen CM 0.24.2 closure (dabd7705/df14aa0a), base = the existing data/fixture-closure base b6e225e0 with the same closure. Don't use the root checkout with ambient node_modules. Before starting, record each tree's HEAD, porcelain and the closure manifest/lock sha; repeat after. Everything else is unchanged: head then base, once each, 900s+60s, 16G, 64 MiB, no retries.
+:RUN_ID:       run-01M685PJ2DQ3FQ9M9KC23Q3CY9
+:ASK_ID:       ask-a1f27e7911b14e098a5cd11e5733425f
+:EVENT_ID:     b33dd3b5-9a2b-4039-9d17-dd25a220453e
+:END:
