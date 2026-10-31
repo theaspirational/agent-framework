@@ -255,3 +255,19 @@ ask-21f97cb315f34955aeecd5c037e0d7c1: answer by the task operator Tarn (not owne
 :END:
 
 Soma (Slack 1793404051.110089): no new wire/event token API; the existing internal provenance is enough only once my/the delta reviewer's source check + load-bearing tests confirm it (the worker's account alone isn't closure). Separate the paths: (A) parsed transport controls and (B) disconnect/close/error → removeServer; the line-closure guard doesn't prove (B). Both paths covered, including a same-object reconnect; no pair = a named gap. No production admission/transport changes for the tests. Then a bounded delta review + gates. Passed to the worker by run_message (task operator Tarn).
+
+* tx-20261031-theaspirationalagent-7162c333-a60e-42e4-b8a4-02980babb35b comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-7162c333-a60e-42e4-b8a4-02980babb35b
+:TIME:    [2026-10-31 Sat 00:00:46]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-PK8RC
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: 816b482f-1fc7-46b6-a084-35d3d81f41f3
+:END:
+
+ask-9d63c1254f344441b3377aa88989e9f3 (base d3230a69, both Nodes, AF_TEST_CONCURRENCY=32: 9754/9690/0 fail/63 skip/1 cancelled, workspace-three-way.test.js 600 s timeout). Answer by the task operator Tarn: green isn't mandatory, but no "environmental" without evidence. Isolated runs of the file on base and head on both Nodes sequentially; a full-suite rerun with concurrency 8 if head has a cancellation; exact counts for every run. Done only if fail=0, the cancellation reproduces on base and the isolated file matches; otherwise blocked with the data.
