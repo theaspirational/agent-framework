@@ -16900,3 +16900,21 @@
 :ACKED_BY:     member:tarn2
 :EVENT_ID:     5d9c7aa5-6083-4ed3-9c71-025b56cf059f
 :END:
+
+
+* TX 2026-10-31 Sat 01:50:58 run.message TASK-S4Q8F
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-3ee9622b-88e6-4a8b-8e9e-7e72bb34605e
+:TIME:         [2026-10-31 Sat 01:50:58]
+:TYPE:         run.message
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-S4Q8F
+:REASON:       Binding additions (Soma, programme qualifier; passed on by the task operator Tarn). (1) Per-item capture WITHOUT refreshing away transport provenance: removing one registration doesn't refuse a DIFFERENT current one, but items with the SAME invalidated registration still refuse. (2) A transport/connection-epoch change invalidates ALL old-epoch batch items; DON'T read the new epoch per item. The epoch is captured once for the batch from the transport event; only the registration is captured per item. (3) Tests in both error directions: m2 can't borrow m1's valid scope to admit an unknown/unreadable registration; the receipt/messageId association stays exact (each result = its own item). (4) No lazy-register/fallback in the opt-in guarded path. (5) A/B/grant/verdict and profile-off unchanged; the first failed differential stays separate evidence. Tests: same-registration-stale (both refused), different-registration-stale (only that one), an epoch change mid-batch (all old ones refused), a borrowing attempt, the messageId mapping. Mutants: a per-item epoch read, sharing a ref across items, a lazy fallback, each killed.
+:RUN_ID:       run-01M67TBE53E4YSJ4E1KCSZDFCK
+:MESSAGE_ID:   msg-3c2807efb7f34385b3b841c79e23d1ca
+:FROM:         member:tarn2
+:DELIVERY:     delivered
+:EVENT_ID:     07b4eca1-b731-41ef-a319-dc8ba7756761
+:END:

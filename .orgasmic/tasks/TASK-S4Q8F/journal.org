@@ -95,3 +95,19 @@ The 22.23.3 head 47f3b4f2 cell (pid 3449508, start 00:38:46Z, scope af-scope-22.
 :TO_STATE: in_progress
 :EVENT_ID: d3a8966a-dc9d-4d11-846a-fb0164f89f65
 :END:
+
+* tx-20261031-theaspirationalagent-9ba456f6-4d42-46c2-9a39-5328b8bcb7ef comment
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-9ba456f6-4d42-46c2-9a39-5328b8bcb7ef
+:TIME:    [2026-10-31 Sat 01:50:58]
+:TYPE:    comment
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-S4Q8F
+:REASON: comment
+:ACTOR_UID: 1cdb5b4db7474c23dfca8e7b4d00d0b3
+:EVENT_ID: ee25b309-b8b0-49bc-bacf-63fbda4dc18e
+:END:
+
+Fix-round conditions (Soma 1793411412.730529, passed on by the task operator Tarn to run-01M67TBE53E4YSJ4E1KCSZDFCK): per-item registration capture without refreshing provenance; the same invalidated registration still refuses; a transport epoch change invalidates all old-epoch items (the epoch isn't read per item); no borrowing of a sibling's scope for an unknown registration; an exact receipt↔messageId association; no lazy/fallback; A/B/grant/verdict/profile-off unchanged; the first failed differential is kept. Mutants: a per-item epoch read, a shared ref, a lazy fallback. Closure requires Tarn's source check + a bounded independent review + fresh-head gates.
