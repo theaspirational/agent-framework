@@ -1,0 +1,25 @@
+{
+  "event_count": 528,
+  "tool_call_count": 44,
+  "unparsed_events": 0,
+  "bounded_events": 10,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-DX9KM-implementer-20261031T080837-run-01M68G1RMEX2AQT8ZVV53JACT2.jsonl",
+    "size_bytes": 748526
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T08-08-38-01a19100-e739-73a3-a277-6f36c4de8e9a.jsonl",
+    "session_id": "01a19100-e739-73a3-a277-6f36c4de8e9a",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll verify the required commits and ancestry before changing refs, then merge and review all seven shared files. I’ll keep everything local and run no build, test, package, or network commands.The SHA and ancestry checks passed; the merge base is A. The recovery refs and requested branch are created. Git reported conflicts in five files. I’ll retain both sides’ changes, including D’s post-hook delivery recheck and I7’s reply-routing envelope fields, then inspect the auto-merged seams.The binding addition arrived after the merge had run. I had found no active hooks, but had not completed the newly required machinery checks. I’ll pause Git operations and audit the configuration, attributes, and hook locations now. If anything executable is configured or applies, I’ll stop and report it.The audit found no active hooks, configured drivers, filters, text converters, signing settings, fsmonitor, or applicable attributes. The semantic review has found no contract-changing conflict so far. I’ll include the command chronology and state plainly that earlier Git commands lacked overrides; exact timestamps were not captured for every early read-only command.Independent review: `$ORGASMIC_EVIDENCE_DIR/independent-review.md`.\n\nNo concrete merge-specific semantic loss found statically across all seven files. Runtime behavior, compile correctness, and profile-off byte identity remain unverified.\n\nNo build/test run. No code, refs, or commits changed.Committed locally as `0bba1e8bcdf1dcafe2dad0817e42b9e9ef44b03f`, with exactly I7 then D as parents. Both static reviews found no concrete semantic loss. The final source-only checks passed; runtime behavior and profile-off byte identity remain unverified. No build/test run. The report includes all seven tables and the late-arriving preflight timing deviation."
+    }
+  ],
+  "narrative_truncated": false
+}
