@@ -90,3 +90,18 @@
 :RUN_ID: run-01M68M1RT2H99PKK8Q008RJ0BZ
 :EVENT_ID: 00872fb3-af76-45ec-ae6f-ff97e243879d
 :END:
+
+* tx-20261031-theaspirationalagent-6fcbf155-0edc-47ff-ba5d-4c1a05cb5f2c conversation.run_released
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-6fcbf155-0edc-47ff-ba5d-4c1a05cb5f2c
+:TIME:    [2026-10-31 Sat 09:21:40]
+:TYPE:    conversation.run_released
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TARGET: ~/.orgasmic/ledgers/theaspirational.agent-framework/.orgasmic/conversations/CONV-G2VKN/node.org
+:REASON: Wrong snapshot: the review tool checked the worktree out at I7 a0970645 instead of the candidate 9184d91e, and the corre
+:NODE_ID: CONV-G2VKN
+:RUN_ID: run-01M68M1RT2H99PKK8Q008RJ0BZ
+:EVENT_ID: 46eebd8b-4564-4a25-a7a7-9ab6a570eddd
+:END:

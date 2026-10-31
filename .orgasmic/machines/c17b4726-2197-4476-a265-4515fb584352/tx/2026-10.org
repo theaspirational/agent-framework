@@ -20918,3 +20918,70 @@
 :DELIVERY:     queued
 :EVENT_ID:     951d7041-705a-4394-870d-19758ac4ebfc
 :END:
+
+* TX 2026-10-31 Sat 09:21:39 run.cancelled TASK-DX9KM
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-dee228b5-8cbf-40c9-a34f-95d55852eca7
+:TIME:         [2026-10-31 Sat 09:21:39]
+:TYPE:         run.cancelled
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-DX9KM
+:REASON:       cancelled by member:tarn2: Wrong snapshot: the review tool checked the worktree out at I7 a0970645 instead of the candidate 9184d91e, and the correction message stayed queued and was never delivered. Re-dispatching with an explicit from=9184d91e.
+:RUN_ID:       run-01M68M1RT2H99PKK8Q008RJ0BZ
+:DISPATCH_TX:  tx-20261031-theaspirationalagent-090667d0-3757-40b9-a396-b165ea5551e5
+:CANCELLED_BY: member:tarn2
+:EVENT_ID:     587eaaff-6c92-4548-af30-e54bb38b457b
+:END:
+
+* TX 2026-10-31 Sat 09:21:39 run.message TASK-DX9KM
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-b99c3715-86d1-4efc-8a96-c1b178ec459d
+:TIME:         [2026-10-31 Sat 09:21:39]
+:TYPE:         run.message
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-DX9KM
+:REASON:       run released: Wrong snapshot: the review tool checked the worktree out at I7 a0970645 instead of the candidate 9184d91e, and the correction message stayed queued and was never delivered. Re-dispatching with an explicit from=9184d91e.
+:RUN_ID:       run-01M68M1RT2H99PKK8Q008RJ0BZ
+:MESSAGE_ID:   msg-643fec5e17f64c0483086c1ee7fbf872
+:FROM:         member:tarn2
+:DELIVERY:     failed
+:EVENT_ID:     4dce72a9-808f-4fc5-a558-f4f78d13e7e8
+:END:
+
+* TX 2026-10-31 Sat 09:21:51 manager.dispatch_aborted TASK-DX9KM
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-42fc51ff-7561-4001-bd85-98ead6d0921c
+:TIME:         [2026-10-31 Sat 09:21:51]
+:TYPE:         manager.dispatch_aborted
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-DX9KM
+:REASON:       Cancelled before it reported anything. The review tool targeted task-dx9km-impl (I7 a0970645), not the candidate 9184d91e, and the correction message never arrived. This produced no review evidence. It is not an approval of either sha.
+:CLOSED_TX:    tx-20261031-theaspirationalagent-090667d0-3757-40b9-a396-b165ea5551e5
+:WORKTREE:     ~/.orgasmic/worktrees/theaspirational.agent-framework/task-dx9km
+:CLEANUP_STATUS: ok
+:REPORT_PATH:  .orgasmic/tasks/TASK-DX9KM/dispatches/tx-20261031-theaspirationalagent-090667d0-3757-40b9-a396-b165ea5551e5/report.md
+:LIFECYCLE_FROM: in_review
+:LIFECYCLE_TO: in_review
+:EVENT_ID:     26513b7d-adbe-4ad5-8332-b10997c939d9
+:RELEASES_CLAIM_RUN: run-01M68M1RT2H99PKK8Q008RJ0BZ
+:END:
+
+* TX 2026-10-31 Sat 09:21:51 dispatch.outcomes_acked theaspirational.agent-framework
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-0238748c-b969-4735-8631-804f447ba807
+:TIME:         [2026-10-31 Sat 09:21:51]
+:TYPE:         dispatch.outcomes_acked
+:ACTOR:        tarn2
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:REASON:       acknowledged 1 outcome(s)
+:OUTCOME_IDS:  587eaaff-6c92-4548-af30-e54bb38b457b
+:ACKED_BY:     member:tarn2
+:EVENT_ID:     7a3bce4f-6d87-47d5-916b-8bb4bd3fa66f
+:END:
