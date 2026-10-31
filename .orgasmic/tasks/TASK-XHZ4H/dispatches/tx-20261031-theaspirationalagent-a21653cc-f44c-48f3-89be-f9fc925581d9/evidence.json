@@ -1,0 +1,25 @@
+{
+  "event_count": 178,
+  "tool_call_count": 11,
+  "unparsed_events": 0,
+  "bounded_events": 2,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XHZ4H-implementer-20261031T042500-run-01M6838A7CBXAWYC4MNMCZRKXB.jsonl",
+    "size_bytes": 221764
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/30/rollout-2026-10-30T19-26-29-01a18e47-2096-7a31-bcbe-8057f0b59b46.jsonl",
+    "session_id": "01a18e47-2096-7a31-bcbe-8057f0b59b46",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll run exactly one selected-file diagnostic on head, then one on base, using the existing compiled trees and frozen dependencies. I won’t rebuild, edit, commit or retry anything. The full-suite Node-12 result remains FAILED/HELD regardless of this pair’s outcome.\nBoth selected-file runs passed: 5 tests, 5 pass, 0 fail, 0 skipped, 0 cancelled on head and base. The conclusion is only **“not reproduced in this selected subset.”** The earlier full-suite head-12 result remains FAILED/HELD. I’m recording the input hashes, load snapshots and helper reconciliation in the report; there will be no further diagnostics.\n"
+    }
+  ],
+  "narrative_truncated": false
+}
