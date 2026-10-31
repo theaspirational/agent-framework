@@ -21742,3 +21742,16 @@
 :DELIVERY:     queued
 :EVENT_ID:     3c2d2e4e-911d-4473-b831-4b2e424b784e
 :END:
+
+* TX 2026-10-31 Sat 10:35:05 worker.progress TASK-XGHH2
+:PROPERTIES:
+:TX_ID:        tx-20261031-theaspirationalagent-8c8932b8-1463-4b70-8047-20b012384ff1
+:TIME:         [2026-10-31 Sat 10:35:05]
+:TYPE:         worker.progress
+:ACTOR:        orgasmic
+:MACHINE:      c17b4726-2197-4476-a265-4515fb584352
+:PROJECT:      theaspirational.agent-framework
+:TASK:         TASK-XGHH2
+:REASON:       Read all 5 context records + REPORT/PROGRESS/input-verification/controller.py/unit-wrapper.sh/producer-build.sh/producer-test.sh/unit-template.json in full. SHA256SUMS table in REPORT.md matches actual bundle bytes 9/9. Early findings: (a) GIT constant controller.py:86-87 disables system+global config but NOT repo-local .git/config in the uid-1002-writable worktree, while session_adapter:409 plans a root-run git archive of the candidate -> unmitigated root-exec surface, absent from B1-B13; (b) CLOSURE_SHA/NODE_TREE_SHA only compared to marker JSON fields (controller.py:134-135), never rehashed against the sealed trees; (c) stop_owned only invoked on DEADLINE path (controller.py:360), no normal-path teardown/survivor listing; (d) per-stage ceilings 600+600+900=2100s equal the entire 35min aggregate. Post-drop cred guard unit-wrapper.sh:12-16 does fail closed. Next: BLUEPRINT-v2, reconstruction plan, lock spot-check.
+:EVENT_ID:     2b80be3b-7370-460c-9954-e7594d34209f
+:END:
