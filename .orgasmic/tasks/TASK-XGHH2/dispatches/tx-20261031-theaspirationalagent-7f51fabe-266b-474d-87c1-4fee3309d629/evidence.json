@@ -1,0 +1,25 @@
+{
+  "event_count": 312,
+  "tool_call_count": 31,
+  "unparsed_events": 0,
+  "bounded_events": 14,
+  "session": {
+    "status": "found",
+    "filename": "dispatch-TASK-XGHH2-implementer-20261031T105424-run-01M68SHAJ9HSG60MRPTFTP02M7.jsonl",
+    "size_bytes": 495222
+  },
+  "native_transcript": {
+    "status": "found",
+    "path": "/home/orgasmic/.orgasmic/codex-home/sessions/2026/10/31/rollout-2026-10-31T10-06-54-01a1916d-2e84-78d0-abf0-d8ac3c779640.jsonl",
+    "session_id": "01a1916d-2e84-78d0-abf0-d8ac3c779640",
+    "confidence": "high",
+    "correlation": "recorded_native_runtime_session_path"
+  },
+  "narrative": [
+    {
+      "stream": "assistant",
+      "text": "I’ll preserve v1 and write the revision only to `drafts-r2/`. HEAD and all three input hashes match; v1’s checksum check passed 9/9. I’ll read the review in full and keep any unfinished adapter as a typed refusal. I won’t parse or execute the drafts.\n\nThe revision now drafts typed evidence registries, UID-1002-only archive preparation, per-unit input rechecks, shared bounded capture, and all-path finalizer calls. I’ve removed the duplicate unit template and documented the native compiler/toolchain.\n\nAll findings remain open for re-review. Missing ingress, canary, normalization and receipt adapters still yield typed refusals; nothing has been parsed or executed.\n\nThe report and hashes are written. The checksum gate passed 21/21, and the tracked-tree gate recorded the pinned HEAD as clean. V1 still checks 9/9.\n\nI’ll finalize as **blocked**, without a commit: all 42 findings remain open, and the remaining platform adapters are typed refusals.\n\n"
+    }
+  ],
+  "narrative_truncated": false
+}
