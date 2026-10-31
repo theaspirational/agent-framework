@@ -144,3 +144,19 @@ Qualifier Soma (1793439561) classes this as an unauthorised procedural transitio
 Prospective go: continue code-only from the clean 9184d91e base on the composition branch. No ref was moved or deleted, and task-dx9km-impl stays at I7.
 
 Tooling follow-up: orgasmic TASK-XBFVF (private; it grants no authority to patch or restart anything).
+
+* tx-20261031-theaspirationalagent-90a4e4c1-ada1-42c7-902a-2cc72f914446 task.state_transitioned
+:PROPERTIES:
+:TX_ID:   tx-20261031-theaspirationalagent-90a4e4c1-ada1-42c7-902a-2cc72f914446
+:TIME:    [2026-10-31 Sat 10:05:11]
+:TYPE:    task.state_transitioned
+:ACTOR:   tarn2
+:MACHINE: c17b4726-2197-4476-a265-4515fb584352
+:PROJECT: theaspirational.agent-framework
+:TASK: TASK-DX9KM
+:TARGET: .orgasmic/tasks/TASK-DX9KM/node.org
+:REASON: The approve close moved the task to done, but the work is UNQUALIFIED/LOCAL ONLY.
+:FROM_STATE: done
+:TO_STATE: in_progress
+:EVENT_ID: 6648e9eb-b376-42d1-98fe-e83d87c594b4
+:END:

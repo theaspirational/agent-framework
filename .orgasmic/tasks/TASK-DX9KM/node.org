@@ -2,7 +2,7 @@
 #+title: orgasmic task TASK-DX9KM
 #+orgasmic_version: 2
 
-* DONE TASK-DX9KM Unqualified local A+B+D+I7 composition, stage 1: code-only merge
+* IN_PROGRESS TASK-DX9KM Unqualified local A+B+D+I7 composition, stage 1: code-only merge
 :PROPERTIES:
 :UID: 854527c5-53cc-50c2-bde2-c7f87978f209
 :ID: TASK-DX9KM
